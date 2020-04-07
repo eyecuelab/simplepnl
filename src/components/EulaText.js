@@ -29,7 +29,7 @@ function EulaText(props){
             text-align: left;
             height: 66%;
             overflow: auto;
-            padding: 25px;
+            padding: 20px 50px;
           }
           `
         }
