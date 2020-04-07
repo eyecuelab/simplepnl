@@ -16,14 +16,16 @@ function Header(props){
             color: white;
           }
 
+          .title {
+            text-align: left;
+          }
+
           .titleSimple {
             font-weight: 900;
-            float: left;
           }
 
           .titlePNL {
             font-weight: 100;
-            float: left;
           }
 
           .login {
