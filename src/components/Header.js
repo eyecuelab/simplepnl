@@ -25,12 +25,12 @@ function Header(props){
           }
 
           .titlePNL {
-            font-weight: 100;
+            font-weight: 300;
           }
 
           .login {
             float: right;
-            font-weight: 100;
+            font-weight: 600;
           }
 
           `}
