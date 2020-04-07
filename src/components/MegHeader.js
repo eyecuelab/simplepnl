@@ -15,6 +15,7 @@ function MegHeader(props){
           .megHeader {
             color: #222222;
             overflow: hidden;
+            text-align: center;
           }
 
           .megPictureDiv {
@@ -36,7 +37,7 @@ function MegHeader(props){
             border-radius: 100%;
             color: #ea475b;
             border: 3px solid #e9f5fb;
-            padding: 10%;
+            padding: 10px;
             transform: rotateZ(15deg);
           }
 

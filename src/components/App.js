@@ -8,7 +8,7 @@ import Eula from "./Eula";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <div className="appHeader">
         <Header />
       </div>
