@@ -5,7 +5,8 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
-import NewPnl from './NewPnl';
+import Demo from "./Demo";
+import NewPnl from "./NewPnl";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/eula" render={() => <Eula />} />
           <Route path="/newpnl" render={() => <NewPnl/> } />
         </Switch>
+        <Demo />
       </div>
       <style>{`
       body {
