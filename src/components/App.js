@@ -4,6 +4,7 @@ import "./../App.css";
 import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
+import Eula from "./Eula";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <div className="appBody">
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/x" render={() => <Home />} />
+          <Route path="/eula" render={() => <Eula />} />
         </Switch>
       </div>
       <style>{`
@@ -25,6 +26,11 @@ function App() {
 
       .App {
         overflow: hidden;
+      }
+
+      .appBody {
+        overflow: auto;
+        max-height: 80vh;
       }
       `}</style>
     </div>
