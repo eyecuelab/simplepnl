@@ -37,6 +37,7 @@ function Eula(props){
           .eulaHeader {
             padding-top: 20px;
             font-size: 25px;
+            margin: 0px;
           }
 
           .EulaButtonDiv {
