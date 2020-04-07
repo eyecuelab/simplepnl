@@ -8,7 +8,7 @@ import Eula from "./Eula";
 
 function App() {
   return (
-    <div className="container">
+    <div className="App">
       <div className="appHeader">
         <Header />
       </div>
@@ -23,11 +23,6 @@ function App() {
         background: url(background.png);
         background-size: cover;
       }
-
-      .App {
-        overflow: hidden;
-      }
-
       .appBody {
         overflow: auto;
         max-height: 80vh;

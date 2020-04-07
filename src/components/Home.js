@@ -1,6 +1,6 @@
 import React from 'react';
 import GoogleSignIn from '../images/google-signin.png';
-import ImMeg from './ImMeg';
+import MegHeader from './MegHeader';
 // import { Link } from 'react-router-dom';
 
 function Home(props) {
@@ -9,8 +9,6 @@ function Home(props) {
     height: "500px",
     borderRadius: "5px",
     textAlign: "center",
-    width: "50%",
-    marginTop: "80px",
     color: "#6B6B6B",
   };
 
@@ -22,19 +20,19 @@ function Home(props) {
   };
 
   const homeText = {
-    paddingRight: "20px",
-    paddingLeft: "20px",
+    paddingRight: "30px",
+    paddingLeft: "30px",
     fontSize: "15px",
   };
 
   const googleImage = {
-    width: "45%",
+    width: "35%",
     paddingTop: "10px",
   };
 
   return (
-    <div style={homeContainer} className='container'>
-      <ImMeg/>
+    <div style={homeContainer} >
+      <MegHeader />
       <h1 style={homeTitle}>Welcome Back!</h1>
       <p style={homeText}>
         SIMPLEPNL is a simple tool designed for all of you gig slingers to

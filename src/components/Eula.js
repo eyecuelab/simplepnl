@@ -23,14 +23,12 @@ function Eula(props){
         {`
 
           .Eula {
-            padding-top: 25px;
             color: #222222;
             background-color: white;
-            border-radius: 1vw;
+            border-radius: 5px;
             overflow: hidden;
             height: 80vh;
           }
-
 
           .EulaButtonDiv {
             text-align: center;
@@ -52,10 +50,6 @@ function Eula(props){
             font-size: 1rem;
             font-weight: 900;
           }
-
-
-
-
 
           `}
         </style>

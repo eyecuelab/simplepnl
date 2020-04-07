@@ -25,6 +25,7 @@ function MegHeader(props){
             height: 100px;
             width: 100px;
             border-radius: 100%;
+            margin-top: 20px;
           }
 
           .megBubble {
