@@ -3,7 +3,7 @@ import MegIcon from './MegIcon';
 
 function Help() {
   const helpContainer = {
-    backgroundColor: '#ea475b',
+    backgroundColor: '#F16879',
     height: '600px',
     borderRadius: '5px',
   };
