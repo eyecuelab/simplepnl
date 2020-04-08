@@ -10,7 +10,7 @@ function Eula(props){
 
       <MegHeader />
 
-      <h2 className="eulaHeader">End-User Agreement</h2>
+      <div><h2 className="eulaHeader">End-User Agreement</h2></div>
 
       <EulaText />
 
@@ -36,42 +36,56 @@ function Eula(props){
             overflow: hidden;
             height: 80vh;
             text-align: center;
+
+
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 120px 70px 1fr 100px 0px;
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+
+
+
+
+
           }
 
           .eulaHeader {
-            padding-top: 20px;
+            padding: 20px;
             font-size: 25px;
             margin: 0px;
           }
 
           .EulaButtonDiv {
             text-align: center;
-            margin: 10px;
+            margin: auto;
           }
 
           .EulaButton {
             background-color: #ea475b;
             color: #ffffff;
-            padding: 10px;
+            // height: 40px;
+            border-radius: 5px;
+            padding: 10px 30px;
           }
 
           .EulaButtonReady {
             font-size: 1rem;
-            font-weight: 100;
+            font-weight: 500;
           }
 
           .EulaButtonGo {
             font-size: 1rem;
-            font-weight: 900;
+            font-weight: 800;
           }
 
           .eulaFadeDiv {
             background-repeat: no-repeat;
             position: relative;
-            bottom: 103px;
+            bottom: 150px;
             width: 97.5%;
-            height: 40px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.99) 80%, rgba(255,255,255,1) 100%);
+            height: 50px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,1) 100%);
 
             // background: -moz-linear-gradient(top,  rgba(137,255,241,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
             // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(137,255,241,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */

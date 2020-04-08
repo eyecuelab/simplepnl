@@ -38,6 +38,8 @@ function MegHeader(props){
             color: #ea475b;
             border: 3px solid #e9f5fb;
             padding: 10px;
+            font-weight: 600;
+            font-style: italic;
             transform: rotateZ(15deg);
           }
 
