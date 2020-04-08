@@ -29,16 +29,16 @@ function Reports(props){
             margin: 0px;
             font-size: 25px;
             font-weight: 900;
-            color: #ea457b;
+            color: #ea475b;
             text-align: left;
-            border-bottom: 2px solid #ea457b;
+            border-bottom: 2px solid #ea475b;
           }
 
           .reportsPlus{
             position: relative;
             top: -32px;
             left: 90%;
-            background-color: #ea457b;
+            background-color: #ea475b;
             width: 60px;
             height: 60px;
             border-radius: 100%;
@@ -49,7 +49,7 @@ function Reports(props){
             position: relative;
             top: 5px;
             // left: 90%;
-            background-color: #ea457b;
+            background-color: #ea475b;
             width: 15px;
             height: 15px;
             border-radius: 100%;
@@ -73,7 +73,7 @@ function Reports(props){
           }
 
           .pink {
-            color: #ea457b;
+            color: #ea475b;
           }
 
           `
