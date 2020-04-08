@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MegHeader from "./MegHeader";
 import EulaText from "./EulaText";
+
 
 function Eula(props){
   return (
@@ -13,10 +15,12 @@ function Eula(props){
       <EulaText />
 
       <div className="EulaButtonDiv">
-        <button className="EulaButton">
-          <span className="EulaButtonReady">Ready to </span>
-          <span className="EulaButtonGo">GO!</span>
-        </button>
+        <Link to="/reports">
+          <button className="EulaButton">
+            <span className="EulaButtonReady">Ready to </span>
+            <span className="EulaButtonGo">GO!</span>
+          </button>
+      </Link>
       </div>
 
       <div className='eulaFadeDiv'></div>
