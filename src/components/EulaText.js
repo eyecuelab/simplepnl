@@ -27,7 +27,6 @@ function EulaText(props){
           `
           .EulaText {
             text-align: left;
-            height: 66%;
             overflow: auto;
             padding: 20px 50px;
           }
