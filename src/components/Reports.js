@@ -4,20 +4,15 @@ function Reports(props){
   return (
     <div className="Reports">
 
-
       <div className="reportsHeader">PNL REPORTS</div>
       <div className="reportsPlus"><div className="reportsPlusSign">+</div></div>
 
-      <p>.MAP component</p>
-      <p>.MAP component</p>
-      <p>.MAP component</p>
-      <p>.MAP component</p>
-
-
+      <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><div className="reportsMiniPlusSign">+</div></div> to start a new report!</div>
 
       <style>
         {
           `
+
           .Reports {
             color: #555555;
             background-color: white;
@@ -47,12 +42,37 @@ function Reports(props){
             height: 60px;
             border-radius: 100%;
           }
+
+          .reportsMiniPlus {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            // left: 90%;
+            background-color: #ea457b;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            color: white;
+          }
+
+          .reportsMiniPlusSign {
+            position: relative;
+            top: -4px;
+            font-weight: 500;
+            color: #ffffff;
+            // font-size: 82px;
+          }
+
           .reportsPlusSign {
             position: relative;
             top: -32px;
             font-weight: 200;
-            color: #e9f5fb;
+            color: #ffffff;
             font-size: 82px;
+          }
+
+          .pink {
+            color: #ea457b;
           }
 
           `

@@ -5,6 +5,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
 import Reports from "./Reports";
+import ReportsList from "./ReportsList";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/eula" render={() => <Eula />} />
           <Route path="/newpnl" render={() => <NewPnl/> } />
           <Route path="/reports" render={() => <Reports />} />
+          <Route path="/reportslist" render={() => <ReportsList />} />
         </Switch>
         <Demo />
       </div>

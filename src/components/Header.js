@@ -14,6 +14,7 @@ function Header(props){
           .header {
             padding-top:50px;
             color: white;
+            font-size: 20px;
           }
 
           .title {
