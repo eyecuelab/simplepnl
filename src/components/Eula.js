@@ -40,7 +40,7 @@ function Eula(props){
 
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 120px 50px 1fr 100px 0px;
+            grid-template-rows: 120px 70px 1fr 100px 0px;
             grid-column-gap: 0px;
             grid-row-gap: 0px;
 
@@ -51,7 +51,7 @@ function Eula(props){
           }
 
           .eulaHeader {
-            padding-top: 20px;
+            padding: 20px;
             font-size: 25px;
             margin: 0px;
           }
