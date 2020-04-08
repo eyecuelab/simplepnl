@@ -28,7 +28,7 @@ function Demo(){
             color: #555555;
             background-color: #00a1dc;
             border-radius: 5px;
-            border: 3px dashed #ea457b;
+            border: 3px dashed #ea475b;
             padding: 0px;
             margin: 10px;
           }
@@ -46,7 +46,7 @@ function Demo(){
             color: #555555;
             background-color: #e9f5fb;
             border-radius: 5px;
-            border: 5px dashed #ea457b;
+            border: 5px dashed #ea475b;
             padding: 10px;
             margin: 10px;
           }
