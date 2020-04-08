@@ -1,58 +1,61 @@
-import React from "react";
-import Input from '@material-ui/core/Input';
-import TextField from "@material-ui/core/TextField";
+import React from 'react';
 
 function NewPnl() {
   const pnlContainer = {
-    backgroundColor: "white",
-    height: "600px",
-    borderRadius: "5px",
-    // textAlign: 'center',
-    color: "#6B6B6B",
+    backgroundColor: 'white',
+    height: '600px',
+    borderRadius: '5px',
+    color: '#6B6B6B',
   };
 
+  const caretLeft = {
+    color: '#ea475b',
+    fontSize: '25px'
+  }
+
   const index = {
-    paddingTop: "1rem",
-    paddingLeft: "2rem",
-    color: "#222222",
-    fontWeight: "700",
+    paddingTop: '1rem',
+    paddingLeft: '1rem',
+    color: '#222222',
+    fontWeight: '700',
+    fontSize: '15px'
   };
 
   const pnlTitle = {
-    paddingLeft: "2rem",
-    fontSize: "25px",
-    color: "#ea475b",
+    paddingLeft: '2rem',
+    fontSize: '25px',
+    color: '#ea475b',
   };
 
   const pinkLine = {
-    color: "#ea475b",
-    marginTop: "1rem",
-    marginBottom: "3rem",
-    marginLeft: "2rem",
-    marginRight: "2rem",
-    border: "0",
-    borderTop: "1px solid #ea475b",
+    color: '#ea475b',
+    marginTop: '1rem',
+    marginBottom: '3rem',
+    marginLeft: '2rem',
+    marginRight: '2rem',
+    border: '0',
+    borderTop: '1px solid #ea475b',
   };
 
   const firstColumn = {
-    backgroundColor: "white",
-    height: "70px",
-    border: "1px solid #B9B9B9",
-    borderRadius: "5px",
-    marginLeft: "2rem",
-    marginRight: "2rem",
-    marginBottom: "1rem",
-    textAlign: "center"
+    backgroundColor: 'white',
+    height: '70px',
+    border: '1px solid #B9B9B9',
+    borderRadius: '5px',
+    marginLeft: '2rem',
+    marginRight: '2rem',
+    marginBottom: '1rem',
+    textAlign: 'center'
   };
 
   const secondColumn = {
-    backgroundColor: "white",
-    height: "200px",
-    border: "1px dashed #B9B9B9",
-    borderRadius: "5px",
-    marginLeft: "2rem",
-    marginRight: "2rem",
-    textAlign: "center"
+    backgroundColor: 'white',
+    height: '200px',
+    border: '1px dashed #B9B9B9',
+    borderRadius: '5px',
+    marginLeft: '2rem',
+    marginRight: '2rem',
+    textAlign: 'center'
   };
 
   const reportName = {
@@ -78,7 +81,7 @@ function NewPnl() {
 
   return (
     <div style={pnlContainer}>
-      <p style={index}>BACK TO INDEX</p>
+      <h4 style={index}><span style={caretLeft}>&#9664;</span> BACK TO INDEX</h4>
       <h1 style={pnlTitle}>NEW PNL REPORT</h1>
       <div style={pinkLine}></div>
       <div style={firstColumn}>
