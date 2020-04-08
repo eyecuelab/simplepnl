@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 import Input from '@material-ui/core/Input';
 import TextField from "@material-ui/core/TextField";
 
@@ -69,7 +71,7 @@ function NewPnl() {
 
   return (
     <div style={pnlContainer}>
-      <p style={index}>BACK TO INDEX</p>
+      <p style={index}><Link to="/reportslist">BACK TO INDEX</Link></p>
       <h1 style={pnlTitle}>NEW PNL REPORT</h1>
       <div style={pinkLine}></div>
       <div style={firstColumn}>
