@@ -26,7 +26,7 @@ function Home() {
   };
 
   const googleImage = {
-    width: '35%',
+    width: '25%',
     paddingTop: '10px',
   };
 

@@ -59,13 +59,22 @@ function NewPnl() {
     padding: '1.5rem',
     fontWeight: '700',
     color: '#D7D6D6'
-  }
+  };
 
   const dragDrop = {
     padding: '5rem',
     fontWeight: '700',
     color: '#D7D6D6',
-  }
+    marginTop: '1rem'
+  };
+
+  const nextButton = {
+      padding: '8px 60px 8px 60px',
+      backgroundColor: '#ea475b',
+      color: 'white',
+      borderRadius: '4px',
+      fontWeight: '700'
+  };
 
   return (
     <div style={pnlContainer}>
@@ -77,6 +86,7 @@ function NewPnl() {
       </div>
       <div style={secondColumn}>
         <p style={dragDrop}>DRAG AND DROP BANK STATEMENTS HERE</p>
+        <button style={nextButton}>Next!</button>
       </div>
     </div>
   );
