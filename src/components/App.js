@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
+import Reports from "./Reports";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
 
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/" render={() => <Home />} />
           <Route path="/eula" render={() => <Eula />} />
           <Route path="/newpnl" render={() => <NewPnl/> } />
+          <Route path="/reports" render={() => <Reports />} />
         </Switch>
         <Demo />
       </div>
