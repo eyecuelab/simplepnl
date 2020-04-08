@@ -11,6 +11,7 @@ function Demo(){
       <h6><Link to="/reports">Reports (none)</Link></h6>
       <h6><Link to="/newpnl">NewPnl</Link></h6>
       <h6><Link to="/reportslist">Reports (List)</Link></h6>
+      <h6><Link to="/selectheader">SelectHeader</Link></h6>
 
       <style>
         {

@@ -8,6 +8,7 @@ import Reports from "./Reports";
 import ReportsList from "./ReportsList";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
+import SelectHeader from "./SelectHeader";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/newpnl" render={() => <NewPnl/> } />
           <Route path="/reports" render={() => <Reports />} />
           <Route path="/reportslist" render={() => <ReportsList />} />
+          <Route path="/selectheader" render={() => <SelectHeader />} />
         </Switch>
         <Demo />
       </div>
