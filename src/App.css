@@ -122,7 +122,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+li {
+  padding: 5px;
+}
+
 .container {
   min-width: 400px !important;
-  max-width: 900px !important;
+  max-width: 800px !important;
 }
