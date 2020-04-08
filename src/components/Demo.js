@@ -9,7 +9,8 @@ function Demo(){
       <h6><Link to="/">Home</Link></h6>
       <h6><Link to="/eula">EULA</Link></h6>
       <h6><Link to="/index">Index</Link></h6>
-      <h6><Link to="/reports">Reports</Link></h6>
+      <h6><Link to="/reports">Reports (none)</Link></h6>
+      <h6><Link to="/reportslist">Reports (List)</Link></h6>
 
       <style>
         {

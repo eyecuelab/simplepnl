@@ -6,6 +6,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
 import Reports from "./Reports";
+import ReportsList from "./ReportsList";
 import Demo from "./Demo";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/" render={() => <Home />} />
           <Route path="/eula" render={() => <Eula />} />
           <Route path="/reports" render={() => <Reports />} />
+          <Route path="/reportslist" render={() => <ReportsList />} />
         </Switch>
         <Demo />
       </div>
