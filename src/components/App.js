@@ -9,6 +9,8 @@ import ReportsList from "./ReportsList";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
 import Help from "./Help";
+import SelectDate from "./SelectDate";
+import SelectDescription from "./SelectDescription";
 import SelectHeader from "./SelectHeader";
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="/newpnl" render={() => <NewPnl/> } />
           <Route path="/reports" render={() => <Reports />} />
           <Route path="/help" render={() => <Help />} />
+          <Route path="/selectdate" render={() => <SelectDate />} />
+          <Route path="/selectdescription" render={() => <SelectDescription /> } />
           <Route path="/reportslist" render={() => <ReportsList />} />
           <Route path="/selectheader" render={() => <SelectHeader />} />
         </Switch>

@@ -6,7 +6,7 @@ function NewPnl() {
     backgroundColor: 'white',
     height: '600px',
     borderRadius: '5px',
-    color: '#6B6B6B',
+    color: '#6B6B6B'
   };
 
   const caretLeft = {

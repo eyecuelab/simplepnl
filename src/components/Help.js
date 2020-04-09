@@ -12,7 +12,8 @@ function Help() {
     fontSize: '25px',
     fontWeight: '700',
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingTop: '80px'
   };
   
   const questionsContainer = {
