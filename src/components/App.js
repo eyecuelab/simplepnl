@@ -9,6 +9,8 @@ import Reports from "./Reports";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
 import Help from "./Help";
+import SelectDate from "./SelectDate";
+import SelectDescription from "./SelectDescription";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/newpnl" render={() => <NewPnl/> } />
           <Route path="/reports" render={() => <Reports />} />
           <Route path="/help" render={() => <Help />} />
+          <Route path="/selectdate" render={() => <SelectDate />} />
+          <Route path="/selectdescription" render={() => <SelectDescription /> } />
           
         </Switch>
         <Demo />

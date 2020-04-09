@@ -130,3 +130,12 @@ li {
   min-width: 400px !important;
   max-width: 800px !important;
 }
+
+.MuiPaper-rounded {
+  border-radius: 1px !important;
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: none !important;
+  border: 1px solid gray !important;
+}
