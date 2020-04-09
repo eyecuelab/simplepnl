@@ -2,20 +2,49 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function SelectCategory(props){
+  const selectContainer = {
+    backgroundColor: 'white',
+    height: '600px',
+    borderRadius: '5px',
+    color: '#6B6B6B'
+  };
+
+  const caretLeft = {
+    color: '#ea475b',
+    fontSize: '25px'
+  }
+
+  const index = {
+    paddingTop: '1rem',
+    paddingLeft: '1rem',
+    color: '#222222',
+    fontWeight: '700',
+    fontSize: '15px'
+  };
+
+  const selectTitle = {
+    paddingLeft: '2rem',
+    fontSize: '25px',
+    color: '#ea475b',
+    fontWeight: '700'
+  };
+
+  const pinkLine = {
+    color: '#ea475b',
+    marginTop: '1rem',
+    marginLeft: '2rem',
+    marginRight: '2rem',
+    border: '0',
+    borderTop: '1px solid #ea475b',
+  };
+
   return (
+    <div style={selectContainer}>
+         <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
+      <h1 style={selectTitle}>CONFIRM CATEGORY</h1>
+      <div style={pinkLine}></div>
     <div className="SelectCategory">
 
-      <div>
-        <ul className="breadcrumb">
-          <div className="delta">◀︎</div>
-          <li><Link to="/reportslist">BACK TO INDEX</Link></li>
-          <li>/</li>
-          <li><Link to="/selectamount">STEP 3</Link></li>
-        </ul>
-      </div>
-
-
-      <div className="reportsHeader">Select Category</div>
 
       <h5 className="h5select">Now it's time to categorize your transactions!</h5>
       <h6 className="h6select">Select the most appropriate category for this transaction from the dropdown below.</h6>
@@ -200,6 +229,7 @@ function SelectCategory(props){
           `
         }
       </style>
+
     </div>
   );
 }

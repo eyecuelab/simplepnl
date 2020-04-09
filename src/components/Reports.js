@@ -28,7 +28,7 @@ function Reports(props){
             // padding-top: 20px;
             margin: 0px;
             font-size: 25px;
-            font-weight: 900;
+            font-weight: 700;
             color: #ea475b;
             text-align: left;
             border-bottom: 2px solid #ea475b;

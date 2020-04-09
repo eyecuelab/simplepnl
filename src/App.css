@@ -122,6 +122,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: #222222 !important;
+}
+
 li {
   padding: 5px;
 }
