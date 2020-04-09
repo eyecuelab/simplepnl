@@ -36,10 +36,12 @@ function Header(props){
 
           .headerTitleSimple {
             font-weight: 800;
+            color: white;
           }
 
           .headerTitlePNL {
             font-weight: 400;
+            color: white;
           }
 
           .headerLogin {
@@ -48,6 +50,7 @@ function Header(props){
             font-size: 14px;
             position: relative;
             top: 8px;
+            color: white;
           }
 
           `}

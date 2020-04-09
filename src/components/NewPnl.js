@@ -26,6 +26,7 @@ function NewPnl() {
     paddingLeft: '2rem',
     fontSize: '25px',
     color: '#ea475b',
+    fontWeight: '700'
   };
 
   const pinkLine = {
@@ -82,8 +83,7 @@ function NewPnl() {
 
   return (
     <div style={pnlContainer}>
-      <h4 style={index}><span style={caretLeft}>&#9664;</span> BACK TO INDEX</h4>
-      <p style={index}><Link to="/reportslist">BACK TO INDEX</Link></p>
+      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={pnlTitle}>NEW PNL REPORT</h1>
       <div style={pinkLine}></div>
       <div style={firstColumn}>

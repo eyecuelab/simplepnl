@@ -12,6 +12,8 @@ function Demo(){
       <h6><Link to="/newpnl">NewPnl</Link></h6>
       <h6><Link to="/reportslist">Reports (List)</Link></h6>
       <h6><Link to="/selectheader">SelectHeader</Link></h6>
+      <h6><Link to="/selectdate">SelectDate</Link></h6>
+      <h6><Link to="/selectdescription">SelectDescription</Link></h6>
       <h6><Link to="/selectamount">SelectAmount</Link></h6>
       <h6><Link to="/Selectcategory">SelectCategory</Link></h6>
 
