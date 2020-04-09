@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
+
 
 function SelectCategory(props){
   const selectContainer = {
     backgroundColor: 'white',
-    height: '600px',
+    // height: '600px',
     borderRadius: '5px',
     color: '#6B6B6B'
   };
@@ -131,15 +133,18 @@ function SelectCategory(props){
 
       </form>
 
+      <div className="MegQuestionsLocation">
+        <MegQuestions />
+      </div>
 
-</div>
-
-
-
-
+    </div>
       <style>
         {
           `
+
+          .MegQuestionsLocation {
+            position: absolute;
+          }
           .extraBold {
             font-weight: 800;
           }

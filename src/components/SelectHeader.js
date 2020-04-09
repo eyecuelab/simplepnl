@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
+
 
 function SelectHeader(props){
   const selectContainer = {
     backgroundColor: 'white',
-    height: '600px',
+    // height: '600px',
     borderRadius: '5px',
     color: '#6B6B6B'
   };
@@ -44,64 +46,70 @@ function SelectHeader(props){
       <h1 style={selectTitle}>CONFIRM HEADER</h1>
       <div style={pinkLine}></div>
 
-<div className="SelectHeader">
-      <h5 className="h5select">Here's a preview of your CSV.</h5>
-      <h6 className="h6select">I think I found the <span className="extraBold">header</span> row <span className="highlightedCell">below</span>.</h6>
-      <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
+      <div className="SelectHeader">
+        <h5 className="h5select">Here's a preview of your CSV.</h5>
+        <h6 className="h6select">I think I found the <span className="extraBold">header</span> row <span className="highlightedCell">below</span>.</h6>
+        <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
-      <hr/>
+        <hr/>
 
-      <div className="exampleTableDiv">
-        <table className="exampleTable">
-          <tbody>
-            <tr>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-            </tr>
-            <tr>
-              <td className="cell highlightedCell">Date</td>
-              <td className="cell highlightedCell">Reference Number</td>
-              <td className="cell highlightedCell">Payee</td>
-              <td className="cell highlightedCell">Address</td>
-              <td className="cell highlightedCell">Amount</td>
-            </tr>
-            <tr>
-              <td className="cell ">12/12/2019</td>
-              <td className="cell ">0057299165236</td>
-              <td className="cell ">Online payment from CHK 135</td>
-              <td className="cell "></td>
-              <td className="cell ">1000</td>
-            </tr>
-            <tr>
-              <td className="cell ">12/19/2019</td>
-              <td className="cell ">E12789355X</td>
-              <td className="cell ">ANA BANNANA RENTAL 092</td>
-              <td className="cell ">NEW YORK, NY</td>
-              <td className="cell ">-75.21</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="exampleTableDiv">
+          <table className="exampleTable">
+            <tbody>
+              <tr>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+              </tr>
+              <tr>
+                <td className="cell highlightedCell">Date</td>
+                <td className="cell highlightedCell">Reference Number</td>
+                <td className="cell highlightedCell">Payee</td>
+                <td className="cell highlightedCell">Address</td>
+                <td className="cell highlightedCell">Amount</td>
+              </tr>
+              <tr>
+                <td className="cell ">12/12/2019</td>
+                <td className="cell ">0057299165236</td>
+                <td className="cell ">Online payment from CHK 135</td>
+                <td className="cell "></td>
+                <td className="cell ">1000</td>
+              </tr>
+              <tr>
+                <td className="cell ">12/19/2019</td>
+                <td className="cell ">E12789355X</td>
+                <td className="cell ">ANA BANNANA RENTAL 092</td>
+                <td className="cell ">NEW YORK, NY</td>
+                <td className="cell ">-75.21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr/>
+
+
+        <div className="confirmButtonDiv">
+          <Link to="/selectdate">
+            <button className="confirmButton">
+              <span className="">Confirm!</span>
+            </button>
+          </Link>
+        </div>
+
+      <div className="MegQuestionsLocation">
+        <MegQuestions />
       </div>
 
-      <hr/>
-
-
-      <div className="confirmButtonDiv">
-        <Link to="/selectdate">
-          <button className="confirmButton">
-            <span className="">Confirm!</span>
-          </button>
-        </Link>
-      </div>
-</div>
-
-
+    </div>
       <style>
         {
           `
+          .MegQuestionsLocation {
+            position: absolute;
+          }
 
           .extraBold {
             font-weight: 800;
