@@ -7,14 +7,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HashRouter } from 'react-router-dom';
 
-  ReactDOM.render(
-    <React.StrictMode>
-      <HashRouter>
+import { createStore } from 'redux';
+import reducer from './reducers/oauth-reducer';
+import { Provider } from 'react-redux';
+
+const store = createStore(reducer);
+
+const unsubscribe = store.subscribe(() => console.log(store.getState()));
+
+ReactDOM.render(
+  <React.StrictMode>
+    <HashRouter>
+      <Provider store={store}>
         <App />
-      </HashRouter>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
+      </Provider>,
+    </HashRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+unsubscribe();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
