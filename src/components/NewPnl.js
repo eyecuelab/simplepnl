@@ -26,6 +26,7 @@ function NewPnl() {
     paddingLeft: '2rem',
     fontSize: '25px',
     color: '#ea475b',
+    fontWeight: '700'
   };
 
   const pinkLine = {
