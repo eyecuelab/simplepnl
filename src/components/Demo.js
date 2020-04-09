@@ -8,9 +8,10 @@ function Demo(){
 
       <h6><Link to="/">Home</Link></h6>
       <h6><Link to="/eula">EULA</Link></h6>
-      <h6><Link to="/index">Index</Link></h6>
       <h6><Link to="/reports">Reports (none)</Link></h6>
+      <h6><Link to="/newpnl">NewPnl</Link></h6>
       <h6><Link to="/reportslist">Reports (List)</Link></h6>
+      <h6><Link to="/selectheader">SelectHeader</Link></h6>
 
       <style>
         {
@@ -28,7 +29,7 @@ function Demo(){
             color: #555555;
             background-color: #00a1dc;
             border-radius: 5px;
-            border: 3px dashed #ea457b;
+            border: 3px dashed #ea475b;
             padding: 0px;
             margin: 10px;
           }
@@ -46,7 +47,7 @@ function Demo(){
             color: #555555;
             background-color: #e9f5fb;
             border-radius: 5px;
-            border: 5px dashed #ea457b;
+            border: 5px dashed #ea475b;
             padding: 10px;
             margin: 10px;
           }

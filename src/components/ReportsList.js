@@ -1,20 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Reports(props){
+import ReportItem from './ReportItem';
+
+
+function ReportsList(props){
   return (
-    <div className="Reports">
+    <div className="ReportsList">
 
       <div className="reportsHeader">PNL REPORTS</div>
       <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
 
-      <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><div className="reportsMiniPlusSign">+</div></Link></div> to start a new report!</div>
+      <ReportItem />
+      <ReportItem />
+      <ReportItem />
+      <ReportItem />
+      <ReportItem />
 
       <style>
         {
           `
+          .reportsDemoSelector {
+            position: absolute;
+            left: 10px;
 
-          .Reports {
+            float: left;
+          }
+          .ReportsList {
             color: #555555;
             background-color: white;
             border-radius: 5px;
@@ -43,37 +55,12 @@ function Reports(props){
             height: 60px;
             border-radius: 100%;
           }
-
-          .reportsMiniPlus {
-            display: inline-block;
-            position: relative;
-            top: 5px;
-            // left: 90%;
-            background-color: #ea475b;
-            width: 15px;
-            height: 15px;
-            border-radius: 100%;
-            color: white;
-          }
-
-          .reportsMiniPlusSign {
-            position: relative;
-            top: -4px;
-            font-weight: 500;
-            color: #ffffff;
-            // font-size: 82px;
-          }
-
           .reportsPlusSign {
             position: relative;
             top: -32px;
             font-weight: 200;
-            color: #ffffff;
+            color: #e9f5fb;
             font-size: 82px;
-          }
-
-          .pink {
-            color: #ea475b;
           }
 
           `
@@ -83,4 +70,4 @@ function Reports(props){
   );
 }
 
-export default Reports;
+export default ReportsList;
