@@ -1,95 +1,161 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { Link } from 'react-router-dom';
 
-function SelectDate() {
-  const selectContainer = {
-    backgroundColor: 'white',
-    height: '600px',
-    borderRadius: '5px',
-    color: '#6B6B6B'
-  };
-
-  const caretLeft = {
-    color: '#ea475b',
-    fontSize: '25px'
-  };
-
-  const index = {
-    paddingTop: '1rem',
-    paddingLeft: '1rem',
-    color: '#222222',
-    fontWeight: '700',
-    fontSize: '15px'
-  };
-
-  const selectTitle = {
-      paddingLeft: '2rem',
-      fontSize: '25px',
-      color: '#ea475b'
-  };
-
-  const pinkLine = {
-    color: '#ea475b',
-    marginTop: '1rem',
-    marginBottom: '3rem',
-    marginLeft: '2rem',
-    marginRight: '2rem',
-    border: '0',
-    borderTop: '1px solid #ea475b',
-  };
-
-  const gridContainer = {
-      paddingLeft: '2rem',
-      paddingRight: '2rem'
-  }
-
-  const paper = {
-      textAlign: 'center',
-      fontSize: '13px'
-  };
-
+function SelectDate(props){
   return (
-      
-    <div style={selectContainer}>
-        <h4 style={index}><span style={caretLeft}>&#9664;</span> BACK TO INDEX</h4>
-        <h1 style={selectTitle}>CONFIRM DATE</h1>
-        <div style={pinkLine}></div>
-        <Grid style={gridContainer} container spacing={0}>
-        <Grid item sm={1}>
-          <Paper style={paper}>Date</Paper>
-        </Grid>
-        <Grid item sm={3}>
-          <Paper style={paper}>Reference Number</Paper>
-        </Grid>
-        <Grid item sm={4}>
-          <Paper style={paper}>Payee</Paper>
-        </Grid>
-        <Grid item sm={2}>
-          <Paper style={paper}>Address</Paper>
-        </Grid>
-        <Grid item sm={2}>
-          <Paper style={paper}>Amount</Paper>
-        </Grid>
-      </Grid>
-      <Grid style={gridContainer} container spacing={0}>
-        <Grid item sm={1}>
-          <Paper style={paper}>12/19/19</Paper>
-        </Grid>
-        <Grid item sm={3}>
-          <Paper style={paper}>0057299165236</Paper>
-        </Grid>
-        <Grid item sm={4}>
-          <Paper style={paper}>Online payment CHK 135</Paper>
-        </Grid>
-        <Grid item sm={2}>
-          <Paper style={paper}>Seattle</Paper>
-        </Grid>
-        <Grid item sm={2}>
-          <Paper style={paper}>50.99</Paper>
-        </Grid>
-      </Grid>
+    <div className="SelectDate">
+
+    <div>
+    <ul className="breadcrumb">
+    <div className="delta">◀︎</div>
+    <li><Link to="/reportslist">BACK TO INDEX</Link></li>
+    <li>/</li>
+    <li><Link to="/selectdate">STEP 2</Link></li>
+    </ul>
+    </div>
+
+
+    <div className="reportsDate">Confirm Date</div>
+
+    <h5>Here's a preview of your CSV.</h5>
+    <h6>It looks like <span className="highlightedCell">THIS</span> is the date row, can you confirm by clicking on the date row?</h6>
+    <hr/>
+
+    <div className="exampleTableDiv">
+    <table className="exampleTable">
+    <tbody>
+    <tr>
+    <td className="cell highlightedCell"></td>
+    <td className="cell "></td>
+    <td className="cell "></td>
+    <td className="cell "></td>
+    <td className="cell "></td>
+    </tr>
+    <tr>
+    <td className="cell highlightedCell">Date</td>
+    <td className="cell ">Reference Number</td>
+    <td className="cell ">Payee</td>
+    <td className="cell ">Address</td>
+    <td className="cell ">Amount</td>
+    </tr>
+    <tr>
+    <td className="cell highlightedCell">12/12/2019</td>
+    <td className="cell ">0057299165236</td>
+    <td className="cell ">Online payment from CHK 135</td>
+    <td className="cell "></td>
+    <td className="cell ">1000</td>
+    </tr>
+    <tr>
+    <td className="cell highlightedCell">12/19/2019</td>
+    <td className="cell ">E12789355X</td>
+    <td className="cell ">ANA BANNANA RENTAL 092</td>
+    <td className="cell ">NEW YORK, NY</td>
+    <td className="cell ">-75.21</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+
+    <hr/>
+
+
+    <div className="confirmButtonDiv">
+      <Link to="/selectdescription">
+        <button className="confirmButton">
+          <span className="">Confirm!</span>
+        </button>
+    </Link>
+    </div>
+
+
+
+    <style>
+    {
+      `
+      .exampleTableDiv {
+        // position: fixed;
+        // float: left;
+        left: 0px;
+      }
+
+      .confirmButtonDiv {
+        text-align: center;
+        margin: auto;
+      }
+
+      .confirmButton {
+        background-color: #ea475b;
+        color: #ffffff;
+        // height: 40px;
+        border-radius: 5px;
+        padding: 10px 30px;
+      }
+
+      .exampleTable {
+        margin: auto;
+      }
+
+      .cell {
+        border: 1px ridge black;
+        padding: 3px;
+        min-height: 19px;
+        background-color: white;
+      }
+
+      .highlightedCell {
+        background-color: #C0FFC0;
+      }
+
+      .breadcrumb {
+        padding: 0px;
+        margin: 0px;
+        background-color: white;
+        font-size: 14px;
+        font-weight: 700;
+        color: black;
+      }
+
+      .breadcrumb li{
+        padding: 0px 4px;
+        position: relative;
+        top: 10px;
+      }
+
+      .breadcrumb a {
+        color: black;
+      }
+
+      .delta {
+        color: #ea475b;
+        font-size: 24px;
+
+      }
+
+      .SelectDate {
+        color: #555555;
+        background-color: white;
+        border-radius: 5px;
+        // overflow: hidden;
+        min-height: 20vh;
+        text-align: center;
+        padding: 20px 50px;
+      }
+
+      .reportsDate {
+        // padding-top: 20px;
+        margin: 0px;
+        font-size: 25px;
+        font-weight: 900;
+        color: #ea475b;
+        text-align: left;
+        border-bottom: 2px solid #ea475b;
+      }
+
+
+
+      `
+    }
+    </style>
     </div>
   );
 }
