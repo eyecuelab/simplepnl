@@ -5,10 +5,11 @@ import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
 import Reports from "./Reports";
-// import ReportsList from "./ReportsList";
+import ReportsList from "./ReportsList";
 import Demo from "./Demo";
 import NewPnl from "./NewPnl";
 import Help from "./Help";
+import SelectHeader from "./SelectHeader";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/newpnl" render={() => <NewPnl/> } />
           <Route path="/reports" render={() => <Reports />} />
           <Route path="/help" render={() => <Help />} />
-          
+          <Route path="/reportslist" render={() => <ReportsList />} />
+          <Route path="/selectheader" render={() => <SelectHeader />} />
         </Switch>
         <Demo />
       </div>

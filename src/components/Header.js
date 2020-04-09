@@ -1,13 +1,20 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header(props){
 
   return (
     <div className="header">
-      <div className="title">
-        <span className="titleSimple">SIMPLE</span><span className="titlePNL">PNL</span>
-        <span className="login">LOGIN</span>
+      <div className="headerTitle">
+
+        <Link to="/reports">
+          <span className="headerTitleSimple">SIMPLE</span><span className="headerTitlePNL">PNL</span>
+        </Link>
+
+        <Link to="/eula">
+          <span className="headerLogin">LOGIN</span>
+        </Link>
+
       </div>
       <style>
         {`
@@ -17,21 +24,30 @@ function Header(props){
             font-size: 20px;
           }
 
-          .title {
+          .headerTitle a {
             text-align: left;
+            color: white;
           }
 
-          .titleSimple {
-            font-weight: 900;
+          .headerTitle a:hover {
+            color: #e9f5fb;
+            text-decoration: none;
           }
 
-          .titlePNL {
-            font-weight: 300;
+          .headerTitleSimple {
+            font-weight: 800;
           }
 
-          .login {
+          .headerTitlePNL {
+            font-weight: 400;
+          }
+
+          .headerLogin {
             float: right;
             font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            top: 8px;
           }
 
           `}
