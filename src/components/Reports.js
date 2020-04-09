@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
+
 
 function Reports(props){
   return (
@@ -10,9 +12,17 @@ function Reports(props){
 
       <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><div className="reportsMiniPlusSign">+</div></Link></div> to start a new report!</div>
 
+      <div className="MegQuestionsLocation">
+        <MegQuestions />
+      </div>
+
       <style>
         {
           `
+
+          .MegQuestionsLocation {
+            position: absolute;
+          }
 
           .Reports {
             color: #555555;
@@ -54,6 +64,13 @@ function Reports(props){
             height: 15px;
             border-radius: 100%;
             color: white;
+          }
+
+          .reportsMiniPlus a:hover {
+            text-decoration: none;
+          }
+          .reportsPlus a:hover {
+            text-decoration: none;
           }
 
           .reportsMiniPlusSign {

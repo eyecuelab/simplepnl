@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
 
 import ReportItem from './ReportItem';
 
@@ -17,9 +18,17 @@ function ReportsList(props){
       <ReportItem />
       <ReportItem />
 
+      <div className="MegQuestionsLocation">
+        <MegQuestions />
+      </div>
+
       <style>
         {
           `
+          .MegQuestionsLocation {
+            position: absolute;
+          }
+
           .reportsDemoSelector {
             position: absolute;
             left: 10px;
@@ -61,6 +70,10 @@ function ReportsList(props){
             font-weight: 200;
             color: #e9f5fb;
             font-size: 82px;
+          }
+
+          .reportsPlus a:hover {
+            text-decoration: none;
           }
 
           `

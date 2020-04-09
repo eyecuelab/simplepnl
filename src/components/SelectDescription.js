@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
 
 function SelectDescription(props){
   const selectContainer = {
     backgroundColor: 'white',
-    height: '600px',
+    // height: '600px',
     borderRadius: '5px',
     color: '#6B6B6B'
   };
@@ -97,105 +98,111 @@ function SelectDescription(props){
           </Link>
         </div>
 
+        <div className="MegQuestionsLocation">
+          <MegQuestions />
+        </div>
+
       </div>
-
-        <style>
-          {
-            `
-            .extraBold {
-              font-weight: 800;
-            }
-
-            .h5select {
-              padding: 15px;
-            }
-
-            .exampleTableDiv {
-              // position: fixed;
-              // float: left;
-              left: 0px;
-            }
-
-            .confirmButtonDiv {
-              text-align: center;
-              margin: auto;
-            }
-
-            .confirmButton {
-              background-color: #ea475b;
-              color: #ffffff;
-              // height: 40px;
-              border-radius: 5px;
-              padding: 10px 30px;
-            }
-
-            .exampleTable {
-              margin: auto;
-            }
-
-            .cell {
-              border: 1px ridge black;
-              padding: 3px;
-              min-height: 19px;
-              background-color: white;
-            }
-
-            .highlightedCell {
-              background-color: #C0FFC0;
-            }
-
-            .breadcrumb {
-              padding: 0px;
-              margin: 0px;
-              background-color: white;
-              font-size: 14px;
-              font-weight: 700;
-              color: black;
-            }
-
-            .breadcrumb li{
-              padding: 0px 4px;
-              position: relative;
-              top: 10px;
-            }
-
-            .breadcrumb a {
-              color: black;
-            }
-
-            .delta {
-              color: #ea475b;
-              font-size: 24px;
-
-            }
-
-            .SelectDescription {
-              color: #555555;
-              background-color: white;
-              border-radius: 5px;
-              // overflow: hidden;
-              min-height: 20vh;
-              text-align: center;
-              padding: 20px 50px;
-            }
-
-            .reportsDescription {
-              // padding-top: 20px;
-              margin: 0px;
-              font-size: 25px;
-              font-weight: 700;
-              color: #ea475b;
-              text-align: left;
-              border-bottom: 2px solid #ea475b;
-            }
-
-
-
-            `
+      <style>
+        {
+          `
+          .MegQuestionsLocation {
+            position: absolute;
           }
-        </style>
-      </div>
-    );
-  }
+          .extraBold {
+            font-weight: 800;
+          }
 
-  export default SelectDescription;
+          .h5select {
+            padding: 15px;
+          }
+
+          .exampleTableDiv {
+            // position: fixed;
+            // float: left;
+            left: 0px;
+          }
+
+          .confirmButtonDiv {
+            text-align: center;
+            margin: auto;
+          }
+
+          .confirmButton {
+            background-color: #ea475b;
+            color: #ffffff;
+            // height: 40px;
+            border-radius: 5px;
+            padding: 10px 30px;
+          }
+
+          .exampleTable {
+            margin: auto;
+          }
+
+          .cell {
+            border: 1px ridge black;
+            padding: 3px;
+            min-height: 19px;
+            background-color: white;
+          }
+
+          .highlightedCell {
+            background-color: #C0FFC0;
+          }
+
+          .breadcrumb {
+            padding: 0px;
+            margin: 0px;
+            background-color: white;
+            font-size: 14px;
+            font-weight: 700;
+            color: black;
+          }
+
+          .breadcrumb li{
+            padding: 0px 4px;
+            position: relative;
+            top: 10px;
+          }
+
+          .breadcrumb a {
+            color: black;
+          }
+
+          .delta {
+            color: #ea475b;
+            font-size: 24px;
+
+          }
+
+          .SelectDescription {
+            color: #555555;
+            background-color: white;
+            border-radius: 5px;
+            // overflow: hidden;
+            min-height: 20vh;
+            text-align: center;
+            padding: 20px 50px;
+          }
+
+          .reportsDescription {
+            // padding-top: 20px;
+            margin: 0px;
+            font-size: 25px;
+            font-weight: 700;
+            color: #ea475b;
+            text-align: left;
+            border-bottom: 2px solid #ea475b;
+          }
+
+
+
+          `
+        }
+      </style>
+    </div>
+  );
+}
+
+export default SelectDescription;

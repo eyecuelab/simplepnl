@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
 
 function SelectDate(props){
   const selectContainer = {
     backgroundColor: 'white',
-    height: '600px',
+    // height: '600px',
     borderRadius: '5px',
     color: '#6B6B6B'
   };
@@ -40,161 +41,167 @@ function SelectDate(props){
 
   return (
     <div style={selectContainer}>
-        <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
+      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM DATE</h1>
       <div style={pinkLine}></div>
 
-    <div className="SelectDate">
+      <div className="SelectDate">
 
-      <h5 className="h5select">Here's a preview of your CSV.</h5>
-      <h6 className="h6select">I think I found the <span className="extraBold">date</span> row <span className="highlightedCell">below</span>.</h6>
-      <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">date</span> row and confirming?</h6>
+        <h5 className="h5select">Here's a preview of your CSV.</h5>
+        <h6 className="h6select">I think I found the <span className="extraBold">date</span> row <span className="highlightedCell">below</span>.</h6>
+        <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">date</span> row and confirming?</h6>
 
-    <hr/>
-    <div className="exampleTableDiv">
-    <table className="exampleTable">
-    <tbody>
-    <tr>
-    <td className="cell highlightedCell"></td>
-    <td className="cell "></td>
-    <td className="cell "></td>
-    <td className="cell "></td>
-    <td className="cell "></td>
-    </tr>
-    <tr>
-    <td className="cell highlightedCell">Date</td>
-    <td className="cell ">Reference Number</td>
-    <td className="cell ">Payee</td>
-    <td className="cell ">Address</td>
-    <td className="cell ">Amount</td>
-    </tr>
-    <tr>
-    <td className="cell highlightedCell">12/12/2019</td>
-    <td className="cell ">0057299165236</td>
-    <td className="cell ">Online payment from CHK 135</td>
-    <td className="cell "></td>
-    <td className="cell ">1000</td>
-    </tr>
-    <tr>
-    <td className="cell highlightedCell">12/19/2019</td>
-    <td className="cell ">E12789355X</td>
-    <td className="cell ">ANA BANNANA RENTAL 092</td>
-    <td className="cell ">NEW YORK, NY</td>
-    <td className="cell ">-75.21</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
+        <hr/>
+        <div className="exampleTableDiv">
+          <table className="exampleTable">
+            <tbody>
+              <tr>
+                <td className="cell highlightedCell"></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+              </tr>
+              <tr>
+                <td className="cell highlightedCell">Date</td>
+                <td className="cell ">Reference Number</td>
+                <td className="cell ">Payee</td>
+                <td className="cell ">Address</td>
+                <td className="cell ">Amount</td>
+              </tr>
+              <tr>
+                <td className="cell highlightedCell">12/12/2019</td>
+                <td className="cell ">0057299165236</td>
+                <td className="cell ">Online payment from CHK 135</td>
+                <td className="cell "></td>
+                <td className="cell ">1000</td>
+              </tr>
+              <tr>
+                <td className="cell highlightedCell">12/19/2019</td>
+                <td className="cell ">E12789355X</td>
+                <td className="cell ">ANA BANNANA RENTAL 092</td>
+                <td className="cell ">NEW YORK, NY</td>
+                <td className="cell ">-75.21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <hr/>
-
-
-    <div className="confirmButtonDiv">
-      <Link to="/selectdescription">
-        <button className="confirmButton">
-          <span className="">Confirm!</span>
-        </button>
-    </Link>
-    </div>
-
-  </div>
+        <hr/>
 
 
-    <style>
-    {
-      `
-      .extraBold {
-        font-weight: 800;
-      }
+        <div className="confirmButtonDiv">
+          <Link to="/selectdescription">
+            <button className="confirmButton">
+              <span className="">Confirm!</span>
+            </button>
+          </Link>
+        </div>
 
-      .h5select {
-        padding: 15px;
-      }
+        <div className="MegQuestionsLocation">
+          <MegQuestions />
+        </div>
 
-      .exampleTableDiv {
-        // position: fixed;
-        // float: left;
-        left: 0px;
-      }
+      </div>
+      <style>
+        {
+          `
+          .MegQuestionsLocation {
+            position: absolute;
+          }
 
-      .confirmButtonDiv {
-        text-align: center;
-        margin: auto;
-      }
+          .extraBold {
+            font-weight: 800;
+          }
 
-      .confirmButton {
-        background-color: #ea475b;
-        color: #ffffff;
-        // height: 40px;
-        border-radius: 5px;
-        padding: 10px 30px;
-      }
+          .h5select {
+            padding: 15px;
+          }
 
-      .exampleTable {
-        margin: auto;
-      }
+          .exampleTableDiv {
+            // position: fixed;
+            // float: left;
+            left: 0px;
+          }
 
-      .cell {
-        border: 1px ridge black;
-        padding: 3px;
-        min-height: 19px;
-        background-color: white;
-      }
+          .confirmButtonDiv {
+            text-align: center;
+            margin: auto;
+          }
 
-      .highlightedCell {
-        background-color: #C0FFC0;
-      }
+          .confirmButton {
+            background-color: #ea475b;
+            color: #ffffff;
+            // height: 40px;
+            border-radius: 5px;
+            padding: 10px 30px;
+          }
 
-      .breadcrumb {
-        padding: 0px;
-        margin: 0px;
-        background-color: white;
-        font-size: 14px;
-        font-weight: 700;
-        color: black;
-      }
+          .exampleTable {
+            margin: auto;
+          }
 
-      .breadcrumb li{
-        padding: 0px 4px;
-        position: relative;
-        top: 10px;
-      }
+          .cell {
+            border: 1px ridge black;
+            padding: 3px;
+            min-height: 19px;
+            background-color: white;
+          }
 
-      .breadcrumb a {
-        color: black;
-      }
+          .highlightedCell {
+            background-color: #C0FFC0;
+          }
 
-      .delta {
-        color: #ea475b;
-        font-size: 24px;
+          .breadcrumb {
+            padding: 0px;
+            margin: 0px;
+            background-color: white;
+            font-size: 14px;
+            font-weight: 700;
+            color: black;
+          }
 
-      }
+          .breadcrumb li{
+            padding: 0px 4px;
+            position: relative;
+            top: 10px;
+          }
 
-      .SelectDate {
-        color: #555555;
-        background-color: white;
-        border-radius: 5px;
-        // overflow: hidden;
-        min-height: 20vh;
-        text-align: center;
-        padding: 20px 50px;
-      }
+          .breadcrumb a {
+            color: black;
+          }
 
-      .reportsDate {
-        // padding-top: 20px;
-        margin: 0px;
-        font-size: 25px;
-        font-weight: 700;
-        color: #ea475b;
-        text-align: left;
-        border-bottom: 2px solid #ea475b;
-      }
+          .delta {
+            color: #ea475b;
+            font-size: 24px;
+
+          }
+
+          .SelectDate {
+            color: #555555;
+            background-color: white;
+            border-radius: 5px;
+            // overflow: hidden;
+            min-height: 20vh;
+            text-align: center;
+            padding: 20px 50px;
+          }
+
+          .reportsDate {
+            // padding-top: 20px;
+            margin: 0px;
+            font-size: 25px;
+            font-weight: 700;
+            color: #ea475b;
+            text-align: left;
+            border-bottom: 2px solid #ea475b;
+          }
 
 
 
-      `
-    }
-    </style>
+          `
+        }
+      </style>
     </div>
   );
 }

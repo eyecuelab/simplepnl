@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import MegQuestions from './MegQuestions';
 
 function NewPnl() {
   const pnlContainer = {
@@ -90,9 +91,13 @@ function NewPnl() {
         <p style={reportName}>NAME OF THE REPORT</p>
       </div>
       <div style={secondColumn}>
-        <p style={dragDrop}>DRAG AND DROP BANK STATEMENTS HERE</p>
+        <p style={dragDrop}>DRAG AND DROP "CSV" BANK STATEMENTS HERE</p>
         <Link to="/selectheader"><button style={nextButton}>Next!</button></Link>
       </div>
+
+
+
+
     </div>
   );
 }
