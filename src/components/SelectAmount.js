@@ -17,8 +17,9 @@ function SelectAmount(props){
 
     <div className="reportsHeader">Confirm Amount</div>
 
-    <h5>Here's a preview of your CSV.</h5>
-    <h6>It looks like <span className="highlightedCell">THIS</span> is the amount row, can you confirm by clicking on the amount row?</h6>
+      <h5 className="h5select">Here's a preview of your CSV.</h5>
+      <h6 className="h6select">I think I found the <span className="extraBold">amount</span> row <span className="highlightedCell">below</span>.</h6>
+      <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">amount</span> row and confirming?</h6>
     <hr/>
 
     <div className="exampleTableDiv">
@@ -72,6 +73,14 @@ function SelectAmount(props){
     <style>
     {
       `
+      .extraBold {
+        font-weight: 800;
+      }
+
+      .h5select {
+        padding: 15px;
+      }
+      
       .exampleTableDiv {
         // position: fixed;
         // float: left;
