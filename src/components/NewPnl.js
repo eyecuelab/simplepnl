@@ -91,7 +91,7 @@ function NewPnl() {
       </div>
       <div style={secondColumn}>
         <p style={dragDrop}>DRAG AND DROP BANK STATEMENTS HERE</p>
-        <button style={nextButton}>Next!</button>
+        <Link to="/selectheader"><button style={nextButton}>Next!</button></Link>
       </div>
     </div>
   );
