@@ -43,7 +43,8 @@ function SelectCategory(props){
          <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM CATEGORY</h1>
       <div style={pinkLine}></div>
-    <div className="SelectCategory">
+
+        <div className="SelectCategory">
 
 
       <h5 className="h5select">Now it's time to categorize your transactions!</h5>
@@ -119,6 +120,7 @@ function SelectCategory(props){
           <option value="Fixed Assets: Machinery & Equipment">Fixed Assets: Machinery & Equipment</option>
           <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
         </select>
+
         <div className="confirmButtonDiv">
           <Link to="/reportslist">
             <button className="confirmButton">
@@ -126,10 +128,11 @@ function SelectCategory(props){
             </button>
           </Link>
         </div>
+
       </form>
 
 
-
+</div>
 
 
 
@@ -154,6 +157,7 @@ function SelectCategory(props){
           .confirmButtonDiv {
             text-align: center;
             margin: auto;
+            padding-top: 54px
           }
 
           .confirmButton {

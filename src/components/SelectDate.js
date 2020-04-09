@@ -43,8 +43,8 @@ function SelectDate(props){
         <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM DATE</h1>
       <div style={pinkLine}></div>
-    <div className="SelectDate">
 
+    <div className="SelectDate">
 
       <h5 className="h5select">Here's a preview of your CSV.</h5>
       <h6 className="h6select">I think I found the <span className="extraBold">date</span> row <span className="highlightedCell">below</span>.</h6>
@@ -85,7 +85,6 @@ function SelectDate(props){
     </tbody>
     </table>
     </div>
-    </div>
 
     <hr/>
 
@@ -98,6 +97,7 @@ function SelectDate(props){
     </Link>
     </div>
 
+  </div>
 
 
     <style>
