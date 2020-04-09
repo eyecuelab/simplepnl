@@ -5,7 +5,7 @@ import editIcon from './../images/editIcon.png';
 function ReportItem(props){
 
   let year = ((Math.round(Math.random()*5))+2015);
-  let month = ((Math.round(Math.random()*12)));
+  let month = ((Math.round(Math.random()*11))+1);
 
   let percent = ((Math.round(Math.random()*64))+33);
   let reportId = ('report' + percent);

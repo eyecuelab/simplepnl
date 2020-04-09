@@ -82,9 +82,9 @@ function Eula(props){
           .eulaFadeDiv {
             background-repeat: no-repeat;
             position: relative;
-            bottom: 150px;
+            bottom: 175px;
             width: 97.5%;
-            height: 50px;
+            height: 75px;
             background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,1) 100%);
 
             // background: -moz-linear-gradient(top,  rgba(137,255,241,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */

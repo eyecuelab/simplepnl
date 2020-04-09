@@ -50,8 +50,7 @@ function SelectCategory(props){
 
 
       <h5 className="h5select">Now it's time to categorize your transactions!</h5>
-      <h6 className="h6select">Select the most appropriate category for this transaction from the dropdown below.</h6>
-      <p>(If you're not sure, you can ask me for help, or stop and come back any time.)</p>
+      <h6 className="h6select"><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you're not sure, you can ask me for help, or stop and come back any time.)</h6>
 
       <hr/>
 
@@ -59,24 +58,13 @@ function SelectCategory(props){
         <table className="exampleTable">
           <tbody>
             <tr>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-              <td className="cell "></td>
-            </tr>
-            <tr>
               <td className="cell ">Date</td>
-              <td className="cell ">Reference Number</td>
-              <td className="cell ">Payee</td>
-              <td className="cell ">Address</td>
+              <td className="cell ">Description</td>
               <td className="cell ">Amount</td>
             </tr>
             <tr>
               <td className="cell highlightedCell">12/12/2019</td>
-              <td className="cell highlightedCell">0057299165236</td>
               <td className="cell highlightedCell">Online payment from CHK 135</td>
-              <td className="cell highlightedCell"></td>
               <td className="cell highlightedCell">1000</td>
             </tr>
           </tbody>
@@ -87,9 +75,9 @@ function SelectCategory(props){
 
       <form>
         <select type="select">
-          <option value="* Skip">* Skip</option>
-          <option value="* Income">* Income</option>
-          <option value="* Other Expense: Ask My Accountant">* Other Expense: Ask My Accountant</option>
+          <option value="Personal">(x) Non-Business Related</option>
+          <option value="Income">($) Income</option>
+          <option value="Other Expense: Ask My Accountant">(?) Other Expense: Ask My Accountant</option>
           <option value="Cost of Goods Sold: Equipment Rental">Cost of Goods Sold: Equipment Rental</option>
           <option value="Cost of Goods Sold: Job/Project Costs & Materials">Cost of Goods Sold: Job/Project Costs & Materials</option>
           <option value="Cost of Goods Sold: Packaging & Labels">Cost of Goods Sold: Packaging & Labels</option>
