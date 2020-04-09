@@ -41,160 +41,161 @@ function SelectDescription(props){
 
   return (
     <div style={selectContainer}>
-        <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
+      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM DESCRIPTION</h1>
       <div style={pinkLine}></div>
-    
-      <h5 className="h5select">Here's a preview of your CSV.</h5>
-      <h6 className="h6select">I think I found the <span className="extraBold">description</span> row <span className="highlightedCell">below</span>.</h6>
-      <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
-    <hr/>
-    <div className="exampleTableDiv">
-    <table className="exampleTable">
-    <tbody>
-    <tr>
-    <td className="cell "></td>
-    <td className="cell "></td>
-    <td className="cell highlightedCell"></td>
-    <td className="cell "></td>
-    <td className="cell "></td>
-    </tr>
-    <tr>
-    <td className="cell ">Date</td>
-    <td className="cell ">Reference Number</td>
-    <td className="cell highlightedCell">Payee</td>
-    <td className="cell ">Address</td>
-    <td className="cell ">Amount</td>
-    </tr>
-    <tr>
-    <td className="cell ">12/12/2019</td>
-    <td className="cell ">0057299165236</td>
-    <td className="cell highlightedCell">Online payment from CHK 135</td>
-    <td className="cell "></td>
-    <td className="cell ">1000</td>
-    </tr>
-    <tr>
-    <td className="cell ">12/19/2019</td>
-    <td className="cell ">E12789355X</td>
-    <td className="cell highlightedCell">ANA BANNANA RENTAL 092</td>
-    <td className="cell ">NEW YORK, NY</td>
-    <td className="cell ">-75.21</td>
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
 
-    <hr/>
+      <div className="SelectDescription">
 
+        <h5 className="h5select">Here's a preview of your CSV.</h5>
+        <h6 className="h6select">I think I found the <span className="extraBold">description</span> row <span className="highlightedCell">below</span>.</h6>
+        <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
+        <hr/>
+        <div className="exampleTableDiv">
+          <table className="exampleTable">
+            <tbody>
+              <tr>
+                <td className="cell "></td>
+                <td className="cell "></td>
+                <td className="cell highlightedCell"></td>
+                <td className="cell "></td>
+                <td className="cell "></td>
+              </tr>
+              <tr>
+                <td className="cell ">Date</td>
+                <td className="cell ">Reference Number</td>
+                <td className="cell highlightedCell">Payee</td>
+                <td className="cell ">Address</td>
+                <td className="cell ">Amount</td>
+              </tr>
+              <tr>
+                <td className="cell ">12/12/2019</td>
+                <td className="cell ">0057299165236</td>
+                <td className="cell highlightedCell">Online payment from CHK 135</td>
+                <td className="cell "></td>
+                <td className="cell ">1000</td>
+              </tr>
+              <tr>
+                <td className="cell ">12/19/2019</td>
+                <td className="cell ">E12789355X</td>
+                <td className="cell highlightedCell">ANA BANNANA RENTAL 092</td>
+                <td className="cell ">NEW YORK, NY</td>
+                <td className="cell ">-75.21</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-    <div className="confirmButtonDiv">
-      <Link to="/selectamount">
-        <button className="confirmButton">
-          <span className="">Confirm!</span>
-        </button>
-    </Link>
-    </div>
+        <hr/>
 
 
+        <div className="confirmButtonDiv">
+          <Link to="/selectamount">
+            <button className="confirmButton">
+              <span className="">Confirm!</span>
+            </button>
+          </Link>
+        </div>
 
-    <style>
-    {
-      `
-      .extraBold {
-        font-weight: 800;
-      }
+      </div>
 
-      .h5select {
-        padding: 15px;
-      }
-      
-      .exampleTableDiv {
-        // position: fixed;
-        // float: left;
-        left: 0px;
-      }
+        <style>
+          {
+            `
+            .extraBold {
+              font-weight: 800;
+            }
 
-      .confirmButtonDiv {
-        text-align: center;
-        margin: auto;
-      }
+            .h5select {
+              padding: 15px;
+            }
 
-      .confirmButton {
-        background-color: #ea475b;
-        color: #ffffff;
-        // height: 40px;
-        border-radius: 5px;
-        padding: 10px 30px;
-      }
+            .exampleTableDiv {
+              // position: fixed;
+              // float: left;
+              left: 0px;
+            }
 
-      .exampleTable {
-        margin: auto;
-      }
+            .confirmButtonDiv {
+              text-align: center;
+              margin: auto;
+            }
 
-      .cell {
-        border: 1px ridge black;
-        padding: 3px;
-        min-height: 19px;
-        background-color: white;
-      }
+            .confirmButton {
+              background-color: #ea475b;
+              color: #ffffff;
+              // height: 40px;
+              border-radius: 5px;
+              padding: 10px 30px;
+            }
 
-      .highlightedCell {
-        background-color: #C0FFC0;
-      }
+            .exampleTable {
+              margin: auto;
+            }
 
-      .breadcrumb {
-        padding: 0px;
-        margin: 0px;
-        background-color: white;
-        font-size: 14px;
-        font-weight: 700;
-        color: black;
-      }
+            .cell {
+              border: 1px ridge black;
+              padding: 3px;
+              min-height: 19px;
+              background-color: white;
+            }
 
-      .breadcrumb li{
-        padding: 0px 4px;
-        position: relative;
-        top: 10px;
-      }
+            .highlightedCell {
+              background-color: #C0FFC0;
+            }
 
-      .breadcrumb a {
-        color: black;
-      }
+            .breadcrumb {
+              padding: 0px;
+              margin: 0px;
+              background-color: white;
+              font-size: 14px;
+              font-weight: 700;
+              color: black;
+            }
 
-      .delta {
-        color: #ea475b;
-        font-size: 24px;
+            .breadcrumb li{
+              padding: 0px 4px;
+              position: relative;
+              top: 10px;
+            }
 
-      }
+            .breadcrumb a {
+              color: black;
+            }
 
-      .SelectDescription {
-        color: #555555;
-        background-color: white;
-        border-radius: 5px;
-        // overflow: hidden;
-        min-height: 20vh;
-        text-align: center;
-        padding: 20px 50px;
-      }
+            .delta {
+              color: #ea475b;
+              font-size: 24px;
 
-      .reportsDescription {
-        // padding-top: 20px;
-        margin: 0px;
-        font-size: 25px;
-        font-weight: 700;
-        color: #ea475b;
-        text-align: left;
-        border-bottom: 2px solid #ea475b;
-      }
+            }
+
+            .SelectDescription {
+              color: #555555;
+              background-color: white;
+              border-radius: 5px;
+              // overflow: hidden;
+              min-height: 20vh;
+              text-align: center;
+              padding: 20px 50px;
+            }
+
+            .reportsDescription {
+              // padding-top: 20px;
+              margin: 0px;
+              font-size: 25px;
+              font-weight: 700;
+              color: #ea475b;
+              text-align: left;
+              border-bottom: 2px solid #ea475b;
+            }
 
 
 
-      `
-    }
-    </style>
-    </div>
-  );
-}
+            `
+          }
+        </style>
+      </div>
+    );
+  }
 
-export default SelectDescription;
+  export default SelectDescription;
