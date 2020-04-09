@@ -12,6 +12,8 @@ import Help from "./Help";
 import SelectDate from "./SelectDate";
 import SelectDescription from "./SelectDescription";
 import SelectHeader from "./SelectHeader";
+import SelectAmount from "./SelectAmount";
+import SelectCategory from "./SelectCategory";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route path="/selectdescription" render={() => <SelectDescription /> } />
           <Route path="/reportslist" render={() => <ReportsList />} />
           <Route path="/selectheader" render={() => <SelectHeader />} />
+          <Route path="/selectamount" render={() => <SelectAmount />} />
+          <Route path="/selectcategory" render={() => <SelectCategory />} />
         </Switch>
         <Demo />
       </div>

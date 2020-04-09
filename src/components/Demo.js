@@ -12,6 +12,8 @@ function Demo(){
       <h6><Link to="/newpnl">NewPnl</Link></h6>
       <h6><Link to="/reportslist">Reports (List)</Link></h6>
       <h6><Link to="/selectheader">SelectHeader</Link></h6>
+      <h6><Link to="/selectamount">SelectAmount</Link></h6>
+      <h6><Link to="/Selectcategory">SelectCategory</Link></h6>
 
       <style>
         {
@@ -40,7 +42,7 @@ function Demo(){
             left: 0;
 
             width: 10%;
-            height: 30%;
+            height: 40%;
             overflow: hidden;
 
             font-style: italic;
