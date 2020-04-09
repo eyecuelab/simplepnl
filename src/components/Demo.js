@@ -4,18 +4,18 @@ import { Link } from 'react-router-dom';
 function Demo(){
   return (
     <div className="Demo">
-      <h5>Demo</h5>
-
-      <h6><Link to="/">Home</Link></h6>
-      <h6><Link to="/eula">EULA</Link></h6>
-      <h6><Link to="/reports">Reports (none)</Link></h6>
-      <h6><Link to="/newpnl">NewPnl</Link></h6>
-      <h6><Link to="/reportslist">Reports (List)</Link></h6>
-      <h6><Link to="/selectheader">SelectHeader</Link></h6>
-      <h6><Link to="/selectdate">SelectDate</Link></h6>
-      <h6><Link to="/selectdescription">SelectDescription</Link></h6>
-      <h6><Link to="/selectamount">SelectAmount</Link></h6>
-      <h6><Link to="/Selectcategory">SelectCategory</Link></h6>
+      <h6>Demo</h6>
+      <p><Link to="/">~ root</Link></p>
+      <p><Link to="/eula">- EULA</Link></p>
+      <p><Link to="/reports">- Reports (none)</Link></p>
+      <p><Link to="/newpnl">- New PNL</Link></p>
+      <p><Link to="/selectheader">- Select Header</Link></p>
+      <p><Link to="/selectdate">- Select Date</Link></p>
+      <p><Link to="/selectdescription">- Select Description</Link></p>
+      <p><Link to="/selectamount">- Select Amount</Link></p>
+      <p><Link to="/selectcategory">- Select Category</Link></p>
+      <p><Link to="/help">- Help</Link></p>
+      <p><Link to="/reportslist">- Reports (List)</Link></p>
 
       <style>
         {
@@ -38,14 +38,20 @@ function Demo(){
             margin: 10px;
           }
 
+          .Demo p {
+            margin: 4px;
+          }
+
           .Demo:hover {
             position: absolute;
             bottom: 0;
             left: 0;
 
-            width: 10%;
-            height: 40%;
+            width: 175px;
+            height: 300px;
             overflow: hidden;
+            font-size: 12px;
+            font-weight: 600;
 
             font-style: italic;
             color: #555555;

@@ -22,7 +22,10 @@ function ReportItem(props){
         </div>
       </div>
       <div className="reportItemEdit">
-        <span><img className="editIcon" src={editIcon} alt="Logo" /></span>
+        <span><Link to="/selectcategory"><img className="editIcon" src={editIcon} alt="Edit icon" /></Link></span>
+
+
+
       </div>
 
 

@@ -43,9 +43,15 @@ function SelectHeader(props){
          <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM HEADER</h1>
       <div style={pinkLine}></div>
-    <div className="SelectHeader">
-    <h5>Here's a preview of your CSV.</h5>
-    <h6>It looks like <span className="highlightedCell">THIS</span> is the header row, can you confirm by clicking on the header row?</h6>
+
+
+
+
+
+    <h5 className="h5select">Here's a preview of your CSV.</h5>
+    <h6 className="h6select">I think I found the <span className="extraBold">header</span> row <span className="highlightedCell">below</span>.</h6>
+    <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
+
     <hr/>
 
     <div className="exampleTableDiv">
@@ -100,6 +106,15 @@ function SelectHeader(props){
     <style>
     {
       `
+
+      .extraBold {
+        font-weight: 800;
+      }
+
+      .h5select {
+        padding: 15px;
+      }
+
       .exampleTableDiv {
         // position: fixed;
         // float: left;
