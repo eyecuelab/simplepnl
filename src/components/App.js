@@ -2,9 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from 'react-redux';
 import "./../App.css";
-
-
-
 import Header from "./Header";
 import Home from "./Home";
 import Eula from "./Eula";
