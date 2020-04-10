@@ -1,7 +1,8 @@
 import React from 'react';
-import GoogleSignIn from '../images/google-signin.png';
+// import GoogleSignIn from '../images/google-signin.png';
 import MegHeader from './MegHeader';
 import { Link } from 'react-router-dom';
+import OAuth from './OAuth';
 
 function Home() {
   const homeContainer = {
@@ -24,11 +25,7 @@ function Home() {
     paddingLeft: '30px',
     fontSize: '15px',
   };
-
-  const googleImage = {
-    width: '25%',
-    paddingTop: '10px',
-  };
+  
 
   return (
     <div style={homeContainer}>
@@ -40,7 +37,7 @@ function Home() {
         free to use and it can help you maximize your tax benefits!`}
       </p>
       <div>
-        <Link to="/eula"><img src={GoogleSignIn} style={googleImage} /></Link>
+       <OAuth />
       </div>
     </div>
   );

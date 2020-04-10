@@ -43,7 +43,7 @@ function NewPnl() {
     <MainContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to='/reportslist'>BACK TO INDEX</Link></IndexLink>
       <Title>NEW PNL REPORT</Title>
-      <PinkLine></PinkLine>
+      <PinkLine />
       <div style={firstColumn}>
         <p style={reportName}>NAME OF THE REPORT</p>
       </div>
