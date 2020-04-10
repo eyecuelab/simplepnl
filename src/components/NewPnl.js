@@ -1,45 +1,9 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
-import MegQuestions from './MegQuestions';
+// import MegQuestions from './MegQuestions';
+import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton } from '../styles/components.js';
 
 function NewPnl() {
-  const pnlContainer = {
-    backgroundColor: 'white',
-    height: '600px',
-    borderRadius: '5px',
-    color: '#6B6B6B'
-  };
-
-  const caretLeft = {
-    color: '#ea475b',
-    fontSize: '25px'
-  }
-
-  const index = {
-    paddingTop: '1rem',
-    paddingLeft: '1rem',
-    color: '#222222',
-    fontWeight: '700',
-    fontSize: '15px'
-  };
-
-  const pnlTitle = {
-    paddingLeft: '2rem',
-    fontSize: '25px',
-    color: '#ea475b',
-    fontWeight: '700'
-  };
-
-  const pinkLine = {
-    color: '#ea475b',
-    marginTop: '1rem',
-    marginBottom: '3rem',
-    marginLeft: '2rem',
-    marginRight: '2rem',
-    border: '0',
-    borderTop: '1px solid #ea475b',
-  };
-
   const firstColumn = {
     backgroundColor: 'white',
     height: '70px',
@@ -74,31 +38,21 @@ function NewPnl() {
     marginTop: '1rem'
   };
 
-  const nextButton = {
-      padding: '8px 60px 8px 60px',
-      backgroundColor: '#ea475b',
-      color: 'white',
-      borderRadius: '4px',
-      fontWeight: '700'
-  };
 
   return (
-    <div style={pnlContainer}>
-      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
-      <h1 style={pnlTitle}>NEW PNL REPORT</h1>
-      <div style={pinkLine}></div>
+    <MainContainer>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to='/reportslist'>BACK TO INDEX</Link></IndexLink>
+      <Title>NEW PNL REPORT</Title>
+      <PinkLine></PinkLine>
       <div style={firstColumn}>
         <p style={reportName}>NAME OF THE REPORT</p>
       </div>
       <div style={secondColumn}>
-        <p style={dragDrop}>DRAG AND DROP "CSV" BANK STATEMENTS HERE</p>
-        <Link to="/selectheader"><button style={nextButton}>Next!</button></Link>
+        <p style={dragDrop}>DRAG AND DROP 'CSV' BANK STATEMENTS HERE</p>
+        <Link to='/selectheader'><NextButton>Next!</NextButton></Link>
       </div>
+      </MainContainer>
 
-
-
-
-    </div>
   );
 }
 
