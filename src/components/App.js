@@ -69,7 +69,7 @@ class App extends React.Component {
     }
   }
 
-  const mapStateToProps = (state, ownProps) => {
+  const mapStateToProps = (state) => {
   return {
     ...state
   }

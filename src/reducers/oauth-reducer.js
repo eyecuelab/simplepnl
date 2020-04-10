@@ -3,7 +3,7 @@ const { initialState, types } = constants;
 
 export default (state = initialState.oauth, action) => {
   switch (action.type) {
-    case 'SET_TOKEN':
+    case types.SET_TOKEN:
     // const { access_token, } = action;
     const { access_token, err, googleUser, isSignedIn, } = action.payload
     const returnedTarget = Object.assign({}, state, {
