@@ -1,10 +1,11 @@
 import React from 'react';
-// import GoogleSignIn from '../images/google-signin.png';
+import { connect } from 'react-redux';
+
 import MegHeader from './MegHeader';
 import { Link } from 'react-router-dom';
 import OAuth from './OAuth';
 
-function Home() {
+function Home(props) {
   const homeContainer = {
     backgroundColor: 'white',
     height: '500px',
@@ -25,12 +26,12 @@ function Home() {
     paddingLeft: '30px',
     fontSize: '15px',
   };
-  
+
 
   return (
     <div style={homeContainer}>
       <MegHeader />
-      <h1 style={homeTitle}>Welcome Back!</h1>
+      <h1 style={homeTitle}> {props.currentUser ? `Welcome back, ${props.currentUser}!` : "Hello there!"} </h1>
       <p style={homeText}>{`
         SIMPLEPNL is a simple tool designed for all of you gig slingers to
         quickly organize your bank statements into different categories. It's
@@ -43,4 +44,9 @@ function Home() {
   );
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  currentUser: state.currentUser
+});
+
+
+export default connect(mapStateToProps)(Home);

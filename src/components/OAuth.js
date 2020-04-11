@@ -93,7 +93,7 @@ class OAuth extends Component {
 
         <Link to="/reports">
           <NextButton>
-            Let's see them reports!
+            Let's make some reports!
           </NextButton>
         </Link>
       </div>
