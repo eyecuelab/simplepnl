@@ -22,7 +22,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       // isSignedIn: props.isSignedIn,
-      // googleUser: props.googleUser,
+      // currentUser: props.currentUser,
       // err: props.err,
       // access_token: props.access_token,
     };

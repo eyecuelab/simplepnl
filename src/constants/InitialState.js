@@ -1,8 +1,8 @@
 export const initialState = {
-  reports: [{1: 'fake report'}],
+  reports: [{testKey: 'Test value'}],
   oauth: {
     isSignedIn: false,
-    googleUser: "test",
+    currentUser: null,
     err: null,
     access_token: null,
   },

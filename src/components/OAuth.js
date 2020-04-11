@@ -1,7 +1,12 @@
 /* global gapi */
 
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { NextButton } from '../styles/components.js';
+import { setToken } from "./../actions";
+
+
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -16,14 +21,15 @@ class OAuth extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isSignedIn: false,
-      access_token: null,
-      googleUser: "",
+      isSignedIn: this.props.isSignedIn,
+      // access_token: null,
+      // currentUser: "",
       err: null,
     };
   };
 
   componentDidMount() {
+
     const successCallback = this.onSuccess.bind(this);
     window.gapi.load('auth2', () => {
       this.auth2 = gapi.auth2.init({
@@ -32,6 +38,8 @@ class OAuth extends Component {
         discoveryDocs: `${DISCOVERY_DOCS}`,
         scope: `${SCOPES}`,
       });
+      console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
+
 
       this.auth2.then(() => {
         console.log("TRIGGER on init");
@@ -53,28 +61,47 @@ class OAuth extends Component {
     })
   }
 
-  onSuccess() {
-    console.log('Grool!');
-    // access_token: this.auth2.currentUser.get().tc.access_token,
-    // googleUser: this.auth2.currentUser.get().Pt.Ad,
+  onSuccess(props) {
+    // update local state:
     this.setState({
-      googleUser: this.auth2.currentUser.get().Pt.Ad,
-      access_token: this.auth2.currentUser.get().tc.access_token,
+      isSignedIn: true,
+      err: null
+    })
+
+    // send to Redux store:
+    const payload = {
+      access_token: this.auth2.currentUser.get().getAuthResponse().access_token,
+      currentUser: this.auth2.currentUser.get().getBasicProfile().getName(),
+      err: null,
+      isSignedIn: this.auth2.isSignedIn.get(),
+    };
+    const { dispatch } = this.props;
+    dispatch(setToken(payload));
+  }
+
+  onLoginFailed(err) {
+    this.setState({
+      isSignedIn: false,
+      error: err,
     });
-
-    console.log(this.auth2.currentUser.get());
-    console.log(`googleUser: ${this.auth2.currentUser.get().Pt.Ad}`);
-    console.log(`access_token: ${this.auth2.currentUser.get().tc.access_token}`);
-
   }
 
   getContent() {
-    if (this.state.isSignedIn) {
-      return <p>hello user, you're signed in </p>
+    if (this.props.isSignedIn) {
+      return <div>
+        <h4>You're all signed in:</h4>
+
+        <Link to="/reports">
+          <NextButton>
+            Let's see them reports!
+          </NextButton>
+        </Link>
+      </div>
+
     } else {
       return (
         <div>
-          <p>You are not signed in. Click here to sign in.</p>
+          <h6>Click below to sign in:</h6>
           <button id="loginButton">Login with Google</button>
           <style>
             {
@@ -102,5 +129,13 @@ class OAuth extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    ...state
+  }
+}
+
+OAuth = connect(mapStateToProps)(OAuth);
 
 export default OAuth;
