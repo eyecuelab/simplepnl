@@ -6,7 +6,7 @@ describe('oauthReducer', () => {
   const payload = {
     access_token: '12345abcde',
     err: null,
-    googleUser: "CelNo",
+    currentUser: "CelNo",
     isSignedIn: true,
   };
 
@@ -17,7 +17,7 @@ describe('oauthReducer', () => {
 
 
   test('Should successfully add new ticket data to masterTicketList', () => {
-    const { access_token, err, googleUser, isSignedIn, } = payload;
+    const { access_token, err, currentUser, isSignedIn, } = payload;
     action = {
       type: 'SET_TOKEN',
       payload: payload,
@@ -26,7 +26,7 @@ describe('oauthReducer', () => {
     expect(oauthReducer({}, action)).toEqual({
       access_token: '12345abcde',
       err: null,
-      googleUser: "CelNo",
+      currentUser: "CelNo",
       isSignedIn: true,
     });
   });

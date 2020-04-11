@@ -15,6 +15,9 @@ const store = createStore(reducer);
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
+// function tick() {
+
+
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
@@ -26,9 +29,12 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+// }
+// setInterval(tick, 1000);
+
+// console.log('store.getState(): ', store.getState());
 unsubscribe();
 
-console.log('store.getState(): ', store.getState());
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
