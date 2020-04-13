@@ -1,7 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function Header(props){
+
+function Header(props) {
+  const { isSignedIn } = props;
+  function signOut() {
+    const auth2 = window.gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
+      console.log('User signed out.');
+    });
+  }
+
 
   return (
     <div className="header">
@@ -11,9 +21,9 @@ function Header(props){
           <span className="headerTitleSimple">SIMPLE</span><span className="headerTitlePNL">PNL</span>
         </Link>
 
-        <Link to="/eula">
-          <span className="headerLogin">LOGIN</span>
-        </Link>
+        <span className="headerLogin">
+          {isSignedIn ? <a href="/" onClick={signOut}>LOGOUT</a> : <Link to="/">LOGIN</Link>}
+        </span>
 
       </div>
       <style>
@@ -54,9 +64,13 @@ function Header(props){
           }
 
           `}
-        </style>
+      </style>
     </div>
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isSignedIn: state.isSignedIn,
+});
+
+export default connect(mapStateToProps)(Header);

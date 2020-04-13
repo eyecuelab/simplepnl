@@ -1,27 +1,32 @@
 /* global gapi */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { NextButton } from '../styles/components';
+import { setToken } from '../actions';
+
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 // Array of API discovery doc URLs for APIs used by the quickstart:
-const DISCOVERY_DOCS = "https://www.googleapis.com/discovery/v1/apis/drive/v3/rest";
+const DISCOVERY_DOCS = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
 
 // Authorization scopes required by the API; multiple scopes can be included, separated by spaces:
-const SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly";
+const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 
 class OAuth extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    const { isSignedIn } = this.props;
     this.state = {
-      isSignedIn: false,
-      access_token: null,
-      googleUser: "",
+      isSignedIn,
+      // access_token: null,
+      // currentUser: "",
       err: null,
     };
-  };
+  }
 
   componentDidMount() {
     const successCallback = this.onSuccess.bind(this);
@@ -32,53 +37,76 @@ class OAuth extends Component {
         discoveryDocs: `${DISCOVERY_DOCS}`,
         scope: `${SCOPES}`,
       });
+      console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
+
 
       this.auth2.then(() => {
-        console.log("TRIGGER on init");
+        console.log('TRIGGER on init');
         this.setState({
           isSignedIn: this.auth2.isSignedIn.get(),
         });
         console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
       });
-    })
+    });
 
-    window.gapi.load('signin2', function() {
-      var opts = {
+    window.gapi.load('signin2', () => {
+      const opts = {
         width: 200,
         height: 50,
-        onsuccess: successCallback
+        onsuccess: successCallback,
 
-      }
-      gapi.signin2.render('loginButton', opts)
-    })
+      };
+      gapi.signin2.render('loginButton', opts);
+    });
   }
 
   onSuccess() {
-    console.log('Grool!');
-    // access_token: this.auth2.currentUser.get().tc.access_token,
-    // googleUser: this.auth2.currentUser.get().Pt.Ad,
+    // update local state:
     this.setState({
-      googleUser: this.auth2.currentUser.get().Pt.Ad,
-      access_token: this.auth2.currentUser.get().tc.access_token,
+      isSignedIn: true,
+      err: null,
     });
 
-    console.log(this.auth2.currentUser.get());
-    console.log(`googleUser: ${this.auth2.currentUser.get().Pt.Ad}`);
-    console.log(`access_token: ${this.auth2.currentUser.get().tc.access_token}`);
+    // send to Redux store:
+    const payload = {
+      access_token: this.auth2.currentUser.get().getAuthResponse().access_token,
+      currentUser: this.auth2.currentUser.get().getBasicProfile().getName(),
+      err: null,
+      isSignedIn: this.auth2.isSignedIn.get(),
+    };
+    const { dispatch } = this.props;
+    dispatch(setToken(payload));
+  }
 
+  onLoginFailed(err) {
+    this.setState({
+      isSignedIn: false,
+      error: err,
+    });
   }
 
   getContent() {
-    if (this.state.isSignedIn) {
-      return <p>hello user, you're signed in </p>
-    } else {
+    const { isSignedIn } = this.props;
+    if (isSignedIn) {
       return (
         <div>
-          <p>You are not signed in. Click here to sign in.</p>
-          <button id="loginButton">Login with Google</button>
-          <style>
-            {
-              `
+          <h4>You&apos;re all signed in:</h4>
+
+          <Link to="/reports">
+            <NextButton>
+              Let&apos;s make some reports!
+            </NextButton>
+          </Link>
+        </div>
+      );
+    }
+    return (
+      <div>
+        <h6>Click below to sign in:</h6>
+        <button type="button" id="loginButton">Login with Google</button>
+        <style>
+          {
+            `
               #loginButton {
                 margin: 0px;
                 padding: 0px;
@@ -86,12 +114,10 @@ class OAuth extends Component {
                 border-radius: 5px;
               }
               `
-            }
-          </style>
-        </div>
-      )
-    }
-
+          }
+        </style>
+      </div>
+    );
   }
 
   render() {
@@ -103,4 +129,8 @@ class OAuth extends Component {
   }
 }
 
-export default OAuth;
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+export default connect(mapStateToProps)(OAuth);

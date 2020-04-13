@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MegHeader from "./MegHeader";
-import EulaText from "./EulaText";
+import MegHeader from './MegHeader';
+import EulaText from './EulaText';
 
 
-function Eula(props){
+function Eula(props) {
   return (
     <div className="Eula">
 
@@ -20,10 +20,10 @@ function Eula(props){
             <span className="EulaButtonReady">Ready to </span>
             <span className="EulaButtonGo">GO!</span>
           </button>
-      </Link>
+        </Link>
       </div>
 
-      <div className='eulaFadeDiv'></div>
+      <div className="eulaFadeDiv" />
 
       <style>
         {

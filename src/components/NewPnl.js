@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import MegQuestions from './MegQuestions';
-import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton } from '../styles/components.js';
+import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton } from '../styles/components';
 
 function NewPnl() {
   const firstColumn = {
@@ -12,7 +12,7 @@ function NewPnl() {
     marginLeft: '2rem',
     marginRight: '2rem',
     marginBottom: '1rem',
-    textAlign: 'center'
+    textAlign: 'center',
   };
 
   const secondColumn = {
@@ -22,36 +22,36 @@ function NewPnl() {
     borderRadius: '5px',
     marginLeft: '2rem',
     marginRight: '2rem',
-    textAlign: 'center'
+    textAlign: 'center',
   };
 
   const reportName = {
     padding: '1.5rem',
     fontWeight: '700',
-    color: '#D7D6D6'
+    color: '#D7D6D6',
   };
 
   const dragDrop = {
     padding: '5rem',
     fontWeight: '700',
     color: '#D7D6D6',
-    marginTop: '1rem'
+    marginTop: '1rem',
   };
 
 
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to='/reportslist'>BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
       <Title>NEW PNL REPORT</Title>
       <PinkLine />
       <div style={firstColumn}>
         <p style={reportName}>NAME OF THE REPORT</p>
       </div>
       <div style={secondColumn}>
-        <p style={dragDrop}>DRAG AND DROP 'CSV' BANK STATEMENTS HERE</p>
-        <Link to='/selectheader'><NextButton>Next!</NextButton></Link>
+        <p style={dragDrop}>DRAG AND DROP &lsquo;CSV&lsquo; BANK STATEMENTS HERE</p>
+        <Link to="/selectheader"><NextButton>Next!</NextButton></Link>
       </div>
-      </MainContainer>
+    </MainContainer>
 
   );
 }

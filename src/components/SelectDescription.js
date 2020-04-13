@@ -2,32 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 
-function SelectDescription(props){
+function SelectDescription() {
   const selectContainer = {
     backgroundColor: 'white',
     // height: '600px',
     borderRadius: '5px',
-    color: '#6B6B6B'
+    color: '#6B6B6B',
   };
 
   const caretLeft = {
     color: '#ea475b',
-    fontSize: '25px'
-  }
+    fontSize: '25px',
+  };
 
   const index = {
     paddingTop: '1rem',
     paddingLeft: '1rem',
     color: '#222222',
     fontWeight: '700',
-    fontSize: '15px'
+    fontSize: '15px',
   };
 
   const selectTitle = {
     paddingLeft: '2rem',
     fontSize: '25px',
     color: '#ea475b',
-    fontWeight: '700'
+    fontWeight: '700',
   };
 
   const pinkLine = {
@@ -44,23 +44,23 @@ function SelectDescription(props){
     <div style={selectContainer}>
       <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
       <h1 style={selectTitle}>CONFIRM DESCRIPTION</h1>
-      <div style={pinkLine}></div>
+      <div style={pinkLine} />
 
       <div className="SelectDescription">
 
-        <h5 className="h5select">Here's a preview of your CSV.</h5>
+        <h5 className="h5select">Here&apos;s a preview of your CSV.</h5>
         <h6 className="h6select">I think I found the <span className="extraBold">description</span> row <span className="highlightedCell">below</span>.</h6>
         <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
-        <hr/>
+        <hr />
         <div className="exampleTableDiv">
           <table className="exampleTable">
             <tbody>
               <tr>
-                <td className="cell "></td>
-                <td className="cell "></td>
-                <td className="cell highlightedCell"></td>
-                <td className="cell "></td>
-                <td className="cell "></td>
+                <td className="cell " />
+                <td className="cell " />
+                <td className="cell highlightedCell" />
+                <td className="cell " />
+                <td className="cell " />
               </tr>
               <tr>
                 <td className="cell ">Date</td>
@@ -73,7 +73,7 @@ function SelectDescription(props){
                 <td className="cell ">12/12/2019</td>
                 <td className="cell ">0057299165236</td>
                 <td className="cell highlightedCell">Online payment from CHK 135</td>
-                <td className="cell "></td>
+                <td className="cell " />
                 <td className="cell ">1000</td>
               </tr>
               <tr>
@@ -87,12 +87,12 @@ function SelectDescription(props){
           </table>
         </div>
 
-        <hr/>
+        <hr />
 
 
         <div className="confirmButtonDiv">
           <Link to="/selectamount">
-            <button className="confirmButton">
+            <button type="button" className="confirmButton">
               <span className="">Confirm!</span>
             </button>
           </Link>
