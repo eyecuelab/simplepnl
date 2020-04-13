@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import MegQuestions from './MegQuestions';
 import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton } from '../styles/components';
+import Importer from './Importer';
 
 function NewPnl() {
   const firstColumn = {
@@ -12,6 +12,7 @@ function NewPnl() {
     marginLeft: '2rem',
     marginRight: '2rem',
     marginBottom: '1rem',
+    marginTop: '2rem',
     textAlign: 'center',
   };
 
@@ -31,12 +32,12 @@ function NewPnl() {
     color: '#D7D6D6',
   };
 
-  const dragDrop = {
-    padding: '5rem',
-    fontWeight: '700',
-    color: '#D7D6D6',
-    marginTop: '1rem',
-  };
+  // const dragDrop = {
+  //   padding: '5rem',
+  //   fontWeight: '700',
+  //   color: '#D7D6D6',
+  //   marginTop: '1rem',
+  // };
 
 
   return (
@@ -48,7 +49,7 @@ function NewPnl() {
         <p style={reportName}>NAME OF THE REPORT</p>
       </div>
       <div style={secondColumn}>
-        <p style={dragDrop}>DRAG AND DROP &lsquo;CSV&lsquo; BANK STATEMENTS HERE</p>
+        <Importer />
         <Link to="/selectheader"><NextButton>Next!</NextButton></Link>
       </div>
     </MainContainer>

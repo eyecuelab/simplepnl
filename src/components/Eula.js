@@ -30,7 +30,7 @@ function Eula(props) {
           `
 
           .Eula {
-            color: #555555;
+            color: #6B6B6B;
             background-color: white;
             border-radius: 5px;
             overflow: hidden;
@@ -43,9 +43,6 @@ function Eula(props) {
             grid-template-rows: 120px 70px 1fr 100px 0px;
             grid-column-gap: 0px;
             grid-row-gap: 0px;
-
-
-
 
 
           }
