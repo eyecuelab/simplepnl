@@ -1,56 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import { Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer } from '../styles/components';
 
 function SelectDescription() {
-  const selectContainer = {
-    backgroundColor: 'white',
-    // height: '600px',
-    borderRadius: '5px',
-    color: '#6B6B6B',
-  };
-
-  const caretLeft = {
-    color: '#ea475b',
-    fontSize: '25px',
-  };
-
-  const index = {
-    paddingTop: '1rem',
-    paddingLeft: '1rem',
-    color: '#222222',
-    fontWeight: '700',
-    fontSize: '15px',
-  };
-
-  const selectTitle = {
-    paddingLeft: '2rem',
-    fontSize: '25px',
-    color: '#ea475b',
-    fontWeight: '700',
-  };
-
-  const pinkLine = {
-    color: '#ea475b',
-    marginTop: '1rem',
-    marginLeft: '2rem',
-    marginRight: '2rem',
-    border: '0',
-    borderTop: '1px solid #ea475b',
-  };
-
-
   return (
-    <div style={selectContainer}>
-      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
-      <h1 style={selectTitle}>CONFIRM DESCRIPTION</h1>
-      <div style={pinkLine} />
-
+    <MainContainer>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <Title>CONFIRM DESCRIPTION</Title>
+      <PinkLine />
       <div className="SelectDescription">
-
-        <h5 className="h5select">Here&apos;s a preview of your CSV.</h5>
-        <h6 className="h6select">I think I found the <span className="extraBold">description</span> row <span className="highlightedCell">below</span>.</h6>
-        <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
+        <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
+        <h6>I think I found the <span className="extraBold">description</span> row <span className="highlightedCell">below</span>.</h6>
+        <h6>Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
+        
         <hr />
         <div className="exampleTableDiv">
           <table className="exampleTable">
@@ -86,54 +49,25 @@ function SelectDescription() {
             </tbody>
           </table>
         </div>
-
         <hr />
-
-
-        <div className="confirmButtonDiv">
           <Link to="/selectamount">
-            <button type="button" className="confirmButton">
-              <span className="">Confirm!</span>
-            </button>
+            <ConfirmButton>CONFIRM!</ConfirmButton>
           </Link>
-        </div>
-
-        <div className="MegQuestionsLocation">
-          <MegQuestions />
-        </div>
-
+          <QuestionsLocation>
+           <MegQuestions />
+         </QuestionsLocation>
       </div>
       <style>
         {
           `
-          .MegQuestionsLocation {
-            position: absolute;
-          }
           .extraBold {
             font-weight: 800;
-          }
-
-          .h5select {
-            padding: 15px;
           }
 
           .exampleTableDiv {
             // position: fixed;
             // float: left;
             left: 0px;
-          }
-
-          .confirmButtonDiv {
-            text-align: center;
-            margin: auto;
-          }
-
-          .confirmButton {
-            background-color: #ea475b;
-            color: #ffffff;
-            // height: 40px;
-            border-radius: 5px;
-            padding: 10px 30px;
           }
 
           .exampleTable {
@@ -151,31 +85,6 @@ function SelectDescription() {
             background-color: #C0FFC0;
           }
 
-          .breadcrumb {
-            padding: 0px;
-            margin: 0px;
-            background-color: white;
-            font-size: 14px;
-            font-weight: 700;
-            color: black;
-          }
-
-          .breadcrumb li{
-            padding: 0px 4px;
-            position: relative;
-            top: 10px;
-          }
-
-          .breadcrumb a {
-            color: black;
-          }
-
-          .delta {
-            color: #ea475b;
-            font-size: 24px;
-
-          }
-
           .SelectDescription {
             color: #555555;
             background-color: white;
@@ -186,22 +95,11 @@ function SelectDescription() {
             padding: 20px 50px;
           }
 
-          .reportsDescription {
-            // padding-top: 20px;
-            margin: 0px;
-            font-size: 25px;
-            font-weight: 700;
-            color: #ea475b;
-            text-align: left;
-            border-bottom: 2px solid #ea475b;
-          }
-
-
 
           `
         }
       </style>
-    </div>
+    </MainContainer>
   );
 }
 

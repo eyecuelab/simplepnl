@@ -1,59 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 
 function SelectCategory() {
-  const selectContainer = {
-    backgroundColor: 'white',
-    // height: '600px',
-    borderRadius: '5px',
-    color: '#6B6B6B',
-  };
-
-  const caretLeft = {
-    color: '#ea475b',
-    fontSize: '25px',
-  };
-
-  const index = {
-    paddingTop: '1rem',
-    paddingLeft: '1rem',
-    color: '#222222',
-    fontWeight: '700',
-    fontSize: '15px',
-  };
-
-  const selectTitle = {
-    paddingLeft: '2rem',
-    fontSize: '25px',
-    color: '#ea475b',
-    fontWeight: '700',
-  };
-
-  const pinkLine = {
-    color: '#ea475b',
-    marginTop: '1rem',
-    marginLeft: '2rem',
-    marginRight: '2rem',
-    border: '0',
-    borderTop: '1px solid #ea475b',
-  };
-
   return (
-    <div style={selectContainer}>
-      <h4 style={index}><span style={caretLeft}>&#9664;</span><Link to="/reportslist"> BACK TO INDEX</Link></h4>
-      <h1 style={selectTitle}>CONFIRM CATEGORY</h1>
-      <div style={pinkLine} />
-
+    <MainContainer>
+     <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <Title>CONFIRM CATEGORY</Title>
+      <PinkLine />
       <div className="SelectCategory">
-
-
-        <h5 className="h5select">Now it&apos;s time to categorize your transactions!</h5>
-        <h6 className="h6select"><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
+      <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
+        <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
 
         <hr />
-
         <div className="exampleTableDiv">
           <table className="exampleTable">
             <tbody>
@@ -70,9 +31,7 @@ function SelectCategory() {
             </tbody>
           </table>
         </div>
-
         <hr />
-
         <form>
           <select type="select">
             <option value="Personal">(x) Non-Business Related</option>
@@ -111,20 +70,13 @@ function SelectCategory() {
             <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
           </select>
 
-          <div className="confirmButtonDiv">
             <Link to="/reportslist">
-              <button type="button" className="confirmButton">
-                <span className="">Select</span>
-              </button>
+             <ConfirmButton>SELECT</ConfirmButton>
             </Link>
-          </div>
-
         </form>
-
-        <div className="MegQuestionsLocation">
+        <QuestionsLocation>
           <MegQuestions />
-        </div>
-
+        </QuestionsLocation>
       </div>
       <style>
         {
@@ -222,12 +174,10 @@ function SelectCategory() {
           }
 
 
-
           `
         }
       </style>
-
-    </div>
+    </MainContainer>
   );
 }
 

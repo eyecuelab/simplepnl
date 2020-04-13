@@ -108,8 +108,8 @@ class OAuth extends Component {
           {
             `
               #loginButton {
+                padding-top: 15px;
                 margin: 0px;
-                padding: 0px;
                 border: 0px;
                 border-radius: 5px;
               }

@@ -1,20 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { MainContainer } from '../styles/components';
 // import { Link } from 'react-router-dom';
 import MegHeader from "./MegHeader";
 import OAuth from "./OAuth";
 
 function Home({ currentUser }) {
-  const homeContainer = {
-    backgroundColor: "white",
-    height: "500px",
-    borderRadius: "5px",
-    textAlign: "center",
-    color: "#6B6B6B",
-    paddingTop: "20px",
-  };
-
   const homeTitle = {
     paddingTop: "50px",
     paddingBottom: "10px",
@@ -29,6 +20,10 @@ function Home({ currentUser }) {
     textAlign: "center",
   };
 
+  const signIn = {
+    textAlign: 'center'
+  }
+
   return (
     <MainContainer>
       <MegHeader />
@@ -42,7 +37,7 @@ function Home({ currentUser }) {
         quickly organize your bank statements into different categories. It's
         free to use and it can help you maximize your tax benefits!`}
       </p>
-      <div>
+      <div style={signIn}>
         <OAuth />
       </div>
     </MainContainer>

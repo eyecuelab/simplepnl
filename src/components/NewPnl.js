@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import MegQuestions from './MegQuestions';
 import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton } from '../styles/components';
 
 function NewPnl() {
@@ -12,6 +11,7 @@ function NewPnl() {
     marginLeft: '2rem',
     marginRight: '2rem',
     marginBottom: '1rem',
+    marginTop: '2rem',
     textAlign: 'center',
   };
 

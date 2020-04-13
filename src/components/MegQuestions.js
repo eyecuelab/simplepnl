@@ -20,7 +20,7 @@ function MegQuestions() {
             text-align: center;
             position: absolute;
             left: -70px;
-            top: -35px;
+            top: 5px;
           }
 
           .MegQuestions a:hover {
@@ -43,12 +43,12 @@ function MegQuestions() {
           .megBubble {
             color: white;
             position: relative;
-            left: 40px;
-            top: 35px;
+            left: 50px;
+            top: 45px;
             padding: 10px;
             font-weight: 600;
             font-style: italic;
-            font-size: 12px;
+            font-size: 13px;
             width: 300px;
           }
           `
