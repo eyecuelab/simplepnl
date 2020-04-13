@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
-function Header(props){
-
+function Header(props) {
+  const { isSignedIn } = props;
   function signOut() {
-    var auth2 = window.gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
+    const auth2 = window.gapi.auth2.getAuthInstance();
+    auth2.signOut().then(() => {
       console.log('User signed out.');
     });
   }
-
-
 
 
   return (
@@ -23,9 +21,9 @@ function Header(props){
           <span className="headerTitleSimple">SIMPLE</span><span className="headerTitlePNL">PNL</span>
         </Link>
 
-          <span className="headerLogin">
-            {props.isSignedIn ? <a href="/" onClick={signOut}>LOGOUT</a> : <Link to="/">LOGIN</Link>}
-          </span>
+        <span className="headerLogin">
+          {isSignedIn ? <a href="/" onClick={signOut}>LOGOUT</a> : <Link to="/">LOGIN</Link>}
+        </span>
 
       </div>
       <style>
@@ -66,13 +64,13 @@ function Header(props){
           }
 
           `}
-        </style>
+      </style>
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  isSignedIn: state.isSignedIn
+const mapStateToProps = (state) => ({
+  isSignedIn: state.isSignedIn,
 });
 
 export default connect(mapStateToProps)(Header);

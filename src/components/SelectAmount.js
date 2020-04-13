@@ -1,36 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
-import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, ConfirmButton } from '../styles/components.js';
+import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton } from '../styles/components';
 
-function SelectAmount(props){
+function SelectAmount() {
   const selectContainer = {
     backgroundColor: 'white',
     // height: '600px',
     borderRadius: '5px',
-    color: '#6B6B6B'
+    color: '#6B6B6B',
   };
 
   return (
     <div style={selectContainer}>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to='/reportslist'>BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM AMOUNT</Title>
-      <PinkLine></PinkLine>
+      <PinkLine />
       <div className="SelectAmount">
-        <h5 className="h5select">Here's a preview of your CSV.</h5>
+        <h5 className="h5select">Here&apos;s a preview of your CSV.</h5>
         <h6 className="h6select">I think I found the <span className="extraBold">amount</span> row <span className="highlightedCell">below</span>.</h6>
         <h6 className="h6select">Can you double check by tapping on the <span className="extraBold">amount</span> row and confirming?</h6>
-        <hr/>
+        <hr />
 
         <div className="exampleTableDiv">
           <table className="exampleTable">
             <tbody>
               <tr>
-                <td className="cell "></td>
-                <td className="cell "></td>
-                <td className="cell "></td>
-                <td className="cell "></td>
-                <td className="cell highlightedCell"></td>
+                <td className="cell " />
+                <td className="cell " />
+                <td className="cell " />
+                <td className="cell " />
+                <td className="cell highlightedCell" />
               </tr>
               <tr>
                 <td className="cell ">Date</td>
@@ -43,7 +43,7 @@ function SelectAmount(props){
                 <td className="cell ">12/12/2019</td>
                 <td className="cell ">0057299165236</td>
                 <td className="cell ">Online payment from CHK 135</td>
-                <td className="cell "></td>
+                <td className="cell " />
                 <td className="cell highlightedCell">1000</td>
               </tr>
               <tr>
@@ -57,17 +57,17 @@ function SelectAmount(props){
           </table>
         </div>
 
-      <hr/>
+        <hr />
 
         <Link to="/selectcategory">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
-   
-      <div className="MegQuestionsLocation">
-        <MegQuestions />
-      </div>
 
-    </div>
+        <div className="MegQuestionsLocation">
+          <MegQuestions />
+        </div>
+
+      </div>
       <style>
         {
           `

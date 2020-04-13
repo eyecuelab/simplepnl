@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Demo(){
+function Demo() {
   return (
     <div className="Demo">
       <h6>Demo</h6>

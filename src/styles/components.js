@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, { css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 // import PrimaryButton from 'components/Button/PrimaryButton';
 
 const MainContainer = styled.div`
@@ -57,11 +56,11 @@ const IndexLink = styled.h4`
 `;
 
 export {
-    MainContainer,
-    Title,
-    ConfirmButton,
-    NextButton,
-    PinkLine,
-    CaretLeft,
-    IndexLink,
+  MainContainer,
+  Title,
+  ConfirmButton,
+  NextButton,
+  PinkLine,
+  CaretLeft,
+  IndexLink,
 };

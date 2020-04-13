@@ -1,10 +1,10 @@
 import React from 'react';
 
 function MegIcon() {
-    return (
-          <div className="megPictureDiv">
-          <style>
-            {`
+  return (
+    <div className="megPictureDiv">
+      <style>
+        {`
               .megPictureDiv {
                 margin: auto;
                 background: url("meg.png");
@@ -19,9 +19,9 @@ function MegIcon() {
                 top: 40px;
               }
               `}
-            </style>
-          </div>
-        );
-      }
+      </style>
+    </div>
+  );
+}
 
 export default MegIcon;

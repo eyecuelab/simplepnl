@@ -1,12 +1,11 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-function MegHeader(props){
-
+function MegHeader() {
   return (
     <div className="megHeader">
       <div className="megPictureDiv">
-        <div className="megBubble">I'm Meg!
+        <div className="megBubble">I&apos;m Meg!
         </div>
       </div>
 
@@ -45,11 +44,11 @@ function MegHeader(props){
 
 
           `}
-        </style>
+      </style>
 
 
-      </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default MegHeader;
+export default MegHeader;

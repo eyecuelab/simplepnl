@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+// import { Link } from 'react-router-dom';
 import MegHeader from './MegHeader';
-import { Link } from 'react-router-dom';
 import OAuth from './OAuth';
 
-function Home(props) {
+function Home({ currentUser }) {
   const homeContainer = {
     backgroundColor: 'white',
     height: '500px',
@@ -31,21 +31,21 @@ function Home(props) {
   return (
     <div style={homeContainer}>
       <MegHeader />
-      <h1 style={homeTitle}> {props.currentUser ? `Welcome back, ${props.currentUser}!` : "Hello there!"} </h1>
+      <h1 style={homeTitle}> {currentUser ? `Welcome back, ${currentUser}!` : 'Hello there!'} </h1>
       <p style={homeText}>{`
         SIMPLEPNL is a simple tool designed for all of you gig slingers to
         quickly organize your bank statements into different categories. It's
         free to use and it can help you maximize your tax benefits!`}
       </p>
       <div>
-       <OAuth />
+        <OAuth />
       </div>
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.currentUser,
 });
 
 

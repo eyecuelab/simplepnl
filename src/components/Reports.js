@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 
 
-function Reports(props){
+function Reports() {
   return (
     <div className="Reports">
 

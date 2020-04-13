@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import editIcon from './../images/editIcon.png';
+import editIcon from '../images/editIcon.png';
 
-function ReportItem(props){
+function ReportItem() {
+  const year = ((Math.round(Math.random() * 5)) + 2015);
+  const month = ((Math.round(Math.random() * 11)) + 1);
 
-  let year = ((Math.round(Math.random()*5))+2015);
-  let month = ((Math.round(Math.random()*11))+1);
-
-  let percent = ((Math.round(Math.random()*64))+33);
-  let reportId = ('report' + percent);
+  const percent = ((Math.round(Math.random() * 64)) + 33);
+  const reportId = (`report${percent}`);
 
   return (
     <div className="ReportItem">
@@ -18,12 +17,11 @@ function ReportItem(props){
       </div>
       <div className="reportItemStatusBar">
         <div className="reportItemStatus" id={reportId}>
-        <span>{`${percent}% COMPLETE`}</span>
+          <span>{`${percent}% COMPLETE`}</span>
         </div>
       </div>
       <div className="reportItemEdit">
         <span><Link to="/selectcategory"><img className="editIcon" src={editIcon} alt="Edit icon" /></Link></span>
-
 
 
       </div>

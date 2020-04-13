@@ -5,7 +5,7 @@ import MegQuestions from './MegQuestions';
 import ReportItem from './ReportItem';
 
 
-function ReportsList(props){
+function ReportsList() {
   return (
     <div className="ReportsList">
 

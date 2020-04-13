@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function MegQuestions(props){
-
+function MegQuestions() {
   return (
     <div className="MegQuestions">
 
