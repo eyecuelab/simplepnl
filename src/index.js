@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { HashRouter } from 'react-router-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { HashRouter } from 'react-router-dom';
-
-import { createStore } from 'redux';
-import reducer from './reducers/oauth-reducer';
-import { Provider } from 'react-redux';
-
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
