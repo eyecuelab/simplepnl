@@ -1,29 +1,29 @@
 import styled from 'styled-components/macro';
 // import PrimaryButton from 'components/Button/PrimaryButton';
 
-const MainContainer = styled.div `
+const MainContainer = styled.div`
   background-color: #FFFFFF;
   height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
 `;
 
-const Title = styled.h1 `
+const Title = styled.h1`
   padding-left: 2rem;
   font-size: 25px;
   color: #ea475b;
   font-weight: 700;
 `;
 
-const QuestionsLocation = styled.div `
+const QuestionsLocation = styled.div`
   position: absolute;
 `;
 
-const SelectPreview = styled.h5 `
+const SelectPreview = styled.h5`
    padding: 15px;
 `;
 
-const ConfirmButton = styled.button `
+const ConfirmButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
   color: #FFFFFF;;
@@ -31,7 +31,7 @@ const ConfirmButton = styled.button `
   font-weight: 700;
 `;
 
-const NextButton = styled.button `
+const NextButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
   color: #FFFFFF;
@@ -39,7 +39,7 @@ const NextButton = styled.button `
   font-weight: 700;
 `;
 
-const PinkLine = styled.div `
+const PinkLine = styled.div`
   color: #ea475b;
   margin-top: 1rem;
   margin-left: 2rem;
@@ -48,13 +48,13 @@ const PinkLine = styled.div `
   border-top: 1px solid #ea475b;
 `;
 
-const CaretLeft = styled.span `
+const CaretLeft = styled.span`
   color: #ea475b;
   font-size: 25px;
   padding-right: 4px;
 `;
 
-const IndexLink = styled.h4 `
+const IndexLink = styled.h4`
   padding-top: 1rem;
   padding-left: 1rem;
   color: #222222;

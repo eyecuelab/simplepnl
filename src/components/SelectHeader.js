@@ -51,12 +51,12 @@ function SelectHeader() {
           </table>
         </div>
         <hr />
-          <Link to="/selectdate">
-            <ConfirmButton>CONFIRM!</ConfirmButton>
-          </Link>
+        <Link to="/selectdate">
+          <ConfirmButton>CONFIRM!</ConfirmButton>
+        </Link>
         <QuestionsLocation>
           <MegQuestions />
-          </QuestionsLocation>
+        </QuestionsLocation>
       </div>
       <style>
         {

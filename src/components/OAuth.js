@@ -41,7 +41,6 @@ class OAuth extends Component {
 
 
       this.auth2.then(() => {
-        console.log('TRIGGER on init');
         // this.setState({
         //   isSignedIn: this.auth2.isSignedIn.get(),
         // });

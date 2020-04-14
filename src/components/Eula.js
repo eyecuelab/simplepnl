@@ -4,7 +4,7 @@ import MegHeader from './MegHeader';
 import EulaText from './EulaText';
 
 
-function Eula(props) {
+function Eula() {
   return (
     <div className="Eula">
 
@@ -16,7 +16,7 @@ function Eula(props) {
 
       <div className="EulaButtonDiv">
         <Link to="/reports">
-          <button className="EulaButton">
+          <button type="button" className="EulaButton">
             <span className="EulaButtonReady">Ready to </span>
             <span className="EulaButtonGo">GO!</span>
           </button>

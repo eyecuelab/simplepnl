@@ -42,7 +42,6 @@ class App extends React.Component {
 
   render() {
     const { oauthReducer: { isSignedIn } } = this.props;
-    console.log('Apps isSignedIn', isSignedIn);
 
     return (
       <div className="container">
