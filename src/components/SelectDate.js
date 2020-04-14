@@ -50,9 +50,9 @@ function SelectDate() {
           </table>
         </div>
         <hr />
-          <Link to="/selectdescription">
-            <ConfirmButton>CONFIRM!</ConfirmButton>
-          </Link>
+        <Link to="/selectdescription">
+          <ConfirmButton>CONFIRM!</ConfirmButton>
+        </Link>
         <QuestionsLocation>
           <MegQuestions />
         </QuestionsLocation>

@@ -7,11 +7,11 @@ import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink
 function SelectCategory() {
   return (
     <MainContainer>
-     <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM CATEGORY</Title>
       <PinkLine />
       <div className="SelectCategory">
-      <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
+        <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
         <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
 
         <hr />
@@ -70,9 +70,9 @@ function SelectCategory() {
             <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
           </select>
 
-            <Link to="/reportslist">
-             <ConfirmButton>SELECT</ConfirmButton>
-            </Link>
+          <Link to="/reportslist">
+            <ConfirmButton>SELECT</ConfirmButton>
+          </Link>
         </form>
         <QuestionsLocation>
           <MegQuestions />

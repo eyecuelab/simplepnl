@@ -8,7 +8,6 @@ function Header(props) {
   function signOut() {
     const auth2 = window.gapi.auth2.getAuthInstance();
     auth2.signOut().then(() => {
-      console.log('User signed out.');
     });
   }
 
