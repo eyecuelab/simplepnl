@@ -19,12 +19,12 @@ const SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
 class OAuth extends Component {
   constructor(props) {
     super(props);
-    const { isSignedIn } = this.props;
+    // const { isSignedIn } = this.props;
     this.state = {
-      isSignedIn,
+      // isSignedIn: false,
       // access_token: null,
       // currentUser: "",
-      err: null,
+      // err: null,
     };
   }
 
@@ -42,9 +42,9 @@ class OAuth extends Component {
 
       this.auth2.then(() => {
         console.log('TRIGGER on init');
-        this.setState({
-          isSignedIn: this.auth2.isSignedIn.get(),
-        });
+        // this.setState({
+        //   isSignedIn: this.auth2.isSignedIn.get(),
+        // });
         console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
       });
     });
@@ -62,10 +62,10 @@ class OAuth extends Component {
 
   onSuccess() {
     // update local state:
-    this.setState({
-      isSignedIn: true,
-      err: null,
-    });
+    // this.setState({
+    //   isSignedIn: true,
+    //   err: null,
+    // });
 
     // send to Redux store:
     const payload = {
@@ -79,14 +79,23 @@ class OAuth extends Component {
   }
 
   onLoginFailed(err) {
-    this.setState({
-      isSignedIn: false,
-      error: err,
-    });
+    // this.setState({
+    //   isSignedIn: false,
+    //   error: err,
+    // });
+
+    const payload = {
+      access_token: 'error',
+      currentUser: 'error',
+      err,
+      isSignedIn: 'error',
+    };
+    const { dispatch } = this.props;
+    dispatch(setToken(payload));
   }
 
   getContent() {
-    const { isSignedIn } = this.props;
+    const { oauthReducer: { isSignedIn } } = this.props;
     if (isSignedIn) {
       return (
         <div>
@@ -108,7 +117,7 @@ class OAuth extends Component {
           {
             `
               #loginButton {
-                padding-top: 15px;
+                padding: 0px;
                 margin: 0px;
                 border: 0px;
                 border-radius: 5px;

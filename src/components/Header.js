@@ -70,7 +70,7 @@ function Header(props) {
 }
 
 const mapStateToProps = (state) => ({
-  isSignedIn: state.isSignedIn,
+  isSignedIn: state.oauthReducer.isSignedIn,
 });
 
 export default connect(mapStateToProps)(Header);
