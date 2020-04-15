@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import { Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer } from '../styles/components';
+import DisplayHeader from './DisplayHeader';
 
 
 function SelectHeader() {
@@ -16,47 +17,13 @@ function SelectHeader() {
         <h6>Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
         <hr />
-        <div className="exampleTableDiv">
-          <table className="exampleTable">
-            <tbody>
-              <tr>
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell " />
-              </tr>
-              <tr>
-                <td className="cell highlightedCell">Date</td>
-                <td className="cell highlightedCell">Reference Number</td>
-                <td className="cell highlightedCell">Payee</td>
-                <td className="cell highlightedCell">Address</td>
-                <td className="cell highlightedCell">Amount</td>
-              </tr>
-              <tr>
-                <td className="cell ">12/12/2019</td>
-                <td className="cell ">0057299165236</td>
-                <td className="cell ">Online payment from CHK 135</td>
-                <td className="cell " />
-                <td className="cell ">1000</td>
-              </tr>
-              <tr>
-                <td className="cell ">12/19/2019</td>
-                <td className="cell ">E12789355X</td>
-                <td className="cell ">ANA BANNANA RENTAL 092</td>
-                <td className="cell ">NEW YORK, NY</td>
-                <td className="cell ">-75.21</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr />
-        <Link to="/selectdate">
-          <ConfirmButton>CONFIRM!</ConfirmButton>
-        </Link>
+          <DisplayHeader />
+          <Link to="/selectdate">
+            <ConfirmButton>CONFIRM!</ConfirmButton>
+          </Link>
         <QuestionsLocation>
           <MegQuestions />
-        </QuestionsLocation>
+          </QuestionsLocation>
       </div>
       <style>
         {
