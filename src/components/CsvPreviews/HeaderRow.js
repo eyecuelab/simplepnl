@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class DisplayHeader extends Component {
+class HeaderRow extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,22 +17,25 @@ class DisplayHeader extends Component {
         };
     }
 
+    // highlightClass = (id) => {
+    //     this.setState({ selectedItemIndex: id });
+    // };
+
     csvReturn() {
         const {csv} = this.props
         return(
             <table style={table}>
                 <tbody>
                      {
-                      csv.slice(0, 3).map((row, i) =>(
-                               <tr key={i}>
-                                   {
-                                       row.data.map((column,j) =>
-                                   <td style={rows} key={j}>{column}</td>
-                                       )
-                                
-                                   }
-                               </tr>
-                            ))
+                         csv.slice(0, 3).map((row, i) => (
+                            <tr id={`row_${i}`} key={this.newKey++}>
+                              {
+                                row.data.map((column, j) => (
+                                  <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                                ))
+                              }
+                            </tr>
+                          ))
                          }
                     </tbody>
                 </table>
@@ -63,4 +66,4 @@ const mapStateToProps = (state) => ({
     csv: state.csvReducer.payload
 });
 
-export default connect(mapStateToProps)(DisplayHeader)
+export default connect(mapStateToProps)(HeaderRow)

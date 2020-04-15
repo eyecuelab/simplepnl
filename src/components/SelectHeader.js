@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import HeaderRow from './CsvPreviews/HeaderRow';
 import { Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer } from '../styles/components';
-import DisplayHeader from './DisplayHeader';
-
 
 function SelectHeader() {
   return (
@@ -17,7 +16,7 @@ function SelectHeader() {
         <h6>Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
         <hr />
-          <DisplayHeader />
+          <HeaderRow />
           <Link to="/selectdate">
             <ConfirmButton>CONFIRM!</ConfirmButton>
           </Link>
