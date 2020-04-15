@@ -17,13 +17,13 @@ function SelectHeader() {
         <h6>Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
         <hr />
-          <DisplayHeader />
-          <Link to="/selectdate">
-            <ConfirmButton>CONFIRM!</ConfirmButton>
-          </Link>
+        <DisplayHeader />
+        <Link to="/selectdate">
+          <ConfirmButton>CONFIRM!</ConfirmButton>
+        </Link>
         <QuestionsLocation>
           <MegQuestions />
-          </QuestionsLocation>
+        </QuestionsLocation>
       </div>
       <style>
         {
