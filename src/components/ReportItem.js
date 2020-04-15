@@ -2,18 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import editIcon from '../images/editIcon.png';
 
-function ReportItem() {
-  const year = ((Math.round(Math.random() * 5)) + 2015);
-  const month = ((Math.round(Math.random() * 11)) + 1);
-
+function ReportItem(props) {
   const percent = ((Math.round(Math.random() * 64)) + 33);
   const reportId = (`report${percent}`);
+  const { name } = props;
 
   return (
     <div className="ReportItem">
 
       <div className="reportItemHeader">
-        <span>{`SimplePNL-${year}-${month}`}</span>
+        <span>{name}</span>
       </div>
       <div className="reportItemStatusBar">
         <div className="reportItemStatus" id={reportId}>

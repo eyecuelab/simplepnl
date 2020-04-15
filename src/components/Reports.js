@@ -1,29 +1,97 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import ReportItem from './ReportItem';
 import MegQuestions from './MegQuestions';
 
+import { makeDriveApiCall } from '../actions';
 
-function Reports() {
-  return (
-    <div className="Reports">
+class Reports extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
-      <div className="reportsHeader">PNL REPORTS</div>
-      <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
 
-      <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><div className="reportsMiniPlusSign">+</div></Link></div> to start a new report!</div>
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const { accessToken } = this.props;
+    dispatch(makeDriveApiCall(accessToken));
+  }
 
-      <div className="MegQuestionsLocation">
-        <MegQuestions />
+  reportReturn() {
+    const { reports: { reports } } = this.props;
+    console.log(reports.length);
+    if (reports.length < 1) {
+      return (
+        <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!</div>
+      );
+    }
+    return (
+      <div>
+        {reports.map((report) => (
+          <ReportItem
+            name={report.name}
+            id={report.id}
+            kind={report.kind}
+            mimeType={report.mimeType}
+            key={report.id}
+          />
+        )
+        )}
       </div>
+    );
+  }
 
-      <style>
-        {
+  render() {
+    return (
+      <div className="Reports">
+
+        <div className="reportsHeader">PNL REPORTS</div>
+        <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
+
+        {this.reportReturn()}
+
+        <div className="MegQuestionsLocation">
+          <MegQuestions />
+        </div>
+
+        <style>
+          {
           `
+
+          .reportsMiniPlusSign {
+            position: relative;
+            top: -4px;
+            font-weight: 500;
+            color: #ffffff;
+            // font-size: 82px;
+          }
+
+
+          .reportsMiniPlus {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            background-color: #ea475b;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            margin-right: 6px;
+          }
 
           .MegQuestionsLocation {
             position: absolute;
           }
 
+          .reportsDemoSelector {
+            position: absolute;
+            left: 10px;
+
+            float: left;
+          }
           .Reports {
             color: #555555;
             background-color: white;
@@ -53,51 +121,32 @@ function Reports() {
             height: 60px;
             border-radius: 100%;
           }
-
-          .reportsMiniPlus {
-            display: inline-block;
-            position: relative;
-            top: 5px;
-            // left: 90%;
-            background-color: #ea475b;
-            width: 15px;
-            height: 15px;
-            border-radius: 100%;
-            color: white;
-          }
-
-          .reportsMiniPlus a:hover {
-            text-decoration: none;
-          }
-          .reportsPlus a:hover {
-            text-decoration: none;
-          }
-
-          .reportsMiniPlusSign {
-            position: relative;
-            top: -4px;
-            font-weight: 500;
-            color: #ffffff;
-            // font-size: 82px;
-          }
-
           .reportsPlusSign {
             position: relative;
             top: -32px;
             font-weight: 200;
-            color: #ffffff;
+            color: #e9f5fb;
             font-size: 82px;
           }
 
-          .pink {
-            color: #ea475b;
+          .reportsPlus a:hover {
+            text-decoration: none;
           }
 
           `
         }
-      </style>
-    </div>
-  );
+        </style>
+      </div>
+    );
+  }
 }
 
-export default Reports;
+
+// ...state,
+const mapStateToProps = (state) => ({
+  accessToken: state.oauthReducer.access_token,
+  reports: state.reportsReducer,
+});
+
+
+export default connect(mapStateToProps)(Reports);

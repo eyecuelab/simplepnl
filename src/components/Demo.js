@@ -7,7 +7,7 @@ function Demo() {
       <h6>Demo</h6>
       <p><Link to="/">~ root</Link></p>
       <p><Link to="/eula">- EULA</Link></p>
-      <p><Link to="/reports">- Reports (none)</Link></p>
+      <p><Link to="/reports">- Reports</Link></p>
       <p><Link to="/newpnl">- New PNL</Link></p>
       <p><Link to="/selectheader">- Select Header</Link></p>
       <p><Link to="/selectdate">- Select Date</Link></p>
@@ -15,7 +15,7 @@ function Demo() {
       <p><Link to="/selectamount">- Select Amount</Link></p>
       <p><Link to="/selectcategory">- Select Category</Link></p>
       <p><Link to="/help">- Help</Link></p>
-      <p><Link to="/reportslist">- Reports (List)</Link></p>
+      <p><Link to="/reportslist">- Reports (DISCONTINUED)</Link></p>
 
       <style>
         {
@@ -48,7 +48,7 @@ function Demo() {
             left: 0;
 
             width: 175px;
-            height: 300px;
+            height: 320px;
             overflow: hidden;
             font-size: 12px;
             font-weight: 600;
