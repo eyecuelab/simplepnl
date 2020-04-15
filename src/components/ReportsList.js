@@ -12,7 +12,7 @@ function ReportsList() {
       <div className="reportsHeader">PNL REPORTS</div>
       <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
 
-      <ReportItem />
+      <p>PAGE MERGED INTO REPORTS</p>
       <ReportItem />
       <ReportItem />
       <ReportItem />
