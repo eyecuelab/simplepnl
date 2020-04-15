@@ -34,7 +34,7 @@ class DisplayHeader extends Component {
       <table style={table}>
         <tbody>
           {
-              csv.slice(0, 3).map((row, i) => (
+              csv.slice(0, 4).map((row, i) => (
                 <tr id={`row_${i}`} key={this.newKey++}>
                   {
                     row.data.map((column, j) => (
@@ -62,6 +62,7 @@ class DisplayHeader extends Component {
 
 const table = {
   marginBottom: '50px',
+  border: '1px solid black',
 };
 
 const rows = {

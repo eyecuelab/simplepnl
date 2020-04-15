@@ -17,9 +17,9 @@ function MegQuestions() {
           .MegQuestions {
             color: #222222;
             text-align: center;
-            position: absolute;
-            left: 25%;
-            top: 66%;
+            position: relative;
+            left: -90px;
+            bottom: 50px;
           }
 
 

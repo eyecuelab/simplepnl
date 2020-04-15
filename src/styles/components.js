@@ -15,8 +15,10 @@ const Title = styled.h1`
   font-weight: 700;
 `;
 
-const QuestionsLocation = styled.div`
+const MegQuestionsLocation = styled.div`
   position: absolute;
+  bottom: 180px;
+  left: 30%;
 `;
 
 const SelectPreview = styled.h5`
@@ -29,6 +31,7 @@ const ConfirmButton = styled.button`
   color: #FFFFFF;;
   padding: 8px 60px;
   font-weight: 700;
+  margin: 20px;
 `;
 
 const NextButton = styled.button`
@@ -37,6 +40,7 @@ const NextButton = styled.button`
   color: #FFFFFF;
   padding: 8px 60px;
   font-weight: 700;
+  margin: 20px;
 `;
 
 const PinkLine = styled.div`
@@ -66,7 +70,7 @@ const IndexLink = styled.h4`
 export {
   MainContainer,
   Title,
-  QuestionsLocation,
+  MegQuestionsLocation,
   ConfirmButton,
   NextButton,
   PinkLine,
