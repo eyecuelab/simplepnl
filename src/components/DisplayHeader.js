@@ -1,53 +1,66 @@
-// import React from 'react';
-// import Papa from 'papaparse';
-// import {withRouter} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// class DataController extends React.Component {
 
-//     constructor(props) {
-//         super(props);
+class DisplayHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // reportName: null,
+            // headerRow: null,
+            // dateColumn: null,
+            // descriptionColumn: null,
+            // twoAmountCoulumns: false,
+            // amountColumn: null,
+            // creditColumn: null,
+            // debitColumn: null,
+        };
+    }
 
-//         this.state = {
-//             data: []
-//         };
+    csvReturn() {
+        const {csv} = this.props
+        return(
+            <table style={table}>
+                <tbody>
+                     {
+                      csv.slice(0, 3).map((row, i) =>(
+                               <tr key={i}>
+                                   {
+                                       row.data.map((column,j) =>
+                                   <td style={rows} key={j}>{column}</td>
+                                       )
+                                
+                                   }
+                               </tr>
+                            ))
+                         }
+                    </tbody>
+                </table>
+        )
+    }
 
-//         this.getData = this.getData.bind(this);
-//     }
 
-//     componentWillMount() {
-//         this.getCsvData();
-//     }
+    render() {
+        return (
+            <div>
+                {this.csvReturn()}
+            </div>
+        );
+    }
+}
 
-//     fetchCsv() {
-//         return fetch('/data/data.csv').then(function (response) {
-//             let reader = response.body.getReader();
-//             let decoder = new TextDecoder('utf-8');
+const table = {
+    marginBottom: '50px'
+}
 
-//             return reader.read().then(function (result) {
-//                 return decoder.decode(result.value);
-//             });
-//         });
-//     }
+const rows = {
+    borderBottom: '1px solid rgba(0,0,0,.1)',
+    padding: '5px',
+    fontSize: '15px'
+}
 
-//     getData(result) {
-//         this.setState({data: result.data});
-//     }
+const mapStateToProps = (state) => ({
+    csv: state.csvReducer.payload
+});
 
-//     async getCsvData() {
-//         let csvData = await this.fetchCsv();
-
-//         Papa.parse(csvData, {
-//             complete: this.getData
-//         });
-//     }
-
-//     render() {
-//         return (
-//             <section className="data-controller">
-//                 ...
-//             </section>
-//         );
-//     }
-// }
-
-// export default withRouter(DataController);
+export default connect(mapStateToProps)(DisplayHeader)
