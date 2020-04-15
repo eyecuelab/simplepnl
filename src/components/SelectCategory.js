@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
-import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 
 function SelectCategory() {
@@ -74,10 +74,10 @@ function SelectCategory() {
             <ConfirmButton>SELECT</ConfirmButton>
           </Link>
         </form>
-        <QuestionsLocation>
-          <MegQuestions />
-        </QuestionsLocation>
       </div>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
       <style>
         {
           `

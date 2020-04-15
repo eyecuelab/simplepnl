@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
-import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 function SelectDate() {
   return (
@@ -53,10 +53,10 @@ function SelectDate() {
         <Link to="/selectdescription">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
-        <QuestionsLocation>
-          <MegQuestions />
-        </QuestionsLocation>
       </div>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
       <style>
         {
           `
