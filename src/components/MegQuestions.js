@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 function MegQuestions() {
   return (
     <div className="MegQuestions">
-
       <Link to="/help">
         <div className="megPictureDiv">
           <div className="megBubble">Click on me if you have any questions!
@@ -19,9 +18,12 @@ function MegQuestions() {
             color: #222222;
             text-align: center;
             position: absolute;
-            left: -70px;
-            top: 5px;
+            left: 25%;
+            top: 66%;
           }
+
+
+
 
           .MegQuestions a:hover {
             text-decoration: none;
