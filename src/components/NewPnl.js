@@ -32,13 +32,6 @@ function NewPnl() {
     color: '#D7D6D6',
   };
 
-  // const dragDrop = {
-  //   padding: '5rem',
-  //   fontWeight: '700',
-  //   color: '#D7D6D6',
-  //   marginTop: '1rem',
-  // };
-
 
   return (
     <MainContainer>

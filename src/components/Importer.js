@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { CSVReader } from 'react-papaparse';
 import { loadCSV } from '../actions';
 
+
 class Importer extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +35,11 @@ class Importer extends Component {
     console.log('---------------------------');
   };
 
+
   render() {
     return (
       <CSVReader
+        style={importer}
         onDrop={this.handleOnDrop}
         onError={this.handleOnError}
         noClick
@@ -48,6 +51,10 @@ class Importer extends Component {
     );
   }
 }
+
+const importer = {
+  marginBottom: '50px',
+};
 
 const mapStateToProps = (state) => ({
   ...state,
