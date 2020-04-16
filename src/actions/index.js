@@ -1,14 +1,20 @@
 import * as types from '../constants/ActionTypes';
 
+// =====
+
 export const setToken = (payload) => ({
   type: types.SET_TOKEN,
   payload,
 });
 
+// =====
+
 export const loadCSV = (payload) => ({
   type: types.LOAD_CSV,
   payload,
 });
+
+// =====
 
 export const driveRequestReports = () => ({
   type: types.DRIVE_REQUEST_REPORTS,
@@ -40,5 +46,47 @@ export const makeDriveApiCall = (props) => (dispatch) => {
       })
     .catch((error) => {
       dispatch(driveGetReportsFailure(error));
+    });
+};
+
+// =====
+
+export const sheetsPostCreate = () => ({
+  type: types.SHEETS_POST_CREATE,
+});
+
+export const sheetsPostCreateFailure = (error) => ({
+  type: types.SHEETS_POST_CREATE_FAILURE,
+  error,
+});
+
+export const sheetsPostCreateSuccess = (reports) => ({
+  type: types.SHEETS_POST_CREATE_SUCCESS,
+  reports,
+});
+
+export const makeSheetsApiPost = (props) => (dispatch) => {
+  // TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!
+  const temp = new Date();
+  dispatch(sheetsPostCreate);
+  return fetch('https://sheets.googleapis.com/v4/spreadsheets?alt=json', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${props}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      properties: {
+        title: `SimplePnL: ${temp.toISOString().slice(0, 10)} ${temp.getHours()}:${temp.getMinutes()}`,
+      },
+    }),
+  })
+    .then((response) => response.json())
+    .then(
+      (jsonifiedResponse) => {
+        dispatch(sheetsPostCreateSuccess(jsonifiedResponse.files));
+      })
+    .catch((error) => {
+      dispatch(sheetsPostCreateFailure(error));
     });
 };

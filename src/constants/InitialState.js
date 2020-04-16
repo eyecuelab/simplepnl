@@ -6,9 +6,8 @@ export const initialState = {
     err: null,
     access_token: null,
   },
-  csv: {
-
-  },
+  csv: {},
+  sheets: {},
   reports: {
     isLoading: false,
     reports: [],
