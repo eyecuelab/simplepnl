@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class DateRow extends Component {
+class DateColumn extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => ({
     csv: state.csvReducer.payload
 });
 
-export default connect(mapStateToProps)(DateRow)
+export default connect(mapStateToProps)(DateColumn)

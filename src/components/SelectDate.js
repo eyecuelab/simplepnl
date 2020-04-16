@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
-import DateRow from './CsvPreviews/DateRow';
+import DateColumn from './CsvPreviews/DateColumn';
 import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 function SelectDate() {
@@ -16,7 +16,7 @@ function SelectDate() {
         <h6>Can you double check by tapping on the <span className="extraBold">date</span> row and confirming?</h6>
 
         <hr />
-        <DateRow />
+        <DateColumn />
         <Link to="/selectdescription">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
