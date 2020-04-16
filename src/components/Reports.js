@@ -28,12 +28,12 @@ class Reports extends React.Component {
     if (reports.length < 1) {
       return (
         <div className="reportsBodyPadding reportsBodyPaddingText">
-          <p>
+          <h6>
             It looks like you are ready to start!
-          </p>
-          <p>
+          </h6>
+          <h5>
             Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!
-          </p>
+          </h5>
         </div>
       );
     }
@@ -57,7 +57,7 @@ class Reports extends React.Component {
 
   render() {
     return (
-      <MainContainer>
+      <MainContainer className="MainContainer">
         <div className="reportsTitlePadding">
 
           <Title>REPORTS</Title>
@@ -89,7 +89,7 @@ class Reports extends React.Component {
             .reportsMiniPlusSign {
               position: relative;
               top: -4px;
-              left: 3px;
+              left: 0px;
               font-weight: 500;
               color: #ffffff;
               // font-size: 82px;

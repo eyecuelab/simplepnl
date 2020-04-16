@@ -25,7 +25,7 @@ function Home({ currentUser }) {
   };
 
   return (
-    <MainContainer>
+    <MainContainer className="MainContainer">
       <MegHeader />
       <h1 style={homeTitle}>
         {' '}
