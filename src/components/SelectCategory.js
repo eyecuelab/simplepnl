@@ -70,7 +70,7 @@ function SelectCategory() {
             <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
           </select>
 
-          <Link to="/reportslist">
+          <Link to="/reports">
             <ConfirmButton>SELECT</ConfirmButton>
           </Link>
         </form>
