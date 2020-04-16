@@ -7,7 +7,7 @@ import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, Ma
 function SelectHeader() {
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM HEADER</Title>
       <PinkLine />
       <div className="SelectHeader">
@@ -16,11 +16,11 @@ function SelectHeader() {
         <h6>Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
         <hr />
-          <HeaderRow />
-          <Link to="/selectdate">
-            <ConfirmButton>CONFIRM!</ConfirmButton>
-          </Link>
-       
+        <HeaderRow />
+        <Link to="/selectdate">
+          <ConfirmButton>CONFIRM!</ConfirmButton>
+        </Link>
+
       </div>
       <MegQuestionsLocation>
         <MegQuestions />

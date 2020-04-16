@@ -25,16 +25,20 @@ class Reports extends React.Component {
 
   reportReturn() {
     const { reports: { reports } } = this.props;
-    console.log(reports.length);
     if (reports.length < 1) {
       return (
-        <div>
-          It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!
+        <div className="reportsBodyPadding reportsBodyPaddingText">
+          <p>
+            It looks like you are ready to start!
+          </p>
+          <p>
+            Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!
+          </p>
         </div>
       );
     }
     return (
-      <div>
+      <div className="reportsBodyPadding">
         {
           reports.map((report) => (
             <ReportItem
@@ -54,7 +58,7 @@ class Reports extends React.Component {
   render() {
     return (
       <MainContainer>
-        <div className="reportsPadding">
+        <div className="reportsTitlePadding">
 
           <Title>REPORTS</Title>
           <PinkLine />
@@ -70,13 +74,22 @@ class Reports extends React.Component {
         <style>
           {
             `
-            .reportsPadding {
-              padding: 2rem;
+            .reportsBodyPadding {
+              padding: 0px 2rem;
+            }
+
+            .reportsBodyPaddingText {
+                text-align: center;
+            }
+
+            .reportsTitlePadding {
+              padding-top: 24px;
             }
 
             .reportsMiniPlusSign {
               position: relative;
               top: -4px;
+              left: 3px;
               font-weight: 500;
               color: #ffffff;
               // font-size: 82px;
@@ -91,7 +104,7 @@ class Reports extends React.Component {
               width: 16px;
               height: 16px;
               border-radius: 100%;
-              margin-right: 6px;
+              margin-right: 3px;
             }
 
             .MegQuestionsLocation {
@@ -118,7 +131,7 @@ class Reports extends React.Component {
             .reportsPlus{
               position: relative;
               top: -32px;
-              left: 90%;
+              left: 80%;
               background-color: #ea475b;
               width: 60px;
               height: 60px;

@@ -6,7 +6,7 @@ import { Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmBut
 function SelectDescription() {
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM DESCRIPTION</Title>
       <PinkLine />
       <div className="SelectDescription">
