@@ -1,35 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
-class DisplayHeader extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // reportName: null,
-      // headerRow: null,
-      // dateColumn: null,
-      // descriptionColumn: null,
-      // twoAmountCoulumns: false,
-      // amountColumn: null,
-      // creditColumn: null,
-      // debitColumn: null,
-    };
-    this.newKey = 0;
-  }
-
-  csvReturn() {
-    const { csv } = this.props;
-    if (!csv) {
-      return (
-        <div>
-          <h5>
-            Whoops forgot to upload a CSV...<br /> We better add a check for that!
-          </h5>
-          <hr />
-        </div>
-      );
+class HeaderRow extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // reportName: null,
+            // headerRow: null,
+            // dateColumn: null,
+            // descriptionColumn: null,
+            // twoAmountCoulumns: false,
+            // amountColumn: null,
+            // creditColumn: null,
+            // debitColumn: null,
+        };
+        this.newKey = 0;
     }
+
+    // highlightClass = (id) => {
+    //     this.setState({ selectedItemIndex: id });
+    // };
+
+    csvReturn() {
+        const { csv } = this.props;
+        if (!csv) {
+          return (
+            <div>
+              <h5>
+                Whoops forgot to upload a CSV...<br /> We better add a check for that!
+              </h5>
+              <hr />
+            </div>
+          );
+        }
+
     return (
       <table style={table}>
         <tbody>
@@ -62,7 +66,6 @@ class DisplayHeader extends Component {
 
 const table = {
   marginBottom: '50px',
-  border: '1px solid black',
 };
 
 const rows = {
@@ -75,4 +78,4 @@ const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
 });
 
-export default connect(mapStateToProps)(DisplayHeader);
+export default connect(mapStateToProps)(HeaderRow)

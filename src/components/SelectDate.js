@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import DateColumn from './CsvPreviews/DateColumn';
 import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 function SelectDate() {
@@ -15,41 +16,7 @@ function SelectDate() {
         <h6>Can you double check by tapping on the <span className="extraBold">date</span> row and confirming?</h6>
 
         <hr />
-        <div className="exampleTableDiv">
-          <table className="exampleTable">
-            <tbody>
-              <tr>
-                <td className="cell highlightedCell" />
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell " />
-              </tr>
-              <tr>
-                <td className="cell highlightedCell">Date</td>
-                <td className="cell ">Reference Number</td>
-                <td className="cell ">Payee</td>
-                <td className="cell ">Address</td>
-                <td className="cell ">Amount</td>
-              </tr>
-              <tr>
-                <td className="cell highlightedCell">12/12/2019</td>
-                <td className="cell ">0057299165236</td>
-                <td className="cell ">Online payment from CHK 135</td>
-                <td className="cell " />
-                <td className="cell ">1000</td>
-              </tr>
-              <tr>
-                <td className="cell highlightedCell">12/19/2019</td>
-                <td className="cell ">E12789355X</td>
-                <td className="cell ">ANA BANNANA RENTAL 092</td>
-                <td className="cell ">NEW YORK, NY</td>
-                <td className="cell ">-75.21</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr />
+        <DateColumn />
         <Link to="/selectdescription">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
