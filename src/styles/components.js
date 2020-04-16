@@ -76,7 +76,8 @@ const TextInput = styled.input`
   margin-bottom: 1rem;
   margin-top: 2rem;
   text-align: center;
-  
+  font-weight: 600;
+  color: #555555;
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

@@ -7,8 +7,6 @@ import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexL
 import { makeSheetsApiPost } from '../actions';
 
 function SelectAmount(props) {
-  console.log(props);
-
   const handleNewSheet = () => {
     const { dispatch } = props;
     const { accessToken } = props;
@@ -64,7 +62,7 @@ function SelectAmount(props) {
 
         <hr />
 
-        <Link to="/selectcategory">
+        <Link to="/reports">
           <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
         </Link>
       </div>

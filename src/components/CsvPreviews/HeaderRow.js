@@ -2,47 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class HeaderRow extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            // reportName: null,
-            // headerRow: null,
-            // dateColumn: null,
-            // descriptionColumn: null,
-            // twoAmountCoulumns: false,
-            // amountColumn: null,
-            // creditColumn: null,
-            // debitColumn: null,
-        };
-        this.newKey = 0;
+  constructor(props) {
+    super(props);
+    this.state = {
+      // reportName: null,
+      // headerRow: null,
+      // dateColumn: null,
+      // descriptionColumn: null,
+      // twoAmountCoulumns: false,
+      // amountColumn: null,
+      // creditColumn: null,
+      // debitColumn: null,
+    };
+    this.headerKey = 0;
+  }
+
+  // highlightClass = (id) => {
+  //     this.setState({ selectedItemIndex: id });
+  // };
+
+  csvReturn() {
+    const { csv } = this.props;
+    if (!csv) {
+      return (
+        <div>
+          <h5>
+            Whoops forgot to upload a CSV...<br /> We better add a check for that!
+          </h5>
+          <hr />
+        </div>
+      );
     }
-
-    // highlightClass = (id) => {
-    //     this.setState({ selectedItemIndex: id });
-    // };
-
-    csvReturn() {
-        const { csv } = this.props;
-        if (!csv) {
-          return (
-            <div>
-              <h5>
-                Whoops forgot to upload a CSV...<br /> We better add a check for that!
-              </h5>
-              <hr />
-            </div>
-          );
-        }
 
     return (
       <table style={table}>
         <tbody>
           {
               csv.slice(0, 4).map((row, i) => (
-                <tr id={`row_${i}`} key={this.newKey++}>
+                <tr id={`row_${i}`} key={this.headerKey++}>
                   {
                     row.data.map((column, j) => (
-                      <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                      <td id={`row_${i}-column_${j}`} style={rows} key={this.headerKey++}>{column}</td>
                     ))
 
                   }
@@ -78,4 +78,4 @@ const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
 });
 
-export default connect(mapStateToProps)(HeaderRow)
+export default connect(mapStateToProps)(HeaderRow);
