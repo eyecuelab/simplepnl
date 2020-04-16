@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import ReportItem from './ReportItem';
 import MegQuestions from './MegQuestions';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine } from '../styles/components';
+
 
 import { makeDriveApiCall } from '../actions';
 
@@ -26,117 +28,120 @@ class Reports extends React.Component {
     console.log(reports.length);
     if (reports.length < 1) {
       return (
-        <div>It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!</div>
+        <div>
+          It looks like you are ready to start! Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!
+        </div>
       );
     }
     return (
       <div>
-        {reports.map((report) => (
-          <ReportItem
-            name={report.name}
-            id={report.id}
-            kind={report.kind}
-            mimeType={report.mimeType}
-            key={report.id}
-          />
-        )
-        )}
+        {
+          reports.map((report) => (
+            <ReportItem
+              name={report.name}
+              id={report.id}
+              kind={report.kind}
+              mimeType={report.mimeType}
+              key={report.id}
+            />
+          )
+          )
+      }
       </div>
     );
   }
 
   render() {
     return (
-      <div className="Reports">
+      <MainContainer>
+        <div className="reportsPadding">
 
-        <div className="reportsHeader">PNL REPORTS</div>
-        <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
+          <Title>REPORTS</Title>
+          <PinkLine />
+          <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
 
-        {this.reportReturn()}
+          {this.reportReturn()}
 
-        <div className="MegQuestionsLocation">
-          <MegQuestions />
+          <MegQuestionsLocation>
+            <MegQuestions />
+          </MegQuestionsLocation>
         </div>
 
         <style>
           {
-          `
+            `
+            .reportsPadding {
+              padding: 2rem;
+            }
 
-          .reportsMiniPlusSign {
-            position: relative;
-            top: -4px;
-            font-weight: 500;
-            color: #ffffff;
-            // font-size: 82px;
+            .reportsMiniPlusSign {
+              position: relative;
+              top: -4px;
+              font-weight: 500;
+              color: #ffffff;
+              // font-size: 82px;
+            }
+
+
+            .reportsMiniPlus {
+              display: inline-block;
+              position: relative;
+              top: 5px;
+              background-color: #ea475b;
+              width: 16px;
+              height: 16px;
+              border-radius: 100%;
+              margin-right: 6px;
+            }
+
+            .MegQuestionsLocation {
+              position: absolute;
+            }
+
+            .reportsDemoSelector {
+              position: absolute;
+              left: 10px;
+
+              float: left;
+            }
+
+            .reportsHeader {
+              // padding-top: 20px;
+              margin: 0px;
+              font-size: 25px;
+              font-weight: 700;
+              color: #ea475b;
+              text-align: left;
+              border-bottom: 2px solid #ea475b;
+            }
+
+            .reportsPlus{
+              position: relative;
+              top: -32px;
+              left: 90%;
+              background-color: #ea475b;
+              width: 60px;
+              height: 60px;
+              border-radius: 100%;
+            }
+
+            .reportsPlusSign {
+              position: relative;
+              top: -32px;
+              left: 6px;
+              font-weight: 200;
+              color: #e9f5fb;
+              font-size: 82px;
+            }
+
+            .reportsPlus a:hover {
+              text-decoration: none;
+            }
+
+            `
           }
-
-
-          .reportsMiniPlus {
-            display: inline-block;
-            position: relative;
-            top: 5px;
-            background-color: #ea475b;
-            width: 16px;
-            height: 16px;
-            border-radius: 100%;
-            margin-right: 6px;
-          }
-
-          .MegQuestionsLocation {
-            position: absolute;
-          }
-
-          .reportsDemoSelector {
-            position: absolute;
-            left: 10px;
-
-            float: left;
-          }
-          .Reports {
-            color: #555555;
-            background-color: white;
-            border-radius: 5px;
-            // overflow: hidden;
-            min-height: 20vh;
-            text-align: center;
-            padding: 20px 50px;
-          }
-
-          .reportsHeader {
-            // padding-top: 20px;
-            margin: 0px;
-            font-size: 25px;
-            font-weight: 700;
-            color: #ea475b;
-            text-align: left;
-            border-bottom: 2px solid #ea475b;
-          }
-
-          .reportsPlus{
-            position: relative;
-            top: -32px;
-            left: 90%;
-            background-color: #ea475b;
-            width: 60px;
-            height: 60px;
-            border-radius: 100%;
-          }
-          .reportsPlusSign {
-            position: relative;
-            top: -32px;
-            font-weight: 200;
-            color: #e9f5fb;
-            font-size: 82px;
-          }
-
-          .reportsPlus a:hover {
-            text-decoration: none;
-          }
-
-          `
-        }
         </style>
-      </div>
+      </MainContainer>
     );
   }
 }

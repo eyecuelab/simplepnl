@@ -3,19 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+
+
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/index';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+// STABLE STORE:
+// import { createStore, applyMiddleware } from 'redux';
+// const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+
+// TEST STORE FOR REDUXDEVTOOLS:
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(thunkMiddleware)));
+
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-// function tick() {
-
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,9 +33,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// }
-// setInterval(tick, 1000);
 
 // console.log('store.getState(): ', store.getState());
 unsubscribe();

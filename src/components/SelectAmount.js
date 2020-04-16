@@ -1,9 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
-import { MainContainer, Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
-function SelectAmount() {
+import { makeSheetsApiPost } from '../actions';
+
+function SelectAmount(props) {
+  console.log(props);
+
+  const handleNewSheet = () => {
+    const { dispatch } = props;
+    const { accessToken } = props;
+    dispatch(makeSheetsApiPost(accessToken));
+  };
+
+
   return (
     <MainContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
@@ -53,12 +65,12 @@ function SelectAmount() {
         <hr />
 
         <Link to="/selectcategory">
-          <ConfirmButton>CONFIRM!</ConfirmButton>
+          <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
         </Link>
-        <QuestionsLocation>
-          <MegQuestions />
-        </QuestionsLocation>
       </div>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
       <style>
         {
           `
@@ -104,4 +116,10 @@ function SelectAmount() {
   );
 }
 
-export default SelectAmount;
+
+const mapStateToProps = (state) => ({
+  accessToken: state.oauthReducer.access_token,
+  sheets: state.sheetsReducer,
+});
+
+export default connect(mapStateToProps)(SelectAmount);

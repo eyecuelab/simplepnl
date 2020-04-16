@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton, TextInput } from '../styles/components';
+import MegQuestions from './MegQuestions';
+import { MainContainer, Title, PinkLine, CaretLeft, IndexLink, NextButton, TextInput, MegQuestionsLocation  } from '../styles/components';
 import Importer from './Importer';
 
 function NewPnl() {
@@ -24,6 +25,9 @@ function NewPnl() {
         <Importer />
         <Link to="/selectheader"><NextButton>Next!</NextButton></Link>
       </div>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
     </MainContainer>
 
   );

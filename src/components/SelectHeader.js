@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import HeaderRow from './CsvPreviews/HeaderRow';
-import { Title, QuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer } from '../styles/components';
+import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer, MegQuestionsLocation } from '../styles/components';
 
 function SelectHeader() {
   return (
@@ -20,10 +20,11 @@ function SelectHeader() {
           <Link to="/selectdate">
             <ConfirmButton>CONFIRM!</ConfirmButton>
           </Link>
-        <QuestionsLocation>
-          <MegQuestions />
-          </QuestionsLocation>
+       
       </div>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
       <style>
         {
           `
