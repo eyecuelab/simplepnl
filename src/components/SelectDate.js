@@ -7,7 +7,7 @@ import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexL
 function SelectDate() {
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM DATE</Title>
       <PinkLine />
       <div className="SelectDate">
