@@ -5,6 +5,7 @@ class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.newCategoryKey = 0;
   }
 
   csvReturn() {
@@ -25,10 +26,10 @@ class Category extends Component {
         <tbody>
           {
                   csv.slice(0, 3).map((row, i) => (
-                    <tr id={`row_${i}`} key={this.newKey++}>
+                    <tr id={`row_${i}`} key={this.newCategoryKey++}>
                       {
                         row.data.map((column, j) => (
-                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
                         ))
 
                       }
@@ -43,6 +44,7 @@ class Category extends Component {
   render() {
     return (
       <div>
+        <h6>`DEV NOTE: nix Category.js and revert to SelectCategory.js component w/api call.`</h6>
         {this.csvReturn()}
       </div>
     );

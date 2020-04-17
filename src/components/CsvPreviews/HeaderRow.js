@@ -8,7 +8,7 @@ class HeaderRow extends Component {
     this.state = {
     };
     this.handleClick = this.handleClick.bind(this);
-    this.newKey = 0;
+    this.newHeaderKey = 0;
   }
 
   handleClick(event) {
@@ -49,7 +49,7 @@ class HeaderRow extends Component {
             csv.slice(0, 3).map((row, i) => (
               <tr
                 id={`row_${i}`}
-                key={this.newKey++}
+                key={this.newHeaderKey++}
               >
                 {
                   row.data.map((column, j) => (
@@ -58,14 +58,14 @@ class HeaderRow extends Component {
                       role="presentation"
                       className={`row_${i} column_${j} tableCell`}
                       // style={{backgroundColor: this.state.highlightColor}}
-                      key={this.newKey++}
+                      key={this.newHeaderKey++}
                     >
                       <button
                         type="button"
                         style={{ border: 'none', backgroundColor: 'white' }}
                         className={`row_${i} column_${j} tableCell`}
                         onClick={this.handleClick}
-                        onKeyDown={this.handleClick}
+                        onKeyPress={this.handleClick}
                       >
                         {column}
                       </button>
@@ -79,26 +79,6 @@ class HeaderRow extends Component {
         </tbody>
       </table>
 
-    //   <table style={table}>
-    //     <tbody>
-    //       {
-    //           csv.slice(0, 4).map((row, i) => (
-    //             <tr id={`row_${i}`} key={this.newKey++}>
-    //               {
-    //                 row.data.map((column, j) => (
-    //                   <td onClick={() => this.onColumnClick(column, j)}
-    //                       id={`row_${i}-column_${j}`}
-    //                       className={this.state.selectedItemIndex== column.j? 'hover': null}
-    //                       style={rows}
-    //                       key={this.newKey++}>{column}</td>
-    //                 ))
-
-    //               }
-    //             </tr>
-    //           ))
-    //         }
-    //     </tbody>
-    //   </table>
     );
   }
 

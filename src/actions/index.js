@@ -19,6 +19,11 @@ export const setCsvHeader = (payload) => ({
   payload,
 });
 
+export const setCsvAmount = (payload) => ({
+  type: types.SET_CSV_AMOUNT,
+  payload,
+});
+
 // =====
 
 export const driveRequestReports = () => ({
@@ -38,12 +43,12 @@ export const driveGetReportsSuccess = (reports) => ({
 export const makeDriveApiCall = (props) => (dispatch) => {
   dispatch(driveRequestReports);
   return fetch('https://www.googleapis.com/drive/v3/files?orderBy=name%20desc&pageSize=1000&q=name%20contains%20%27SimplePNL%3A%27%20and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.spreadsheet%27andtrashed%3Dfalse', {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${props}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${props}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
@@ -84,17 +89,17 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
   const temp2 = temp1.toISOString();
   dispatch(sheetsPostCreate);
   return fetch('https://sheets.googleapis.com/v4/spreadsheets?alt=json', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${props.accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${props.accessToken}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      properties: {
+        title: `SimplePnL: ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}`,
       },
-      body: JSON.stringify({
-        properties: {
-          title: `SimplePnL: ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}`,
-        },
-      }),
-    })
+    }),
+  })
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
