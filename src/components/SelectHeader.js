@@ -16,11 +16,11 @@ function SelectHeader() {
         <h6>Can you double check by tapping on the <span className="extraBold">header</span> row and confirming?</h6>
 
         <hr />
-          <HeaderRow />
-          <Link to="/selectdate">
-            <ConfirmButton>CONFIRM!</ConfirmButton>
-          </Link>
-       
+        <HeaderRow />
+        <Link to="/selectdate">
+          <ConfirmButton>CONFIRM!</ConfirmButton>
+        </Link>
+
       </div>
       <MegQuestionsLocation>
         <MegQuestions />
@@ -30,27 +30,6 @@ function SelectHeader() {
           `
           .extraBold {
             font-weight: 800;
-          }
-
-          .exampleTableDiv {
-            // position: fixed;
-            // float: left;
-            left: 0px;
-          }
-
-          .exampleTable {
-            margin: auto;
-          }
-
-          .cell {
-            border: 1px ridge black;
-            padding: 3px;
-            min-height: 19px;
-            background-color: white;
-          }
-
-          .highlightedCell {
-            background-color: #C0FFC0;
           }
 
           .SelectHeader {

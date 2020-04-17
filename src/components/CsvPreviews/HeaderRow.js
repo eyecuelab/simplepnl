@@ -2,47 +2,67 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class HeaderRow extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            // reportName: null,
-            // headerRow: null,
-            // dateColumn: null,
-            // descriptionColumn: null,
-            // twoAmountCoulumns: false,
-            // amountColumn: null,
-            // creditColumn: null,
-            // debitColumn: null,
-        };
-        this.newKey = 0;
+  constructor(props) {
+    super(props);
+    this.state = {
+      // row: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+    this.newKey = 0;
+  }
+
+  //   handleClick(e) {
+  //     console.log(e.currentTarget.className)
+  //     const row = e.currentTarget.className.split(' ')
+  //     console.log(row)
+  //     const test = document.querySelector(`.${row[0]}`)
+  //     test.style.color = 'green'
+  //     this.setState({
+  //       headerRow: row[0]
+  //         // column:!this.state.column
+  //     })
+  // }
+
+  // handleClick() {
+  //     this.setState({
+  //         row:!this.state.row
+  //     })
+  // }
+
+  csvReturn() {
+    const { csv } = this.props;
+    if (!csv) {
+      return (
+        <div>
+          <h5>
+            Whoops forgot to upload a CSV...<br /> We better add a check for that!
+          </h5>
+          <hr />
+        </div>
+      );
     }
 
-    // highlightClass = (id) => {
-    //     this.setState({ selectedItemIndex: id });
-    // };
-
-    csvReturn() {
-        const { csv } = this.props;
-        if (!csv) {
-          return (
-            <div>
-              <h5>
-                Whoops forgot to upload a CSV...<br /> We better add a check for that!
-              </h5>
-              <hr />
-            </div>
-          );
-        }
-
     return (
+
       <table style={table}>
         <tbody>
           {
-              csv.slice(0, 4).map((row, i) => (
-                <tr id={`row_${i}`} key={this.newKey++}>
+              csv.slice(0, 3).map((row, i) => (
+                <tr
+                  // onClick={this.handleClick}
+                  // className={this.state.row ? 'rowTrue': "rowFalse"}
+                  id={`row_${i}`}
+                  key={this.newKey++}
+                >
                   {
                     row.data.map((column, j) => (
-                      <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                      <td
+                        id={`row_${i}-column_${j}`}
+                          // className={`row_${i} column_${j}`}
+                        style={rows}
+                        key={this.newKey++}
+                      >{column}
+                      </td>
                     ))
 
                   }
@@ -51,6 +71,27 @@ class HeaderRow extends Component {
             }
         </tbody>
       </table>
+
+    //   <table style={table}>
+    //     <tbody>
+    //       {
+    //           csv.slice(0, 4).map((row, i) => (
+    //             <tr id={`row_${i}`} key={this.newKey++}>
+    //               {
+    //                 row.data.map((column, j) => (
+    //                   <td onClick={() => this.onColumnClick(column, j)}
+    //                       id={`row_${i}-column_${j}`}
+    //                       className={this.state.selectedItemIndex== column.j? 'hover': null}
+    //                       style={rows}
+    //                       key={this.newKey++}>{column}</td>
+    //                 ))
+
+    //               }
+    //             </tr>
+    //           ))
+    //         }
+    //     </tbody>
+    //   </table>
     );
   }
 
@@ -78,4 +119,4 @@ const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
 });
 
-export default connect(mapStateToProps)(HeaderRow)
+export default connect(mapStateToProps)(HeaderRow);
