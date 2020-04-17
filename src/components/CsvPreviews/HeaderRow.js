@@ -43,7 +43,7 @@ class HeaderRow extends Component {
 
     return (
 
-      <table style={table}>
+      <table>
         <tbody>
           {
             csv.slice(0, 3).map((row, i) => (
@@ -69,6 +69,27 @@ class HeaderRow extends Component {
           }
         </tbody>
       </table>
+
+      //   <table style={table}>
+      //     <tbody>
+      //       {
+      //           csv.slice(0, 4).map((row, i) => (
+      //             <tr id={`row_${i}`} key={this.newKey++}>
+      //               {
+      //                 row.data.map((column, j) => (
+      //                   <td onClick={() => this.onColumnClick(column, j)}
+      //                       id={`row_${i}-column_${j}`}
+      //                       className={this.state.selectedItemIndex== column.j? 'hover': null}
+      //                       style={rows}
+      //                       key={this.newKey++}>{column}</td>
+      //                 ))
+
+      //               }
+      //             </tr>
+      //           ))
+      //         }
+      //     </tbody>
+      //   </table>
     );
   }
 
