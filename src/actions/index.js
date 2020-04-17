@@ -14,6 +14,11 @@ export const loadCSV = (payload) => ({
   payload,
 });
 
+export const setCsvHeader = (payload) => ({
+  type: types.SET_CSV_HEADER,
+  payload,
+});
+
 // =====
 
 export const driveRequestReports = () => ({
