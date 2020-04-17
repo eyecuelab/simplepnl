@@ -22,7 +22,9 @@ export default (state = initialState.csv, action) => {
       return returnedTarget;
     }
     case types.SET_CSV_HEADER: {
-      const { payload } = action;
+      const {
+        payload
+      } = action;
       const returnedTarget = {
         ...state,
         csvHeader: payload,
