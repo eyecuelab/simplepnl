@@ -10,7 +10,12 @@ function SelectAmount(props) {
   const handleNewSheet = () => {
     const { dispatch } = props;
     const { accessToken } = props;
-    dispatch(makeSheetsApiPost(accessToken));
+    const test = 'test text';
+    const payload = {
+      test,
+      accessToken,
+    };
+    dispatch(makeSheetsApiPost(payload));
   };
 
 
