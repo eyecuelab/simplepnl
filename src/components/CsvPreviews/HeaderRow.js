@@ -5,21 +5,29 @@ class HeaderRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // reportName: null,
-      // headerRow: null,
-      // dateColumn: null,
-      // descriptionColumn: null,
-      // twoAmountCoulumns: false,
-      // amountColumn: null,
-      // creditColumn: null,
-      // debitColumn: null,
+      // row: true
     };
-    this.headerKey = 0;
+    this.handleClick = this.handleClick.bind(this);
+    this.newKey = 0;
   }
 
-  // highlightClass = (id) => {
-  //     this.setState({ selectedItemIndex: id });
-  // };
+  //   handleClick(e) {
+  //     console.log(e.currentTarget.className)
+  //     const row = e.currentTarget.className.split(' ')
+  //     console.log(row)
+  //     const test = document.querySelector(`.${row[0]}`)
+  //     test.style.color = 'green'
+  //     this.setState({
+  //       headerRow: row[0]
+  //         // column:!this.state.column
+  //     })
+  // }
+
+  // handleClick() {
+  //     this.setState({
+  //         row:!this.state.row
+  //     })
+  // }
 
   csvReturn() {
     const { csv } = this.props;
@@ -35,14 +43,26 @@ class HeaderRow extends Component {
     }
 
     return (
+
       <table style={table}>
         <tbody>
           {
-              csv.slice(0, 4).map((row, i) => (
-                <tr id={`row_${i}`} key={this.headerKey++}>
+              csv.slice(0, 3).map((row, i) => (
+                <tr
+                  // onClick={this.handleClick}
+                  // className={this.state.row ? 'rowTrue': "rowFalse"}
+                  id={`row_${i}`}
+                  key={this.newKey++}
+                >
                   {
                     row.data.map((column, j) => (
-                      <td id={`row_${i}-column_${j}`} style={rows} key={this.headerKey++}>{column}</td>
+                      <td
+                        id={`row_${i}-column_${j}`}
+                          // className={`row_${i} column_${j}`}
+                        style={rows}
+                        key={this.newKey++}
+                      >{column}
+                      </td>
                     ))
 
                   }
@@ -51,6 +71,27 @@ class HeaderRow extends Component {
             }
         </tbody>
       </table>
+
+    //   <table style={table}>
+    //     <tbody>
+    //       {
+    //           csv.slice(0, 4).map((row, i) => (
+    //             <tr id={`row_${i}`} key={this.newKey++}>
+    //               {
+    //                 row.data.map((column, j) => (
+    //                   <td onClick={() => this.onColumnClick(column, j)}
+    //                       id={`row_${i}-column_${j}`}
+    //                       className={this.state.selectedItemIndex== column.j? 'hover': null}
+    //                       style={rows}
+    //                       key={this.newKey++}>{column}</td>
+    //                 ))
+
+    //               }
+    //             </tr>
+    //           ))
+    //         }
+    //     </tbody>
+    //   </table>
     );
   }
 

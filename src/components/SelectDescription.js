@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import DescriptionColumn from './CsvPreviews/DescriptionColumn';
 import { Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, MainContainer } from '../styles/components';
 
 function SelectDescription() {
@@ -15,41 +16,7 @@ function SelectDescription() {
         <h6>Can you double check by tapping on the <span className="extraBold">description</span> row and confirming?</h6>
 
         <hr />
-        <div className="exampleTableDiv">
-          <table className="exampleTable">
-            <tbody>
-              <tr>
-                <td className="cell " />
-                <td className="cell " />
-                <td className="cell highlightedCell" />
-                <td className="cell " />
-                <td className="cell " />
-              </tr>
-              <tr>
-                <td className="cell ">Date</td>
-                <td className="cell ">Reference Number</td>
-                <td className="cell highlightedCell">Payee</td>
-                <td className="cell ">Address</td>
-                <td className="cell ">Amount</td>
-              </tr>
-              <tr>
-                <td className="cell ">12/12/2019</td>
-                <td className="cell ">0057299165236</td>
-                <td className="cell highlightedCell">Online payment from CHK 135</td>
-                <td className="cell " />
-                <td className="cell ">1000</td>
-              </tr>
-              <tr>
-                <td className="cell ">12/19/2019</td>
-                <td className="cell ">E12789355X</td>
-                <td className="cell highlightedCell">ANA BANNANA RENTAL 092</td>
-                <td className="cell ">NEW YORK, NY</td>
-                <td className="cell ">-75.21</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr />
+        <DescriptionColumn />
         <Link to="/selectamount">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
@@ -62,27 +29,6 @@ function SelectDescription() {
           `
           .extraBold {
             font-weight: 800;
-          }
-
-          .exampleTableDiv {
-            // position: fixed;
-            // float: left;
-            left: 0px;
-          }
-
-          .exampleTable {
-            margin: auto;
-          }
-
-          .cell {
-            border: 1px ridge black;
-            padding: 3px;
-            min-height: 19px;
-            background-color: white;
-          }
-
-          .highlightedCell {
-            background-color: #C0FFC0;
           }
 
           .SelectDescription {

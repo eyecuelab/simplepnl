@@ -31,27 +31,6 @@ function SelectDate() {
             font-weight: 800;
           }
 
-          .exampleTableDiv {
-            // position: fixed;
-            // float: left;
-            left: 0px;
-          }
-
-          .exampleTable {
-            margin: auto;
-          }
-
-          .cell {
-            border: 1px ridge black;
-            padding: 3px;
-            min-height: 19px;
-            background-color: white;
-          }
-
-          .highlightedCell {
-            background-color: #C0FFC0;
-          }
-
           .SelectDate {
             color: #555555;
             background-color: white;

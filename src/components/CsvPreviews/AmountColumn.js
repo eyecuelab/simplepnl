@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class DateColumn extends Component {
+class AmountColumn extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
-    this.dateKey = 0;
+    this.state = {};
   }
-
 
   csvReturn() {
     const { csv } = this.props;
@@ -27,17 +24,17 @@ class DateColumn extends Component {
       <table style={table}>
         <tbody>
           {
-              csv.slice(0, 3).map((row, i) => (
-                <tr id={`row_${i}`} key={this.newKey++}>
-                  {
-                    row.data.map((column, j) => (
-                      <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
-                    ))
+                  csv.slice(0, 3).map((row, i) => (
+                    <tr id={`row_${i}`} key={this.newKey++}>
+                      {
+                        row.data.map((column, j) => (
+                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                        ))
 
-                  }
-                </tr>
-              ))
-            }
+                      }
+                    </tr>
+                  ))
+                }
         </tbody>
       </table>
     );
@@ -45,9 +42,9 @@ class DateColumn extends Component {
 
   render() {
     return (
-      <div>
+      <diuv>
         {this.csvReturn()}
-      </div>
+      </diuv>
     );
   }
 }
@@ -66,4 +63,4 @@ const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
 });
 
-export default connect(mapStateToProps)(DateColumn);
+export default connect(mapStateToProps)(AmountColumn);

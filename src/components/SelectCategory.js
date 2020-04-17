@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
+import Category from './CsvPreviews/Category';
 import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 
@@ -15,23 +16,7 @@ function SelectCategory() {
         <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
 
         <hr />
-        <div className="exampleTableDiv">
-          <table className="exampleTable">
-            <tbody>
-              <tr>
-                <td className="cell ">Date</td>
-                <td className="cell ">Description</td>
-                <td className="cell ">Amount</td>
-              </tr>
-              <tr>
-                <td className="cell highlightedCell">12/12/2019</td>
-                <td className="cell highlightedCell">Online payment from CHK 135</td>
-                <td className="cell highlightedCell">1000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <hr />
+        <Category />
         <form>
           <select type="select">
             <option value="Personal">(x) Non-Business Related</option>

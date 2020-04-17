@@ -20,7 +20,7 @@ function NewPnl() {
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>NEW PNL REPORT</Title>
       <PinkLine />
-      <TextInput placeholder="Name your file:" />
+      <TextInput placeholder="Name of Report" />
       <div style={importColumn}>
         <Importer />
         <Link to="/selectheader"><NextButton>Next!</NextButton></Link>
