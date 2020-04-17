@@ -65,6 +65,11 @@ export const sheetsPostCreateSuccess = (reports) => ({
   reports,
 });
 
+export const driveNewSheetCreated = (reports) => ({
+  type: types.DRIVE_NEW_SHEET_CREATED,
+  reports,
+});
+
 export const makeSheetsApiPost = (props) => (dispatch) => {
   // TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!
   const temp = new Date();
@@ -84,7 +89,9 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
-        dispatch(sheetsPostCreateSuccess(jsonifiedResponse.files));
+        console.log('actions/index/jsonifiedResponse', jsonifiedResponse);
+        dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
+        dispatch(driveNewSheetCreated(jsonifiedResponse));
       })
     .catch((error) => {
       dispatch(sheetsPostCreateFailure(error));

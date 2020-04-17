@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 class DateColumn extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
+    this.dateKey = 0;
   }
 
 

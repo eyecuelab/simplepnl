@@ -7,7 +7,7 @@ import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, Ma
 function SelectHeader() {
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
+      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM HEADER</Title>
       <PinkLine />
       <div className="SelectHeader">
