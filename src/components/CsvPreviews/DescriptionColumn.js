@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCsvHeader } from '../../actions';
+import { setCsvDescription } from '../../actions';
 
 class DescriptionColumn extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class DescriptionColumn extends Component {
     const cell = event.currentTarget.className.split(' ')
     const column = cell[1]
     const { dispatch } = this.props;
-    dispatch(setCsvHeader(column));
+    dispatch(setCsvDescription(column));
 
     const tableCells = document.querySelectorAll(".tableCell")
     tableCells.forEach(everyCell => {
@@ -88,7 +88,7 @@ const rows = {
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
-  csvHeader: state.csvHeader,
+  csvDescription: state.csvDescription
 });
 
 export default connect(mapStateToProps)(DescriptionColumn);

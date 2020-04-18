@@ -23,7 +23,7 @@ export default (state = initialState.csv, action) => {
     }
     case types.SET_CSV_HEADER: {
       const {
-        payload
+        payload,
       } = action;
       const returnedTarget = {
         ...state,
@@ -56,11 +56,11 @@ export default (state = initialState.csv, action) => {
 
     case types.SET_CSV_AMOUNT: {
       const {
-        payload
+        payload,
       } = action;
       const returnedTarget = {
         ...state,
-        csvDate: payload,
+        csvAmount: payload,
       };
       return returnedTarget;
     }

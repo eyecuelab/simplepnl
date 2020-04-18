@@ -59,7 +59,7 @@ class AmountColumn extends Component {
                       className={`row_${i} column_${j} tableCell`}
                       style={rows}
                       key={this.newAmountKey++}
-                    >
+                     >
                       <button
                         type="button"
                         style={{ border: 'none', backgroundColor: 'white' }}
@@ -94,11 +94,11 @@ const table = {
   marginBottom: '50px',
 };
 
-const rows = {
-  borderBottom: '1px solid rgba(0,0,0,.1)',
-  padding: '5px',
-  fontSize: '15px',
-};
+// const rows = {
+//   borderBottom: '1px solid rgba(0,0,0,.1)',
+//   padding: '5px',
+//   fontSize: '15px',
+// };
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,

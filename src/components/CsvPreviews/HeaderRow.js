@@ -5,25 +5,26 @@ import { setCsvHeader } from '../../actions';
 class HeaderRow extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
     this.handleClick = this.handleClick.bind(this);
-    this.newKey = 0;
+    this.newHeaderKey = 0;
   }
 
   handleClick(event) {
-    const cell = event.currentTarget.className.split(' ')
-    const row = cell[0]
+    const cell = event.currentTarget.className.split(' ');
+    const row = cell[0];
     const { dispatch } = this.props;
     dispatch(setCsvHeader(row));
 
-    const tableCells = document.querySelectorAll(".tableCell")
-    tableCells.forEach(everyCell => {
-      everyCell.style.backgroundColor = '#ffffff';
+    const tableCells = document.querySelectorAll('.tableCell');
+    tableCells.forEach((everyCell) => {
+      everyCell.style.backgroundColor = '#ffffff'; // eslint-disable-line no-param-reassign
     });
 
-    const selectedCells = document.querySelectorAll(`.${row}`)
-    selectedCells.forEach(selectedCell => {
-      selectedCell.style.backgroundColor = '#99D7EC';
+    const selectedCells = document.querySelectorAll(`.${row}`);
+    selectedCells.forEach((selectedCell) => {
+      selectedCell.style.backgroundColor = '#99D7EC'; // eslint-disable-line no-param-reassign
     });
   }
 
@@ -43,22 +44,31 @@ class HeaderRow extends Component {
     return (
 
       <table>
-        <tbody style={table}>
-          {csv.slice(0, 3).map((row, i) => (
+        <tbody>
+          {
+            csv.slice(0, 3).map((row, i) => (
               <tr
                 id={`row_${i}`}
-                key={this.newKey++}
-                >
-                {row.data.map((column, j) => (
+                key={this.newHeaderKey++}
+              >
+                {
+                  row.data.map((column, j) => (
                     <td
                       id={`row_${i}-column_${j}`}
-                      onClick={this.handleClick}
+                      role="presentation"
                       className={`row_${i} column_${j} tableCell`}
-                      style={rows}
                       // style={{backgroundColor: this.state.highlightColor}}
-                      key={this.newKey++}
+                      key={this.newHeaderKey++}
+                    >
+                      <button
+                        type="button"
+                        style={{ border: 'none', backgroundColor: 'white' }}
+                        className={`row_${i} column_${j} tableCell`}
+                        onClick={this.handleClick}
+                        onKeyPress={this.handleClick}
                       >
-                      {column}
+                        {column}
+                      </button>
                     </td>
                   ))
 
@@ -69,26 +79,6 @@ class HeaderRow extends Component {
         </tbody>
       </table>
 
-      //   <table style={table}>
-      //     <tbody>
-      //       {
-      //           csv.slice(0, 4).map((row, i) => (
-      //             <tr id={`row_${i}`} key={this.newKey++}>
-      //               {
-      //                 row.data.map((column, j) => (
-      //                   <td onClick={() => this.onColumnClick(column, j)}
-      //                       id={`row_${i}-column_${j}`}
-      //                       className={this.state.selectedItemIndex== column.j? 'hover': null}
-      //                       style={rows}
-      //                       key={this.newKey++}>{column}</td>
-      //                 ))
-
-      //               }
-      //             </tr>
-      //           ))
-      //         }
-      //     </tbody>
-      //   </table>
     );
   }
 
@@ -106,11 +96,11 @@ const table = {
   marginBottom: '50px',
 };
 
-const rows = {
-  borderBottom: '1px solid rgba(0,0,0,.1)',
-  padding: '5px',
-  fontSize: '15px',
-};
+// const rows = {
+//   borderBottom: '1px solid rgba(0,0,0,.1)',
+//   padding: '5px',
+//   fontSize: '15px',
+// };
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.payload,
