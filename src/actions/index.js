@@ -91,7 +91,7 @@ export const driveNewSheetCreated = (reports) => ({
 });
 
 export const makeSheetsApiPost = (props) => (dispatch) => {
-  console.log('props', props);
+  console.log('makeSheetsApiPost props: ', props);
 
 
   // TITLE IS TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!
@@ -108,6 +108,50 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
       properties: {
         title: `SimplePnL: ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}`,
       },
+      sheets: [
+        {
+          properties: {
+            title: 'Transactions',
+            gridProperties: {
+              columnCount: 4,
+              frozenRowCount: 2,
+            },
+            tabColor: {
+              red: 1.0,
+              green: 0.5,
+              blue: 0.5,
+            },
+          },
+        },
+        {
+          properties: {
+            title: 'Profit & Loss Summary',
+            gridProperties: {
+              columnCount: 2,
+              frozenRowCount: 2,
+            },
+            tabColor: {
+              red: 0.5,
+              green: 0.5,
+              blue: 1.0,
+            },
+          },
+        },
+        {
+          properties: {
+            title: 'Key',
+            gridProperties: {
+              columnCount: 2,
+              frozenRowCount: 2,
+            },
+            tabColor: {
+              red: 0.5,
+              green: 1.0,
+              blue: 0.5,
+            },
+          },
+        },
+      ],
     }),
   })
     .then((response) => response.json())
