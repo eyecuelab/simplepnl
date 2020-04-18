@@ -5,6 +5,7 @@ class DescriptionColumn extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.newDescriptionKey = 0;
   }
 
   csvReturn() {
@@ -25,10 +26,10 @@ class DescriptionColumn extends Component {
         <tbody>
           {
                   csv.slice(0, 3).map((row, i) => (
-                    <tr id={`row_${i}`} key={this.newKey++}>
+                    <tr id={`row_${i}`} key={this.newDescriptionKey++}>
                       {
                         row.data.map((column, j) => (
-                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newKey++}>{column}</td>
+                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newDescriptionKey++}>{column}</td>
                         ))
 
                       }
