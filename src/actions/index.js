@@ -19,6 +19,16 @@ export const setCsvHeader = (payload) => ({
   payload,
 });
 
+export const setCsvDate = (payload) => ({
+  type: types.SET_CSV_DATE,
+  payload,
+});
+
+export const setCsvDescription = (payload) => ({
+  type: types.SET_CSV_DESCRIPTION,
+  payload,
+});
+
 export const setCsvAmount = (payload) => ({
   type: types.SET_CSV_AMOUNT,
   payload,

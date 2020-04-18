@@ -1,3 +1,4 @@
+  
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvAmount } from '../../actions';
@@ -56,9 +57,9 @@ class AmountColumn extends Component {
                       id={`row_${i}-column_${j}`}
                       role="presentation"
                       className={`row_${i} column_${j} tableCell`}
-                      // style={{backgroundColor: this.state.highlightColor}}
+                      style={rows}
                       key={this.newAmountKey++}
-                    >
+                     >
                       <button
                         type="button"
                         style={{ border: 'none', backgroundColor: 'white' }}
