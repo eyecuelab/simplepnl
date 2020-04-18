@@ -47,7 +47,7 @@ class DescriptionColumn extends Component {
           {csv.slice(0, 3).map((row, i) => (
             <tr 
               id={`row_${i}`} 
-              key={this.newKey++}
+              key={this.newDescriptionKey++}
               >
               {row.data.map((column, j) => (
                 <td
@@ -55,7 +55,7 @@ class DescriptionColumn extends Component {
                   onClick={this.handleClick}
                   className={`row_${i} column_${j} tableCell`}
                   style={rows}
-                  key={this.newKey++}
+                  key={this.newDescriptionKey++}
                   >
                   {column}
                 </td>
