@@ -31,6 +31,39 @@ export default (state = initialState.csv, action) => {
       };
       return returnedTarget;
     }
+
+    case types.SET_CSV_DATE: {
+      const {
+        payload
+      } = action;
+      const returnedTarget = {
+        ...state,
+        csvDate: payload,
+      };
+      return returnedTarget;
+    }
+
+    case types.SET_CSV_DESCRIPTION: {
+      const {
+        payload
+      } = action;
+      const returnedTarget = {
+        ...state,
+        csvDate: payload,
+      };
+      return returnedTarget;
+    }
+
+    case types.SET_CSV_AMOUNT: {
+      const {
+        payload
+      } = action;
+      const returnedTarget = {
+        ...state,
+        csvDate: payload,
+      };
+      return returnedTarget;
+    }
     default:
       return state;
   }
