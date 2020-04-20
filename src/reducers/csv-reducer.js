@@ -19,6 +19,16 @@ export default (state = initialState.csv, action) => {
       // MAY NEED TO CHANGE OBJECT.ASSIGN TO EITHER A CREATE OR SIMPLE VAR SO TOKENS DONT STACK?
       return returnedTarget;
     }
+    case types.SET_CSV_NAME: {
+      const {
+        payload,
+      } = action;
+      const returnedTarget = {
+        ...state,
+        csvName: payload,
+      };
+      return returnedTarget;
+    }
     case types.SET_CSV_HEADER: {
       const {
         payload,
@@ -29,7 +39,6 @@ export default (state = initialState.csv, action) => {
       };
       return returnedTarget;
     }
-
     case types.SET_CSV_DATE: {
       const {
         payload,
