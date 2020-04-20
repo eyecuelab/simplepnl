@@ -30,8 +30,8 @@ class AmountColumn extends Component {
   }
 
   csvReturn() {
-    const { csv } = this.props;
-    if (!csv) {
+    const { csvRawData } = this.props;
+    if (!csvRawData) {
       return (
         <div>
           <h5>
@@ -46,7 +46,7 @@ class AmountColumn extends Component {
       <table style={table}>
         <tbody>
           {
-            csv.slice(0, 3).map((row, i) => (
+            csvRawData.slice(0, 3).map((row, i) => (
               <tr
                 id={`row_${i}`}
                 key={this.newAmountKey++}
@@ -101,7 +101,8 @@ const rows = {
 };
 
 const mapStateToProps = (state) => ({
-  csv: state.csvReducer.csvRawData,
+  csvRawData: state.csvReducer.csvRawData,
+  csvAmount: state.csvAmount,
 });
 
 export default connect(mapStateToProps)(AmountColumn);

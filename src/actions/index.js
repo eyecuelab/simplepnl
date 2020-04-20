@@ -111,7 +111,7 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     },
     body: JSON.stringify({
       properties: {
-        title: `SimplePnL: ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}`,
+        title: `SimplePnL: ${props.csvName} [created ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}]`,
       },
       sheets: [
         {
