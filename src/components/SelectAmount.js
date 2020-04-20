@@ -11,12 +11,21 @@ function SelectAmount(props) {
   const handleNewSheet = () => {
     const { dispatch } = props;
     const { accessToken } = props;
-    const test = 'test text';
+
+    // const { csvAmount } = props;
+    // const { csvDate } = props;
+    // const { csvDescription } = props;
+    // const { csvHeader } = props;
+    // const { csvRawData } = props;
+    const { csvName } = props;
+
     const payload = {
-      test,
+      csvName,
       accessToken,
     };
     dispatch(makeSheetsApiPost(payload));
+
+    console.log(props);
   };
 
 
@@ -33,7 +42,7 @@ function SelectAmount(props) {
         <hr />
         <AmountColumn />
         <Link to="/selectcategory">
-          <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
+          <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
         </Link>
       </div>
       <MegQuestionsLocation>
@@ -67,6 +76,13 @@ function SelectAmount(props) {
 const mapStateToProps = (state) => ({
   accessToken: state.oauthReducer.access_token,
   sheets: state.sheetsReducer,
+  csvAmount: state.csvReducer.csvAmount,
+  csvDate: state.csvReducer.csvDate,
+  csvDescription: state.csvReducer.csvDescription,
+  csvHeader: state.csvReducer.csvHeader,
+  csvName: state.csvReducer.csvName,
+  csvRawData: state.csvReducer.csvRawData,
+
 });
 
 export default connect(mapStateToProps)(SelectAmount);
