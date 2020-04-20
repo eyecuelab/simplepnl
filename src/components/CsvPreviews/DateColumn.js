@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { setCsvDate } from '../../actions';
 
 class DateColumn extends Component {
@@ -7,23 +7,23 @@ class DateColumn extends Component {
     super(props);
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
-    this.newKey = 0;
+    this.newDateKey = 0;
   }
 
   handleClick(event) {
-    const cell = event.currentTarget.className.split(' ')
-    const column = cell[1]
+    const cell = event.currentTarget.className.split(' ');
+    const column = cell[1];
     const { dispatch } = this.props;
     dispatch(setCsvDate(column));
 
-    const tableCells = document.querySelectorAll(".tableCell")
-    tableCells.forEach(everyCell => {
-      everyCell.style.backgroundColor = '#ffffff';
+    const tableCells = document.querySelectorAll('.tableCell');
+    tableCells.forEach((everyCell) => {
+      everyCell.style.backgroundColor = '#ffffff'; // eslint-disable-line no-param-reassign
     });
 
-    const selectedCells = document.querySelectorAll(`.${column}`)
-    selectedCells.forEach(selectedCell => {
-      selectedCell.style.backgroundColor = '#99D7EC'
+    const selectedCells = document.querySelectorAll(`.${column}`);
+    selectedCells.forEach((selectedCell) => {
+      selectedCell.style.backgroundColor = '#99D7EC'; // eslint-disable-line no-param-reassign
     });
   }
 
@@ -44,24 +44,37 @@ class DateColumn extends Component {
     return (
       <table style={table}>
         <tbody>
-          {csv.slice(0, 3).map((row, i) => (
-            <tr 
-              id={`row_${i}`} 
-              key={this.newDateKey++}
+          {
+            csv.slice(0, 3).map((row, i) => (
+              <tr
+                id={`row_${i}`}
+                key={this.newDateKey++}
               >
-              {row.data.map((column, j) => (
-                <td
-                  id={`row_${i}-column_${j}`}
-                  onClick={this.handleClick}
-                  className={`row_${i} column_${j} tableCell`}
-                  style={rows}
-                  key={this.newDateKey++}
-                  >
-                  {column}
-                </td>
-              ))}
-            </tr>
-          ))}
+                {
+                  row.data.map((column, j) => (
+                    <td
+                      id={`row_${i}-column_${j}`}
+                      role="presentation"
+                      className={`row_${i} column_${j} tableCell`}
+                      style={rows}
+                      key={this.newDateKey++}
+                    >
+                      <button
+                        type="button"
+                        style={{ border: 'none', backgroundColor: 'white' }}
+                        className={`row_${i} column_${j} tableCell`}
+                        onClick={this.handleClick}
+                        onKeyPress={this.handleClick}
+                      >
+                        {column}
+                      </button>
+                    </td>
+                  ))
+
+                }
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     );
@@ -77,17 +90,17 @@ class DateColumn extends Component {
 }
 
 const table = {
-  marginBottom: "50px",
+  marginBottom: '50px',
 };
 
 const rows = {
-  borderBottom: "1px solid rgba(0,0,0,.1)",
-  padding: "5px",
-  fontSize: "15px",
+  borderBottom: '1px solid rgba(0,0,0,.1)',
+  padding: '5px',
+  fontSize: '15px',
 };
 
 const mapStateToProps = (state) => ({
-  csv: state.csvReducer.payload,
+  csv: state.csvReducer.csvRawData,
   csvDate: state.csvDate,
 });
 

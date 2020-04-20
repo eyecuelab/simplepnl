@@ -62,7 +62,7 @@ const rows = {
 };
 
 const mapStateToProps = (state) => ({
-  csv: state.csvReducer.payload,
+  csv: state.csvReducer.csvRawData,
 });
 
 export default connect(mapStateToProps)(Category);

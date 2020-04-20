@@ -10,12 +10,10 @@ export default (state = initialState.csv, action) => {
     case types.LOAD_CSV: {
       // const { access_token, } = action;
       /* eslint-disable-next-line camelcase */
-      const {
-        payload,
-      } = action.payload;
+      const { csvRawData } = action.payload;
       const returnedTarget = {
         ...state,
-        payload,
+        csvRawData,
       };
 
       // MAY NEED TO CHANGE OBJECT.ASSIGN TO EITHER A CREATE OR SIMPLE VAR SO TOKENS DONT STACK?
@@ -34,7 +32,7 @@ export default (state = initialState.csv, action) => {
 
     case types.SET_CSV_DATE: {
       const {
-        payload
+        payload,
       } = action;
       const returnedTarget = {
         ...state,
@@ -45,11 +43,11 @@ export default (state = initialState.csv, action) => {
 
     case types.SET_CSV_DESCRIPTION: {
       const {
-        payload
+        payload,
       } = action;
       const returnedTarget = {
         ...state,
-        csvDate: payload,
+        csvDescription: payload,
       };
       return returnedTarget;
     }
