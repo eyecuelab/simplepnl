@@ -14,7 +14,7 @@ class Importer extends Component {
     console.log('---------------------------');
     console.log(data);
     const payload = {
-      payload: data,
+      csvRawData: data,
     };
     const { dispatch } = this.props;
     dispatch(loadCSV(payload));

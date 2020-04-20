@@ -91,7 +91,7 @@ export const driveNewSheetCreated = (reports) => ({
 });
 
 export const makeSheetsApiPost = (props) => (dispatch) => {
-  console.log('makeSheetsApiPost props: ', props);
+  // console.log('makeSheetsApiPost props: ', props);
 
 
   // TITLE IS TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!

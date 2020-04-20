@@ -103,7 +103,7 @@ const table = {
 // };
 
 const mapStateToProps = (state) => ({
-  csv: state.csvReducer.payload,
+  csv: state.csvReducer.csvRawData,
   csvHeader: state.csvHeader,
 });
 
