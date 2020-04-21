@@ -57,7 +57,7 @@ export const driveGetReportsSuccess = (reports) => ({
 
 export const makeDriveApiCall = (props) => (dispatch) => {
   dispatch(driveRequestReports);
-  return fetch('https://www.googleapis.com/drive/v3/files?orderBy=name%20desc&pageSize=1000&q=name%20contains%20%27SimplePNL%3A%27%20and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.spreadsheet%27andtrashed%3Dfalse', {
+  return fetch('https://www.googleapis.com/drive/v3/files?orderBy=modifiedTime%20desc&pageSize=1000&q=name%20contains%20%27SimplePNL%3A%27%20and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.spreadsheet%27andtrashed%3Dfalse', {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${props}`,
@@ -65,13 +65,60 @@ export const makeDriveApiCall = (props) => (dispatch) => {
     },
   })
     .then((response) => response.json())
-    .then(
-      (jsonifiedResponse) => {
-        dispatch(driveGetReportsSuccess(jsonifiedResponse.files));
-      })
+    .then((jsonifiedResponse) => {
+      dispatch(driveGetReportsSuccess(jsonifiedResponse.files));
+    })
     .catch((error) => {
       dispatch(driveGetReportsFailure(error));
     });
+};
+
+// =====
+
+export const sheetsRequestPercentage = () => ({
+  type: types.SHEETS_REQUEST_PERCENTAGE,
+});
+
+export const sheetsGetPercentageFailure = (error) => ({
+  type: types.SHEETS_GET_PERCENTAGE_FAILURE,
+  error,
+});
+
+export const sheetsGetPercentageSuccess = (reports) => ({
+  type: types.SHEETS_GET_PERCENTAGE_SUCCESS,
+  reports,
+});
+
+export const makeSheetsFirstApiCall = (props) => (dispatch) => {
+  const { accessToken } = props;
+  const { reports: { reports } } = props;
+  const returnedTarget = reports.map((x) => x.id);
+
+  returnedTarget.forEach((spreadsheetId) => {
+    dispatch(sheetsRequestPercentage);
+    return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/d1`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((jsonifiedResponse) => {
+        const percentage = jsonifiedResponse.values.toString();
+        const currentReports = props.reports.reports;
+        // console.log("props", reports);
+        const payload = {
+          percentage,
+          currentReports,
+          spreadsheetId,
+        };
+        dispatch(sheetsGetPercentageSuccess(payload));
+      })
+      .catch((error) => {
+        dispatch(sheetsGetPercentageFailure(error));
+      });
+  });
 };
 
 // =====
