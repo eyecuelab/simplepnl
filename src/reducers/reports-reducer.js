@@ -9,9 +9,6 @@ export default (state = initialState.reports, action) => {
         isLoading: true };
     }
     case types.DRIVE_GET_REPORTS_SUCCESS: {
-      // console.log("action.reports", action.reports);
-
-
       return { ...state,
         isLoading: false,
         reports: action.reports };
@@ -26,6 +23,7 @@ export default (state = initialState.reports, action) => {
         id: action.reports.spreadsheetId,
         kind: 'drive#file',
         mimeType: 'application/vnd.google-apps.spreadsheet',
+        percentage: null,
         name: action.reports.properties.title,
       };
       const returnedTarget = state.reports.map((x) => x);
@@ -34,25 +32,24 @@ export default (state = initialState.reports, action) => {
         isLoading: false,
         reports: returnedTarget };
     }
-
-
     case types.SHEETS_REQUEST_PERCENTAGE: {
       return { ...state, isLoading: true };
     }
     case types.SHEETS_GET_PERCENTAGE_SUCCESS: {
-      const { currentReports } = action.reports;
       const { spreadsheetId } = action.reports;
       const { percentage } = action.reports;
+      const currentState = state.reports;
 
-      console.log('currentReports', currentReports);
-      console.log('spreadsheetId', spreadsheetId);
-      console.log('percentage', percentage);
-      console.log('=====Great, now what?=====');
-
-      // let newState = Object.assign({}, ...state, newSheet);
+      const newObj = { percentage };
+      const newState = currentState.map((obj) => {
+        if (obj.id === spreadsheetId) {
+          return { ...obj, ...newObj };
+        }
+        return obj;
+      });
       return { ...state,
         isLoading: false,
-        reports: currentReports };
+        reports: newState };
     }
     case types.SHEETS_GET_PERCENTAGE_FAILURE: {
       return { ...state,

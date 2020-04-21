@@ -12,6 +12,7 @@ export default (state = initialState.sheets, action) => {
         id: action.reports.spreadsheetId,
         kind: 'drive#file',
         mimeType: 'application/vnd.google-apps.spreadsheet',
+        percentage: null,
         name: action.reports.properties.title,
       };
       return { ...state,

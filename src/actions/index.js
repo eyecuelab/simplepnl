@@ -105,12 +105,20 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
     })
       .then((response) => response.json())
       .then((jsonifiedResponse) => {
-        const percentage = jsonifiedResponse.values.toString();
-        const currentReports = props.reports.reports;
-        // console.log("props", reports);
+        const { values } = jsonifiedResponse;
+        let percentage;
+        if (values) {
+          const actual = (parseFloat(values) * 100).toFixed(0);
+          if (actual < 34) {
+            percentage = 33;
+          } else {
+            percentage = actual;
+          }
+        } else {
+          percentage = 33;
+        }
         const payload = {
           percentage,
-          currentReports,
           spreadsheetId,
         };
         dispatch(sheetsGetPercentageSuccess(payload));
