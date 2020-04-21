@@ -6,6 +6,7 @@ function ReportItem(props) {
   const percent = ((Math.round(Math.random() * 64)) + 33);
   const reportId = (`report${percent}`);
   const { name } = props;
+  const { percentage } = props;
 
   return (
     <div className="ReportItem">
@@ -15,7 +16,7 @@ function ReportItem(props) {
       </div>
       <div className="reportItemStatusBar">
         <div className="reportItemStatus" id={reportId}>
-          <span>{`${percent}% COMPLETE`}</span>
+          <span>{`${percentage}% COMPLETE`}</span>
         </div>
       </div>
       <div className="reportItemEdit">
@@ -56,7 +57,7 @@ function ReportItem(props) {
           }
 
           #${reportId} {
-            width: ${percent}%;
+            width: ${percentage}%;
             min-width: 130px;
             font-size: .8em;
           }

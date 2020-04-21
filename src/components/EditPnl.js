@@ -5,55 +5,55 @@ import { ConfirmButton } from '../styles/components';
 
 class EditPnl extends React.Component {
   updateSheetValues = () => {
-    fetch(`https://sheets.googleapis.com/v4/spreadsheets?alt=json`, {
-      method: "POST",
+    fetch('https://sheets.googleapis.com/v4/spreadsheets?alt=json', {
+      method: 'POST',
       headers: {
-        "Content-Types": "application/json",
+        'Content-Types': 'application/json',
         // Authorization: `Bearer ${ACCESS_TOKEN}`,
-           },
-           body: JSON.stringify({
+      },
+      body: JSON.stringify({
 
-            requests: [{
-              repeatCell: {
-                range: {
-                  startColumnIndex: 0,
-                  endColumnIndex: 1,
-                  startRowIndex: 0,
-                  endRowIndex: 1,
-                  sheetId: 0
+        requests: [{
+          repeatCell: {
+            range: {
+              startColumnIndex: 0,
+              endColumnIndex: 1,
+              startRowIndex: 0,
+              endRowIndex: 1,
+              sheetId: 0,
+            },
+            cell: {
+              userEnteredFormat: {
+                textFormat: {
+                  bold: true,
                 },
-                cell: {
-                   userEnteredFormat: {
-                     "textFormat": {
-                         "bold": true
-                     }
-                   },
-                },
-                fields: "*"
-              }
-            }]
+              },
+            },
+            fields: '*',
+          },
+        }],
 
-          })
-        })
-      }
+      }),
+    });
+  }
 
-      reqs = [
-          {'repeatCell': {
-            'range' : {'endRowIndex': 1},
-            'cell': {'userEnteredFormat': {'textFormat': {'bold': True}}},
-            'fields': 'userEnteredFormat/textFormat/bold'
-          }},
-      ]
-    
+  // LINTER WONT LETT THIS PASS:
+  // reqs = [
+  //   { repeatCell: {
+  //     range: { endRowIndex: 1 },
+  //     cell: { userEnteredFormat: { textFormat: { bold: true } } },
+  //     fields: 'userEnteredFormat/textFormat/bold',
+  //   } },
+  // ]
 
-      render() {
-        return (
-            <div>
-                <ConfirmButton onClick={this.updateSheetValues}>Edit PNL</ConfirmButton>
-            </div>
-        );
-         
-      }
+
+  render() {
+    return (
+      <div>
+        <ConfirmButton onClick={this.updateSheetValues}>Edit PNL</ConfirmButton>
+      </div>
+    );
+  }
 }
 
-export default EditPnl
+export default EditPnl;

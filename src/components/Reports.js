@@ -48,7 +48,7 @@ class Reports extends React.Component {
               name={report.name}
               id={report.id}
               kind={report.kind}
-              percent={report.percent}
+              percentage={report.percentage}
               mimeType={report.mimeType}
               key={report.id}
             />
