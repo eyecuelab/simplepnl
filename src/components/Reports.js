@@ -7,7 +7,8 @@ import MegQuestions from './MegQuestions';
 import { MainContainer, Title, MegQuestionsLocation, PinkLine } from '../styles/components';
 
 
-import { makeDriveApiCall } from '../actions';
+import { makeDriveApiCall, makeSheetsFirstApiCall } from '../actions';
+
 
 class Reports extends React.Component {
   constructor(props) {
@@ -20,7 +21,9 @@ class Reports extends React.Component {
   componentDidMount() {
     const { dispatch } = this.props;
     const { accessToken } = this.props;
-    dispatch(makeDriveApiCall(accessToken));
+    dispatch(makeDriveApiCall(accessToken)).then(() => {
+      dispatch(makeSheetsFirstApiCall(this.props));
+    });
   }
 
   reportReturn() {
@@ -45,6 +48,7 @@ class Reports extends React.Component {
               name={report.name}
               id={report.id}
               kind={report.kind}
+              percent={report.percent}
               mimeType={report.mimeType}
               key={report.id}
             />
