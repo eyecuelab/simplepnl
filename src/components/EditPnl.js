@@ -23,8 +23,10 @@ class EditPnl extends React.Component {
                   sheetId: 0
                 },
                 cell: {
-                   userEnteredValue: {
-                     "numberValue": 10
+                   userEnteredFormat: {
+                     "textFormat": {
+                         "bold": true
+                     }
                    },
                 },
                 fields: "*"
@@ -34,6 +36,15 @@ class EditPnl extends React.Component {
           })
         })
       }
+
+      reqs = [
+          {'repeatCell': {
+            'range' : {'endRowIndex': 1},
+            'cell': {'userEnteredFormat': {'textFormat': {'bold': True}}},
+            'fields': 'userEnteredFormat/textFormat/bold'
+          }},
+      ]
+    
 
       render() {
         return (
