@@ -44,11 +44,12 @@ export const batchUpdate = (props) => (dispatch) => {
 
     if (index === 0) {
       newRow.push('CATEGORY');
-      if (index % 3 === 0) {
-        newRow.push('test category');
-      } else {
-        newRow.push('');
-      }
+    } else if (index % 3 === 0) {
+      newRow.push('test category');
+    } else if (index % 2 === 0) {
+      newRow.push('test category2');
+    } else {
+      newRow.push('');
     }
 
     // oldRow.splice(csvIndexOfDate, 1)
