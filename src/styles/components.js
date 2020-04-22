@@ -17,7 +17,7 @@ const Title = styled.h1`
 
 const MegQuestionsLocation = styled.div`
   position: absolute;
-  bottom: 180px;
+  top: 660px;
   left: 30%;
 `;
 
