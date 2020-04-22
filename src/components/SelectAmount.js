@@ -10,22 +10,24 @@ import { makeSheetsApiPost } from '../actions';
 function SelectAmount(props) {
   const handleNewSheet = () => {
     const { dispatch } = props;
+
     const { accessToken } = props;
-
-    // const { csvAmount } = props;
-    // const { csvDate } = props;
-    // const { csvDescription } = props;
-    // const { csvHeader } = props;
-    // const { csvRawData } = props;
     const { csvName } = props;
-
+    const { csvAmount } = props;
+    const { csvDate } = props;
+    const { csvDescription } = props;
+    const { csvHeader } = props;
+    const { csvRawData } = props;
     const payload = {
-      csvName,
       accessToken,
+      csvName,
+      csvAmount,
+      csvDate,
+      csvDescription,
+      csvHeader,
+      csvRawData,
     };
     dispatch(makeSheetsApiPost(payload));
-
-    console.log(props);
   };
 
 
@@ -82,7 +84,6 @@ const mapStateToProps = (state) => ({
   csvHeader: state.csvReducer.csvHeader,
   csvName: state.csvReducer.csvName,
   csvRawData: state.csvReducer.csvRawData,
-
 });
 
 export default connect(mapStateToProps)(SelectAmount);
