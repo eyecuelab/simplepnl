@@ -37,15 +37,6 @@ class EditPnl extends React.Component {
     });
   }
 
-  // LINTER WONT LETT THIS PASS:
-  // reqs = [
-  //   { repeatCell: {
-  //     range: { endRowIndex: 1 },
-  //     cell: { userEnteredFormat: { textFormat: { bold: true } } },
-  //     fields: 'userEnteredFormat/textFormat/bold',
-  //   } },
-  // ]
-
 
   render() {
     return (
