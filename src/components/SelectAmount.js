@@ -38,8 +38,7 @@ function SelectAmount(props) {
       <PinkLine />
       <div className="SelectAmount">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>I think I found the <span className="extraBold">amount</span> row <span className="highlightedCell">below</span>.</h6>
-        <h6>Can you double check by tapping on the <span className="extraBold">amount</span> row and confirming?</h6>
+        <h6>Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
 
         <hr />
         <AmountColumn />

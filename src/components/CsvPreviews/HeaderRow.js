@@ -43,7 +43,7 @@ class HeaderRow extends Component {
 
     return (
 
-      <table>
+      <table style={table}>
         <tbody>
           {
             csv.slice(0, 3).map((row, i) => (
@@ -57,7 +57,7 @@ class HeaderRow extends Component {
                       id={`row_${i}-column_${j}`}
                       role="presentation"
                       className={`row_${i} column_${j} tableCell`}
-                      // style={{backgroundColor: this.state.highlightColor}}
+                      style={rows}
                       key={this.newHeaderKey++}
                     >
                       <button
@@ -96,11 +96,11 @@ const table = {
   marginBottom: '50px',
 };
 
-// const rows = {
-//   borderBottom: '1px solid rgba(0,0,0,.1)',
-//   padding: '5px',
-//   fontSize: '15px',
-// };
+const rows = {
+  borderBottom: '1px solid rgba(0,0,0,.1)',
+  padding: '5px',
+  fontSize: '15px',
+};
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,

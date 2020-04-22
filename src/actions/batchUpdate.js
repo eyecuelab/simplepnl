@@ -1,6 +1,5 @@
 import * as types from '../constants/ActionTypes';
 
-
 export const sheetsPostUpdate = () => ({
   type: types.SHEETS_POST_UPDATE,
 });
@@ -14,7 +13,6 @@ export const sheetsPostUpdateSuccess = (reports) => ({
   type: types.SHEETS_POST_UPDATE_SUCCESS,
   reports,
 });
-
 
 export const batchUpdate = (props) => (dispatch) => {
   const { spreadsheetId } = props;

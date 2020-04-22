@@ -12,8 +12,7 @@ function SelectDate() {
       <PinkLine />
       <div className="SelectDate">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>I think I found the <span className="extraBold">date</span> row <span className="highlightedCell">below</span>.</h6>
-        <h6>Can you double check by tapping on the <span className="extraBold">date</span> row and confirming?</h6>
+        <h6>Please click on the <span className="extraBold">DATE</span> column below and hit confirm!</h6>
 
         <hr />
         <DateColumn />
