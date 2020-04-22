@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../App.css';
 import Header from './Header';
+import Loading from './Loading';
 import Home from './Home';
 import Eula from './Eula';
 import Reports from './Reports';
@@ -47,6 +48,7 @@ class App extends React.Component {
       <div className="container">
         <div className="appHeader">
           <Header />
+          <Loading />
         </div>
         <div className="appBody">
 
