@@ -219,27 +219,27 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
         dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
         dispatch(driveNewSheetCreated(jsonifiedResponse));
 
-      const { properties: { title } } = jsonifiedResponse;
-      const { spreadsheetId } = jsonifiedResponse;
-      const { accessToken } = props;
-      const { csvAmount } = props;
-      const { csvDate } = props;
-      const {csvDescription } = props;
-      const { csvHeader } = props;
-      const { csvRawData } = props;
-      
-      const payload2 = {
-        title,
-        spreadsheetId,
-        accessToken,
-        csvAmount,
-        csvDate,
-        csvDescription,
-        csvHeader,
-        csvRawData,
-      };
-      dispatch(batchUpdate(payload2));
-    })
+        const { properties: { title } } = jsonifiedResponse;
+        const { spreadsheetId } = jsonifiedResponse;
+        const { accessToken } = props;
+        const { csvAmount } = props;
+        const { csvDate } = props;
+        const { csvDescription } = props;
+        const { csvHeader } = props;
+        const { csvRawData } = props;
+
+        const payload2 = {
+          title,
+          spreadsheetId,
+          accessToken,
+          csvAmount,
+          csvDate,
+          csvDescription,
+          csvHeader,
+          csvRawData,
+        };
+        dispatch(batchUpdate(payload2));
+      })
     .catch((error) => {
       dispatch(sheetsPostCreateFailure(error));
     });
