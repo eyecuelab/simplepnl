@@ -19,14 +19,49 @@ export const sheetsPostUpdateSuccess = (reports) => ({
 export const batchUpdate = (props) => (dispatch) => {
   const { spreadsheetId } = props;
   // const { accessToken } = props;
-  // const { csvAmount } = props;
-  // const { csvDate } = props;
-  // const { csvDescription } = props;
+  const { csvAmount } = props;
+  const csvIndexOfAmount = csvAmount.split('_')[1];
+  const { csvDate } = props;
+  const csvIndexOfDate = csvDate.split('_')[1];
+  const { csvDescription } = props;
+  const csvIndexOfDescription = csvDescription.split('_')[1];
   // const { csvHeader } = props;
-  // const { csvRawData } = props;
-  // const { title } = props;
+  const { csvRawData } = props;
 
-  // HERE
+
+  const { title } = props;
+  const realFirstRow = [
+    'SimplePnL',
+    (title.split(': ')[1].split(' [')[0]),
+    '',
+    '=(COUNTA(D3:D999)/COUNTA(A3:A999))',
+  ];
+
+  const test2 = csvRawData.map((x, index) => {
+    const newRow = [];
+    const oldRow = x.data;
+    newRow.push(oldRow[csvIndexOfDate]);
+    newRow.push(oldRow[csvIndexOfDescription]);
+    newRow.push(oldRow[csvIndexOfAmount]);
+
+    if (index === 0) {
+      newRow.push('CATEGORY');
+      if (index % 3 === 0) {
+        newRow.push('test category');
+      } else {
+        newRow.push('');
+      }
+    }
+
+    // oldRow.splice(csvIndexOfDate, 1)
+    // oldRow.splice(csvIndexOfDescription, 1)
+    // oldRow.splice(csvIndexOfAmount, 1)
+    // const array3 = newRow.concat(oldRow)
+
+    return newRow;
+  });
+
+  test2.unshift(realFirstRow);
 
 
   dispatch(sheetsPostUpdate);
@@ -41,26 +76,7 @@ export const batchUpdate = (props) => (dispatch) => {
 
       data: [
         {
-          values: [
-            [
-              'SimplePnL',
-              '',
-              '',
-              '=(COUNTA(D3:D999)/COUNTA(A3:A999))',
-            ],
-            [],
-            [
-              'Hello Muddah,',
-              'hello Fadduh.',
-              'Here I am at',
-              'Camp Granada.',
-            ],
-            [
-              'Camp is very',
-              'entertaining.',
-              "And they say we'll have some fun if it stops raining.",
-            ],
-          ],
+          values: test2,
           range: 'a1',
         },
       ],
