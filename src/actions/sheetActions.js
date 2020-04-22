@@ -1,54 +1,54 @@
 import * as types from '../constants/ActionTypes';
 
-export const sheetPostUpdate = () => ({
+export const sheetsPostUpdate = () => ({
   type: types.DRIVE_REQUEST_REPORTS,
 });
 
-export const driveGetReportsFailure = (error) => ({
+export const sheetsPostUpdateSuccess = (error) => ({
   type: types.DRIVE_GET_REPORTS_FAILURE,
   error,
 });
 
-export const driveGetReportsSuccess = (reports) => ({
+export const sheetsPostUpdateFailure = (reports) => ({
   type: types.DRIVE_GET_REPORTS_SUCCESS,
   reports,
 });
 
 export const makeSheetsApiPost = (props) => (dispatch) => {
-  dispatch(sheetsPostUpdate)
+  dispatch(sheetsPostUpdate);
   return fetch('https://sheets.googleapis.com/v4/spreadsheets?alt=json', {
-      method: 'POST',
-      headers: {
-        'Content-Types': 'application/json',
-        Authorization: `Bearer ${props.accessToken}`,
-      },
-      body: JSON.stringify({
-        requests: [
-          {
+    method: 'POST',
+    headers: {
+      'Content-Types': 'application/json',
+      Authorization: `Bearer ${props.accessToken}`,
+    },
+    body: JSON.stringify({
+      requests: [
+        {
           insertRange: {
-           range: {
-            startRowIndex: 0,
-            endRowIndex: 1,
-            sheetId: string,
+            range: {
+              startRowIndex: 0,
+              endRowIndex: 1,
+              sheetId: 'string',
+            },
+            shiftDimension: 'ROWS',
           },
-           shiftDimension: "ROWS"
-          }
         },
         {
-           pasteData: {
-            data: "Date, Description, Amount, Category",
-            type: "PASTE_NORMAL",
-            delimiter: ",",
+          pasteData: {
+            data: 'Date, Description, Amount, Category',
+            type: 'PASTE_NORMAL',
+            delimiter: ',',
             coordinate: {
-              sheetId: string,
+              sheetId: 'string',
               rowIndex: 0,
-              },
             },
-            // fields: '*',
+          },
+          // fields: '*',
         },
-       ],
-      }),
-    })
+      ],
+    }),
+  })
 
     .then((response) => response.json())
     .then(
@@ -58,7 +58,6 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     .catch((error) => {
       dispatch(sheetsPostUpdateFailure(error));
     });
-
 };
 
 
