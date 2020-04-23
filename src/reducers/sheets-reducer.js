@@ -25,13 +25,17 @@ export default (state = initialState.sheets, action) => {
         error: action.error };
     }
     case types.SHEETS_POST_UPDATE: {
-      console.log('yay, SHEETS_POST_UPDATE!');
       return { ...state,
         isLoading: true };
     }
     case types.SHEETS_POST_UPDATE_SUCCESS: {
+      console.log('yay, SHEETS_POST_UPDATE!');
+      console.log('action: ', action.reports.responses);
+      const id = action.reports.responses[0].spreadsheetId;
+      const { values } = action.reports.responses[0].updatedData;
       return { ...state,
-        isLoading: false };
+        isLoading: false,
+        [id]: { values } };
     }
     case types.SHEETS_POST_UPDATE_FAILURE: {
       return { ...state,

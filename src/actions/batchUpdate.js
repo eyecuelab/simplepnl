@@ -80,13 +80,13 @@ export const batchUpdate = (props) => (dispatch) => {
         },
       ],
       valueInputOption: 'USER_ENTERED',
-
-
+      includeValuesInResponse: 'true',
     }),
   })
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
+        // console.log("sheetsPostUpdate RESPONSE:", jsonifiedResponse);
         dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));
       })
     .catch((error) => {
