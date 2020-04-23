@@ -7,7 +7,10 @@ export const initialState = {
     access_token: null,
   },
   csv: {},
-  sheets: {},
+  sheets: {
+    isLoading: false,
+    error: null,
+  },
   reports: {
     isLoading: false,
     reports: [],

@@ -63,7 +63,7 @@ export const batchUpdate = (props) => (dispatch) => {
   test2.unshift(realFirstRow);
 
 
-  dispatch(sheetsPostUpdate);
+  dispatch(sheetsPostUpdate());
   return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values:batchUpdate?alt=json`, {
     method: 'POST',
     headers: {
