@@ -97,7 +97,7 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
   const returnedTarget = reports.map((x) => x.id);
 
   returnedTarget.forEach((spreadsheetId) => {
-    dispatch(sheetsRequestPercentage);
+    dispatch(sheetsRequestPercentage());
     return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/d1`, {
       method: 'GET',
       headers: {
@@ -156,7 +156,7 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
   // TITLE IS TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!
   const temp1 = new Date();
   const temp2 = temp1.toISOString();
-  dispatch(sheetsPostCreate);
+  dispatch(sheetsPostCreate());
   return fetch('https://sheets.googleapis.com/v4/spreadsheets?alt=json', {
     method: 'POST',
     headers: {
