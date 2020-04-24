@@ -8,6 +8,13 @@ const MainContainer = styled.div`
   color: #6B6B6B;
 `;
 
+const CategoryContainer = styled.div`
+  background-color: #FFFFFF;
+  height: 900px;
+  border-radius: 5px;
+  color: #6B6B6B;
+`;
+
 const Title = styled.h1`
   padding-left: 2rem;
   font-size: 25px;
@@ -94,6 +101,7 @@ const TextInput = styled.input`
 
 export {
   MainContainer,
+  CategoryContainer,
   Title,
   MegQuestionsLocation,
   ConfirmButton,

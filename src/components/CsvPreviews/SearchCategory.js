@@ -8,7 +8,7 @@ export default function SearchCategory() {
       id="combo-box-demo"
       options={categories}
       getOptionLabel={(option) => option.title}
-      style={{ width: 200 }}
+      style={{ width: 180 }}
       renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
     />
   );
