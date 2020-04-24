@@ -43,7 +43,7 @@ function SelectCategory(props) {
 
         <hr />
         <Category />
-        <form>
+        {/* <form>
           <select type="select">
             <option value="Personal">(x) Non-Business Related</option>
             <option value="Income">($) Income</option>
@@ -84,7 +84,7 @@ function SelectCategory(props) {
           <Link to="/reports">
             <ConfirmButton>SELECT</ConfirmButton>
           </Link>
-        </form>
+        </form> */}
       </div>
       <MegQuestionsLocation>
         <MegQuestions />

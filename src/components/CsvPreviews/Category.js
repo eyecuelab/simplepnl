@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SearchCategory from './SearchCategory'
 
 class Category extends Component {
   constructor(props) {
@@ -31,8 +32,9 @@ class Category extends Component {
                         row.data.map((column, j) => (
                           <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
                         ))
-
+                          
                       }
+                      <SearchCategory />
                     </tr>
                   ))
                 }
