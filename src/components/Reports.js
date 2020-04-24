@@ -46,7 +46,7 @@ class Reports extends React.Component {
           reports.map((report) => (
             <ReportItem
               name={report.name}
-              id={report.id}
+              spreadsheetId={report.id}
               kind={report.kind}
               percentage={report.percentage}
               mimeType={report.mimeType}

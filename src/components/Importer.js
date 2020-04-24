@@ -11,14 +11,12 @@ class Importer extends Component {
   }
 
   handleOnDrop = (data) => {
-    console.log('---------------------------');
     console.log(data);
     const payload = {
       csvRawData: data,
     };
     const { dispatch } = this.props;
     dispatch(loadCSV(payload));
-    console.log('---------------------------');
   };
 
   handleOnError = (err) => {
@@ -30,9 +28,7 @@ class Importer extends Component {
   //   };
 
   handleOnRemoveFile = (data) => {
-    console.log('---------------------------');
     console.log(data);
-    console.log('---------------------------');
   };
 
 
