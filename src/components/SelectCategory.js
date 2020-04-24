@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import Category from './CsvPreviews/Category';
@@ -6,8 +7,31 @@ import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexL
 
 
 function SelectCategory(props) {
-  const { location: { spreadsheetId } } = props;
-  console.log('spreadsheetId:', spreadsheetId);
+  const checkSpreadsheetSource = () => {
+    let thisSpreadsheetId;
+    // INFO FROM PROPS.LOCATION WHICH BOTH [SAVE] AND [LINK] SEND:
+    const spreadsheetIdFromLocation = props.location.spreadsheetId;
+    if (spreadsheetIdFromLocation === 'newSpreadsheet') {
+    // INFO FROM [SAVE] OF NEW SHEET:
+      if (props.sheetsReducer.sheets) {
+        const spreadsheetIdFromReports = props.sheetsReducer.sheets.id;
+        // NEWLY SAVED SPREADSHEETID:
+        thisSpreadsheetId = spreadsheetIdFromReports;
+      }
+    } else {
+    // SPREADSHEETID FROM REPORTS PAGE:
+      thisSpreadsheetId = spreadsheetIdFromLocation;
+    }
+    return thisSpreadsheetId;
+  };
+
+  console.log('checkSpreadsheetSource', checkSpreadsheetSource());
+
+
+  // ROUTE FROM REPORTS:
+  // ...
+
+
   return (
     <MainContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
@@ -65,9 +89,28 @@ function SelectCategory(props) {
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
+
+      <div className="temp">
+        TEMP display of active spreadsheetId for dev use:
+        <br />
+        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">${checkSpreadsheetSource()}</a>
+      </div>
+
+
       <style>
         {
           `
+          .temp {
+            position: fixed;
+            top: 2%;
+            left: 2%;
+            background-color: #e9f5fb;
+            border-radius: 20px;
+            padding: 20px;
+            font-size: 11px;
+            font-weight: 600;
+
+          }
 
           .MegQuestionsLocation {
             position: absolute;
@@ -168,4 +211,10 @@ function SelectCategory(props) {
   );
 }
 
-export default SelectCategory;
+
+const mapStateToProps = (state) => ({
+  ...state,
+});
+
+// export default SelectCategory;
+export default connect(mapStateToProps)(SelectCategory);

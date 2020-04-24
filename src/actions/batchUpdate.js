@@ -38,16 +38,17 @@ export const batchUpdate = (props) => (dispatch) => {
   const test2 = csvRawData.map((x, index) => {
     const newRow = [];
     const oldRow = x.data;
+
+    const tempRandomNumber = Math.round((Math.random() * 3) + 1);
+
     newRow.push(oldRow[csvIndexOfDate]);
     newRow.push(oldRow[csvIndexOfDescription]);
     newRow.push(oldRow[csvIndexOfAmount]);
 
     if (index === 0) {
       newRow.push('CATEGORY');
-    } else if (index % 3 === 0) {
+    } else if (index % tempRandomNumber === 0) {
       newRow.push('test category');
-    } else if (index % 2 === 0) {
-      newRow.push('test category2');
     } else {
       newRow.push('');
     }
@@ -86,7 +87,6 @@ export const batchUpdate = (props) => (dispatch) => {
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
-        // console.log("sheetsPostUpdate RESPONSE:", jsonifiedResponse);
         dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));
       })
     .catch((error) => {
