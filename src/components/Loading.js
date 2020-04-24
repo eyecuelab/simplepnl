@@ -7,8 +7,8 @@ function Loading(props) {
 
 
   const displayToggle = () => {
-    console.log('isLoadingReports', isLoadingReports);
-    console.log('isLoadingSheets', isLoadingSheets);
+    // console.log('isLoadingReports', isLoadingReports);
+    // console.log('isLoadingSheets', isLoadingSheets);
     if ((isLoadingReports === true) || (isLoadingSheets === true)) {
       return 'block';
     }

@@ -29,8 +29,6 @@ export default (state = initialState.sheets, action) => {
         isLoading: true };
     }
     case types.SHEETS_POST_UPDATE_SUCCESS: {
-      console.log('yay, SHEETS_POST_UPDATE!');
-      console.log('action: ', action.reports.responses);
       const id = action.reports.responses[0].spreadsheetId;
       const { values } = action.reports.responses[0].updatedData;
       return { ...state,

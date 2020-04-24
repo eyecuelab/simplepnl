@@ -5,7 +5,9 @@ import Category from './CsvPreviews/Category';
 import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 
-function SelectCategory() {
+function SelectCategory(props) {
+  const { location: { spreadsheetId } } = props;
+  console.log('spreadsheetId:', spreadsheetId);
   return (
     <MainContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>

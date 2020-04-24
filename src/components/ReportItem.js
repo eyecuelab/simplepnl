@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import editIcon from '../images/editIcon.png';
 
 function ReportItem(props) {
-  const percent = ((Math.round(Math.random() * 64)) + 33);
-  const reportId = (`report${percent}`);
   const { name } = props;
+  const { spreadsheetId } = props;
   const { percentage } = props;
+  const reportId = (`report${spreadsheetId}`);
+
 
   return (
     <div className="ReportItem">
@@ -20,7 +21,15 @@ function ReportItem(props) {
         </div>
       </div>
       <div className="reportItemEdit">
-        <span><Link to="/selectcategory"><img className="editIcon" src={editIcon} alt="Edit icon" /></Link></span>
+        <span>
+          <Link to={{
+            pathname: '/selectcategory',
+            spreadsheetId,
+          }}
+          >
+            <img className="editIcon" src={editIcon} alt="Edit icon" />
+          </Link>
+        </span>
 
 
       </div>

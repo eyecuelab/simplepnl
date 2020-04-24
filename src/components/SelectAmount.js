@@ -7,6 +7,7 @@ import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexL
 
 import { makeSheetsApiPost } from '../actions';
 
+
 function SelectAmount(props) {
   const handleNewSheet = () => {
     const { dispatch } = props;
@@ -27,9 +28,13 @@ function SelectAmount(props) {
       csvHeader,
       csvRawData,
     };
-    dispatch(makeSheetsApiPost(payload));
+    dispatch(makeSheetsApiPost(payload)).then(() => {
+      props.history.push({
+        pathname: '/selectcategory',
+        spreadsheetId: 'newSpreadsheet',
+      });
+    });
   };
-
 
   return (
     <MainContainer>
@@ -42,9 +47,10 @@ function SelectAmount(props) {
 
         <hr />
         <AmountColumn />
-        <Link to="/selectcategory">
-          <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
-        </Link>
+
+
+        <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
+
       </div>
       <MegQuestionsLocation>
         <MegQuestions />
@@ -76,7 +82,7 @@ function SelectAmount(props) {
 
 const mapStateToProps = (state) => ({
   accessToken: state.oauthReducer.access_token,
-  sheets: state.sheetsReducer,
+  sheetsReducer: state.sheetsReducer,
   csvAmount: state.csvReducer.csvAmount,
   csvDate: state.csvReducer.csvDate,
   csvDescription: state.csvReducer.csvDescription,

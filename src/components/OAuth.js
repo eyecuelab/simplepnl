@@ -38,14 +38,10 @@ class OAuth extends Component {
         discoveryDocs: `${DISCOVERY_DOCS}`,
         scope: `${SCOPES}`,
       });
-      console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
-
-
       this.auth2.then(() => {
         // this.setState({
         //   isSignedIn: this.auth2.isSignedIn.get(),
         // });
-        console.log(`isSignedIn: ${this.auth2.isSignedIn.get()}`);
       });
     });
 
