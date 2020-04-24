@@ -28,12 +28,13 @@ function SelectAmount(props) {
       csvHeader,
       csvRawData,
     };
-    dispatch(makeSheetsApiPost(payload)).then(() => {
-      props.history.push({
-        pathname: '/selectcategory',
-        spreadsheetId: 'newSpreadsheet',
+    dispatch(makeSheetsApiPost(payload))
+      .then(() => {
+        props.history.push({
+          pathname: '/selectcategory',
+          spreadsheetId: 'newSpreadsheet',
+        });
       });
-    });
   };
 
   return (
@@ -47,7 +48,6 @@ function SelectAmount(props) {
 
         <hr />
         <AmountColumn />
-
 
         <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
 
