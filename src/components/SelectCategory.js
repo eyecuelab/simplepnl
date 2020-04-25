@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import Category from './CsvPreviews/Category';
-import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
 
 
 function SelectCategory(props) {
@@ -33,7 +33,7 @@ function SelectCategory(props) {
 
 
   return (
-    <MainContainer>
+    <CategoryContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM CATEGORY</Title>
       <PinkLine />
@@ -43,7 +43,7 @@ function SelectCategory(props) {
 
         <hr />
         <Category />
-        <form>
+        {/* <form>
           <select type="select">
             <option value="Personal">(x) Non-Business Related</option>
             <option value="Income">($) Income</option>
@@ -84,11 +84,11 @@ function SelectCategory(props) {
           <Link to="/reports">
             <ConfirmButton>SELECT</ConfirmButton>
           </Link>
-        </form>
+        </form> */}
       </div>
-      <MegQuestionsLocation>
+      {/* <MegQuestionsLocation>
         <MegQuestions />
-      </MegQuestionsLocation>
+      </MegQuestionsLocation> */}
 
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:
@@ -207,7 +207,7 @@ function SelectCategory(props) {
           `
         }
       </style>
-    </MainContainer>
+    </CategoryContainer>
   );
 }
 

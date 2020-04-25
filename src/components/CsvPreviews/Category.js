@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import SearchCategory from './SearchCategory'
 
 class Category extends Component {
   constructor(props) {
@@ -25,14 +26,15 @@ class Category extends Component {
       <table style={table}>
         <tbody>
           {
-                  csv.slice(0, 3).map((row, i) => (
+                  csv.slice(0, 8).map((row, i) => (
                     <tr id={`row_${i}`} key={this.newCategoryKey++}>
                       {
                         row.data.map((column, j) => (
                           <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
                         ))
-
+                          
                       }
+                      <SearchCategory />
                     </tr>
                   ))
                 }
@@ -58,7 +60,7 @@ const table = {
 const rows = {
   borderBottom: '1px solid rgba(0,0,0,.1)',
   padding: '5px',
-  fontSize: '15px',
+  fontSize: '13px',
 };
 
 const mapStateToProps = (state) => ({

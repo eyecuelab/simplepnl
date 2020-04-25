@@ -132,7 +132,7 @@ li {
 
 .container {
   min-width: 400px !important;
-  max-width: 800px !important;
+  max-width: 900px !important;
 }
 
 .MuiPaper-rounded {
@@ -144,10 +144,6 @@ li {
   border: 1px solid gray !important;
 }
 
-.rowTrue {
-  background-color: white;
-}
-
-.rowFalse {
-  background-color: lightblue;
+.MuiInoutBase-input {
+  font-size: 13px !important;
 }
