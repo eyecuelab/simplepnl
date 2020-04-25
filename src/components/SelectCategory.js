@@ -8,7 +8,7 @@ import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexL
 
 function SelectCategory(props) {
   const checkSpreadsheetSource = () => {
-    let thisSpreadsheetId;
+    let correctSpreadsheetId;
     // INFO FROM PROPS.LOCATION WHICH BOTH [SAVE] AND [LINK] SEND:
     const spreadsheetIdFromLocation = props.location.spreadsheetId;
     if (spreadsheetIdFromLocation === 'newSpreadsheet') {
@@ -16,16 +16,16 @@ function SelectCategory(props) {
       if (props.sheetsReducer.sheets) {
         const spreadsheetIdFromReports = props.sheetsReducer.sheets.id;
         // NEWLY SAVED SPREADSHEETID:
-        thisSpreadsheetId = spreadsheetIdFromReports;
+        correctSpreadsheetId = spreadsheetIdFromReports;
       }
     } else {
     // SPREADSHEETID FROM REPORTS PAGE:
-      thisSpreadsheetId = spreadsheetIdFromLocation;
+      correctSpreadsheetId = spreadsheetIdFromLocation;
     }
-    return thisSpreadsheetId;
+    return correctSpreadsheetId;
   };
-
-  console.log('checkSpreadsheetSource', checkSpreadsheetSource());
+  const thisSpreadsheetId = checkSpreadsheetSource();
+  console.log('thisSpreadsheetId: ', thisSpreadsheetId);
 
 
   // ROUTE FROM REPORTS:
