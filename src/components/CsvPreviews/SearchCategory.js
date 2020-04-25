@@ -5,13 +5,20 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 export default function SearchCategory() {
   return (
     <Autocomplete
-      id="combo-box-demo"
+      id="clear-on-escape"
+      clearOnEscape
       options={categories}
       getOptionLabel={(option) => option.title}
-      style={{ width: 180 }}
-      renderInput={(params) => <TextField {...params} label="Combo box" variant="outlined" />}
+      style={column}
+      renderInput={(params) => <TextField {...params} label="Select" variant="outlined" />}
     />
   );
+}
+
+const column = {
+  width: 150,
+  marginLeft: '10px',
+  padding: '10px'
 }
 
 const categories = [
