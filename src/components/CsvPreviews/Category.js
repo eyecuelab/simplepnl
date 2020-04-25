@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchCategory from './SearchCategory'
+import PaginationOutlined from './Pagination'
 
 class Category extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class Category extends Component {
       <table style={table}>
         <tbody>
           {
-                  csv.slice(0, 8).map((row, i) => (
+                  csv.slice(0, 6).map((row, i) => (
                     <tr id={`row_${i}`} key={this.newCategoryKey++}>
                       {
                         row.data.map((column, j) => (
@@ -48,6 +49,7 @@ class Category extends Component {
       <div>
         <h6>`DEV NOTE: nix Category.js and revert to SelectCategory.js component w/api call.`</h6>
         {this.csvReturn()}
+        <PaginationOutlined />
       </div>
     );
   }
@@ -58,13 +60,13 @@ const table = {
 };
 
 const rows = {
-  borderBottom: '1px solid rgba(0,0,0,.1)',
-  padding: '5px',
+  padding: '10px',
   fontSize: '13px',
 };
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,
+  sheetsReducer: state.sheetsReducer
 });
 
 export default connect(mapStateToProps)(Category);
