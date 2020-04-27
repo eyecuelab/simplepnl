@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
 import PaginationOutlined from '../../utils/Pagination';
-import { Table } from '../../styles/components';
+import { Table, Row } from '../../styles/components';
 
 class Category extends Component {
   constructor(props) {
@@ -32,7 +32,12 @@ class Category extends Component {
                     <tr id={`row_${i}`} key={this.newCategoryKey++}>
                       {
                         row.data.map((column, j) => (
-                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
+                          <Row
+                            id={`row_${i}-column_${j}`}
+                            key={this.newCategoryKey++}
+                          >
+                            {column}
+                          </Row>
                         ))
 
                       }
@@ -55,11 +60,6 @@ class Category extends Component {
     );
   }
 }
-
-const rows = {
-  padding: '10px',
-  fontSize: '20px',
-};
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,

@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-// import PrimaryButton from 'components/Button/PrimaryButton';
 
 const MainContainer = styled.div`
   background-color: #FFFFFF;
@@ -19,6 +18,12 @@ const Table = styled.table`
   margin-bottom: 50px;
 `;
 
+const Row = styled.td`
+  // border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 10px;
+  font-size: 13px;
+`;
+
 const Title = styled.h1`
   padding-left: 2rem;
   font-size: 25px;
@@ -33,7 +38,7 @@ const MegQuestionsLocation = styled.div`
 `;
 
 const SelectPreview = styled.h5`
-   padding: 15px;
+  padding: 15px;
 `;
 
 const ConfirmButton = styled.button`
@@ -107,6 +112,7 @@ export {
   MainContainer,
   CategoryContainer,
   Table,
+  Row,
   Title,
   MegQuestionsLocation,
   ConfirmButton,

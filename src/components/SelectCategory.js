@@ -82,66 +82,6 @@ function SelectCategory(props) {
             padding: 15px;
           }
 
-          .exampleTableDiv {
-            // position: fixed;
-            // float: left;
-            left: 0px;
-          }
-
-          .confirmButtonDiv {
-            text-align: center;
-            margin: auto;
-            padding-top: 54px
-          }
-
-          .confirmButton {
-            background-color: #ea475b;
-            color: #ffffff;
-            // height: 40px;
-            border-radius: 5px;
-            padding: 10px 30px;
-          }
-
-          .exampleTable {
-            margin: auto;
-          }
-
-          .cell {
-            border: 1px ridge black;
-            padding: 3px;
-            min-height: 19px;
-            background-color: white;
-          }
-
-          .highlightedCell {
-            background-color: #C0FFC0;
-          }
-
-          .breadcrumb {
-            padding: 0px;
-            margin: 0px;
-            background-color: white;
-            font-size: 14px;
-            font-weight: 700;
-            color: black;
-          }
-
-          .breadcrumb li{
-            padding: 0px 4px;
-            position: relative;
-            top: 10px;
-          }
-
-          .breadcrumb a {
-            color: black;
-          }
-
-          .delta {
-            color: #ea475b;
-            font-size: 24px;
-
-          }
-
           .SelectCategory {
             color: #555555;
             background-color: white;
