@@ -20,6 +20,7 @@ function MegQuestions() {
             position: relative;
             left: -90px;
             bottom: 50px;
+            z-index: 2;
           }
 
 
