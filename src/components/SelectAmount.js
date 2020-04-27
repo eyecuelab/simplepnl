@@ -44,9 +44,7 @@ function SelectAmount(props) {
       <PinkLine />
       <div className="SelectAmount">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
-
-        <hr />
+        <h6 className="clickRow">Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
         <AmountColumn />
 
         <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
@@ -70,6 +68,10 @@ function SelectAmount(props) {
             min-height: 20vh;
             text-align: center;
             padding: 20px 50px;
+          }
+
+          .clickRow {
+            padding-bottom: 20px;
           }
 
           `

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import Category from './CsvPreviews/Category';
-import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, SelectPreview } from '../styles/components';
 
 
 function SelectCategory(props) {
   const checkSpreadsheetSource = () => {
-    let thisSpreadsheetId;
+    let correctSpreadsheetId;
     // INFO FROM PROPS.LOCATION WHICH BOTH [SAVE] AND [LINK] SEND:
     const spreadsheetIdFromLocation = props.location.spreadsheetId;
     if (spreadsheetIdFromLocation === 'newSpreadsheet') {
@@ -16,20 +16,30 @@ function SelectCategory(props) {
       if (props.sheetsReducer.sheets) {
         const spreadsheetIdFromReports = props.sheetsReducer.sheets.id;
         // NEWLY SAVED SPREADSHEETID:
-        thisSpreadsheetId = spreadsheetIdFromReports;
+        correctSpreadsheetId = spreadsheetIdFromReports;
       }
     } else {
     // SPREADSHEETID FROM REPORTS PAGE:
-      thisSpreadsheetId = spreadsheetIdFromLocation;
+      correctSpreadsheetId = spreadsheetIdFromLocation;
     }
-    return thisSpreadsheetId;
+    return correctSpreadsheetId;
   };
+  const thisSpreadsheetId = checkSpreadsheetSource();
+  // console.log('thisSpreadsheetId: ', thisSpreadsheetId);
 
-  // console.log('checkSpreadsheetSource', checkSpreadsheetSource());
-
-
-  // ROUTE FROM REPORTS:
-  // ...
+  // const checkSpreadsheetValues = () => {
+  //   let returnedTarget;
+  //   if (props.sheetsReducer[thisSpreadsheetId]) {
+  //     if (props.sheetsReducer[thisSpreadsheetId].values) {
+  //       returnedTarget = props.sheetsReducer[thisSpreadsheetId].values;
+  //     }
+  //   } else {
+  //     returnedTarget = 'nah';
+  //   }
+  //   return returnedTarget;
+  // };
+  // const thisSpreadsheetValues = checkSpreadsheetValues();
+  // console.log("thisSpreadsheetValues", thisSpreadsheetValues);
 
 
   return (
@@ -40,14 +50,13 @@ function SelectCategory(props) {
       <div className="SelectCategory">
         <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
         <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
-
-        <hr />
-        <Category />
+        <Category
+          thisSpreadsheetId={thisSpreadsheetId}
+        />
       </div>
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
-      <ConfirmButton />
 
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:

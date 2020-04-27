@@ -19,9 +19,9 @@ const Table = styled.table`
 `;
 
 const Row = styled.td`
-  // border-bottom: 1px solid rgba(0,0,0,.1);
-  padding: 10px;
-  font-size: 13px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 15px;
+  font-size: 15px;
 `;
 
 const Title = styled.h1`
