@@ -15,6 +15,10 @@ const CategoryContainer = styled.div`
   color: #6B6B6B;
 `;
 
+const Table = styled.table`
+  margin-bottom: 50px;
+`;
+
 const Title = styled.h1`
   padding-left: 2rem;
   font-size: 25px;
@@ -102,6 +106,7 @@ const TextInput = styled.input`
 export {
   MainContainer,
   CategoryContainer,
+  Table,
   Title,
   MegQuestionsLocation,
   ConfirmButton,

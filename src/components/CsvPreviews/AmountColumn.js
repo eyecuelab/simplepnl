@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvAmount } from '../../actions';
+import { Table } from '../../styles/components';
 
 
 class AmountColumn extends Component {
@@ -43,7 +43,7 @@ class AmountColumn extends Component {
     }
 
     return (
-      <table style={table}>
+      <Table>
         <tbody>
           {
             csvRawData.slice(0, 3).map((row, i) => (
@@ -77,7 +77,7 @@ class AmountColumn extends Component {
             ))
           }
         </tbody>
-      </table>
+      </Table>
     );
   }
 
@@ -89,10 +89,6 @@ class AmountColumn extends Component {
     );
   }
 }
-
-const table = {
-  marginBottom: '50px',
-};
 
 const rows = {
   borderBottom: '1px solid rgba(0,0,0,.1)',

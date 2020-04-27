@@ -25,7 +25,7 @@ function SelectCategory(props) {
     return thisSpreadsheetId;
   };
 
-  console.log('checkSpreadsheetSource', checkSpreadsheetSource());
+  // console.log('checkSpreadsheetSource', checkSpreadsheetSource());
 
 
   // ROUTE FROM REPORTS:
@@ -43,52 +43,11 @@ function SelectCategory(props) {
 
         <hr />
         <Category />
-        {/* <form>
-          <select type="select">
-            <option value="Personal">(x) Non-Business Related</option>
-            <option value="Income">($) Income</option>
-            <option value="Other Expense: Ask My Accountant">(?) Other Expense: Ask My Accountant</option>
-            <option value="Cost of Goods Sold: Equipment Rental">Cost of Goods Sold: Equipment Rental</option>
-            <option value="Cost of Goods Sold: Job/Project Costs & Materials">Cost of Goods Sold: Job/Project Costs & Materials</option>
-            <option value="Cost of Goods Sold: Packaging & Labels">Cost of Goods Sold: Packaging & Labels</option>
-            <option value="Cost of Goods Sold: Shipping & Delivery">Cost of Goods Sold: Shipping & Delivery</option>
-            <option value="Cost of Goods Sold: Subcontractors">Cost of Goods Sold: Subcontractors</option>
-            <option value="Cost of Goods Sold: Merchant Service Fees">Cost of Goods Sold: Merchant Service Fees</option>
-            <option value="Equity: Owner Contribution">Equity: Owner Contribution</option>
-            <option value="Equity: Owner Draw - Personal Transactions">Equity: Owner Draw - Personal Transactions</option>
-            <option value="Expenses: Advertising & Marketing">Expenses: Advertising & Marketing</option>
-            <option value="Expenses: Advertising & Marketing:Events & Networking">Expenses: Advertising & Marketing:Events & Networking</option>
-            <option value="Expenses: Advertising & Marketing:Printing & Stationary">Expenses: Advertising & Marketing:Printing & Stationary</option>
-            <option value="Expenses: Advertising & Marketing:Website & Social Media">Expenses: Advertising & Marketing:Website & Social Media</option>
-            <option value="Expenses: Auto, Parking & Tolls">Expenses: Auto, Parking & Tolls</option>
-            <option value="Expenses: Bank Charges & Fees">Expenses: Bank Charges & Fees</option>
-            <option value="Expenses: Business Licenses & Permits">Expenses: Business Licenses & Permits</option>
-            <option value="Expenses: Contract Labor/Admin/Bookkeeper/Accountant">Expenses: Contract Labor/Admin/Bookkeeper/Accountant</option>
-            <option value="Expenses: Software, Dues, & Subscriptions">Expenses: Software, Dues, & Subscriptions</option>
-            <option value="Expenses: Business Insurance ">Expenses: Business Insurance </option>
-            <option value="Expenses: Interest Paid">Expenses: Interest Paid</option>
-            <option value="Expenses: Local Taxes">Expenses: Local Taxes</option>
-            <option value="Expenses: Meals & Meetings">Expenses: Meals & Meetings</option>
-            <option value="Expenses: Rent & Lease">Expenses: Rent & Lease</option>
-            <option value="Expenses: Repairs & Maintenance">Expenses: Repairs & Maintenance</option>
-            <option value="Expenses: Supplies- Office, Shop, Small Tools & Equipment">Expenses: Supplies- Office, Shop, Small Tools & Equipment</option>
-            <option value="Expenses: Travel">Expenses: Travel</option>
-            <option value="Expenses: Travel:Airfare & Transit">Expenses: Travel:Airfare & Transit</option>
-            <option value="Expenses: Travel:Lodging">Expenses: Travel:Lodging</option>
-            <option value="Expenses: Travel:Meals & Entertainment">Expenses: Travel:Meals & Entertainment</option>
-            <option value="Expenses: Phone & Internet">Expenses: Phone & Internet</option>
-            <option value="Fixed Assets: Machinery & Equipment">Fixed Assets: Machinery & Equipment</option>
-            <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
-          </select>
-
-          <Link to="/reports">
-            <ConfirmButton>SELECT</ConfirmButton>
-          </Link>
-        </form> */}
       </div>
-      {/* <MegQuestionsLocation>
+      <MegQuestionsLocation>
         <MegQuestions />
-      </MegQuestionsLocation> */}
+      </MegQuestionsLocation>
+      <ConfirmButton />
 
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:

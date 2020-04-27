@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchCategory from './SearchCategory'
-import PaginationOutlined from './Pagination'
+import ComboBox from '../../utils/ComboBox';
+import PaginationOutlined from '../../utils/Pagination';
+import { Table } from '../../styles/components';
 
 class Category extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Category extends Component {
     }
 
     return (
-      <table style={table}>
+      <Table>
         <tbody>
           {
                   csv.slice(0, 6).map((row, i) => (
@@ -33,14 +34,14 @@ class Category extends Component {
                         row.data.map((column, j) => (
                           <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
                         ))
-                          
+
                       }
-                      <SearchCategory />
+                      <ComboBox />
                     </tr>
                   ))
                 }
         </tbody>
-      </table>
+      </Table>
     );
   }
 
@@ -55,18 +56,14 @@ class Category extends Component {
   }
 }
 
-const table = {
-  marginBottom: '50px',
-};
-
 const rows = {
   padding: '10px',
-  fontSize: '13px',
+  fontSize: '20px',
 };
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,
-  sheetsReducer: state.sheetsReducer
+  sheetsReducer: state.sheetsReducer,
 });
 
 export default connect(mapStateToProps)(Category);

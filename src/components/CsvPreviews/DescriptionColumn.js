@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvDescription } from '../../actions';
+import { Table } from '../../styles/components';
 
 class DescriptionColumn extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class DescriptionColumn extends Component {
     }
 
     return (
-      <table style={table}>
+      <Table>
         <tbody>
           {
             csv.slice(0, 3).map((row, i) => (
@@ -76,7 +77,7 @@ class DescriptionColumn extends Component {
             ))
           }
         </tbody>
-      </table>
+      </Table>
     );
   }
 
@@ -88,10 +89,6 @@ class DescriptionColumn extends Component {
     );
   }
 }
-
-const table = {
-  marginBottom: '50px',
-};
 
 const rows = {
   borderBottom: '1px solid rgba(0,0,0,.1)',
