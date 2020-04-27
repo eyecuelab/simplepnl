@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchCategory from './SearchCategory'
-import PaginationOutlined from './Pagination'
+import SearchCategory from './SearchCategory';
+import PaginationOutlined from './Pagination';
 
 class Category extends Component {
   constructor(props) {
@@ -11,6 +11,15 @@ class Category extends Component {
   }
 
   csvReturn() {
+    let spreadsheetValues;
+    const { sheetsReducer } = this.props;
+    const { thisSpreadsheetId } = this.props;
+    if (sheetsReducer[thisSpreadsheetId]) {
+      spreadsheetValues = sheetsReducer[thisSpreadsheetId].values;
+    } else {
+      spreadsheetValues = [['loading', 'loading', 'loading', 'loading']];
+    }
+
     const { csv } = this.props;
     if (!csv) {
       return (
@@ -26,19 +35,21 @@ class Category extends Component {
     return (
       <table style={table}>
         <tbody>
-          {
-                  csv.slice(0, 6).map((row, i) => (
-                    <tr id={`row_${i}`} key={this.newCategoryKey++}>
-                      {
-                        row.data.map((column, j) => (
-                          <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
-                        ))
-                          
-                      }
-                      <SearchCategory />
-                    </tr>
-                  ))
-                }
+          <tr><td>Date</td><td>Description</td><td>Amount</td><td>Category</td></tr>
+          { spreadsheetValues.map((row, i) => {
+            if (row.length < 4) {
+              return (
+                <tr id={`row_${i}`} key={this.newCategoryKey++}>
+                  { row.map((column, j) => (
+                    <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
+                  ))}
+                  <td><SearchCategory /></td>
+                </tr>
+              );
+            }
+            return false;
+          }
+          )}
         </tbody>
       </table>
     );
@@ -47,7 +58,6 @@ class Category extends Component {
   render() {
     return (
       <div>
-        <h6>`DEV NOTE: nix Category.js and revert to SelectCategory.js component w/api call.`</h6>
         {this.csvReturn()}
         <PaginationOutlined />
       </div>
@@ -66,7 +76,7 @@ const rows = {
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,
-  sheetsReducer: state.sheetsReducer
+  sheetsReducer: state.sheetsReducer,
 });
 
 export default connect(mapStateToProps)(Category);

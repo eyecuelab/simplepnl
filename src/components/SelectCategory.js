@@ -25,11 +25,21 @@ function SelectCategory(props) {
     return correctSpreadsheetId;
   };
   const thisSpreadsheetId = checkSpreadsheetSource();
-  console.log('thisSpreadsheetId: ', thisSpreadsheetId);
+  // console.log('thisSpreadsheetId: ', thisSpreadsheetId);
 
-
-  // ROUTE FROM REPORTS:
-  // ...
+  // const checkSpreadsheetValues = () => {
+  //   let returnedTarget;
+  //   if (props.sheetsReducer[thisSpreadsheetId]) {
+  //     if (props.sheetsReducer[thisSpreadsheetId].values) {
+  //       returnedTarget = props.sheetsReducer[thisSpreadsheetId].values;
+  //     }
+  //   } else {
+  //     returnedTarget = 'nah';
+  //   }
+  //   return returnedTarget;
+  // };
+  // const thisSpreadsheetValues = checkSpreadsheetValues();
+  // console.log("thisSpreadsheetValues", thisSpreadsheetValues);
 
 
   return (
@@ -42,7 +52,9 @@ function SelectCategory(props) {
         <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
 
         <hr />
-        <Category />
+        <Category
+          thisSpreadsheetId={thisSpreadsheetId}
+        />
         {/* <form>
           <select type="select">
             <option value="Personal">(x) Non-Business Related</option>
@@ -81,19 +93,19 @@ function SelectCategory(props) {
             <option value="Fixed Assets: Vehicles Purchased">Fixed Assets: Vehicles Purchased</option>
           </select>
 
-          <Link to="/reports">
-            <ConfirmButton>SELECT</ConfirmButton>
-          </Link>
         </form> */}
+        <Link to="/reports">
+          <ConfirmButton>SELECT</ConfirmButton>
+        </Link>
       </div>
-      {/* <MegQuestionsLocation>
+      <MegQuestionsLocation>
         <MegQuestions />
-      </MegQuestionsLocation> */}
+      </MegQuestionsLocation>
 
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:
         <br />
-        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">${checkSpreadsheetSource()}</a>
+        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">{checkSpreadsheetSource()}</a>
       </div>
 
 
@@ -213,7 +225,7 @@ function SelectCategory(props) {
 
 
 const mapStateToProps = (state) => ({
-  ...state,
+  sheetsReducer: state.sheetsReducer,
 });
 
 // export default SelectCategory;
