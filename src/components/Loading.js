@@ -35,13 +35,13 @@ function Loading(props) {
             top: 100px;
             transform: translate(-50%, -1%);
 
-            width: 760px;
-            height: 500px;
+            width: 860px;
+            height: 585px;
 
             background: rgba(255, 255, 255, .97);
             color: #222222;
             text-align: center;
-            z-index: 999;
+            z-index: 1;
             border-radius: 20px;
           }
 
