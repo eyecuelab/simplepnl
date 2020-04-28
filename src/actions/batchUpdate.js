@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes';
+import { profitAndLossSummary } from '../constants/profitAndLossSummary';
 
 export const sheetsPostUpdate = () => ({
   type: types.SHEETS_POST_UPDATE,
@@ -35,7 +36,7 @@ export const batchUpdate = (props) => (dispatch) => {
     '=(COUNTA(D3:D999)/COUNTA(A3:A999))',
   ];
 
-  const test2 = csvRawData.map((x, index) => {
+  const transactionValues = csvRawData.map((x, index) => {
     const newRow = [];
     const oldRow = x.data;
 
@@ -61,7 +62,7 @@ export const batchUpdate = (props) => (dispatch) => {
     return newRow;
   });
 
-  test2.unshift(realFirstRow);
+  transactionValues.unshift(realFirstRow);
 
 
   dispatch(sheetsPostUpdate());
@@ -72,17 +73,33 @@ export const batchUpdate = (props) => (dispatch) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
     body: JSON.stringify({
-
-
       data: [
         {
-          values: test2,
-          range: 'a1',
+          range: 'Transactions!A1',
+          values: transactionValues,
+        },
+        {
+          range: 'Profit & Loss Summary!A1',
+          values: profitAndLossSummary,
         },
       ],
       valueInputOption: 'USER_ENTERED',
       includeValuesInResponse: 'true',
     }),
+
+    requests: [
+      {
+        autoResizeDimensions: {
+          dimensions: {
+            sheetId: 0,
+            dimension: 'COLUMNS',
+            startIndex: 0,
+            endIndex: 5,
+          },
+        },
+      },
+    ],
+
   })
     .then((response) => response.json())
     .then(
