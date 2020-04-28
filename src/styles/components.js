@@ -23,7 +23,7 @@ const Table = styled.table`
 
 const Cell = styled.td`
   border-bottom: 1px solid rgba(0,0,0,.4);
-  padding: 15px;
+  padding: 5px;
   font-size: 15px;
 `;
 
