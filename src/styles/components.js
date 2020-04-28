@@ -5,6 +5,8 @@ const MainContainer = styled.div`
   height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
+  /* test for megfooter: */
+  overflow: visible;
 `;
 
 const CategoryContainer = styled.div`
