@@ -10,15 +10,15 @@ export default function ComboBox() {
       options={categories}
       getOptionLabel={(option) => option.title}
       style={column}
-      renderInput={(params) => <TextField {...params} label="Select" variant="outlined" />}
+
+      renderInput={(params) => <TextField {...params} label="Select" variant="standard" margin="none" />}
     />
   );
 }
 
 const column = {
-  width: 200,
+  minWidth: '150px',
   marginLeft: '10px',
-  padding: '10px',
 };
 
 const categories = [
