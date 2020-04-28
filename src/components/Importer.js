@@ -11,7 +11,7 @@ class Importer extends Component {
   }
 
   handleOnDrop = (data) => {
-    console.log(data);
+    // console.log(data);
     const payload = {
       csvRawData: data,
     };

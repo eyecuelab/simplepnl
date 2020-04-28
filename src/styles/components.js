@@ -16,11 +16,14 @@ const CategoryContainer = styled.div`
 
 const Table = styled.table`
   margin-bottom: 50px;
+  width: 100%;
 `;
 
+
 const Cell = styled.td`
-  border-bottom: 1px solid rgba(0,0,0,.1);
-  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,.4);
+  padding-bottom: 5px;
+  vertical-align: bottom;
   font-size: 15px;
 `;
 

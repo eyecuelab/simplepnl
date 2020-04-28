@@ -18,25 +18,25 @@ class Category extends Component {
     if (sheetsReducer[thisSpreadsheetId]) {
       spreadsheetValues = sheetsReducer[thisSpreadsheetId].values;
     } else {
-      spreadsheetValues = [['loading', 'loading', 'loading', 'loading']];
+      spreadsheetValues = [['Loading', 'Loading', 'Loading']];
     }
 
-    const { csv } = this.props;
-    if (!csv) {
-      return (
-        <div>
-          <h5>
-            Whoops forgot to upload a CSV...<br /> We better add a check for that!
-          </h5>
-          <hr />
-        </div>
-      );
-    }
+    // const { csv } = this.props;
+    // if (!csv) {
+    //   return (
+    //     <div>
+    //       <h5>
+    //         Whoops forgot to upload a CSV...<br /> We better add a check for that!
+    //       </h5>
+    //       <hr />
+    //     </div>
+    //   );
+    // }
 
     return (
       <Table>
         <tbody>
-          <tr><td>Date</td><td>Description</td><td>Amount</td><td>Category</td></tr>
+          <tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th></tr>
           { spreadsheetValues.map((row, i) => {
             if (row.length < 4) {
               return (
