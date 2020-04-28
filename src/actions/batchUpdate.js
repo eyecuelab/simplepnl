@@ -46,9 +46,9 @@ export const batchUpdate = (props) => (dispatch) => {
     newRow.push(oldRow[csvIndexOfAmount]);
 
     if (index === 0) {
-      newRow.push('CATEGORY');
+      newRow.push('Category');
     } else if (index % tempRandomNumber === 0) {
-      newRow.push('test category');
+      newRow.push('');
     } else {
       newRow.push('');
     }
