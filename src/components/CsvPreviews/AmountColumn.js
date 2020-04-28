@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvAmount } from '../../actions';
-import { Table, Row } from '../../styles/components';
+import { Table, Cell } from '../../styles/components';
 
 
 class AmountColumn extends Component {
@@ -53,7 +53,7 @@ class AmountColumn extends Component {
               >
                 {
                   row.data.map((column, j) => (
-                    <Row
+                    <Cell
                       id={`row_${i}-column_${j}`}
                       role="presentation"
                       className={`row_${i} column_${j} tableCell`}
@@ -68,7 +68,7 @@ class AmountColumn extends Component {
                       >
                         {column}
                       </button>
-                    </Row>
+                    </Cell>
                   ))
 
                 }
