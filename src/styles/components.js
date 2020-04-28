@@ -18,7 +18,7 @@ const Table = styled.table`
   margin-bottom: 50px;
 `;
 
-const Row = styled.td`
+const Cell = styled.td`
   border-bottom: 1px solid rgba(0,0,0,.1);
   padding: 15px;
   font-size: 15px;
@@ -112,7 +112,7 @@ export {
   MainContainer,
   CategoryContainer,
   Table,
-  Row,
+  Cell,
   Title,
   MegQuestionsLocation,
   ConfirmButton,
