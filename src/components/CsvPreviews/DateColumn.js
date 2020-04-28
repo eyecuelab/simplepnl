@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvDate } from '../../actions';
+import { Table, Row } from '../../styles/components';
 
 class DateColumn extends Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class DateColumn extends Component {
     }
 
     return (
-      <table style={table}>
+      <Table>
         <tbody>
           {
             csv.slice(0, 3).map((row, i) => (
@@ -52,11 +53,10 @@ class DateColumn extends Component {
               >
                 {
                   row.data.map((column, j) => (
-                    <td
+                    <Row
                       id={`row_${i}-column_${j}`}
                       role="presentation"
                       className={`row_${i} column_${j} tableCell`}
-                      style={rows}
                       key={this.newDateKey++}
                     >
                       <button
@@ -68,7 +68,7 @@ class DateColumn extends Component {
                       >
                         {column}
                       </button>
-                    </td>
+                    </Row>
                   ))
 
                 }
@@ -76,7 +76,7 @@ class DateColumn extends Component {
             ))
           }
         </tbody>
-      </table>
+      </Table>
     );
   }
 
@@ -88,16 +88,6 @@ class DateColumn extends Component {
     );
   }
 }
-
-const table = {
-  marginBottom: '50px',
-};
-
-const rows = {
-  borderBottom: '1px solid rgba(0,0,0,.1)',
-  padding: '5px',
-  fontSize: '15px',
-};
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,

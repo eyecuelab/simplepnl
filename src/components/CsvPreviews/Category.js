@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchCategory from './SearchCategory';
-import PaginationOutlined from './Pagination';
+import ComboBox from '../../utils/ComboBox';
+import PaginationOutlined from '../../utils/Pagination';
+import { Table, Row } from '../../styles/components';
 
 class Category extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class Category extends Component {
     }
 
     return (
-      <table style={table}>
+      <Table>
         <tbody>
           <tr><td>Date</td><td>Description</td><td>Amount</td><td>Category</td></tr>
           { spreadsheetValues.map((row, i) => {
@@ -41,9 +42,14 @@ class Category extends Component {
               return (
                 <tr id={`row_${i}`} key={this.newCategoryKey++}>
                   { row.map((column, j) => (
-                    <td id={`row_${i}-column_${j}`} style={rows} key={this.newCategoryKey++}>{column}</td>
+                    <Row
+                      id={`row_${i}-column_${j}`}
+                      key={this.newCategoryKey++}
+                    >
+                      {column}
+                    </Row>
                   ))}
-                  <td><SearchCategory /></td>
+                  <td><ComboBox /></td>
                 </tr>
               );
             }
@@ -51,7 +57,7 @@ class Category extends Component {
           }
           )}
         </tbody>
-      </table>
+      </Table>
     );
   }
 
@@ -64,15 +70,6 @@ class Category extends Component {
     );
   }
 }
-
-const table = {
-  marginBottom: '50px',
-};
-
-const rows = {
-  padding: '10px',
-  fontSize: '13px',
-};
 
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,

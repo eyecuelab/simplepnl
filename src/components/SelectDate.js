@@ -12,9 +12,7 @@ function SelectDate() {
       <PinkLine />
       <div className="SelectDate">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>Please click on the <span className="extraBold">DATE</span> column below and hit confirm!</h6>
-
-        <hr />
+        <h6 className="clickRow">Please click on the <span className="extraBold">DATE</span> column below and hit confirm!</h6>
         <DateColumn />
         <Link to="/selectdescription">
           <ConfirmButton>CONFIRM!</ConfirmButton>
@@ -38,6 +36,10 @@ function SelectDate() {
             min-height: 20vh;
             text-align: center;
             padding: 20px 50px;
+          }
+
+          .clickRow {
+            padding-bottom: 20px;
           }
 
           `

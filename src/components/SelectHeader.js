@@ -13,9 +13,7 @@ function SelectHeader() {
       <div className="SelectHeader">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
         <h6>I think I found the <span className="extraBold">header</span> row <span className="highlightedCell">below</span>.</h6>
-        <h6>Can you double check by tapping on the <span className="extraBold">HEADER</span> row and confirming?</h6>
-
-        <hr />
+        <h6 className="clickRow">Can you double check by tapping on the <span className="extraBold">HEADER</span> row and confirming?</h6>
         <HeaderRow />
         <Link to="/selectdate">
           <ConfirmButton>CONFIRM!</ConfirmButton>
@@ -40,6 +38,10 @@ function SelectHeader() {
             min-height: 20vh;
             text-align: center;
             padding: 20px 50px;
+          }
+
+          .clickRow {
+            padding-bottom: 20px;
           }
 
           `

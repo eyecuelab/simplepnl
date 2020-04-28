@@ -12,9 +12,7 @@ function SelectDescription() {
       <PinkLine />
       <div className="SelectDescription">
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>Please click on the <span className="extraBold">DESCRIPTION</span> column below and hit confirm!</h6>
-
-        <hr />
+        <h6 className="clickRow">Please click on the <span className="extraBold">DESCRIPTION</span> column below and hit confirm!</h6>
         <DescriptionColumn />
         <Link to="/selectamount">
           <ConfirmButton>CONFIRM!</ConfirmButton>
@@ -40,6 +38,9 @@ function SelectDescription() {
             padding: 20px 50px;
           }
 
+          .clickRow {
+            padding-bottom: 20px;
+          }
 
           `
         }
