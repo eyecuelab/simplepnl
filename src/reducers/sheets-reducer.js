@@ -40,6 +40,19 @@ export default (state = initialState.sheets, action) => {
         isLoading: false,
         error: action.error };
     }
+    case types.SHEETS_POST_UPDATE_START: {
+      return { ...state, isLoading: true };
+    }
+    case types.SHEET_CATEGORY_UPDATE_SUCCESS: {
+      // [id]: { ...values }
+      return { ...state,
+        isLoading: false };
+    }
+    case types.SHEET_CATEGORY_UPDATE_FAILURE: {
+      return { ...state,
+        isLoading: false,
+        error: action.error };
+    }
     default:
       return state;
   }
