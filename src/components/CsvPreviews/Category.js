@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
 import PaginationOutlined from '../../utils/Pagination';
-import { Table, Cell } from '../../styles/components';
+import { Table, CategoryCell } from '../../styles/components';
 
 class Category extends Component {
   constructor(props) {
@@ -42,12 +42,12 @@ class Category extends Component {
               return (
                 <tr id={`row_${i}`} key={this.newCategoryKey++}>
                   { row.map((column, j) => (
-                    <Cell
+                    <CategoryCell
                       id={`row_${i}-column_${j}`}
                       key={this.newCategoryKey++}
                     >
                       {column}
-                    </Cell>
+                    </CategoryCell>
                   ))}
                   <td><ComboBox /></td>
                 </tr>

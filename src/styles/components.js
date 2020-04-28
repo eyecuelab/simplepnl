@@ -19,8 +19,13 @@ const Table = styled.table`
   width: 100%;
 `;
 
-
 const Cell = styled.td`
+  border-bottom: 1px solid rgba(0,0,0,.4);
+  padding: 15px;
+  font-size: 15px;
+`;
+
+const CategoryCell = styled.td`
   border-bottom: 1px solid rgba(0,0,0,.4);
   padding-bottom: 5px;
   vertical-align: bottom;
@@ -116,6 +121,7 @@ export {
   CategoryContainer,
   Table,
   Cell,
+  CategoryCell,
   Title,
   MegQuestionsLocation,
   ConfirmButton,
