@@ -69,6 +69,7 @@ export const makeDriveApiCall = (props) => (dispatch) => {
     .then((response) => response.json())
     .then((jsonifiedResponse) => {
       dispatch(driveGetReportsSuccess(jsonifiedResponse.files));
+      return jsonifiedResponse.files;
     })
     .catch((error) => {
       dispatch(driveGetReportsFailure(error));
@@ -124,6 +125,7 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
           spreadsheetId,
         };
         dispatch(sheetsGetPercentageSuccess(payload));
+        return payload;
       })
       .catch((error) => {
         dispatch(sheetsGetPercentageFailure(error));
@@ -239,6 +241,7 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
           csvRawData,
         };
         dispatch(batchUpdate(payload2));
+        return jsonifiedResponse;
       })
     .catch((error) => {
       dispatch(sheetsPostCreateFailure(error));

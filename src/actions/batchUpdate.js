@@ -88,6 +88,7 @@ export const batchUpdate = (props) => (dispatch) => {
     .then(
       (jsonifiedResponse) => {
         dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));
+        return jsonifiedResponse;
       })
     .catch((error) => {
       dispatch(sheetsPostUpdateFailure(error));

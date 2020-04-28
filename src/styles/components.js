@@ -9,7 +9,7 @@ const MainContainer = styled.div`
 
 const CategoryContainer = styled.div`
   background-color: #FFFFFF;
-  height: 900px;
+  height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
 `;
@@ -33,8 +33,8 @@ const Title = styled.h1`
 
 const MegQuestionsLocation = styled.div`
   position: absolute;
-  top: 660px;
-  left: 30%;
+  top: 665px;
+  left: 27%;
 `;
 
 const SelectPreview = styled.h5`

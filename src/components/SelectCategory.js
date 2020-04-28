@@ -49,7 +49,7 @@ function SelectCategory(props) {
       <PinkLine />
       <div className="SelectCategory">
         <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
-        <h6><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
+        <h6 className="clickRow"><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
         <Category
           thisSpreadsheetId={thisSpreadsheetId}
         />
@@ -61,7 +61,7 @@ function SelectCategory(props) {
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:
         <br />
-        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">${checkSpreadsheetSource()}</a>
+        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">{checkSpreadsheetSource()}</a>
       </div>
 
 
@@ -111,6 +111,10 @@ function SelectCategory(props) {
             border-bottom: 2px solid #ea475b;
           }
 
+          .clickRow {
+            padding-bottom: 20px;
+          }
+
 
           `
         }
@@ -121,7 +125,7 @@ function SelectCategory(props) {
 
 
 const mapStateToProps = (state) => ({
-  ...state,
+  sheetsReducer: state.sheetsReducer,
 });
 
 // export default SelectCategory;
