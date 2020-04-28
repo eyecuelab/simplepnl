@@ -1,16 +1,78 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import { connect } from 'react-redux';
+import { batchUpdateCategory } from '../actions/batchUpdateCategory';
 
-export default function ComboBox() {
+const options = [
+  '',
+  '(x) Non-Business Related',
+  '($) Income',
+  '(?) Other Expense: Ask My Accountant',
+  'Cost of Goods Sold: Equipment Rental',
+  'Cost of Goods Sold: Job/Project Costs & Materials',
+  'Costs of Goods Sold: Packaging & Labels',
+  'Costs of Goods Sold: Shipping & Delivery',
+  'Costs of Goods Sold: Subcontractors',
+  'Cost of Goods Sold: Merchant Service Fees',
+  'Equity: Owner Contribution',
+  'Equity: Owner Draw - Personal Transactions',
+  'Expenses: Advertising & Marketing',
+  'Expenses: Advertising & Marketing:Events & Networking',
+  'Expenses: Advertising & Marketing:Printing & Stationary',
+  'Expenses: Advertising & Marketing:Website & Social Media',
+  'Expenses: Aut, Parking & Tolls',
+  'Expenses: Bank Charges & Fees',
+  'Expenses: Business Licenses & Permits',
+  'Expenses: Contract Labor/Admin/Bookkeeper/Accountant',
+  'Expenses: Softwar, Due, & Subscriptions',
+  'Expenses: Business Insurance',
+  'Expenses: Interest Paid',
+  'Expenses: Local Taxes',
+  'Expenses: Meals & Meetings',
+  'Expenses: Rent & Lease',
+  'Expenses: Repairs & Maintenance',
+  'Expenses: Supplies- Offic, Sho, Small Tools & Equipment',
+  'Expenses: Travel',
+  'Expenses: Travel:Airfare & Transit',
+  'Expenses: Travel:Lodging',
+  'Expenses: Travel:Meals & Entertainment',
+  'Expenses: Phone & Internet',
+  'Fixed Assets: Machinery & Equipment',
+  'Fixed Assets: Vehicles Purchased',
+];
+
+function ComboBox(props) {
+  const [value, setValue] = React.useState(options[0]);
+  const [inputValue, setInputValue] = React.useState('');
+
   return (
     <Autocomplete
+      value={value}
       id="clear-on-escape"
       clearOnEscape
-      options={categories}
-      getOptionLabel={(option) => option.title}
+      options={options}
       style={column}
-
+      onChange={(event, newValue) => {
+        const { accessToken } = props;
+        const { rowId } = props;
+        const { spreadsheetId } = props;
+        const data = newValue;
+        setValue(newValue);
+        console.log(props);
+        const { dispatch } = props;
+        const payload = {
+          accessToken,
+          rowId,
+          spreadsheetId,
+          data,
+        };
+        dispatch(batchUpdateCategory(payload));
+      }}
+      onInputChange={(event, newInputValue) => {
+        setInputValue(newInputValue);
+      }}
+      inputValue={inputValue}
       renderInput={(params) => <TextField {...params} label="Select" variant="standard" margin="none" />}
     />
   );
@@ -21,39 +83,9 @@ const column = {
   marginLeft: '10px',
 };
 
-const categories = [
-  { title: '(x) Non-Business Related' },
-  { title: '($) Income' },
-  { title: '(?) Other Expense: Ask My Accountant' },
-  { title: 'Cost of Goods Sold: Equipment Rental' },
-  { title: 'Cost of Goods Sold: Job/Project Costs & Materials' },
-  { title: 'Costs of Goods Sold: Packaging & Labels' },
-  { title: 'Costs of Goods Sold: Shipping & Delivery' },
-  { title: 'Costs of Goods Sold: Subcontractors' },
-  { title: 'Cost of Goods Sold: Merchant Service Fees' },
-  { title: 'Equity: Owner Contribution' },
-  { title: 'Equity: Owner Draw - Personal Transactions' },
-  { title: 'Expenses: Advertising & Marketing' },
-  { title: 'Expenses: Advertising & Marketing:Events & Networking' },
-  { title: 'Expenses: Advertising & Marketing:Printing & Stationary' },
-  { title: 'Expenses: Advertising & Marketing:Website & Social Media' },
-  { title: 'Expenses: Auto, Parking & Tolls' },
-  { title: 'Expenses: Bank Charges & Fees' },
-  { title: 'Expenses: Business Licenses & Permits' },
-  { title: 'Expenses: Contract Labor/Admin/Bookkeeper/Accountant' },
-  { title: 'Expenses: Software, Dues, & Subscriptions' },
-  { title: 'Expenses: Business Insurance' },
-  { title: 'Expenses: Interest Paid' },
-  { title: 'Expenses: Local Taxes' },
-  { title: 'Expenses: Meals & Meetings' },
-  { title: 'Expenses: Rent & Lease' },
-  { title: 'Expenses: Repairs & Maintenance' },
-  { title: 'Expenses: Supplies- Office, Shop, Small Tools & Equipment' },
-  { title: 'Expenses: Travel' },
-  { title: 'Expenses: Travel:Airfare & Transit' },
-  { title: 'Expenses: Travel:Lodging' },
-  { title: 'Expenses: Travel:Meals & Entertainment' },
-  { title: 'Expenses: Phone & Internet' },
-  { title: 'Fixed Assets: Machinery & Equipment' },
-  { title: 'Fixed Assets: Vehicles Purchased' },
-];
+const mapStateToProps = (state) => ({
+  accessToken: state.oauthReducer.access_token,
+  ...state,
+});
+
+export default connect(mapStateToProps)(ComboBox);

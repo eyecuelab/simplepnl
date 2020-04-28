@@ -21,18 +21,6 @@ class Category extends Component {
       spreadsheetValues = [['Loading', 'Loading', 'Loading']];
     }
 
-    // const { csv } = this.props;
-    // if (!csv) {
-    //   return (
-    //     <div>
-    //       <h5>
-    //         Whoops forgot to upload a CSV...<br /> We better add a check for that!
-    //       </h5>
-    //       <hr />
-    //     </div>
-    //   );
-    // }
-
     return (
       <Table>
         <tbody>
@@ -49,7 +37,7 @@ class Category extends Component {
                       {column}
                     </CategoryCell>
                   ))}
-                  <td><ComboBox /></td>
+                  <td><ComboBox rowId={i} spreadsheetId={thisSpreadsheetId} /></td>
                 </tr>
               );
             }
