@@ -43,7 +43,15 @@ const options = [
 
 function ComboBox(props) {
   // WILL HAVE TO UPDATE USESTATE, BELOW, WITH REDUXSTORE IF?ELSE "":
-  const [value, setValue] = React.useState('');
+  const { categoryData } = props;
+  let categoryDataState;
+  if (categoryData === undefined) {
+    categoryDataState = '';
+  } else {
+    categoryDataState = categoryData;
+  }
+
+  const [value, setValue] = React.useState(categoryDataState);
   const [inputValue, setInputValue] = React.useState('');
 
   return (
@@ -58,7 +66,6 @@ function ComboBox(props) {
         const { rowId } = props;
         const { spreadsheetId } = props;
         const data = newValue;
-        console.log(props);
         const { dispatch } = props;
         const payload = {
           accessToken,

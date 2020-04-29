@@ -112,7 +112,7 @@ function SelectCategory(props) {
           }
 
           .clickRow {
-            padding-bottom: 20px;
+            padding-bottom: 5px;
           }
 
 
