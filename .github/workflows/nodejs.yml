@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [13.12.0]
 
     steps:
     - uses: actions/checkout@v2
@@ -31,21 +31,9 @@ jobs:
       uses: AkhileshNS/heroku-deploy@v3.0.4
       with:
         # This will be used for authentication. You can find it in your heroku homepage account settings
-        heroku_api_key: 
+        heroku_api_key: ${{ secrets.HEROKU_API_DEV }}
         # Email that you use with heroku
-        heroku_email: 
+        heroku_email: ${{ secrets.HEROKU_EMAIL_DEV }}
         # The appname to use for deploying/updating
-        heroku_app_name: 
-        # An optional buildpack to use when creating the heroku application
-        buildpack: # optional
-        # The branch that you would like to deploy to Heroku
-        branch: # optional, default is HEAD
-        # Set this to true if you don't want to use --force when switching branches
-        dontuseforce: # optional
-        # Will deploy using Dockerfile in project root.
-        usedocker: # optional
-        # Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled
-        docker_heroku_process_type: # optional, default is web
-        # Set if your app is located in a subdirectory.
-        appdir: # optional, default is 
+        heroku_app_name: simplepnldev
       
