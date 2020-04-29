@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
-import PaginationOutlined from '../../utils/Pagination';
+import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell } from '../../styles/components';
 
 class Category extends Component {
@@ -53,7 +53,7 @@ class Category extends Component {
     return (
       <div>
         {this.csvReturn()}
-        <PaginationOutlined />
+        <PinkPagination />
       </div>
     );
   }
