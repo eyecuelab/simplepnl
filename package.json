@@ -2,15 +2,26 @@
   "name": "simplepnl",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "lint": "eslint src/**/*.js; exit 0",
+    "lint-fix": "eslint src/**/*.js --fix; exit 0",
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open",
+    "docker:build-dev": "docker build -f Dockerfile -t simplepnl:dev .",
+    "docker:run-dev": "docker-compose -f docker-compose.dev.yml up -d --build",
+    "docker:build-prod": "docker build -f Dockerfile.prod -t simplepnl:prod .",
+    "docker:run-prod": "docker-compose -f docker-compose.prod.yml up -d --build"
+  },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/lab": "^4.0.0-alpha.51",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "babel-plugin-macros": "^2.8.0",
     "bootstrap": "^4.4.1",
-    "cypress": "^4.4.1",
     "husky": "^3.0.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
@@ -22,15 +33,6 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "lint": "eslint src/**/*.js; exit 0",
-    "lint-fix": "eslint src/**/*.js --fix; exit 0",
-    "eject": "react-scripts eject",
-    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  simplepnl:
+    container_name: dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - 3001:3000
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
