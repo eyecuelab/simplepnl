@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
-import PaginationOutlined from '../../utils/Pagination';
+
+import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell, DisplayButton } from '../../styles/components';
 
 class Category extends Component {
@@ -120,7 +121,8 @@ class Category extends Component {
           <DisplayButton onClick={() => this.handleDisplayClick('all')}>All</DisplayButton>
         </div>
         {this.csvReturn()}
-        <PaginationOutlined />
+
+<PinkPagination />
         <style>{
           `
           .displayOptions {
@@ -136,7 +138,9 @@ class Category extends Component {
           `
         }
         </style>
-      </div>
+
+
+</div>
     );
   }
 }

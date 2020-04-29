@@ -148,6 +148,10 @@ li {
   font-size: 13px !important;
 }
 
+.MuiPaginationItem-page.Mui-selected {
+  background-color: rgb(241, 104, 121) !important;
+}
+
 
 button:focus {
   outline: none !important;
