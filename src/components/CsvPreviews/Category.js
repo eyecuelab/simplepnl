@@ -69,8 +69,7 @@ class Category extends Component {
                         spreadsheetId={thisSpreadsheetId}
                         rowId={i}
                         rowLength={row.length}
-                        c
-                        ategoryData={row[3]}
+                        categoryData={row[3]}
                       />
                     </td>
                   </tr>
