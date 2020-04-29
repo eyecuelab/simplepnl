@@ -7,15 +7,25 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       marginTop: theme.spacing(2),
       textAlign: 'center',
+      margin: 'auto',
+      height: 80,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   },
 }));
 
-export default function PaginationOutlined() {
+export default function PinkPagination() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Pagination count={10} variant="outlined" />
+      <Pagination
+        className={classes.PagStyle}
+        count={10}
+        variant="outlined"
+        size="large"
+      />
     </div>
   );
 }
