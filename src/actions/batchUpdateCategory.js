@@ -42,7 +42,11 @@ export const batchUpdateCategory = (props) => (dispatch) => {
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
-        dispatch(sheetCategoryUpdateSuccess(jsonifiedResponse));
+        const successPayload = {
+          jsonifiedResponse,
+          data,
+        };
+        dispatch(sheetCategoryUpdateSuccess(successPayload));
         return jsonifiedResponse;
       })
     .catch((error) => {
