@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { batchUpdateCategory } from '../actions/batchUpdateCategory';
 
 const options = [
-  '',
   '(x) Non-Business Related',
   '($) Income',
   '(?) Other Expense: Ask My Accountant',
@@ -43,7 +42,8 @@ const options = [
 ];
 
 function ComboBox(props) {
-  const [value, setValue] = React.useState(options[0]);
+  // WILL HAVE TO UPDATE USESTATE, BELOW, WITH REDUXSTORE IF?ELSE "":
+  const [value, setValue] = React.useState('');
   const [inputValue, setInputValue] = React.useState('');
 
   return (
@@ -58,7 +58,6 @@ function ComboBox(props) {
         const { rowId } = props;
         const { spreadsheetId } = props;
         const data = newValue;
-        setValue(newValue);
         console.log(props);
         const { dispatch } = props;
         const payload = {
@@ -68,6 +67,7 @@ function ComboBox(props) {
           data,
         };
         dispatch(batchUpdateCategory(payload));
+        setValue(newValue);
       }}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue);

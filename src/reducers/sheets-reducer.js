@@ -44,8 +44,19 @@ export default (state = initialState.sheets, action) => {
       return { ...state, isLoading: true };
     }
     case types.SHEET_CATEGORY_UPDATE_SUCCESS: {
-      // [id]: { ...values }
+      const data = action.reports.data[0][0];
+      const { spreadsheetId } = action.reports.jsonifiedResponse;
+      const updatedRange = parseInt(action.reports.jsonifiedResponse.responses[0].updatedRange.slice(14, 18)) - 1;
+      const newState = state[spreadsheetId].values.map((obj, index) => {
+        if (updatedRange === index) {
+          const newObj = obj;
+          newObj.push(data);
+          return newObj;
+        }
+        return obj;
+      });
       return { ...state,
+        [spreadsheetId]: { values: newState },
         isLoading: false };
     }
     case types.SHEET_CATEGORY_UPDATE_FAILURE: {
