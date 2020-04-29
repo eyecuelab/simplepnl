@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
+
 import PinkPagination from '../../utils/Pagination';
-import { Table, CategoryCell } from '../../styles/components';
+import { Table, CategoryCell, DisplayButton } from '../../styles/components';
 
 class Category extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      categoryDisplay: 3,
+    };
     this.newCategoryKey = 0;
+    this.handleDisplayClick = this.handleDisplayClick.bind(this);
+  }
+
+  handleDisplayClick(columns) {
+    this.setState({
+      categoryDisplay: columns,
+    });
   }
 
   csvReturn() {
@@ -18,43 +28,119 @@ class Category extends Component {
     if (sheetsReducer[thisSpreadsheetId]) {
       spreadsheetValues = sheetsReducer[thisSpreadsheetId].values;
     } else {
-      spreadsheetValues = [['Loading', 'Loading', 'Loading']];
+      // API CALL FOR VALUES NO IN REDUX WILL LIKELY BE DISPATCHED HERE:
+      spreadsheetValues = [
+        ['Loading3', 'Loading3', 'Loading3'],
+        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
+        ['Loading3', 'Loading3', 'Loading3'],
+        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
+        ['Loading3', 'Loading3', 'Loading3'],
+        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
+      ];
     }
 
     return (
-      <Table>
-        <tbody>
-          <tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th></tr>
-          { spreadsheetValues.map((row, i) => {
-            if (row.length < 4) {
-              return (
-                <tr id={`row_${i}`} key={this.newCategoryKey++}>
-                  { row.map((column, j) => (
-                    <CategoryCell
-                      id={`row_${i}-column_${j}`}
-                      key={this.newCategoryKey++}
-                    >
-                      {column}
-                    </CategoryCell>
-                  ))}
-                  <td><ComboBox rowId={i} spreadsheetId={thisSpreadsheetId} /></td>
-                </tr>
-              );
+      <div>
+        <Table>
+          <tbody>
+            <tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th></tr>
+            { spreadsheetValues.map((row, i) => {
+              if (i < 2) {
+                return false;
+              }
+              const { categoryDisplay } = this.state;
+              if (categoryDisplay === 'all') {
+                return (
+                  <tr id={`row_${i}`} key={this.newCategoryKey++}>
+                    { row.map((column, j) => {
+                      if (j <= 2) {
+                        return (
+                          <CategoryCell
+                            id={`row_${i}-column_${j}`}
+                            key={this.newCategoryKey++}
+                          >
+                            {column}
+                          </CategoryCell>
+                        );
+                      }
+                      return false;
+                    })}
+                    <td>
+                      <ComboBox
+                        spreadsheetId={thisSpreadsheetId}
+                        rowId={i}
+                        rowLength={row.length}
+                        categoryData={row[3]}
+                      />
+                    </td>
+                  </tr>
+                );
+              } if (row.length === categoryDisplay) {
+                return (
+                  <tr id={`row_${i}`} key={this.newCategoryKey++}>
+                    { row.map((column, j) => {
+                      if (j <= 2) {
+                        return (
+                          <CategoryCell
+                            id={`row_${i}-column_${j}`}
+                            key={this.newCategoryKey++}
+                          >
+                            {column}
+                          </CategoryCell>
+                        );
+                      }
+                      return false;
+                    })}
+                    <td>
+                      <ComboBox
+                        spreadsheetId={thisSpreadsheetId}
+                        rowId={i}
+                        rowLength={row.length}
+                        categoryData={row[3]}
+                      />
+                    </td>
+                  </tr>
+                );
+              }
+              return false;
             }
-            return false;
-          }
-          )}
-        </tbody>
-      </Table>
+            )}
+          </tbody>
+        </Table>
+      </div>
     );
   }
 
   render() {
     return (
       <div>
+        <div className="displayOptions">
+          <span className="displayText">Display: </span>
+          <DisplayButton onClick={() => this.handleDisplayClick(3)}>Uncategorized</DisplayButton>
+          <DisplayButton onClick={() => this.handleDisplayClick(4)}>Categorized</DisplayButton>
+          <DisplayButton onClick={() => this.handleDisplayClick('all')}>All</DisplayButton>
+        </div>
         {this.csvReturn()}
-        <PinkPagination />
-      </div>
+
+<PinkPagination />
+        <style>{
+          `
+          .displayOptions {
+            // position: relative;
+            // bottom: 60px;
+            margin: 8px;
+            text-align: center;
+          }
+          .displayText {
+            font-weight: 600;
+            color: #555555;
+          }
+          `
+        }
+        </style>
+
+
+</div>
     );
   }
 }
