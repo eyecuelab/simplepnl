@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
+import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
 
 import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell, DisplayButton } from '../../styles/components';
@@ -13,6 +14,18 @@ class Category extends Component {
     };
     this.newCategoryKey = 0;
     this.handleDisplayClick = this.handleDisplayClick.bind(this);
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    const { dispatch } = this.props;
+    const { accessToken } = this.props;
+    const { thisSpreadsheetId } = this.props;
+    const payload = {
+      accessToken,
+      thisSpreadsheetId,
+    };
+    dispatch(spreadsheetsValuesGet(payload));
   }
 
   handleDisplayClick(columns) {
@@ -28,14 +41,15 @@ class Category extends Component {
     if (sheetsReducer[thisSpreadsheetId]) {
       spreadsheetValues = sheetsReducer[thisSpreadsheetId].values;
     } else {
-      // API CALL FOR VALUES NO IN REDUX WILL LIKELY BE DISPATCHED HERE:
+      // console.log("Warning Will Robinson and/or Noah");
+      // API CALL FOR VALUES NO IN REDUX WILL LIKELY REPLACE THESE..?:
       spreadsheetValues = [
-        ['Loading3', 'Loading3', 'Loading3'],
-        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
-        ['Loading3', 'Loading3', 'Loading3'],
-        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
-        ['Loading3', 'Loading3', 'Loading3'],
-        ['Loading4', 'Loading4', 'Loading4', 'Loading4'],
+        ['LoadingA', 'LoadingA', 'LoadingA'],
+        ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+        ['LoadingA', 'LoadingA', 'LoadingA'],
+        ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+        ['LoadingA', 'LoadingA', 'LoadingA'],
+        ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
       ];
     }
 
@@ -148,6 +162,7 @@ class Category extends Component {
 const mapStateToProps = (state) => ({
   csv: state.csvReducer.csvRawData,
   sheetsReducer: state.sheetsReducer,
+  accessToken: state.oauthReducer.access_token,
 });
 
 export default connect(mapStateToProps)(Category);
