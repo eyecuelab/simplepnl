@@ -67,6 +67,34 @@ export default (state = initialState.sheets, action) => {
         isLoading: false,
         error: action.error };
     }
+
+    case types.SPREADSHEETS_VALUES_GET_START: {
+      return { ...state,
+        isLoading: true };
+    }
+    case types.SPREADSHEETS_VALUES_GET_SUCCESS: {
+      console.log('action', action);
+      const id = action.reports.thisSpreadsheetId;
+      const { values } = action.reports.jsonifiedResponse;
+      // let values = [
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      // ];
+
+      return { ...state,
+        isLoading: false,
+        [id]: { values } };
+    }
+    case types.SPREADSHEETS_VALUES_GET_FAILURE: {
+      return { ...state,
+        isLoading: false,
+        error: action.error };
+    }
+
     default:
       return state;
   }
