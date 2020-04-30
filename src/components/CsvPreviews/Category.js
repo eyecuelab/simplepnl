@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
-import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
+// import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
 
 import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell, DisplayButton } from '../../styles/components';
@@ -16,17 +16,38 @@ class Category extends Component {
     this.handleDisplayClick = this.handleDisplayClick.bind(this);
   }
 
-  componentDidMount() {
-    console.log('componentDidMount');
-    const { dispatch } = this.props;
-    const { accessToken } = this.props;
-    const { thisSpreadsheetId } = this.props;
-    const payload = {
-      accessToken,
-      thisSpreadsheetId,
-    };
-    dispatch(spreadsheetsValuesGet(payload));
-  }
+  // componentDidMount() {
+  //   console.log('componentDidMount');
+  //   const { dispatch } = this.props;
+  //   const { accessToken } = this.props;
+  //   const { thisSpreadsheetId } = this.props;
+  //   const { sheetsReducer } = this.props;
+  //
+  //   const payload = {
+  //     accessToken,
+  //     thisSpreadsheetId,
+  //   };
+  //   dispatch(spreadsheetsValuesGet(payload))
+  //
+  //   // .then((response) => {
+  //   //   console.log(response);
+  //   //   return response;
+  //   // })
+  //
+  //   let spreadsheetValues = [
+  //     ['LoadingA', 'LoadingA', 'LoadingA'],
+  //     ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+  //     ['LoadingA', 'LoadingA', 'LoadingA'],
+  //     ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+  //     ['LoadingA', 'LoadingA', 'LoadingA'],
+  //     ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+  //   ];
+  //
+  //   if (sheetsReducer[thisSpreadsheetId]) {
+  //     spreadsheetValues = sheetsReducer[thisSpreadsheetId].values;
+  //   }
+  //
+  // }
 
   handleDisplayClick(columns) {
     this.setState({
@@ -35,7 +56,15 @@ class Category extends Component {
   }
 
   csvReturn() {
-    let spreadsheetValues;
+    let spreadsheetValues = [
+      ['LoadingA', 'LoadingA', 'LoadingA'],
+      ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+      ['LoadingA', 'LoadingA', 'LoadingA'],
+      ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+      ['LoadingA', 'LoadingA', 'LoadingA'],
+      ['LoadingB', 'LoadingB', 'LoadingB', 'LoadingB'],
+    ];
+
     const { sheetsReducer } = this.props;
     const { thisSpreadsheetId } = this.props;
     if (sheetsReducer[thisSpreadsheetId]) {
