@@ -73,7 +73,6 @@ export default (state = initialState.sheets, action) => {
         isLoading: true };
     }
     case types.SPREADSHEETS_VALUES_GET_SUCCESS: {
-      console.log('action', action);
       const id = action.reports.thisSpreadsheetId;
       const { values } = action.reports.jsonifiedResponse;
       // let values = [
