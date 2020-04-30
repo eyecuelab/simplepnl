@@ -125,6 +125,7 @@ const CategoryCell = styled.td`
   padding-bottom: 5px;
   vertical-align: bottom;
   font-size: 15px;
+  max-width: 200px;
 `;
 
 const Title = styled.h1`
@@ -156,7 +157,7 @@ const SelectScreen = styled.div`
 const ConfirmButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
-  color: #FFFFFF;;
+  color: #FFFFFF;
   padding: 8px 60px;
   font-weight: 700;
   margin: 20px;
@@ -169,6 +170,15 @@ const NextButton = styled.button`
   padding: 8px 60px;
   font-weight: 700;
   margin: 20px;
+`;
+
+const DisplayButton = styled.button`
+  background: #ea475b;
+  border-radius: 4px;
+  color: #FFFFFF;
+  padding: 2px 10px;
+  font-weight: 600;
+  margin-left: 10px;
 `;
 
 const EulaButton = styled.button`
@@ -256,6 +266,7 @@ export {
   MegQuestionsLocation,
   ConfirmButton,
   NextButton,
+  DisplayButton,
   EulaButton,
   EulaButtonContainer,
   PinkLine,

@@ -90,16 +90,6 @@ function SelectCategory(props) {
             padding: 15px;
           }
 
-          .reportsHeader {
-            // padding-top: 20px;
-            margin: 0px;
-            font-size: 25px;
-            font-weight: 900;
-            color: #ea475b;
-            text-align: left;
-            border-bottom: 2px solid #ea475b;
-          }
-
 
           `
         }

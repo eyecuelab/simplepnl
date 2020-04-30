@@ -50,6 +50,9 @@ export default (state = initialState.sheets, action) => {
       const newState = state[spreadsheetId].values.map((obj, index) => {
         if (updatedRange === index) {
           const newObj = obj;
+          if (newObj.length >= 4) {
+            newObj.pop();
+          }
           newObj.push(data);
           return newObj;
         }
