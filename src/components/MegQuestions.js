@@ -18,7 +18,7 @@ function MegQuestions() {
             color: #222222;
             text-align: center;
             position: relative;
-            left: -90px;
+            left: -20px;
             bottom: 50px;
             z-index: 2;
           }

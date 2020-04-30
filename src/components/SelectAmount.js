@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
 import AmountColumn from './CsvPreviews/AmountColumn';
-import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview } from '../styles/components';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen } from '../styles/components';
 
 import { makeSheetsApiPost } from '../actions';
 
@@ -42,14 +42,12 @@ function SelectAmount(props) {
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reportslist">BACK TO INDEX</Link></IndexLink>
       <Title>CONFIRM AMOUNT</Title>
       <PinkLine />
-      <div className="SelectAmount">
+      <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
         <h6 className="clickRow">Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
         <AmountColumn />
-
         <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
-
-      </div>
+      </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
@@ -58,20 +56,6 @@ function SelectAmount(props) {
           `
           .extraBold {
             font-weight: 800;
-          }
-
-          .SelectAmount {
-            color: #555555;
-            background-color: white;
-            border-radius: 5px;
-            // overflow: hidden;
-            min-height: 20vh;
-            text-align: center;
-            padding: 20px 50px;
-          }
-
-          .clickRow {
-            padding-bottom: 20px;
           }
 
           `
