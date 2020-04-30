@@ -43,27 +43,25 @@ const options = [
 
 function ComboBox(props) {
   // WILL HAVE TO UPDATE USESTATE, BELOW, WITH REDUXSTORE IF?ELSE "":
-  const { categoryData } = props;
+  const { categoryData, rowId } = props;
   let categoryDataState;
   if (categoryData === undefined) {
-    categoryDataState = '';
+    categoryDataState = null;
   } else {
     categoryDataState = categoryData;
   }
 
   const [value, setValue] = React.useState(categoryDataState);
   const [inputValue, setInputValue] = React.useState('');
-
   return (
     <Autocomplete
       value={value}
-      id="clear-on-escape"
+      id={`${rowId}-clear-on-escape`}
       clearOnEscape
       options={options}
       style={column}
       onChange={(event, newValue) => {
         const { accessToken } = props;
-        const { rowId } = props;
         const { spreadsheetId } = props;
         const data = newValue;
         const { dispatch } = props;

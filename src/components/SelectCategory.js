@@ -1,45 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import Category from './CsvPreviews/Category';
 import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, SelectPreview, SelectScreen } from '../styles/components';
 
-function SelectCategory(props) {
-  const checkSpreadsheetSource = () => {
-    let correctSpreadsheetId;
+function SelectCategory({ location, sheetsReducer }) {
+  const sheetId = useMemo(() => {
+    const correctSpreadsheetId = location.spreadsheetId;
     // INFO FROM PROPS.LOCATION WHICH BOTH [SAVE] AND [LINK] SEND:
-    const spreadsheetIdFromLocation = props.location.spreadsheetId;
-    if (spreadsheetIdFromLocation === 'newSpreadsheet') {
-    // INFO FROM [SAVE] OF NEW SHEET:
-      if (props.sheetsReducer.sheets) {
-        const spreadsheetIdFromReports = props.sheetsReducer.sheets.id;
-        // NEWLY SAVED SPREADSHEETID:
-        correctSpreadsheetId = spreadsheetIdFromReports;
-      }
-    } else {
-    // SPREADSHEETID FROM REPORTS PAGE:
-      correctSpreadsheetId = spreadsheetIdFromLocation;
+    if (correctSpreadsheetId === 'newSpreadsheet' && sheetsReducer?.sheets?.id) {
+      // NEWLY SAVED SPREADSHEETID:
+      return sheetsReducer.sheets.id;
     }
     return correctSpreadsheetId;
-  };
-  const thisSpreadsheetId = checkSpreadsheetSource();
-  // console.log('thisSpreadsheetId: ', thisSpreadsheetId);
-
-  // const checkSpreadsheetValues = () => {
-  //   let returnedTarget;
-  //   if (props.sheetsReducer[thisSpreadsheetId]) {
-  //     if (props.sheetsReducer[thisSpreadsheetId].values) {
-  //       returnedTarget = props.sheetsReducer[thisSpreadsheetId].values;
-  //     }
-  //   } else {
-  //     returnedTarget = 'nah';
-  //   }
-  //   return returnedTarget;
-  // };
-  // const thisSpreadsheetValues = checkSpreadsheetValues();
-  // console.log("thisSpreadsheetValues", thisSpreadsheetValues);
-
+  }, [location, sheetsReducer]);
 
   return (
     <CategoryContainer>
@@ -50,7 +25,7 @@ function SelectCategory(props) {
         <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
         <h6 className="clickRow"><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
         <Category
-          thisSpreadsheetId={thisSpreadsheetId}
+          thisSpreadsheetId={sheetId}
         />
       </SelectScreen>
       <MegQuestionsLocation>
@@ -60,7 +35,7 @@ function SelectCategory(props) {
       <div className="temp">
         TEMP display of active spreadsheetId for dev use:
         <br />
-        <a href={`https://docs.google.com/spreadsheets/d/${checkSpreadsheetSource()}`} target="_blank" rel="noopener noreferrer">{checkSpreadsheetSource()}</a>
+        <a href={`https://docs.google.com/spreadsheets/d/${sheetId}`} target="_blank" rel="noopener noreferrer">{sheetId}</a>
       </div>
 
 
