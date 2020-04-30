@@ -62,13 +62,15 @@ class Reports extends React.Component {
   render() {
     return (
       <MainContainer className="MainContainer">
-        <div className="reportsTitlePadding">
 
+        <div className="reportsTitlePadding">
           <Title>REPORTS</Title>
           <PinkLine />
           <div className="reportsPlus"><Link to="/newpnl"><div className="reportsPlusSign">+</div></Link></div>
 
-          {this.reportReturn()}
+          <div className="reportsDiv">
+            {this.reportReturn()}
+          </div>
 
           <MegQuestionsLocation>
             <MegQuestions />
@@ -77,86 +79,97 @@ class Reports extends React.Component {
 
         <style>
           {
-            `
-            .reportsBodyPadding {
-              padding: 0px 2rem;
-            }
+          `
 
-            .reportsBodyPaddingText {
-                text-align: center;
-            }
+          .MainContainer {
+            // overflow-y: hidden;
 
-            .reportsTitlePadding {
-              padding-top: 24px;
-            }
-
-            .reportsMiniPlusSign {
-              position: relative;
-              top: -4px;
-              left: 0px;
-              font-weight: 500;
-              color: #ffffff;
-              // font-size: 82px;
-            }
-
-
-            .reportsMiniPlus {
-              display: inline-block;
-              position: relative;
-              top: 5px;
-              background-color: #ea475b;
-              width: 16px;
-              height: 16px;
-              border-radius: 100%;
-              margin-right: 3px;
-            }
-
-            .MegQuestionsLocation {
-              position: absolute;
-            }
-
-            .reportsDemoSelector {
-              position: absolute;
-              left: 10px;
-
-              float: left;
-            }
-
-            .reportsHeader {
-              // padding-top: 20px;
-              margin: 0px;
-              font-size: 25px;
-              font-weight: 700;
-              color: #ea475b;
-              text-align: left;
-              border-bottom: 2px solid #ea475b;
-            }
-
-            .reportsPlus{
-              position: relative;
-              top: -32px;
-              left: 80%;
-              background-color: #ea475b;
-              width: 60px;
-              height: 60px;
-              border-radius: 100%;
-            }
-
-            .reportsPlusSign {
-              position: relative;
-              top: -32px;
-              left: 6px;
-              font-weight: 200;
-              color: #e9f5fb;
-              font-size: 82px;
-            }
-
-            .reportsPlus a:hover {
-              text-decoration: none;
-            }
-
-            `
           }
+          .reportsDiv {
+            background-color: #ffffff;
+            border-radius: 5px;
+            // overflow-y: scroll;
+          }
+
+          .reportsBodyPadding {
+            padding: 0px 2rem;
+          }
+
+          .reportsBodyPaddingText {
+            text-align: center;
+          }
+
+          .reportsTitlePadding {
+            padding-top: 24px;
+          }
+
+          .reportsMiniPlusSign {
+            position: relative;
+            top: -4px;
+            left: 0px;
+            font-weight: 500;
+            color: #ffffff;
+            // font-size: 82px;
+          }
+
+
+          .reportsMiniPlus {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            background-color: #ea475b;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            margin-right: 3px;
+          }
+
+          .MegQuestionsLocation {
+            position: absolute;
+          }
+
+          .reportsDemoSelector {
+            position: absolute;
+            left: 10px;
+
+            float: left;
+          }
+
+          .reportsHeader {
+            // padding-top: 20px;
+            margin: 0px;
+            font-size: 25px;
+            font-weight: 700;
+            color: #ea475b;
+            text-align: left;
+            border-bottom: 2px solid #ea475b;
+          }
+
+          .reportsPlus{
+            position: relative;
+            top: -32px;
+            left: 80%;
+            background-color: #ea475b;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+          }
+
+          .reportsPlusSign {
+            position: relative;
+            top: -32px;
+            left: 6px;
+            font-weight: 200;
+            color: #e9f5fb;
+            font-size: 82px;
+          }
+
+          .reportsPlus a:hover {
+            text-decoration: none;
+          }
+
+          `
+        }
         </style>
       </MainContainer>
     );

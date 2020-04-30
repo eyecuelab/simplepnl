@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import editIcon from '../images/editIcon.png';
+import linkIcon from '../images/linkIcon.png';
 
 function ReportItem(props) {
   const { name } = props;
@@ -29,6 +30,12 @@ function ReportItem(props) {
           >
             <img className="editIcon" src={editIcon} alt="Edit icon" />
           </Link>
+
+          <a href={`https://docs.google.com/spreadsheets/d/${spreadsheetId}`} target="_blank" rel="noopener noreferrer">
+            <img className="linkIcon" src={linkIcon} alt="Edit icon" />
+          </a>
+
+
         </span>
 
 
@@ -40,11 +47,16 @@ function ReportItem(props) {
           `
           .ReportItem {
             width: 100%;
-            text-align: left;
-            padding-bottom: 20px;
+            text-align: center;
+            padding-bottom: 15px;
+            // margin: auto;
+            background-color: white;
+            border-radius: 5px;
           }
 
           .reportItemHeader {
+            text-align: left;
+
             font-weight: 600;
             color: #222222;
           }
@@ -53,7 +65,10 @@ function ReportItem(props) {
             background-color: #555555;
             border-radius: 20px;
             display: inline-block;
-            width: 82%;
+            width: 85%;
+            text-align: left;
+            margin-bottom: 5px;
+
           }
 
           .reportItemStatus {
@@ -74,12 +89,18 @@ function ReportItem(props) {
           .reportItemEdit {
             display: inline-block;
             background-color: white;
-            margin-left: 10%;
-            width: 8%;
+            // width: 80%;
+            // text-align: right;
           }
 
           .editIcon {
-            width: 30px;
+            width: 26px;
+            margin-left: 20px;
+          }
+
+          .linkIcon {
+            width: 26px;
+            margin-left: 20px;
           }
 
           `
