@@ -122,7 +122,7 @@ class Category extends Component {
         </div>
         {this.csvReturn()}
 
-<PinkPagination />
+        <PinkPagination />
         <style>{
           `
           .displayOptions {
@@ -140,7 +140,7 @@ class Category extends Component {
         </style>
 
 
-</div>
+      </div>
     );
   }
 }
