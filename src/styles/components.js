@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 
 const MainContainer = styled.div`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
@@ -138,7 +138,7 @@ const Title = styled.h1`
 const MegQuestionsLocation = styled.div`
   position: absolute;
   top: 665px;
-  left: 27%;
+  left: 23%;
 `;
 
 const SelectPreview = styled.h5`
