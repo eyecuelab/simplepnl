@@ -12,8 +12,7 @@ function SelectHeader() {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>I think I found the <span className="extraBold">header</span> row <span className="highlightedCell">below</span>.</h6>
-        <h6>Can you double check by tapping on the <span className="extraBold">HEADER</span> row and confirming?</h6>
+        <h6>Please click on the <span className="extraBold">HEADER</span> column below and hit confirm!</h6>
         <HeaderRow />
         <Link to="/selectdate">
           <ConfirmButton>CONFIRM!</ConfirmButton>

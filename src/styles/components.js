@@ -109,8 +109,10 @@ const ReportsPlusSign = styled.div`
 `;
 
 const Table = styled.table`
-  margin-top: 25px;
-  margin-bottom: 50px;
+  /* margin-top: 25px; */
+  /* margin-bottom: 50px; */
+  background-color: white;
+  border-radius: 5px;
   width: 100%;
 `;
 
@@ -155,10 +157,13 @@ const SelectScreen = styled.div`
 `;
 
 const ConfirmButton = styled.button`
+  /* position: relative; */
+  /* bottom: -200px; */
+  /* overflow: visible; */
   background: #ea475b;
   border-radius: 4px;
   color: #FFFFFF;
-  padding: 8px 60px;
+  padding: 8px 30px;
   font-weight: 700;
   margin: 20px;
 `;

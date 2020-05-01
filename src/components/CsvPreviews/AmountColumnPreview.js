@@ -1,33 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCsvAmount } from '../../actions';
 import { Table, Cell } from '../../styles/components';
 
 
-class AmountColumn extends Component {
+class AmountColumnPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleClick = this.handleClick.bind(this);
     this.newAmountKey = 0;
   }
 
-  handleClick(event) {
-    const cell = event.currentTarget.className.split(' ');
-    const column = cell[1];
-    const { dispatch } = this.props;
-    dispatch(setCsvAmount(column));
-
-    const tableCells = document.querySelectorAll('.tableCell');
-    tableCells.forEach((everyCell) => {
-      everyCell.style.backgroundColor = '#ffffff'; // eslint-disable-line no-param-reassign
-    });
-
-    const selectedCells = document.querySelectorAll(`.${column}`);
-    selectedCells.forEach((selectedCell) => {
-      selectedCell.style.backgroundColor = '#99D7EC'; // eslint-disable-line no-param-reassign
-    });
-  }
 
   csvReturn() {
     const { csvRawData } = this.props;
@@ -59,15 +41,7 @@ class AmountColumn extends Component {
                       className={`row_${i} column_${j} tableCell`}
                       key={this.newAmountKey++}
                     >
-                      <button
-                        type="button"
-                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
-                        className={`row_${i} column_${j} tableCell`}
-                        onClick={this.handleClick}
-                        onKeyPress={this.handleClick}
-                      >
-                        {column}
-                      </button>
+                      {column}
                     </Cell>
                   ))
 
@@ -94,4 +68,4 @@ const mapStateToProps = (state) => ({
   csvAmount: state.csvAmount,
 });
 
-export default connect(mapStateToProps)(AmountColumn);
+export default connect(mapStateToProps)(AmountColumnPreview);
