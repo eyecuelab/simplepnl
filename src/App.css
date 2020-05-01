@@ -126,6 +126,10 @@ a {
   color: #222222;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 li {
   padding: 5px;
 }
