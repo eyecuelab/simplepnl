@@ -14,7 +14,7 @@ function SelectDescription() {
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
         <h6 className="clickRow">Please click on the <span className="extraBold">DESCRIPTION</span> column below and hit confirm!</h6>
         <DescriptionColumn />
-        <Link to="/selectamount">
+        <Link to="/select1amountor2">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
       </SelectScreen>

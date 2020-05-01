@@ -2,41 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
-import AmountColumn from './CsvPreviews/AmountColumn';
+import AmountColumnPreview from './CsvPreviews/AmountColumnPreview';
 import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen } from '../styles/components';
 
-import { makeSheetsApiPost } from '../actions';
 
-
-function SelectAmount(props) {
-  const handleNewSheet = () => {
-    const { dispatch } = props;
-
-    const { accessToken } = props;
-    const { csvName } = props;
-    const { csvAmount } = props;
-    const { csvDate } = props;
-    const { csvDescription } = props;
-    const { csvHeader } = props;
-    const { csvRawData } = props;
-    const payload = {
-      accessToken,
-      csvName,
-      csvAmount,
-      csvDate,
-      csvDescription,
-      csvHeader,
-      csvRawData,
-    };
-    dispatch(makeSheetsApiPost(payload))
-      .then(() => {
-        props.history.push({
-          pathname: '/selectcategory',
-          spreadsheetId: 'newSpreadsheet',
-        });
-      });
-  };
-
+function Select1AmountOr2() {
   return (
     <MainContainer>
       <IndexLink>
@@ -51,9 +21,15 @@ function SelectAmount(props) {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
-        <AmountColumn />
-        <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
+        <h6 className="clickRow">Does it look like there is <span className="extraBold">ONE</span> amount column, or <span className="extraBold">TWO</span> in the header row?</h6>
+        <AmountColumnPreview />
+
+        <Link to="/selectamount">
+          <ConfirmButton>Just 1 Amount column!</ConfirmButton>
+        </Link>
+
+        <ConfirmButton>Both a Debit AND a Credit column.</ConfirmButton>
+
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />
@@ -84,4 +60,4 @@ const mapStateToProps = (state) => ({
   csvRawData: state.csvReducer.csvRawData,
 });
 
-export default connect(mapStateToProps)(SelectAmount);
+export default connect(mapStateToProps)(Select1AmountOr2);

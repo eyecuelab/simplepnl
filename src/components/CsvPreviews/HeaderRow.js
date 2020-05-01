@@ -62,7 +62,7 @@ class HeaderRow extends Component {
                     >
                       <button
                         type="button"
-                        style={{ border: 'none', backgroundColor: 'white' }}
+                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
                         className={`row_${i} column_${j} tableCell`}
                         onClick={this.handleClick}
                         onKeyPress={this.handleClick}
