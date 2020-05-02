@@ -4,7 +4,6 @@ import { MainContainer, HomeHeader, HomeText, SignIn } from '../styles/component
 import MegHeader from './MegHeader';
 import OAuth from './OAuth';
 
-
 function Home({ currentUser }) {
   return (
     <MainContainer>

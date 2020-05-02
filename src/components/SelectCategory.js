@@ -61,10 +61,6 @@ function SelectCategory({ location, sheetsReducer }) {
             font-weight: 800;
           }
 
-          .h5select {
-            padding: 15px;
-          }
-
 
           `
         }

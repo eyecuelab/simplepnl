@@ -46,15 +46,6 @@ const CategoryContainer = styled.div`
   color: #6B6B6B;
 `;
 
-const ReportsContainer = styled.div`
-  color: #555555;
-  background-color: #FFFFFF;
-  border-radius: 5px;
-  min-height: 20vh;
-  text-align: center;
-  padding: 20px 50px;
-`;
-
 const HomeHeader = styled.h1`
   padding-top: 50px;
   padding-bottom: 10px;
@@ -79,19 +70,58 @@ const EulaHeader = styled.h2`
   margin: 0px;
 `;
 
-const ReportsHeader = styled.div`
-  margin: 0px;
-  font-size: 25px;
-  font-weight: 700;
-  color: #ea475b;
+const ReportsContainer = styled.div`
+  width: 100%;
+  text-align: center;
+  padding-bottom: 15px;
+  background-color: white;
+  border-radius: 5px;
+`;
+
+const ReportItemHeader = styled.div`
   text-align: left;
-  border-bottom: 2px solid #ea475b;
+  padding-bottom: 10px;
+  font-weight: 600;
+  color: #222222;
+`;
+
+const ReportStatusBar = styled.div`
+  background-color: #555555;
+  border-radius: 20px;
+  display: inline-block;
+  width: 85%;
+  text-align: left;
+  margin-bottom: 5px;
+`;
+
+const ReportStatus = styled.div`
+  background-color: #ea475b;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;  
+`;
+
+const EditReport = styled.div`
+  display: inline-block;
+  background-color: #ffffff;
+`;
+
+const EditReportIcon = styled.img`
+  width: 26px;
+  margin-left: 20px;
+`;
+
+const ReportLinkIcon = styled.img`
+  width: 26px;
+  margin-left: 20px;
 `;
 
 const ReportsPlus = styled.div`
   position: relative;
   top: -32px;
-  left: 90%;
+  left: 80%;
   background-color: #ea475b;
   width: 60px;
   height: 60px;
@@ -101,11 +131,10 @@ const ReportsPlus = styled.div`
 const ReportsPlusSign = styled.div`
   position: relative;
   top: -32px;
-  left: 90%;
-  background-color: #ea475b;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
+  left: 6px;
+  font-weight: 200;
+  color: #e9f5fb;
+  font-size: 82px;
 `;
 
 const Table = styled.table`
@@ -131,6 +160,14 @@ const CategoryCell = styled.td`
 `;
 
 const Title = styled.h1`
+  padding-left: 2rem;
+  font-size: 25px;
+  color: #ea475b;
+  font-weight: 700;
+`;
+
+const ReportsHeader = styled.h1`
+  padding-top: 24px;
   padding-left: 2rem;
   font-size: 25px;
   color: #ea475b;
@@ -261,13 +298,19 @@ export {
   HomeText,
   SignIn,
   EulaHeader,
-  ReportsHeader,
   ReportsPlus,
   ReportsPlusSign,
   Table,
   Cell,
   CategoryCell,
   Title,
+  ReportsHeader,
+  ReportItemHeader,
+  ReportStatusBar,
+  ReportStatus,
+  EditReport,
+  EditReportIcon,
+  ReportLinkIcon,
   MegQuestionsLocation,
   ConfirmButton,
   NextButton,
