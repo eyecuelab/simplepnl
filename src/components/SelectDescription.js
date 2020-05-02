@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import DescriptionColumn from './CsvPreviews/DescriptionColumn';
-import { Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, MainContainer } from '../styles/components';
+import { Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, MainContainer, ExtraBold } from '../styles/components';
 
 function SelectDescription() {
   return (
@@ -12,25 +12,15 @@ function SelectDescription() {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Please click on the <span className="extraBold">DESCRIPTION</span> column below and hit confirm!</h6>
+        <h6 className="clickRow">Please click on the <ExtraBold>DESCRIPTION</ExtraBold> column below and hit confirm!</h6>
         <DescriptionColumn />
-        <Link to="/select1amountor2">
+        <Link to="/selectamount1or2">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
-      <style>
-        {
-          `
-          .extraBold {
-            font-weight: 800;
-          }
-
-          `
-        }
-      </style>
     </MainContainer>
   );
 }

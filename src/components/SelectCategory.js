@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MegQuestions from './MegQuestions';
 import Category from './CsvPreviews/Category';
-import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, SelectPreview, SelectScreen } from '../styles/components';
+import { CategoryContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, SelectPreview, SelectScreen, ExtraBold } from '../styles/components';
 
 function SelectCategory({ location, sheetsReducer }) {
   const sheetId = useMemo(() => {
@@ -23,7 +23,7 @@ function SelectCategory({ location, sheetsReducer }) {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Now it&apos;s time to categorize your transactions!</SelectPreview>
-        <h6 className="clickRow"><span className="extraBold">Select the most appropriate category for this transaction from the dropdown below.</span> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
+        <h6 className="clickRow"><ExtraBold>Select the most appropriate category for this transaction from the dropdown below.</ExtraBold> (If you&apos;re not sure, you can ask me for help, or stop and come back any time.)</h6>
         <Category
           thisSpreadsheetId={sheetId}
         />
@@ -56,9 +56,6 @@ function SelectCategory({ location, sheetsReducer }) {
 
           .MegQuestionsLocation {
             position: absolute;
-          }
-          .extraBold {
-            font-weight: 800;
           }
 
           .h5select {

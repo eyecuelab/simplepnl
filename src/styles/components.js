@@ -225,6 +225,10 @@ const IndexLink = styled.h4`
   font-size: 15px;
 `;
 
+const ExtraBold = styled.span`
+  font-weight: 800;
+`;
+
 const TextInput = styled.input`
   height: 70px;
   width: 90%;
@@ -280,4 +284,5 @@ export {
   SelectPreview,
   SelectScreen,
   TextInput,
+  ExtraBold,
 };
