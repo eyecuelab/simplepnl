@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
 import AmountColumnPreview from './CsvPreviews/AmountColumnPreview';
-import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen } from '../styles/components';
+import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, ExtraBold } from '../styles/components';
 
 
-function Select1AmountOr2() {
+function SelectAmountDebit() {
   return (
     <MainContainer>
       <IndexLink>
@@ -21,7 +21,7 @@ function Select1AmountOr2() {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Does it look like there is <span className="extraBold">ONE</span> amount column, or <span className="extraBold">TWO</span> in the header row?</h6>
+        <h6 className="clickRow">Does it look like there is <ExtraBold>ONE &#39;Amount&#39;</ExtraBold> column, or <ExtraBold>TWO [a Debit & Credit]</ExtraBold> in the header row?</h6>
         <AmountColumnPreview />
 
         <Link to="/selectamount">
@@ -34,16 +34,6 @@ function Select1AmountOr2() {
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
-      <style>
-        {
-          `
-          .extraBold {
-            font-weight: 800;
-          }
-
-          `
-        }
-      </style>
     </MainContainer>
   );
 }
@@ -60,4 +50,4 @@ const mapStateToProps = (state) => ({
   csvRawData: state.csvReducer.csvRawData,
 });
 
-export default connect(mapStateToProps)(Select1AmountOr2);
+export default connect(mapStateToProps)(SelectAmountDebit);

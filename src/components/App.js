@@ -15,7 +15,7 @@ import SelectDate from './SelectDate';
 import SelectDescription from './SelectDescription';
 import SelectHeader from './SelectHeader';
 import SelectAmount from './SelectAmount';
-import Select1AmountOr2 from './Select1AmountOr2';
+import SelectAmount1or2 from './SelectAmount1or2';
 import SelectCategory from './SelectCategory';
 
 const ProtectedRoute = ({ component: Comp, loggedIn, path, ...rest }) => (
@@ -62,7 +62,7 @@ class App extends React.Component {
             <ProtectedRoute path="/selectheader" loggedIn={isSignedIn} component={SelectHeader} />
             <ProtectedRoute path="/selectdate" loggedIn={isSignedIn} component={SelectDate} />
             <ProtectedRoute path="/selectdescription" loggedIn={isSignedIn} component={SelectDescription} />
-            <ProtectedRoute path="/Select1amountor2" loggedIn={isSignedIn} component={Select1AmountOr2} />
+            <ProtectedRoute path="/selectamount1or2" loggedIn={isSignedIn} component={SelectAmount1or2} />
             <ProtectedRoute path="/selectamount" loggedIn={isSignedIn} component={SelectAmount} />
             <ProtectedRoute path="/selectcategory" loggedIn={isSignedIn} component={SelectCategory} />
             <ProtectedRoute path="/reportslist" loggedIn={isSignedIn} component={ReportsList} />
