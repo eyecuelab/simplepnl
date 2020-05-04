@@ -99,6 +99,26 @@ class Reports extends React.Component {
             position: absolute;
           }
 
+          .reportsMiniPlusSign {
+            position: relative;
+            top: -4px;
+            left: 0px;
+            font-weight: 500;
+            color: #ffffff;
+            // font-size: 82px;
+          }
+          
+          .reportsMiniPlus {
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            background-color: #ea475b;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            margin-right: 3px;
+          }
+
           `
         }
         </style>

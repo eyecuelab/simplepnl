@@ -20,7 +20,7 @@ const options = [
   'Expenses: Advertising & Marketing:Events & Networking',
   'Expenses: Advertising & Marketing:Printing & Stationary',
   'Expenses: Advertising & Marketing:Website & Social Media',
-  'Expenses: Aut, Parking & Tolls',
+  'Expenses: Auto, Parking & Tolls',
   'Expenses: Bank Charges & Fees',
   'Expenses: Business Licenses & Permits',
   'Expenses: Contract Labor/Admin/Bookkeeper/Accountant',

@@ -16,36 +16,48 @@ export const sheetsPostUpdateSuccess = (reports) => ({
 });
 
 export const batchUpdate = (props) => (dispatch) => {
-  const { spreadsheetId } = props;
-  // const { accessToken } = props;
   const { csvAmount } = props;
   const csvIndexOfAmount = csvAmount.split('_')[1];
+  const { csvAmountDebit } = props;
+  const csvIndexOfAmountDebit = csvAmountDebit.split('_')[1];
   const { csvDate } = props;
   const csvIndexOfDate = csvDate.split('_')[1];
   const { csvDescription } = props;
   const csvIndexOfDescription = csvDescription.split('_')[1];
-  // const { csvHeader } = props;
   const { csvRawData } = props;
-
-
   const { title } = props;
+
   const realFirstRow = [
     'SimplePnL',
     (title.split(': ')[1].split(' [')[0]),
     '',
-    '=(COUNTA(D3:D999)/COUNTA(A3:A999))',
+    '=(COUNTA(D3:D4999)/COUNTA(A3:A4999))',
   ];
 
   const transactionValues = csvRawData.map((x, index) => {
-    const newRow = [];
     const oldRow = x.data;
+    const newRow = [];
 
-    const tempRandomNumber = Math.round((Math.random() * 3) + 1);
-
+    // COLUMN 0 (DATE):
     newRow.push(oldRow[csvIndexOfDate]);
+    // COLUMN 1 (DESCRIPTION):
     newRow.push(oldRow[csvIndexOfDescription]);
-    newRow.push(oldRow[csvIndexOfAmount]);
 
+    // COLUMN 2 (AMOUNT):
+    let newAmountCell;
+    if (csvIndexOfAmountDebit === 'none') {
+      newAmountCell = `$${oldRow[csvIndexOfAmount]}`;
+      newRow.push(newAmountCell);
+    } else if (index === 0) {
+      newAmountCell = 'Amount';
+      newRow.push(newAmountCell);
+    } else {
+      newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${oldRow[csvIndexOfAmount]}`;
+      newRow.push(newAmountCell);
+    }
+
+    // COLUMN 3 (category):
+    const tempRandomNumber = Math.round((Math.random() * 3) + 1);
     if (index === 0) {
       newRow.push('Category');
     } else if (index % tempRandomNumber === 0) {
@@ -54,19 +66,13 @@ export const batchUpdate = (props) => (dispatch) => {
       newRow.push('');
     }
 
-    // oldRow.splice(csvIndexOfDate, 1)
-    // oldRow.splice(csvIndexOfDescription, 1)
-    // oldRow.splice(csvIndexOfAmount, 1)
-    // const array3 = newRow.concat(oldRow)
-
     return newRow;
   });
 
   transactionValues.unshift(realFirstRow);
 
-
   dispatch(sheetsPostUpdate());
-  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values:batchUpdate?alt=json`, {
+  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${props.accessToken}`,
