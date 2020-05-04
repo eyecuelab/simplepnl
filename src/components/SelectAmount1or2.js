@@ -27,9 +27,9 @@ function SelectAmount1or2() {
         <Link to="/selectamount">
           <ConfirmButton>Just 1 Amount column!</ConfirmButton>
         </Link>
-
-        <ConfirmButton>Both a Debit AND a Credit column.</ConfirmButton>
-
+        <Link to="/selectamountdebit">
+          <ConfirmButton>Both a Debit AND a Credit column.</ConfirmButton>
+        </Link>
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />

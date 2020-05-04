@@ -15,6 +15,7 @@ function SelectAmount(props) {
     const { accessToken } = props;
     const { csvName } = props;
     const { csvAmount } = props;
+    const csvAmountDebit = 'column_none';
     const { csvDate } = props;
     const { csvDescription } = props;
     const { csvHeader } = props;
@@ -23,6 +24,7 @@ function SelectAmount(props) {
       accessToken,
       csvName,
       csvAmount,
+      csvAmountDebit,
       csvDate,
       csvDescription,
       csvHeader,
@@ -53,7 +55,7 @@ function SelectAmount(props) {
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
         <h6 className="clickRow">Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
         <AmountColumn />
-        <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
+        <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />

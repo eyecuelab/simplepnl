@@ -15,6 +15,8 @@ import SelectDate from './SelectDate';
 import SelectDescription from './SelectDescription';
 import SelectHeader from './SelectHeader';
 import SelectAmount from './SelectAmount';
+import SelectAmountDebit from './SelectAmountDebit';
+import SelectAmountCredit from './SelectAmountCredit';
 import SelectAmount1or2 from './SelectAmount1or2';
 import SelectCategory from './SelectCategory';
 
@@ -64,6 +66,8 @@ class App extends React.Component {
             <ProtectedRoute path="/selectdescription" loggedIn={isSignedIn} component={SelectDescription} />
             <ProtectedRoute path="/selectamount1or2" loggedIn={isSignedIn} component={SelectAmount1or2} />
             <ProtectedRoute path="/selectamount" loggedIn={isSignedIn} component={SelectAmount} />
+            <ProtectedRoute path="/selectamountdebit" loggedIn={isSignedIn} component={SelectAmountDebit} />
+            <ProtectedRoute path="/selectamountcredit" loggedIn={isSignedIn} component={SelectAmountCredit} />
             <ProtectedRoute path="/selectcategory" loggedIn={isSignedIn} component={SelectCategory} />
             <ProtectedRoute path="/reportslist" loggedIn={isSignedIn} component={ReportsList} />
           </Switch>
