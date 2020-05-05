@@ -1,14 +1,16 @@
 import React from 'react';
+import { ExtraBold } from '../styles/components';
 
 function PrivacyText() {
   return (
     <div className="PrivacyText">
 
       <p>
-        {`At SimplePnL, accessible from https://simplepnldev.herokuapp.com/#/, one
-          of our main priorities is the privacy of our visitors. This Privacy Policy
-          document contains types of information that is collected and recorded
-          by SimplePnL and how we use it.`}
+        {'At SimplePNL, accessible from '}
+        <a href="https://simplepnldev.herokuapp.com">https://simplepnldev.herokuapp.com</a>
+        {`, one of our main priorities is the privacy of our visitors. This Privacy
+          Policy document contains types of information that is collected and recorded
+          by SimplePNL and how we use it.`}
       </p>
 
       <p>
@@ -19,7 +21,7 @@ function PrivacyText() {
       <p>
         {`This Privacy Policy applies only to our online activities and is valid
           for visitors to our website with regards to the information that they
-          shared and/or collect in SimplePnL. This policy is not applicable to any
+          shared and/or collect in SimplePNL. This policy is not applicable to any
           information collected offline or via channels other than this website.`}
       </p>
 
@@ -34,20 +36,45 @@ function PrivacyText() {
 
       <p>
         {`The personal information that you are asked to provide, and the reasons
-          why you are asked to provide it, will be made clear to you at the point
-          we ask you to provide your personal information.`}
+            why you are asked to provide it, will be made clear to you at the point
+            we ask you to provide your personal information.`}
       </p>
+
+      <ul>
+        <li>From Google, we: View your <ExtraBold>Email Address</ExtraBold>.</li>
+        <li>{`From Google, we: See your personal info, including any personal info
+            you&apos;ve made publicly available.`}
+        </li>
+        <ul>
+          <li>Specifically: The <ExtraBold>Name</ExtraBold> you use in association
+            with that e-mail account.
+          </li>
+        </ul>
+        <li>From Google, we: Associate you with your personal info on Google.</li>
+        <li>{`With Google Drive, we: Create new (Spreadsheet) files in Google Drive
+            using this app.`}
+        </li>
+        <li>{`With Google Drive, we: View files from Google Drive that you have
+            opened (and created) with this app or that are shared publicly.`}
+        </li>
+        <li>{`With Google Drive, we: Save changes to files that you have opened
+            (and created) with this app.`}
+        </li>
+        <li>{`With Google Drive, we: View folders and their contents from Google
+            Drive that you have opened (and created) with this app.`}
+        </li>
+        <li>{`With Google Drive, we: Make changes to folders and their contents
+            that you have opened (and created) with this app.`}
+        </li>
+        <li>{`With Google Drive, we: Delete contents of folders that you have opened
+            (and created) with this app.`}
+        </li>
+      </ul>
 
       <p>{`If you contact us directly, we may receive additional information about
           you such as your name, email address, phone number, the contents of the
           message and/or attachments you may send us, and any other information
           you may choose to provide.`}
-      </p>
-
-      <p>
-        {`When you register for an Account, we may ask for your contact information,
-          including items such as name, company name, address, email address, and
-          telephone number.`}
       </p>
 
       <h2>How we use your information</h2>
@@ -61,18 +88,24 @@ function PrivacyText() {
         <li>Improve, personalize, and expand our webste</li>
         <li>Understand and analyze how you use our webste</li>
         <li>Develop new products, services, features, and functionality</li>
-        <li>Communicate with you, either directly or through one of our partners,
+        <li>{`Communicate with you, either directly or through one of our partners,
           including for customer service, to provide you with updates and other
-          information relating to the webste, and for marketing and promotional purposes
+          information relating to the webste, and for marketing and promotional purposes.`}
         </li>
         <li>Send you emails</li>
         <li>Find and prevent fraud</li>
       </ul>
 
+      <h2>What information do we share:</h2>
+      <ul>
+        <li>Your information is not stored or shared by us except as explained herein or as required by law.</li>
+      </ul>
+
+
       <h2>Log Files</h2>
 
       <p>
-        {`SimplePnL follows a standard procedure of using log files. These files
+        {`SimplePNL follows a standard procedure of using log files. These files
           log visitors when they visit websites. All hosting companies do this and
           a part of hosting services' analytics. The information collected by log
           files include internet protocol (IP) addresses, browser type, Internet
@@ -90,7 +123,7 @@ function PrivacyText() {
 
       <h2>Cookies and Web Beacons</h2>
 
-      <p>{`Like any other website, SimplePnL uses 'cookies'. These cookies are used
+      <p>{`Like any other website, SimplePNL uses 'cookies'. These cookies are used
         to store information including visitors' preferences, and the pages on the
         website that the visitor accessed or visited. The information is used to
         optimize the users' experience by customizing our web page content based
@@ -107,13 +140,13 @@ function PrivacyText() {
 
       <p>
         {`You may consult this list to find the Privacy Policy for each of the advertising
-          partners of SimplePnL.`}
+          partners of SimplePNL.`}
       </p>
 
       <p>
         {`Third-party ad servers or ad networks uses technologies like cookies,
           JavaScript, or Web Beacons that are used in their respective advertisements
-          and links that appear on SimplePnL, which are sent directly to users'
+          and links that may appear on SimplePNL, which are sent directly to a users'
           browser. They automatically receive your IP address when this occurs.
           These technologies are used to measure the effectiveness of their advertising
           campaigns and/or to personalize the advertising content that you see on
@@ -121,14 +154,14 @@ function PrivacyText() {
       </p>
 
       <p>
-        {`Note that SimplePnL has no access to or control over these cookies that
+        {`Note that SimplePNL has no access to or control over these cookies that
           are used by third-party advertisers.`}
       </p>
 
       <h2>Third Party Privacy Policies</h2>
 
       <p>
-        {`SimplePnL's Privacy Policy does not apply to other advertisers or websites.
+        {`SimplePNL's Privacy Policy does not apply to other advertisers or websites.
           Thus, we are advising you to consult the respective Privacy Policies of
           these third-party ad servers for more detailed information. It may include
           their practices and instructions about how to opt-out of certain options.`}
@@ -206,7 +239,7 @@ function PrivacyText() {
       </p>
 
       <p>
-        {`SimplePnL does not knowingly collect any Personal Identifiable Information
+        {`SimplePNL does not knowingly collect any Personal Identifiable Information
           from children under the age of 13. If you think that your child provided
           this kind of information on our website, we strongly encourage you to
           contact us immediately and we will do our best efforts to promptly remove
