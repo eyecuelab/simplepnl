@@ -6,6 +6,7 @@ import Header from './Header';
 import Loading from './Loading';
 import Home from './Home';
 import Eula from './Eula';
+import Privacy from './Privacy';
 import Reports from './Reports';
 import ReportsList from './ReportsList';
 import Demo from './Demo';
@@ -58,6 +59,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/eula" component={Eula} />
+            <Route exact path="/privacy" component={Privacy} />
             <ProtectedRoute path="/newpnl" loggedIn={isSignedIn} component={NewPnl} />
             <ProtectedRoute path="/reports" loggedIn={isSignedIn} component={Reports} />
             <ProtectedRoute path="/help" loggedIn={isSignedIn} component={Help} />
