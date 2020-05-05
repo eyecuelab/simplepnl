@@ -4,7 +4,7 @@ import { setCsvAmount } from '../../actions';
 import { Table, Cell } from '../../styles/components';
 
 
-class AmountColumn extends Component {
+class AmountCreditColumn extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -94,4 +94,4 @@ const mapStateToProps = (state) => ({
   csvAmount: state.csvAmount,
 });
 
-export default connect(mapStateToProps)(AmountColumn);
+export default connect(mapStateToProps)(AmountCreditColumn);

@@ -20,7 +20,7 @@ const options = [
   'Expenses: Advertising & Marketing:Events & Networking',
   'Expenses: Advertising & Marketing:Printing & Stationary',
   'Expenses: Advertising & Marketing:Website & Social Media',
-  'Expenses: Aut, Parking & Tolls',
+  'Expenses: Auto, Parking & Tolls',
   'Expenses: Bank Charges & Fees',
   'Expenses: Business Licenses & Permits',
   'Expenses: Contract Labor/Admin/Bookkeeper/Accountant',
@@ -43,22 +43,27 @@ const options = [
 
 function ComboBox(props) {
   // WILL HAVE TO UPDATE USESTATE, BELOW, WITH REDUXSTORE IF?ELSE "":
-  const [value, setValue] = React.useState('');
-  const [inputValue, setInputValue] = React.useState('');
+  const { categoryData, rowId } = props;
+  let categoryDataState;
+  if (categoryData === undefined) {
+    categoryDataState = null;
+  } else {
+    categoryDataState = categoryData;
+  }
 
+  const [value, setValue] = React.useState(categoryDataState);
+  const [inputValue, setInputValue] = React.useState('');
   return (
     <Autocomplete
       value={value}
-      id="clear-on-escape"
+      id={`${rowId}-clear-on-escape`}
       clearOnEscape
       options={options}
       style={column}
       onChange={(event, newValue) => {
         const { accessToken } = props;
-        const { rowId } = props;
         const { spreadsheetId } = props;
         const data = newValue;
-        console.log(props);
         const { dispatch } = props;
         const payload = {
           accessToken,

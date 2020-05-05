@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCsvAmount } from '../../actions';
+import { setCsvAmountDebit } from '../../actions';
 import { Table, Cell } from '../../styles/components';
 
 
-class AmountColumn extends Component {
+class AmountDebitColumn extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -16,7 +16,7 @@ class AmountColumn extends Component {
     const cell = event.currentTarget.className.split(' ');
     const column = cell[1];
     const { dispatch } = this.props;
-    dispatch(setCsvAmount(column));
+    dispatch(setCsvAmountDebit(column));
 
     const tableCells = document.querySelectorAll('.tableCell');
     tableCells.forEach((everyCell) => {
@@ -94,4 +94,4 @@ const mapStateToProps = (state) => ({
   csvAmount: state.csvAmount,
 });
 
-export default connect(mapStateToProps)(AmountColumn);
+export default connect(mapStateToProps)(AmountDebitColumn);

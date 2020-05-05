@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MegHeader from './MegHeader';
-import EulaText from './EulaText';
+import PrivacyText from './PrivacyText';
 import { EulaContainer, EulaHeader, EulaButton, EulaButtonContainer, EulaFadeContainer } from '../styles/components';
 
 
-function Eula() {
+function Privacy() {
   return (
     <EulaContainer>
       <MegHeader />
-      <EulaHeader>End-User Agreement</EulaHeader>
-      <EulaText />
+      <EulaHeader>Privacy Policy for Eyecue Lab and SimplePnL</EulaHeader>
+      <PrivacyText />
       <EulaButtonContainer>
-        <Link to="/reports">
+        <Link to="/">
           <EulaButton>
-            <span className="EulaButtonReady">Ready to </span>
-            <span className="EulaButtonGo">GO!</span>
+            Right on.
           </EulaButton>
         </Link>
       </EulaButtonContainer>
@@ -42,4 +41,4 @@ function Eula() {
   );
 }
 
-export default Eula;
+export default Privacy;

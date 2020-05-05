@@ -50,6 +50,9 @@ export default (state = initialState.sheets, action) => {
       const newState = state[spreadsheetId].values.map((obj, index) => {
         if (updatedRange === index) {
           const newObj = obj;
+          if (newObj.length >= 4) {
+            newObj.pop();
+          }
           newObj.push(data);
           return newObj;
         }
@@ -64,6 +67,33 @@ export default (state = initialState.sheets, action) => {
         isLoading: false,
         error: action.error };
     }
+
+    case types.SPREADSHEETS_VALUES_GET_START: {
+      return { ...state,
+        isLoading: true };
+    }
+    case types.SPREADSHEETS_VALUES_GET_SUCCESS: {
+      const id = action.reports.thisSpreadsheetId;
+      const { values } = action.reports.jsonifiedResponse;
+      // let values = [
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      //   ['Loading5', 'Loading5', 'Loading5'],
+      //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
+      // ];
+
+      return { ...state,
+        isLoading: false,
+        [id]: { values } };
+    }
+    case types.SPREADSHEETS_VALUES_GET_FAILURE: {
+      return { ...state,
+        isLoading: false,
+        error: action.error };
+    }
+
     default:
       return state;
   }

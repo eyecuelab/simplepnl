@@ -18,13 +18,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PinkPagination() {
   const classes = useStyles();
+  // const [page, setPage] = React.useState(1);
+  // const handleChange = (event, value) => {
+  //   setPage(value);
+  // };
   return (
     <div className={classes.root}>
       <Pagination
         className={classes.PagStyle}
-        count={10}
+        count={4}
         variant="outlined"
         size="large"
+        // onChange={handleChange}
       />
     </div>
   );

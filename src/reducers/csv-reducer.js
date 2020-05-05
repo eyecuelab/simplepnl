@@ -71,6 +71,16 @@ export default (state = initialState.csv, action) => {
       };
       return returnedTarget;
     }
+    case types.SET_CSV_AMOUNT_DEBIT: {
+      const {
+        payload,
+      } = action;
+      const returnedTarget = {
+        ...state,
+        csvAmountDebit: payload,
+      };
+      return returnedTarget;
+    }
     default:
       return state;
   }

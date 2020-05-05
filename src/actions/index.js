@@ -40,6 +40,10 @@ export const setCsvAmount = (payload) => ({
   type: types.SET_CSV_AMOUNT,
   payload,
 });
+export const setCsvAmountDebit = (payload) => ({
+  type: types.SET_CSV_AMOUNT_DEBIT,
+  payload,
+});
 
 // =====
 
@@ -220,23 +224,23 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     .then((response) => response.json())
     .then(
       (jsonifiedResponse) => {
-        dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
         dispatch(driveNewSheetCreated(jsonifiedResponse));
-
+        dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
         const { properties: { title } } = jsonifiedResponse;
         const { spreadsheetId } = jsonifiedResponse;
         const { accessToken } = props;
         const { csvAmount } = props;
+        const { csvAmountDebit } = props;
         const { csvDate } = props;
         const { csvDescription } = props;
         const { csvHeader } = props;
         const { csvRawData } = props;
-
         const payload2 = {
           title,
           spreadsheetId,
           accessToken,
           csvAmount,
+          csvAmountDebit,
           csvDate,
           csvDescription,
           csvHeader,
