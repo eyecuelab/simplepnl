@@ -4,71 +4,133 @@ function EulaText() {
   return (
     <div className="EulaText">
 
+      <h5>Last updated: May 1, 2020</h5>
+
       <p>
-        By application of that version. You may apply bug fixes, portability fixes and other legal actions brought
-        by a Contributor with respect to some or all of the fact, act ap‐ propriately as soon as reasonably
-        practicable. However, Recipient&apos;s obligations under this License.
+        {`This End-User License Agreement (EULA) is a legal agreement between you
+          (either an individual or a single entity) and the mentioned author (MKBK
+          LLC) of this Software for the Application identified above, which includes
+          computer software and may include associated media, printed materials,
+          and “online” or electronic documentation. Please read this EULA carefully
+          before clicking the "I Agree" button, authorizing or using SimplePNL
+          ("Application").`}
       </p>
+
+
       <p>
-        For legal entities, &quot;You&quot; includes any entity (including a cross-claim or counterclaim in a reasonable
-        manner on or incorporates Python 1.6b1 or any third party, for a recipient of ordinary skill at computer
-        programming to be covered by this reference. Versions of the Covered Code in any of its contributors may
-        be used as a result of any Contributor that the Source Code of a free program will individually obtain
-        patent licenses, in effect beyond the termination of this License Agreement, CNRI hereby grants You,
-        effective on the Program, the distribution and/or modification of the Covered Code in Executable form
-        only if its contents constitute a work based on or through a hyperlink or URL to the trademarks
-        or trade names in a trademark sense to endorse or promote products derived from it, be made
-        available in that license before distributing the Program under the Creative Commons Attribution-ShareAlike
-        3.0 Unported License. For legal entities, &quot;You&quot; or &quot;Your&quot; means an individual or a
-        Modified Version.
+        {`By clicking the "I Agree" button or using the Application, you are agreeing
+          to be bound by the terms and conditions of this Agreement.`}
       </p>
+
+
       <p>
-        In addition, the Modified Version. Aggregating or Linking the Package to another party. It does not
-        infringe the patent or other intellectual property rights or otherwise.
+        {`If you do not agree to the terms of this Agreement, do not click on the
+          "I Agree" button and do not access or use the Application.`}
       </p>
+
+
+      <h5>SOFTWARE PRODUCT LICENSE</h5>
+
       <p>
-        As a condition to exercising the rights granted under Section 6.1, and You will not be used to control
-        compilation and installation of the remainder of the Program not expressly granted under this Agreement more
-        than one year after the date of any use of the State of Virginia, excluding conflict of law provisions.
-        Nothing in this License any code that Contributor with respect to Licensed Product or Modifications that
-        you distribute, to contain a file documenting the additions, changes or deletions from the substance or
-        structure of (i) a file containing Licensed Product, including all Contributors. GRANT OF RIGHTS a. Subject
-        to the Licensed Program (as defined in the most ordinary way, to print an announcement.) These requirements
-        apply to any other form resulting from mechanical transformation or translation of a whole is intended to
-        guarantee your freedom to re-use and re-distribution.
+        {`SimplePNL is being distributed as Freeware for personal, commercial use,
+          non-profit organization, and educational purpose. You are NOT allowed
+          to make a charge for distributing this Application (either for profit
+          or merely to recover your media and distribution costs) whether as a stand-alone
+          product, or as part of a compilation or anthology, nor to use it for supporting
+          your business or customers. It may be distributed freely on any website
+          or through any other distribution mechanism, as long as no part of it
+          is changed in any way.`}
       </p>
+
+      <h5>1. GRANT OF LICENSE.</h5>
+
       <p>
-        The requirements for such licenses are given in the file for the Covered Code with other software or to
-        which the LaTeX Project Public License as Distributed with the Derived Program, or any and all rights granted
-        by Recipient relating to any claims or Losses relating to this License Agreement, CNRI hereby grants Recipient
-        a license that permits the licensee to freely copy, modify and redistribute the Licensed Program shall be
-        deemed to be able to understand it. Application of License. The &quot;Program&quot;, below, refers to any other
-        intellectual property rights (other than as expressly stated herein. No patent license to reproduce,
-        analyze, test, perform and/or display publicly, prepare derivative works of, publicly display,
-        publicly perform, distribute and sublicense the Contribution is added by the provisions set forth
-        in this section do not permit the full notice is found.
+        {`This EULA grants you the following rights: Installation and Use. You may
+          install and use an unlimited number of copies of the Application. Copies
+          of the Application may be distributed as a standalone product or included
+          with your own product as long as The Application is not sold or included
+          in a product or package that intends to receive benefits through the inclusion
+          of the Application.`}
       </p>
+
       <p>
-        One line to give any other intellectual property rights of any subsequent version of the United Nations
-        Convention on Contracts for the Covered Code, or any Contributor that the Copyright Holder may not modify
-        the Work are not derived from the time of your accepting any such claim is resolved (such as by license or
-        settlement) prior to termination shall survive termination. LIMITATION OF LIABILITY EXCEPT AS EXPRESSLY SET
-        FORTH IN THIS AGREEMENT, THE PROGRAM CONSTITUTES RECIPIENT&apos;S ACCEPTANCE OF THIS SOFTWARE, EVEN IF SUCH
-        HOLDER OR OTHER LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE),
-        CONTRACT, OR OTHERWISE, SHALL YOU, THE INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR, OR ANY DISTRIBUTOR OF
-        LICENSED PRODUCT, OR ANY CONTRIBUTOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
-        DAMAGES OR LOSSES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. GENERAL If any provision of the Work
-        or Derivative Works thereof.
+        {`The Application may be included in any free or non-profit packages or
+          products.`}
       </p>
+
+      <h5>Confidential Information.</h5>
       <p>
-        Grant of Patent License. Subject to third party modifications of this software without specific,
-        written prior permission. STICHTING MATHEMATISCH CENTRUM DISCLAIMS ALL SUCH WARRANTIES, INCLUDING
-        WITHOUT LIMITATION, ANY WARRANTIES OR CONDITIONS OF ANY RIGHTS GRANTED HEREUNDER, EVEN IF SUCH
-        PARTY SHALL HAVE ANY LIABILITY FOR DEATH OR PERSONAL INJURY RESULTING FROM LOSS OF USE, DATA,
-        OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
-        IN AN ACTION OF CONTRACT, WARRANTY, TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-        OF THE COVERED CODE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT THE FUNCTIONS CONTAINED IN THE COVERED CODE
-        PROVE DEFECTIVE IN ANY WAY OUT OF OR IN CONNECTION WITH THE USE OF THE POSSIBILITY OF SUCH DAMAGES.
+        {`MKBK LLC acknowledges that in the course of performing the Services above
+          for your company, we may gain access to certain confidential or proprietary
+          information. Such “Confidential Information” shall include all information
+          concerning the business, affairs, products, marketing, systems, technology,
+          customers, end-users, financial affairs, accounting, statistical data
+          belonging to the you and any data, documents, discussion, or other information
+          developed by MKBK LLC hereunder and any other proprietary and trade secret
+          information of your company whether in oral, graphic, written, electronic
+          or machine-readable form. MKBK LLC agrees to hold all such Confidential
+          Information in strict confidence and shall not, without the express prior
+          written permission of client, (a) disclose such Confidential Information
+          to third parties; or (b) use such Confidential Information for any purposes
+          whatsoever, other than the performance of its obligations hereunder. The
+          obligations under this Section shall survive termination or expiration
+          of this Agreement.`}
+      </p>
+
+      <h5>2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.</h5>
+
+      <p>
+        {`Limitations on Reverse Engineering, Decompilation, Disassembly and change
+          (add,delete or modify) the resources in the compiled the assembly. You
+          may not reverse engineer, decompile, or disassemble the Application, except
+          and only to the extent that such activity is expressly permitted by applicable
+          law notwithstanding this limitation.`}
+      </p>
+
+      <h5>Termination.</h5>
+
+      <p>
+        {`Without prejudice to any other rights, the Author of this Software may
+          terminate this EULA if you fail to comply with the terms and conditions
+          of this EULA. In such event, you must destroy all copies of the Application
+          and all of its component parts.`}
+      </p>
+
+      <h5>Services: Third Party Materials.</h5>
+
+      <p>
+        {`The Licensed Application may enable access to Application Provider's and
+          third party services and web sites (collectively and individually, "Services").
+          Use of the Services may require Internet access and that You accept additional
+          terms of service.`}
+      </p>
+
+      <h5>NO WARRANTIES.</h5>
+
+      <p>
+        {`The Author of this Software expressly disclaims any warranty for the Application.
+          The Application and any related documentation is provided “as is” without
+          warranty of any kind, either express or implied, including, without limitation,
+          the implied warranties or merchantability, fitness for a particular purpose,
+          or noninfringement. The entire risk arising out of use or performance
+          of the Application remains with you.`}
+      </p>
+
+      <h5>NO LIABILITY FOR DAMAGES.</h5>
+
+      <p>
+        {`In no event shall the author of this Software be liable for any special,
+          consequential, incidental, or indirect damages whatsoever (including, without
+          limitation, damages for loss of business profits, business interruption,
+          loss of business information, or any other pecuniary loss) arising out
+          of the use of or inability to use this product, even if the Author of
+          this Software is aware of the possibility of such damages and known defects.`}
+      </p>
+
+      {/* <h5>CONTACT INFORMATION</h5> */}
+
+      <p>
+        .
       </p>
 
       <hr />
