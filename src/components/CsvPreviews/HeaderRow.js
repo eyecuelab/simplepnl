@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvHeader } from '../../actions';
-import { Table, Cell } from '../../styles/components';
-
+import { Table, Cell, ProblemButton } from '../../styles/components';
 
 class HeaderRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      headerRowSpan: 3,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleMoreRowsClick = this.handleMoreRowsClick.bind(this);
     this.newHeaderKey = 0;
   }
+
+  handleMoreRowsClick() {
+    // console.log("props", this.props);
+    const { headerRowSpan } = this.state;
+    if (headerRowSpan === 3) {
+      this.setState({
+        headerRowSpan: 9,
+      });
+    } else {
+      const { dispatch, history } = this.props;
+      dispatch(setCsvHeader('row_none'));
+
+      history.push('/selectdate');
+    }
+  }
+
 
   handleClick(event) {
     const cell = event.currentTarget.className.split(' ');
@@ -31,6 +48,7 @@ class HeaderRow extends Component {
   }
 
   csvReturn() {
+    const { headerRowSpan } = this.state;
     const { csv } = this.props;
     if (!csv) {
       return (
@@ -47,7 +65,7 @@ class HeaderRow extends Component {
       <Table>
         <tbody>
           {
-            csv.slice(0, 3).map((row, i) => (
+            csv.slice(0, headerRowSpan).map((row, i) => (
               <tr
                 id={`row_${i}`}
                 key={this.newHeaderKey++}
@@ -81,9 +99,19 @@ class HeaderRow extends Component {
   }
 
   render() {
+    const { headerRowSpan } = this.state;
+
     return (
       <div>
         {this.csvReturn()}
+
+        <ProblemButton
+          onClick={this.handleMoreRowsClick}
+          onKeyPress={this.handleMoreRowsClick}
+        >
+          {headerRowSpan === 3 ? 'Wait, what header?' : 'Still nothing? No problem. Click here!'}
+        </ProblemButton>
+
       </div>
     );
   }

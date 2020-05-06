@@ -4,7 +4,8 @@ import MegQuestions from './MegQuestions';
 import HeaderRow from './CsvPreviews/HeaderRow';
 import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, MainContainer, MegQuestionsLocation, ExtraBold } from '../styles/components';
 
-function SelectHeader() {
+function SelectHeader(props) {
+  const { history } = props;
   return (
     <MainContainer>
       <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
@@ -12,8 +13,10 @@ function SelectHeader() {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6>Please click on the <ExtraBold>HEADER</ExtraBold> column below and hit confirm!</h6>
-        <HeaderRow />
+        <h6>Please click on the <ExtraBold>HEADER</ExtraBold> row (that includes
+          a DATE, DESCRIPTION, & AMOUNT of some kind) below and hit confirm!
+        </h6>
+        <HeaderRow history={history} />
         <Link to="/selectdate">
           <ConfirmButton>CONFIRM!</ConfirmButton>
         </Link>

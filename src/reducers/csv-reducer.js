@@ -30,11 +30,27 @@ export default (state = initialState.csv, action) => {
       return returnedTarget;
     }
     case types.SET_CSV_HEADER: {
-      const {
-        payload,
-      } = action;
+      const { payload } = action;
+      const { csvRawData } = state;
+      const headerIndex = payload.split('_')[1];
+      const newCsvRawData = [];
+      csvRawData.map((obj, index) => {
+        if (headerIndex === 'none' && index === 0) {
+          newCsvRawData.push({ data: ['Col', 'Col', 'Col', 'Col', 'Col', 'Col', 'Col'] });
+          newCsvRawData.push(obj);
+          return false;
+        } if (headerIndex === 'none') {
+          newCsvRawData.push(obj);
+          return false;
+        } if (index < headerIndex) {
+          return false;
+        }
+        newCsvRawData.push(obj);
+        return false;
+      });
       const returnedTarget = {
         ...state,
+        csvRawData: newCsvRawData,
         csvHeader: payload,
       };
       return returnedTarget;
