@@ -14,7 +14,6 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest', 'https://sheets.googleapis.com/$discovery/rest?version=v4'];
 
 // Authorization scopes required by the API; multiple scopes can be included, separated by spaces:
-// MAY NEED TO CHANGE https://www.googleapis.com/auth/drive.file TO https://www.googleapis.com/auth/spreadsheets
 const SCOPES = 'https://www.googleapis.com/auth/drive.file';
 
 class OAuth extends Component {

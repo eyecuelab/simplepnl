@@ -100,7 +100,7 @@ const ReportStatus = styled.div`
   font-weight: 600;
   padding: 10px;
   border-radius: 20px;
-  display: inline-block;  
+  display: inline-block;
 `;
 
 const EditReport = styled.div`
@@ -203,6 +203,22 @@ const ConfirmButton = styled.button`
   padding: 8px 30px;
   font-weight: 700;
   margin: 20px;
+`;
+const ProblemButton = styled.button`
+  /* position: relative; */
+  /* left: 35%; */
+  /* overflow: visible; */
+  /* bottom: -200px; */
+  /* text-align: right; */
+  /* float: right; */
+  display: inline;
+  margin-left: 75%;
+  background: #555555;
+  border-radius: 4px;
+  color: #FFFFFF;
+  padding: 8px 30px;
+  font-weight: 700;
+  /* margin: 20px; */
 `;
 
 const NextButton = styled.button`
@@ -317,6 +333,7 @@ export {
   ReportLinkIcon,
   MegQuestionsLocation,
   ConfirmButton,
+  ProblemButton,
   NextButton,
   DisplayButton,
   EulaButton,
