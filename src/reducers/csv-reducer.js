@@ -31,12 +31,24 @@ export default (state = initialState.csv, action) => {
     }
     case types.SET_CSV_HEADER: {
       const { payload } = action;
+      const returnedTarget = {
+        ...state,
+        csvHeader: payload,
+      };
+      return returnedTarget;
+    }
+    case types.SHRINK_CSV_TO_HEADER: {
+      const { payload } = action;
       const { csvRawData } = state;
       const headerIndex = payload.split('_')[1];
       const newCsvRawData = [];
       csvRawData.map((obj, index) => {
         if (headerIndex === 'none' && index === 0) {
-          newCsvRawData.push({ data: ['Col', 'Col', 'Col', 'Col', 'Col', 'Col', 'Col'] });
+          const newData = [];
+          for (let i = 0; i < obj.data.length; i++) {
+            newData.push(`Col_${i + 1}:`);
+          }
+          newCsvRawData.push({ data: newData });
           newCsvRawData.push(obj);
           return false;
         } if (headerIndex === 'none') {

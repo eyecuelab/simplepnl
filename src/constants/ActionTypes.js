@@ -3,6 +3,7 @@ export const SET_TOKEN = 'SET_TOKEN';
 export const LOAD_CSV = 'LOAD_CSV';
 export const SET_CSV_NAME = 'SET_CSV_NAME';
 export const SET_CSV_HEADER = 'SET_CSV_HEADER';
+export const SHRINK_CSV_TO_HEADER = 'SHRINK_CSV_TO_HEADER';
 export const SET_CSV_DATE = 'SET_CSV_DATE';
 export const SET_CSV_DESCRIPTION = 'SET_CSV_DESCRIPTION';
 export const SET_CSV_AMOUNT = 'SET_CSV_AMOUNT';

@@ -1,11 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
 import HeaderRow from './CsvPreviews/HeaderRow';
+import { shrinkCsvToHeader } from '../actions';
 import { Title, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, MainContainer, MegQuestionsLocation, ExtraBold } from '../styles/components';
 
 function SelectHeader(props) {
   const { history } = props;
+
+  const handleNewHeader = () => {
+    const { dispatch } = props;
+    const { csvHeader } = props;
+    dispatch(shrinkCsvToHeader(csvHeader));
+    props.history.push({
+      pathname: '/selectdate',
+    });
+  };
+
   return (
     <MainContainer>
 
@@ -24,8 +36,9 @@ function SelectHeader(props) {
         </h6>
         <HeaderRow history={history} />
         <Link to="/selectdate">
-          <ConfirmButton>CONFIRM!</ConfirmButton>
+          <ConfirmButton>OLD!</ConfirmButton>
         </Link>
+        <ConfirmButton onClick={() => { handleNewHeader(props); }}>CONFIRM!</ConfirmButton>
 
       </SelectScreen>
       <MegQuestionsLocation>
@@ -35,4 +48,9 @@ function SelectHeader(props) {
   );
 }
 
-export default SelectHeader;
+
+const mapStateToProps = (state) => ({
+  csvHeader: state.csvReducer.csvHeader,
+});
+
+export default connect(mapStateToProps)(SelectHeader);
