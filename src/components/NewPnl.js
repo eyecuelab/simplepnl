@@ -35,7 +35,12 @@ function NewPnl(props) {
 
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
+      <IndexLink>
+        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX </Link>
+        <CaretLeft>&#9660;</CaretLeft>STEP 1
+      </IndexLink>
+
+
       <Title>NEW PNL REPORT</Title>
       <PinkLine />
       <form onSubmit={handleFormUpdate}>

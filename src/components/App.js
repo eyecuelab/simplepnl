@@ -8,7 +8,6 @@ import Home from './Home';
 import Eula from './Eula';
 import Privacy from './Privacy';
 import Reports from './Reports';
-import ReportsList from './ReportsList';
 import Demo from './Demo';
 import NewPnl from './NewPnl';
 import Help from './Help';
@@ -71,7 +70,6 @@ class App extends React.Component {
             <ProtectedRoute path="/selectamountdebit" loggedIn={isSignedIn} component={SelectAmountDebit} />
             <ProtectedRoute path="/selectamountcredit" loggedIn={isSignedIn} component={SelectAmountCredit} />
             <ProtectedRoute path="/selectcategory" loggedIn={isSignedIn} component={SelectCategory} />
-            <ProtectedRoute path="/reportslist" loggedIn={isSignedIn} component={ReportsList} />
           </Switch>
 
           <Demo />

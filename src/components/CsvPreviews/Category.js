@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ComboBox from '../../utils/ComboBox';
 import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
 
-import PinkPagination from '../../utils/Pagination';
+// import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell, DisplayButton } from '../../styles/components';
 
 
@@ -101,7 +101,7 @@ const Category = ({ thisSpreadsheetId }) => {
           </tbody>
         </Table>
       </div>
-      <PinkPagination />
+      {/* <PinkPagination /> */}
       <style>{
         `
         .displayOptions {
