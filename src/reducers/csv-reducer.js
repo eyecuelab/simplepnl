@@ -8,15 +8,12 @@ const {
 export default (state = initialState.csv, action) => {
   switch (action.type) {
     case types.LOAD_CSV: {
-      // const { access_token, } = action;
       /* eslint-disable-next-line camelcase */
       const { csvRawData } = action.payload;
       const returnedTarget = {
         ...state,
         csvRawData,
       };
-
-      // MAY NEED TO CHANGE OBJECT.ASSIGN TO EITHER A CREATE OR SIMPLE VAR SO TOKENS DONT STACK?
       return returnedTarget;
     }
     case types.SET_CSV_NAME: {
@@ -49,15 +46,21 @@ export default (state = initialState.csv, action) => {
             newData.push(`Col_${i + 1}:`);
           }
           newCsvRawData.push({ data: newData });
-          newCsvRawData.push(obj);
+          if (obj.data.length > 3) {
+            newCsvRawData.push(obj);
+          }
           return false;
         } if (headerIndex === 'none') {
-          newCsvRawData.push(obj);
+          if (obj.data.length > 3) {
+            newCsvRawData.push(obj);
+          }
           return false;
         } if (index < headerIndex) {
           return false;
         }
-        newCsvRawData.push(obj);
+        if (obj.data.length > 3) {
+          newCsvRawData.push(obj);
+        }
         return false;
       });
       const returnedTarget = {

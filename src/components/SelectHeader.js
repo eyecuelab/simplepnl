@@ -35,9 +35,6 @@ function SelectHeader(props) {
           a DATE, DESCRIPTION, & AMOUNT of some kind) below and hit confirm!
         </h6>
         <HeaderRow history={history} />
-        <Link to="/selectdate">
-          <ConfirmButton>OLD!</ConfirmButton>
-        </Link>
         <ConfirmButton onClick={() => { handleNewHeader(props); }}>CONFIRM!</ConfirmButton>
 
       </SelectScreen>
