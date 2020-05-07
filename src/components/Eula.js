@@ -9,13 +9,12 @@ function Eula() {
   return (
     <EulaContainer>
       <MegHeader />
-      <EulaHeader>End-User Agreement</EulaHeader>
+      <EulaHeader>End-User License Agreement (&quot;EULA&quot;)</EulaHeader>
       <EulaText />
       <EulaButtonContainer>
         <Link to="/reports">
           <EulaButton>
-            <span className="EulaButtonReady">Ready to </span>
-            <span className="EulaButtonGo">GO!</span>
+            <span className="EulaButtonGo">I Agree</span>
           </EulaButton>
         </Link>
       </EulaButtonContainer>

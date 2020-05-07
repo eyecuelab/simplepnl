@@ -15,7 +15,6 @@ function Demo() {
       <p><Link to="/selectamount">- Select Amount</Link></p>
       <p><Link to="/selectcategory">- Select Category</Link></p>
       <p><Link to="/help">- Help</Link></p>
-      <p><Link to="/reportslist">- Reports (DISCONTINUED)</Link></p>
 
       <style>
         {

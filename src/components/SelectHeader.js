@@ -8,7 +8,13 @@ function SelectHeader(props) {
   const { history } = props;
   return (
     <MainContainer>
-      <IndexLink><CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX</Link></IndexLink>
+
+      <IndexLink>
+        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX </Link>
+        <CaretLeft>&#9664;</CaretLeft><Link to="/newpnl">STEP 1 </Link>
+        <CaretLeft>&#9660;</CaretLeft>STEP 2
+      </IndexLink>
+
       <Title>CONFIRM HEADER</Title>
       <PinkLine />
       <SelectScreen>
