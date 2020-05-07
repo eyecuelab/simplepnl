@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCsvHeader } from '../../actions';
+import { setCsvHeader, shrinkCsvToHeader } from '../../actions';
+
 import { Table, Cell, ProblemButton } from '../../styles/components';
 
 class HeaderRow extends Component {
@@ -9,13 +10,12 @@ class HeaderRow extends Component {
     this.state = {
       headerRowSpan: 3,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleMoreRowsClick = this.handleMoreRowsClick.bind(this);
     this.newHeaderKey = 0;
   }
 
   handleMoreRowsClick() {
-    // console.log("props", this.props);
     const { headerRowSpan } = this.state;
     if (headerRowSpan === 3) {
       this.setState({
@@ -24,13 +24,13 @@ class HeaderRow extends Component {
     } else {
       const { dispatch, history } = this.props;
       dispatch(setCsvHeader('row_none'));
-
+      dispatch(shrinkCsvToHeader('row_none'));
       history.push('/selectdate');
     }
   }
 
 
-  handleClick(event) {
+  handleButtonClick(event) {
     const cell = event.currentTarget.className.split(' ');
     const row = cell[0];
     const { dispatch } = this.props;
@@ -49,8 +49,8 @@ class HeaderRow extends Component {
 
   csvReturn() {
     const { headerRowSpan } = this.state;
-    const { csv } = this.props;
-    if (!csv) {
+    const { csvRawData } = this.props;
+    if (!csvRawData) {
       return (
         <div>
           <h5>
@@ -65,7 +65,7 @@ class HeaderRow extends Component {
       <Table>
         <tbody>
           {
-            csv.slice(0, headerRowSpan).map((row, i) => (
+            csvRawData.slice(0, headerRowSpan).map((row, i) => (
               <tr
                 id={`row_${i}`}
                 key={this.newHeaderKey++}
@@ -82,8 +82,8 @@ class HeaderRow extends Component {
                         type="button"
                         style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
                         className={`row_${i} column_${j} tableCell`}
-                        onClick={this.handleClick}
-                        onKeyPress={this.handleClick}
+                        onClick={this.handleButtonClick}
+                        onKeyPress={this.handleButtonClick}
                       >
                         {column}
                       </button>
@@ -118,7 +118,7 @@ class HeaderRow extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  csv: state.csvReducer.csvRawData,
+  csvRawData: state.csvReducer.csvRawData,
   csvHeader: state.csvHeader,
 });
 

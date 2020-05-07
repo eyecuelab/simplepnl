@@ -20,6 +20,10 @@ export const setCsvHeader = (payload) => ({
   type: types.SET_CSV_HEADER,
   payload,
 });
+export const shrinkCsvToHeader = (payload) => ({
+  type: types.SHRINK_CSV_TO_HEADER,
+  payload,
+});
 
 export const setCsvName = (payload) => ({
   type: types.SET_CSV_NAME,
