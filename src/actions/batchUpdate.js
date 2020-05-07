@@ -1,8 +1,8 @@
 import * as types from '../constants/ActionTypes';
 import { profitAndLossSummary } from '../constants/profitAndLossSummary';
 
-export const sheetsPostUpdate = () => ({
-  type: types.SHEETS_POST_UPDATE,
+export const sheetsPostUpdateStart = () => ({
+  type: types.SHEETS_POST_UPDATE_START,
 });
 
 export const sheetsPostUpdateFailure = (error) => ({
@@ -52,7 +52,12 @@ export const batchUpdate = (props) => (dispatch) => {
       newAmountCell = 'Amount';
       newRow.push(newAmountCell);
     } else {
-      newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${oldRow[csvIndexOfAmount]}`;
+      // newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${oldRow[csvIndexOfAmount]}`;
+
+      // TEST
+      newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${parseFloat(Math.abs(oldRow[csvIndexOfAmount]) * 1.00).toFixed(2)}`;
+
+
       newRow.push(newAmountCell);
     }
 
@@ -71,7 +76,7 @@ export const batchUpdate = (props) => (dispatch) => {
 
   transactionValues.unshift(realFirstRow);
 
-  dispatch(sheetsPostUpdate());
+  dispatch(sheetsPostUpdateStart());
   return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`, {
     method: 'POST',
     headers: {

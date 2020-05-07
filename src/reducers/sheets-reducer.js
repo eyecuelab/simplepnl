@@ -24,7 +24,7 @@ export default (state = initialState.sheets, action) => {
         isLoading: false,
         error: action.error };
     }
-    case types.SHEETS_POST_UPDATE: {
+    case types.SHEETS_POST_UPDATE_START: {
       return { ...state,
         isLoading: true };
     }
@@ -39,9 +39,6 @@ export default (state = initialState.sheets, action) => {
       return { ...state,
         isLoading: false,
         error: action.error };
-    }
-    case types.SHEETS_POST_UPDATE_START: {
-      return { ...state, isLoading: true };
     }
     case types.SHEET_CATEGORY_UPDATE_SUCCESS: {
       const data = action.reports.data[0][0];
@@ -85,7 +82,7 @@ export default (state = initialState.sheets, action) => {
       // ];
 
       return { ...state,
-        isLoading: false,
+        // isLoading: false,
         [id]: { values } };
     }
     case types.SPREADSHEETS_VALUES_GET_FAILURE: {
