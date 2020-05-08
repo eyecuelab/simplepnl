@@ -82,7 +82,7 @@ export default (state = initialState.sheets, action) => {
       // ];
 
       return { ...state,
-        // isLoading: false,
+        isLoading: false,
         [id]: { values } };
     }
     case types.SPREADSHEETS_VALUES_GET_FAILURE: {
