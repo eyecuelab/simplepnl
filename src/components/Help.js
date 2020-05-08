@@ -38,6 +38,7 @@ function Help() {
   return (
     <div style={helpContainer}>
       <MegIcon />
+
       <h1 style={helpTitle}>Meg here. How can I help you?</h1>
       <div style={questionsContainer}>
         <ul>

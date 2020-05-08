@@ -31,18 +31,18 @@ function Loading(props) {
           .loading {
             display: ${displayToggle()};
             position: fixed;
-            left: 50vw;
-            top: 100px;
-            transform: translate(-50%, -1%);
+            left: 50%;
+            top: 80px;
+            transform: translate(-50%, -0%);
 
-            width: 860px;
-            height: 585px;
+            width: 700px;
+            height: 700px;
 
-            background: rgba(255, 255, 255, .97);
+            background: rgba(255, 255, 255, .96);
             color: #222222;
             text-align: center;
             z-index: 1;
-            border-radius: 20px;
+            border-radius: 5px;
           }
 
           .loadingBox {
