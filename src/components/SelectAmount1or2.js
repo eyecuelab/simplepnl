@@ -18,8 +18,8 @@ function SelectAmount1or2() {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Does it look like there is <ExtraBold>ONE Amount column</ExtraBold>, <br />
-          <ExtraBold>or </ExtraBold> both a <ExtraBold>Debit and a Credit column</ExtraBold> in the header row?
+        <h6 className="clickRow">Does it look like there is <ExtraBold>ONE Amount column</ExtraBold> in the header row, <br />
+          <ExtraBold>or TWO Amount columns</ExtraBold> (typically called Debit and Credit) in the header row?
         </h6>
         <AmountColumnPreview />
 

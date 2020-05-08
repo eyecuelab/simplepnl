@@ -84,11 +84,15 @@ class Reports extends React.Component {
           .reportsDiv {
             background-color: #ffffff;
             border-radius: 5px;
-            // overflow-y: scroll;
+            min-height: 600px;
+            max-height: 650px;
+            // max-height: 900px;
+            overflow-y: auto;
+            overflow-x: hidden;
           }
 
           .reportsBodyPadding {
-            padding: 0px 2rem;
+            padding: 0px 80px;
           }
 
           .reportsBodyPaddingText {
@@ -107,7 +111,7 @@ class Reports extends React.Component {
             color: #ffffff;
             // font-size: 82px;
           }
-          
+
           .reportsMiniPlus {
             display: inline-block;
             position: relative;

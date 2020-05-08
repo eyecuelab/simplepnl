@@ -15,6 +15,7 @@ function MegHeader() {
             color: #222222;
             overflow: hidden;
             text-align: center;
+            padding-top: 80px;
           }
 
           .megPictureDiv {
@@ -25,7 +26,7 @@ function MegHeader() {
             height: 100px;
             width: 100px;
             border-radius: 100%;
-            margin-top: 20px;
+            // margin-top: 20px;
           }
 
           .megBubble {

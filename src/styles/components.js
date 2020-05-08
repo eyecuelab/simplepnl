@@ -2,11 +2,13 @@ import styled from 'styled-components/macro';
 
 const MainContainer = styled.div`
   background-color: #ffffff;
-  height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
-  /* test for megfooter: */
-  overflow: visible;
+  min-width: 400px !important;
+  max-width: 700px !important;
+  min-height: 700px !important;
+  max-height: 900px !important;
+  overflow: auto;
 `;
 
 const EulaContainer = styled.div`
@@ -20,6 +22,7 @@ const EulaContainer = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 120px 70px 1fr 100px 0px;
   grid-column-gap: 0px;
+  grid-row-gap: 0px;
   grid-row-gap: 0px;
 `;
 
@@ -44,23 +47,34 @@ const CategoryContainer = styled.div`
   height: 600px;
   border-radius: 5px;
   color: #6B6B6B;
+  min-height: 700px;
+  max-height: 900px;
+  overflow: auto;
 `;
 
 const HomeHeader = styled.h1`
   padding-top: 50px;
-  padding-bottom: 10px;
+  padding-right: 80px;
+  padding-left: 80px;
+  margin: 0px;
   font-size: 25px;
+  font-weight: 300;
   text-align: center;
 `;
 
 const HomeText = styled.p`
-  padding-right: 30px;
-  padding-left: 30px;
-  font-size: 18px;
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-left: 80px;
+  margin: 0px;
+  font-size: 16px;
   text-align: center;
 `;
 
 const SignIn = styled.div`
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-left: 80px;
   text-align: center;
 `;
 
@@ -80,7 +94,7 @@ const ReportsContainer = styled.div`
 
 const ReportItemHeader = styled.div`
   text-align: left;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   font-weight: 600;
   color: #222222;
 `;
@@ -89,7 +103,8 @@ const ReportStatusBar = styled.div`
   background-color: #555555;
   border-radius: 20px;
   display: inline-block;
-  width: 85%;
+  width: 433px;
+  /* min-width: 25vw; */
   text-align: left;
   margin-bottom: 5px;
 `;
@@ -121,7 +136,8 @@ const ReportLinkIcon = styled.img`
 const ReportsPlus = styled.div`
   position: relative;
   top: -32px;
-  left: 80%;
+  /* right: -87%; */
+  right: -80%;
   background-color: #ea475b;
   width: 60px;
   height: 60px;
@@ -130,8 +146,9 @@ const ReportsPlus = styled.div`
 
 const ReportsPlusSign = styled.div`
   position: relative;
-  top: -32px;
+  top: -31px;
   left: 6px;
+  /* height: 60px; */
   font-weight: 200;
   color: #e9f5fb;
   font-size: 82px;
@@ -168,7 +185,7 @@ const Title = styled.h1`
 
 const ReportsHeader = styled.h1`
   padding-top: 24px;
-  padding-left: 2rem;
+  padding-left: 80px;
   font-size: 25px;
   color: #ea475b;
   font-weight: 700;
@@ -176,8 +193,22 @@ const ReportsHeader = styled.h1`
 
 const MegQuestionsLocation = styled.div`
   position: absolute;
-  top: 665px;
-  left: 23%;
+
+  /* position: fixed;
+  left: 50%;
+  top: 80px;
+  transform: translate(-50%, -0%);
+  width: 700px;
+  height: 700px; */
+
+
+
+  /* top: 850px;
+  left: 10%; */
+  /* margin-left: -1%; */
+  /* margin-right: -1%; */
+  /* padding-left: -1%; */
+  /* padding-right: -10px; */
 `;
 
 const SelectPreview = styled.h5`
@@ -222,12 +253,15 @@ const ProblemButton = styled.button`
 `;
 
 const NextButton = styled.button`
+  height: 50px;
+  width: 270px;
   background: #ea475b;
   border-radius: 4px;
   color: #FFFFFF;
-  padding: 8px 60px;
+  padding: 0px;
   font-weight: 700;
-  margin: 20px;
+  /* border: 1px solid #555555; */
+  /* margin: 20px; */
 `;
 
 const DisplayButton = styled.button`
@@ -258,8 +292,8 @@ const EulaButtonContainer = styled.div`
 const PinkLine = styled.div`
   color: #ea475b;
   margin-top: 1rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: 80px;
+  margin-right: 80px;
   border: 0;
   border-top: 1px solid #ea475b;
 `;

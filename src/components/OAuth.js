@@ -46,10 +46,10 @@ class OAuth extends Component {
 
     window.gapi.load('signin2', () => {
       const opts = {
-        width: 200,
+        width: 270,
         height: 50,
+        longtitle: true,
         onsuccess: successCallback,
-
       };
       gapi.signin2.render('loginButton', opts);
     });
@@ -94,11 +94,9 @@ class OAuth extends Component {
     if (isSignedIn) {
       return (
         <div>
-          <h4>You&apos;re all signed in:</h4>
-
           <Link to="/reports">
             <NextButton>
-              Let&apos;s make some reports!
+              Let&apos;s get started!
             </NextButton>
           </Link>
         </div>
@@ -106,15 +104,23 @@ class OAuth extends Component {
     }
     return (
       <div>
-        <h6>Click below to sign in:</h6>
         <button type="button" id="loginButton">Login with Google</button>
         <style>
           {
             `
               #loginButton {
+                background-color: white;
+                text-align: center;
+                // margin-top: 50px;
+                // padding: 0px;
+                // margin-left: auto;
+                margin: auto;
                 padding: 0px;
-                margin: 0px;
+                // padding-right: auto;
                 border: 0px;
+                height: 50px;
+                width: 270px;
+
                 border-radius: 5px;
               }
               `

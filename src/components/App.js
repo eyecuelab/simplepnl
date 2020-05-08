@@ -81,8 +81,7 @@ class App extends React.Component {
               background-size: cover;
             }
             .appBody {
-              overflow: auto;
-              max-height: 80vh;
+              // overflow: auto;
             }
             `}
         </style>
