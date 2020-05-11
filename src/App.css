@@ -120,7 +120,7 @@ body {
   font-family: Montserrat, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow: auto;
 
 }
 
@@ -141,7 +141,7 @@ li {
   max-width: 700px !important;
   min-height: 700px !important;
   max-height: 900px !important;
-  overflow: hidden;
+  overflow: auto;
 
   padding: 0px;
 }
@@ -165,6 +165,5 @@ li {
 
 
 button:focus {
-  outline: none !important;
   outline: none !important;
 }
