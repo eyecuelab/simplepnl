@@ -37,11 +37,11 @@ function SelectCategory({ location, sheetsReducer }) {
         <MegQuestions />
       </MegQuestionsLocation>
 
-      <div className="temp">
+      {/* <div className="temp">
         TEMP display of active spreadsheetId for dev use:
         <br />
         <a href={`https://docs.google.com/spreadsheets/d/${sheetId}`} target="_blank" rel="noopener noreferrer">{sheetId}</a>
-      </div>
+      </div> */}
 
 
       <style>

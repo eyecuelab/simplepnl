@@ -10,11 +10,12 @@ import { setCsvName } from '../actions';
 function NewPnl(props) {
   const importColumn = {
     backgroundColor: 'white',
+    color: '#999999',
+    fontWeight: '600',
     height: '200px',
-    marginLeft: '2rem',
-    marginRight: '2rem',
     textAlign: 'center',
-    width: '90%',
+    width: '100%',
+    padding: '0px 0px',
   };
 
   let formReportName = null;
@@ -43,22 +44,37 @@ function NewPnl(props) {
 
       <Title>NEW PNL REPORT</Title>
       <PinkLine />
-      <form onSubmit={handleFormUpdate}>
+      <form className="formClass" onSubmit={handleFormUpdate}>
         <TextInput
-          placeholder="Name of Report (such as '2020-04' or '2020-Q1')"
+          placeholder="Name of Report (eg: '2020-04' or '2020-Q1')"
           required
           ref={(input) => { formReportName = input; }}
         />
-        <div style={importColumn}>
+        <div style={importColumn} className="importerDiv">
           <Importer />
 
-          <NextButton type="submit">Next!</NextButton>
 
+          <NextButton type="submit">Next!</NextButton>
         </div>
       </form>
+
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
+      <style>
+        {
+          `
+          .importerDiv {
+            // border: 9px solid #ea475b;
+          }
+
+          .formClass {
+            height: 603px;
+            padding: 0px 80px;
+          }
+          `
+        }
+      </style>
     </MainContainer>
 
   );

@@ -127,11 +127,7 @@ function EulaText() {
           this Software is aware of the possibility of such damages and known defects.`}
       </p>
 
-      {/* <h5>CONTACT INFORMATION</h5> */}
-
-      <p>
-        .
-      </p>
+      {/* <h5>CONTACT INFORMATION?</h5> */}
 
       <hr />
       <hr />

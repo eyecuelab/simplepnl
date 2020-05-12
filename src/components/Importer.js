@@ -38,11 +38,10 @@ class Importer extends Component {
         style={importer}
         onDrop={this.handleOnDrop}
         onError={this.handleOnError}
-        noClick
         addRemoveButton
         onRemoveFile={this.handleOnRemoveFile}
       >
-        <span>Drop CSV file here to upload.</span>
+        <span>Drag CSV file here (or click) to upload.</span>
       </CSVReader>
     );
   }
@@ -50,6 +49,7 @@ class Importer extends Component {
 
 const importer = {
   marginBottom: '50px',
+  // color: '#999999',
 };
 
 const mapStateToProps = (state) => ({

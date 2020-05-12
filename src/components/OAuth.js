@@ -104,25 +104,37 @@ class OAuth extends Component {
     }
     return (
       <div>
-        <button type="button" id="loginButton">Login with Google</button>
+        <button type="button" id="loginButton" className="customGPlusSignIn">Sign in with Google</button>
         <style>
           {
             `
               #loginButton {
                 background-color: white;
                 text-align: center;
-                // margin-top: 50px;
-                // padding: 0px;
-                // margin-left: auto;
                 margin: auto;
                 padding: 0px;
-                // padding-right: auto;
                 border: 0px;
                 height: 50px;
                 width: 270px;
 
-                border-radius: 5px;
+                /* offset-x | offset-y | blur-radius | spread-radius | color */
+                // -webkit-box-shadow: none !important;
+                // box-shadow: none !important;
+
+                -webkit-box-shadow: 0px 2px 5px 1px rgba(153, 215, 236, .7) !important;
+                box-shadow: 0px 2px 5px 1px rgba(153, 215, 236, .7) !important;
               }
+
+              .abcRioButton {
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+              }
+
+              .abcRioButton:hover {
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+              }
+
               `
           }
         </style>
