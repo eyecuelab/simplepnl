@@ -69,7 +69,7 @@ function NewPnl(props) {
           }
 
           .formClass {
-            height: 603px;
+            height: 619px;
             padding: 0px 80px;
           }
           `

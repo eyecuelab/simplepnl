@@ -105,14 +105,17 @@ const Category = ({ thisSpreadsheetId }) => {
       <style>{
         `
         .displayOptions {
-          // position: relative;
-          // bottom: 60px;
           margin: 8px;
           text-align: center;
         }
+
         .displayText {
           font-weight: 600;
           color: #555555;
+        }
+
+        .MuiAutocomplete-popper {
+          width: 250px !important;
         }
         `
       }
