@@ -15,8 +15,10 @@ function MegIcon() {
                 border-radius: 100%;
                 margin-bottom: 20px;
                 position: absolute;
-                left: 48%;
-                top: 40px;
+                left: 50%;
+                top: -58px;
+                transform: translate(-50%, -0%);
+
               }
               `}
       </style>

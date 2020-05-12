@@ -158,6 +158,30 @@ const ReportsPlusSign = styled.div`
   font-size: 82px;
 `;
 
+const HelpPlus = styled.div`
+  position: fixed;
+  top: 750px;
+  transform: translate(-50%, -0%);
+
+  /* right: -87%; */
+  left: 50%;
+  background-color: #555555;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+`;
+
+const HelpPlusSign = styled.div`
+  position: relative;
+  top: -18px;
+  left: 26px;
+  height: 60px;
+  font-weight: 200;
+  color: #222222;
+  font-size: 82px;
+  transform: rotate(45deg);
+  `;
+
 const Table = styled.table`
   /* margin-top: 25px; */
   /* margin-bottom: 50px; */
@@ -394,4 +418,6 @@ export {
   SelectScreen,
   TextInput,
   ExtraBold,
+  HelpPlus,
+  HelpPlusSign,
 };
