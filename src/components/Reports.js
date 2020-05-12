@@ -91,7 +91,7 @@ class Reports extends React.Component {
           .reportsDiv {
             background-color: #ffffff;
             border-radius: 5px;
-            min-height: 543px;
+            min-height: 551px;
             max-height: 593px;
             overflow-y: auto;
             overflow-x: hidden;

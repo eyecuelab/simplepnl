@@ -1,7 +1,8 @@
 // import React from 'react';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MegIcon from './MegIcon';
-import { ExtraBold } from '../styles/components';
+import { ExtraBold, HelpPlus, HelpPlusSign } from '../styles/components';
 
 
 function Help() {
@@ -9,26 +10,28 @@ function Help() {
 
 
   const helpContainer = {
+    position: 'relative',
     backgroundColor: '#F16879',
-    height: '600px',
+    height: '700px',
     borderRadius: '5px',
   };
 
   const helpTitle = {
     fontSize: '25px',
-    fontWeight: '700',
+    fontWeight: '300',
     color: 'white',
     textAlign: 'center',
-    paddingTop: '80px',
+    paddingTop: '100px',
   };
 
   const questionsContainer = {
-    marginTop: '2rem',
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
+    marginTop: '50px',
+    // marginBottom: '200px',
+    paddingLeft: '80px',
+    paddingRight: '80px',
     color: 'white',
-    fontSize: '18px',
-    fontWeight: '500',
+    fontSize: '16px',
+    fontWeight: '400',
   };
 
   //   const questions = {
@@ -41,7 +44,7 @@ function Help() {
 
       <h1 style={helpTitle}>Meg here. How can I help you?</h1>
       <div style={questionsContainer}>
-        <ul>
+        <ul className="mainUL">
           <button
             className="buttonWrappingLi"
             onClick={() => setHelpDisplay('tedious')}
@@ -54,18 +57,18 @@ function Help() {
           </button>
 
           { helpDisplay === 'tedious' ? (
-            <ul>
-              <li>
-                Once you complete this three-step SimplePnL you will get a report
-                that will provide a crystal clear picture of your finances to help
-                guide your business plan. Your SimplePnL may even save you money on
-                taxes by efficiently pooling all your business expenses and lowering
-                your taxable income.
-                <a href="https://www.mkbkllc.com/simple-pnl/">
-                  Click here to learn how
-                </a>.
-              </li>
-            </ul>
+
+            <p className="helpP">
+              Once you complete this three-step SimplePnL you will get a report
+              that will provide a crystal clear picture of your finances to help
+              guide your business plan. Your SimplePnL may even save you money on
+              taxes by efficiently pooling all your business expenses and lowering
+              your taxable income.
+              <a href="https://www.mkbkllc.com/simple-pnl/">
+                {' Click here to learn how'}
+              </a>.
+            </p>
+
           ) : null }
           <button
             className="buttonWrappingLi"
@@ -81,17 +84,17 @@ function Help() {
           </button>
 
           { helpDisplay === 'googleDrive' ? (
-            <ul>
-              <li>
-                SimplePnL leverages user’s Google Drive to securely store user’s personal
-                information without incurring additional cost. Google Drive supports
-                two-factor authentication, metadata encryption and encryption of data
-                in transit. In short, Google does a fairly good job at protecting
-                your data from hackers. However, if you value a high level of privacy,
-                Google Drive probably isn’t for you and you can access an excel version
-                of this file <a href="https://www.mkbkllc.com/simple-pnl/">here</a>.
-              </li>
-            </ul>
+
+            <p className="helpP">
+              SimplePnL leverages user’s Google Drive to securely store user’s personal
+              information without incurring additional cost. Google Drive supports
+              two-factor authentication, metadata encryption and encryption of data
+              in transit. In short, Google does a fairly good job at protecting
+              your data from hackers. However, if you value a high level of privacy,
+              Google Drive probably isn’t for you and you can access an excel version
+              of this file <a href="https://www.mkbkllc.com/simple-pnl/">here</a>.
+            </p>
+
           ) : null }
           <button
             className="buttonWrappingLi"
@@ -105,13 +108,13 @@ function Help() {
           </button>
 
           { helpDisplay === 'multipleBanks' ? (
-            <ul>
-              <li>
-                Start with one bank statement at a time. Once you finish the first,
-                you&apos;ll be able to create additional reports and track them all.
-                Right now, you might need to combine reports together on your own.
-              </li>
-            </ul>
+
+            <p className="helpP">
+              Start with one bank statement at a time. Once you finish the first,
+              you&apos;ll be able to create additional reports and track them all.
+              Right now, you might need to combine reports together on your own.
+            </p>
+
           ) : null }
           <button
             className="buttonWrappingLi"
@@ -125,19 +128,19 @@ function Help() {
           </button>
 
           { helpDisplay === 'categorizations' ? (
-            <ul>
-              <li>
-                Check out
-                <a href="https://www.mkbkllc.com/simple-pnl/">
-                  this guide
-                </a>
-                to tax categories or
-                <a href="https://www.mkbkllc.com/contact/">
-                  click here
-                </a>
-                to reach out to me directly for support!
-              </li>
-            </ul>
+
+            <p className="helpP">
+              {'Check out '}
+              <a href="https://www.mkbkllc.com/simple-pnl/">
+                {'this guide '}
+              </a>
+              to tax categories or
+              <a href="https://www.mkbkllc.com/contact/">
+                {' click here '}
+              </a>
+              to reach out to me directly for support!
+            </p>
+
           ) : null }
           <button
             className="buttonWrappingLi"
@@ -151,25 +154,42 @@ function Help() {
           </button>
 
           { helpDisplay === 'help' ? (
-            <ul>
-              <li>
-                Email
-                <a href="mailto:meg@mkbkllc.com">
-                  meg@mkbkllc.com
-                </a>
-                with your questions directly or
-                <a href="https://www.mkbkllc.com/contact/">
-                  click here
-                </a>
-                to schedule an appointment!
-              </li>
-            </ul>
+
+            <p className="helpP">
+              Email
+              <a href="mailto:meg@mkbkllc.com">
+                {' meg@mkbkllc.com '}
+              </a>
+              with your questions directly or
+              <a href="https://www.mkbkllc.com/contact/">
+                {' click here '}
+              </a>
+              to schedule an appointment!
+            </p>
+
           ) : null }
         </ul>
       </div>
+      <HelpPlus>
+        <Link to="/reports">
+          <HelpPlusSign>+</HelpPlusSign>
+        </Link>
+      </HelpPlus>
       <style>
         {
           `
+          .helpP {
+            margin-left: 5px;
+          }
+
+          a {
+            color: #007bff !important;
+          }
+
+          .mainUL {
+            padding-left: 5px;
+          }
+
           .buttonWrappingLi {
             background-color: rgba(233, 245, 251, 0);
             border-radius: 20px;
@@ -177,13 +197,14 @@ function Help() {
             width: 100%;
             color: white;
             text-align: left;
+            padding: 0px;
           }
 
           .liToHover:hover {
             background-color: rgba(233, 245, 251, .05);
             border-radius: 20px;
             cursor: pointer;
-            animation: div_animation_effect 2s linear 3s infinite alternate;
+            animation: div_animation_effect 2s linear 5s infinite alternate;
           }
 
           @keyframes div_animation_effect {
