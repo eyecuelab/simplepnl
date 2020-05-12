@@ -21,8 +21,8 @@ function Demo() {
           `
           .Demo {
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 10px;
+            left: 10px;
 
             width: 75px;
             height: 40px;

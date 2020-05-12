@@ -34,7 +34,7 @@ const Category = ({ thisSpreadsheetId }) => {
         <DisplayButton onClick={() => handleDisplayClick(4)}>Categorized</DisplayButton>
         <DisplayButton onClick={() => handleDisplayClick('all')}>All</DisplayButton>
       </div>
-      <div>
+      <div className="tableDiv">
         <Table>
           <tbody>
             <tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th></tr>

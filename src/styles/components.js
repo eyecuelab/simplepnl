@@ -7,7 +7,7 @@ const MainContainer = styled.div`
   min-width: 400px !important;
   max-width: 700px !important;
   min-height: 700px !important;
-  max-height: 900px !important;
+  max-height: 800px !important;
   overflow: auto;
 `;
 
@@ -20,7 +20,7 @@ const EulaContainer = styled.div`
   text-align: center;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 120px 70px 1fr 100px 0px;
+  grid-template-rows: 180px 130px 1fr 100px 0px;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   grid-row-gap: 0px;
@@ -79,9 +79,13 @@ const SignIn = styled.div`
 `;
 
 const EulaHeader = styled.h2`
-  padding: 20px;
-  font-size: 25px;
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-left: 80px;
   margin: 0px;
+  font-size: 25px;
+  font-weight: 300;
+  text-align: center;
 `;
 
 const ReportsContainer = styled.div`
@@ -148,7 +152,7 @@ const ReportsPlusSign = styled.div`
   position: relative;
   top: -31px;
   left: 6px;
-  /* height: 60px; */
+  height: 60px;
   font-weight: 200;
   color: #e9f5fb;
   font-size: 82px;
@@ -160,6 +164,7 @@ const Table = styled.table`
   background-color: white;
   border-radius: 5px;
   width: 100%;
+  /* max-height: 430px; */
 `;
 
 const Cell = styled.td`
@@ -177,14 +182,15 @@ const CategoryCell = styled.td`
 `;
 
 const Title = styled.h1`
-  padding-left: 2rem;
+  padding-top: 10px;
+  padding-left: 80px;
   font-size: 25px;
   color: #ea475b;
   font-weight: 700;
 `;
 
 const ReportsHeader = styled.h1`
-  padding-top: 24px;
+  padding-top: 50px;
   padding-left: 80px;
   font-size: 25px;
   color: #ea475b;
@@ -193,7 +199,7 @@ const ReportsHeader = styled.h1`
 
 const MegQuestionsLocation = styled.div`
   position: absolute;
-
+  height: 10px;
   /* position: fixed;
   left: 50%;
   top: 80px;
@@ -221,7 +227,10 @@ const SelectScreen = styled.div`
   border-radius: 5px;
   min-height: 20vh;
   text-align: center;
+  height: 603px;
   padding: 20px 50px;
+  /* overflow: auto; */
+
 `;
 
 const ConfirmButton = styled.button`
@@ -294,7 +303,7 @@ const PinkLine = styled.div`
   margin-top: 1rem;
   margin-left: 80px;
   margin-right: 80px;
-  border: 0;
+  /* border: 0; */
   border-top: 1px solid #ea475b;
 `;
 
@@ -305,11 +314,12 @@ const CaretLeft = styled.span`
 `;
 
 const IndexLink = styled.h4`
-  padding-top: 1rem;
-  padding-left: 1rem;
+  padding-top: 10px;
+  padding-left: 80px;
   color: #222222;
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0px;
 `;
 
 const ExtraBold = styled.span`
@@ -317,17 +327,20 @@ const ExtraBold = styled.span`
 `;
 
 const TextInput = styled.input`
-  height: 70px;
-  width: 90%;
-  border: 1px solid #B9B9B9;
-  border-radius: 5px;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
+  margin: 50px 0px;
+  padding: 0px 80px;
+  height: 100px;
+  width: 100%;
+  border: 2px dashed rgb(204, 204, 204);
+  border-radius: 20px;
   text-align: center;
   font-weight: 600;
-  color: #555555;
+  color: #222222;
+
+  &::placeholder {
+     color: #777777;
+   }
+
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

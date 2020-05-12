@@ -31,12 +31,19 @@ class Reports extends React.Component {
     if (reports.length < 1) {
       return (
         <div className="reportsBodyPadding reportsBodyPaddingText">
-          <h6>
+          <p>
             It looks like you are ready to start!
-          </h6>
-          <h5>
-            Click on the <span className="pink">pink plus button</span><div className="reportsMiniPlus"><Link to="/newpnl"><span className="reportsMiniPlusSign"> + </span></Link></div> to start a new report!
-          </h5>
+          </p>
+          <div>
+            Click on the
+            <span className="pink">pink plus button</span>
+            <div className="reportsMiniPlus">
+              <Link to="/newpnl">
+                <span className="reportsMiniPlusSign"> +
+                </span>
+              </Link>
+            </div> to start a new report.
+          </div>
         </div>
       );
     }
@@ -84,23 +91,27 @@ class Reports extends React.Component {
           .reportsDiv {
             background-color: #ffffff;
             border-radius: 5px;
-            min-height: 600px;
-            max-height: 650px;
-            // max-height: 900px;
+            min-height: 543px;
+            max-height: 593px;
             overflow-y: auto;
             overflow-x: hidden;
           }
 
           .reportsBodyPadding {
+            height: 100%;
             padding: 0px 80px;
           }
 
           .reportsBodyPaddingText {
             text-align: center;
-          }
+            font-size: 16px;
 
-          .MegQuestionsLocation {
-            position: absolute;
+            padding-top: 30%;
+            // or
+            // position: absolute;
+            // top: 50%;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
           }
 
           .reportsMiniPlusSign {

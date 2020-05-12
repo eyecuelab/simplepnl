@@ -5,13 +5,13 @@ function MegHeader() {
   return (
     <div className="megHeader">
       <div className="megPictureDiv">
-        <div className="megBubble">I&apos;m Meg!
-        </div>
+        <div className="megBubble" />
       </div>
 
       <style>
         {`
           .megHeader {
+
             color: #222222;
             overflow: hidden;
             text-align: center;
@@ -30,13 +30,20 @@ function MegHeader() {
           }
 
           .megBubble {
-            background-color: white;
+            background: url("Im-Meg-Speech-Bubble-01.png");
+            // background-size: 60px 60px;
+            background-size: cover;
+
+            width: 100px;
+            height: 50px;
+            // background-position: -100px -195px;
+            // background-color: white;
             position: relative;
             left: 75px;
             top: 10px;
-            border-radius: 100%;
-            color: #ea475b;
-            border: 3px solid #e9f5fb;
+            // border-radius: 100%;
+            // color: #ea475b;
+            // border: 3px solid #e9f5fb;
             padding: 10px;
             font-weight: 600;
             font-style: italic;
