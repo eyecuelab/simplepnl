@@ -49,7 +49,10 @@ class Importer extends Component {
 
 const importer = {
   marginBottom: '50px',
-  // color: '#999999',
+  border: '0',
+  fontWeight: '500',
+  color: '#999999',
+
 };
 
 const mapStateToProps = (state) => ({

@@ -7,25 +7,44 @@ import { Table, Cell } from '../../styles/components';
 class AmountCreditColumn extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      amountCreditColumnSelected: null,
+    };
     this.handleClick = this.handleClick.bind(this);
+    this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.newAmountKey = 0;
   }
 
   handleClick(event) {
     const cell = event.currentTarget.className.split(' ');
     const column = cell[1];
+
+    this.setState({
+      amountCreditColumnSelected: column,
+    });
+
     const { dispatch } = this.props;
     dispatch(setCsvAmount(column));
+  }
+
+  handleOnMouseOver(event) {
+    const cell = event.currentTarget.className.split(' ');
+    const column = cell[1];
 
     const tableCells = document.querySelectorAll('.tableCell');
     tableCells.forEach((everyCell) => {
       everyCell.style.backgroundColor = '#ffffff'; // eslint-disable-line no-param-reassign
     });
 
-    const selectedCells = document.querySelectorAll(`.${column}`);
-    selectedCells.forEach((selectedCell) => {
-      selectedCell.style.backgroundColor = '#99D7EC'; // eslint-disable-line no-param-reassign
+    const selectedCells1 = document.querySelectorAll(`.${column}`);
+    selectedCells1.forEach((selectedCell1) => {
+      selectedCell1.style.backgroundColor = '#999999'; // eslint-disable-line no-param-reassign
+    });
+
+    const { amountCreditColumnSelected } = this.state;
+    const selectedCells2 = document.querySelectorAll(`.${amountCreditColumnSelected}`);
+    selectedCells2.forEach((selectedCell2) => {
+      selectedCell2.style.backgroundColor = '#ea475b'; // eslint-disable-line no-param-reassign
     });
   }
 
@@ -65,6 +84,8 @@ class AmountCreditColumn extends Component {
                         className={`row_${i} column_${j} tableCell`}
                         onClick={this.handleClick}
                         onKeyPress={this.handleClick}
+                        onMouseOver={this.handleOnMouseOver}
+                        onFocus={this.handleOnMouseOver}
                       >
                         {column}
                       </button>

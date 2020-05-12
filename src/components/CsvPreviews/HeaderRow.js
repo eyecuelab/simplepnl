@@ -9,8 +9,10 @@ class HeaderRow extends Component {
     super(props);
     this.state = {
       headerRowSpan: 3,
+      headerRowSelected: null,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.handleMoreRowsClick = this.handleMoreRowsClick.bind(this);
     this.newHeaderKey = 0;
   }
@@ -33,17 +35,33 @@ class HeaderRow extends Component {
   handleButtonClick(event) {
     const cell = event.currentTarget.className.split(' ');
     const row = cell[0];
+
+    this.setState({
+      headerRowSelected: row,
+    });
+
     const { dispatch } = this.props;
     dispatch(setCsvHeader(row));
+  }
+
+  handleOnMouseOver(event) {
+    const cell = event.currentTarget.className.split(' ');
+    const row = cell[0];
 
     const tableCells = document.querySelectorAll('.tableCell');
     tableCells.forEach((everyCell) => {
       everyCell.style.backgroundColor = '#ffffff'; // eslint-disable-line no-param-reassign
     });
 
-    const selectedCells = document.querySelectorAll(`.${row}`);
-    selectedCells.forEach((selectedCell) => {
-      selectedCell.style.backgroundColor = '#99D7EC'; // eslint-disable-line no-param-reassign
+    const selectedCells1 = document.querySelectorAll(`.${row}`);
+    selectedCells1.forEach((selectedCell1) => {
+      selectedCell1.style.backgroundColor = '#999999'; // eslint-disable-line no-param-reassign
+    });
+
+    const { headerRowSelected } = this.state;
+    const selectedCells2 = document.querySelectorAll(`.${headerRowSelected}`);
+    selectedCells2.forEach((selectedCell2) => {
+      selectedCell2.style.backgroundColor = '#ea475b'; // eslint-disable-line no-param-reassign
     });
   }
 
@@ -71,28 +89,36 @@ class HeaderRow extends Component {
                 key={this.newHeaderKey++}
               >
                 {
-                  row.data.map((column, j) => (
-                    <Cell
-                      id={`row_${i}-column_${j}`}
-                      role="presentation"
-                      className={`row_${i} column_${j} tableCell`}
-                      key={this.newHeaderKey++}
-                    >
-                      <button
-                        type="button"
-                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
-                        className={`row_${i} column_${j} tableCell`}
-                        onClick={this.handleButtonClick}
-                        onKeyPress={this.handleButtonClick}
-                      >
-                        {column}
-                      </button>
-                    </Cell>
-                  ))
-                }
+                  row.data.map((column, j) => {
+                    if (j < 6) {
+                      return (
+                        <Cell
+                          id={`row_${i}-column_${j}`}
+                          role="presentation"
+                          className={`row_${i} column_${j} tableCell`}
+                          key={this.newHeaderKey++}
+                        >
+                          <button
+                            type="button"
+                            style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
+                            className={`row_${i} column_${j} tableCell`}
+                            onClick={this.handleButtonClick}
+                            onKeyPress={this.handleButtonClick}
+                            onMouseOver={this.handleOnMouseOver}
+                            onFocus={this.handleOnMouseOver}
+                          >
+                            {column}
+                          </button>
+                        </Cell>
+                      );
+                    }
+                    return false;
+                  }
+                  )
+              }
               </tr>
             ))
-          }
+        }
         </tbody>
       </Table>
     );

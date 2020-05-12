@@ -120,13 +120,14 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
         let percentage;
         if (values) {
           const actual = (parseFloat(values) * 100).toFixed(0);
-          if (actual < 34) {
-            percentage = 33;
-          } else {
-            percentage = actual;
-          }
+
+          // if (actual < 34) {
+          //   percentage = 33;
+          // } else {
+          percentage = actual;
+          // }
         } else {
-          percentage = 33;
+          percentage = 0;
         }
         const payload = {
           percentage,

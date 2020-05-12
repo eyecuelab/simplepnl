@@ -84,7 +84,7 @@ function ComboBox(props) {
 }
 
 const column = {
-  minWidth: '150px',
+  maxWidth: '100px',
   marginLeft: '10px',
 };
 

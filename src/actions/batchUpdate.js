@@ -31,7 +31,7 @@ export const batchUpdate = (props) => (dispatch) => {
     'SimplePnL',
     (title.split(': ')[1].split(' [')[0]),
     '',
-    '=(COUNTA(D3:D4999)/COUNTA(A3:A4999))',
+    '=IF((COUNTA(D3:D4999)/COUNTA(A3:A4999))>1,1,(COUNTA(D3:D4999)/COUNTA(A3:A4999)))',
   ];
 
   const transactionValues = csvRawData.map((x, index) => {

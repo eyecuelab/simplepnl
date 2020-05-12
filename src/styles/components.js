@@ -170,7 +170,7 @@ const Table = styled.table`
 const Cell = styled.td`
   border-bottom: 1px solid rgba(0,0,0,.4);
   padding: 5px;
-  font-size: 15px;
+  font-size: 14px;
 `;
 
 const CategoryCell = styled.td`
@@ -182,11 +182,12 @@ const CategoryCell = styled.td`
 `;
 
 const Title = styled.h1`
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 80px;
   font-size: 25px;
   color: #ea475b;
   font-weight: 700;
+  margin: 0px;
 `;
 
 const ReportsHeader = styled.h1`
@@ -218,17 +219,17 @@ const MegQuestionsLocation = styled.div`
 `;
 
 const SelectPreview = styled.h5`
-  padding: 15px;
+  padding: 0px 80px;
 `;
 
 const SelectScreen = styled.div`
   color: #555555;
   background-color: #FFFFFF;
   border-radius: 5px;
-  min-height: 20vh;
+  /* min-height: 20vh; */
   text-align: center;
-  height: 603px;
-  padding: 20px 50px;
+  height: 617px;
+  padding: 40px 80px;
   /* overflow: auto; */
 
 `;
@@ -240,9 +241,10 @@ const ConfirmButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
   color: #FFFFFF;
-  padding: 8px 30px;
+  padding: 10px 10px;
   font-weight: 700;
-  margin: 20px;
+  margin-right: 20px;
+  margin-top: 50px;
 `;
 const ProblemButton = styled.button`
   /* position: relative; */
@@ -300,7 +302,7 @@ const EulaButtonContainer = styled.div`
 
 const PinkLine = styled.div`
   color: #ea475b;
-  margin-top: 1rem;
+  /* margin-top: 1px; */
   margin-left: 80px;
   margin-right: 80px;
   /* border: 0; */
@@ -309,7 +311,7 @@ const PinkLine = styled.div`
 
 const CaretLeft = styled.span`
   color: #ea475b;
-  font-size: 25px;
+  font-size: 18px;
   padding-right: 4px;
 `;
 
@@ -318,7 +320,7 @@ const IndexLink = styled.h4`
   padding-left: 80px;
   color: #222222;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 12px;
   margin: 0px;
 `;
 
