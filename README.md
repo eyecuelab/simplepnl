@@ -35,4 +35,4 @@
 
 ### License:
 * This repository is copyright (C) 2020 by EyeCue Lab, Noah Horwitz, & Celeste Morton and licensed under the GNU General Public License v3.0 [gpl-3.0](https://www.gnu.org/licenses/gpl-3.0-standalone.html).
-* Use of this application is subject to the End-User License Agreement ("EULA") found [here](http://simplepnl.herokuapp.com/#/eula).
+* Use of this application is subject to the End-User License Agreement ("EULA") found [here](http://simplepnl.herokuapp.com/#/eula)
