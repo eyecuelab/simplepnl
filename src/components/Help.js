@@ -1,13 +1,20 @@
 // import React from 'react';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import MegIcon from './MegIcon';
 import { ExtraBold, HelpPlus, HelpPlusSign } from '../styles/components';
 
 
-function Help() {
+function Help(props) {
   const [helpDisplay, setHelpDisplay] = useState(false);
 
+  const clickOut = () => {
+    const { fromCategory } = props.location;
+    if (fromCategory === 'true') {
+      props.history.push('/reports');
+    } else {
+      props.history.goBack();
+    }
+  };
 
   const helpContainer = {
     position: 'relative',
@@ -131,7 +138,7 @@ function Help() {
 
             <p className="helpP">
               {'Check out '}
-              <a href="https://www.mkbkllc.com/simple-pnl/">
+              <a href="https://www.mkbkllc.com/pnlcategories/">
                 {'this guide '}
               </a>
               to tax categories or
@@ -171,9 +178,11 @@ function Help() {
         </ul>
       </div>
       <HelpPlus>
-        <Link to="/reports">
-          <HelpPlusSign>+</HelpPlusSign>
-        </Link>
+        <HelpPlusSign
+          onClick={() => clickOut()}
+          onKeyPress={() => clickOut()}
+        >+
+        </HelpPlusSign>
       </HelpPlus>
       <style>
         {
@@ -182,7 +191,7 @@ function Help() {
             margin-left: 5px;
           }
 
-          a {
+          .helpP a {
             color: #007bff !important;
           }
 

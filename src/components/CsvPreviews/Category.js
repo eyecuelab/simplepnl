@@ -117,6 +117,18 @@ const Category = ({ thisSpreadsheetId }) => {
         .MuiAutocomplete-popper {
           width: 250px !important;
         }
+
+        // .MuiInputBase-input { text-align: center; width: 100px;}
+        // .MuiInput-input { text-align: center; width: 100px;}
+        // .MuiAutocomplete-input { text-align: center; width: 100px;}
+        // .MuiAutocomplete-inputFocused { text-align: center; width: 100px;}
+        // .MuiInputBase-inputAdornedEnd { text-align: center; width: 100px;}
+
+        .MuiFormLabel-root { text-align: center; width: 100px;}
+        .MuiInputLabel-root { text-align: center; width: 100px;}
+        .MuiInputLabel-formControl { text-align: center; width: 100px;}
+        .MuiInputLabel-animated { text-align: center; width: 100px;}
+
         `
       }
       </style>

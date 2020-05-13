@@ -165,7 +165,8 @@ const HelpPlus = styled.div`
 
   /* right: -87%; */
   left: 50%;
-  background-color: #555555;
+  background-color: rgba(85, 85, 85, .97);
+  box-shadow: 3px 3px 9px 1px rgba(34, 34, 34, .93);
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -180,6 +181,7 @@ const HelpPlusSign = styled.div`
   color: #222222;
   font-size: 82px;
   transform: rotate(45deg);
+  cursor: pointer;
   `;
 
 const Table = styled.table`
