@@ -27,9 +27,9 @@ jobs:
         uses: AkhileshNS/heroku-deploy@v3.0.4
         with:
           # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: ${{ secrets.HEROKU_API_DEV }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY_END_MEG }}
           # Email that you use with heroku
-          heroku_email: ${{ secrets.HEROKU_EMAIL_DEV }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL_END_MEG }}
           # The appname to use for deploying/updating
           heroku_app_name: simplepnldev
           buildpack: mars/create-react-app
