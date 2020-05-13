@@ -1,18 +1,24 @@
 import React, { useRef, useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ComboBox from '../../utils/ComboBox';
+
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
 import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
+import ComboBox from '../../utils/ComboBox';
 
 // import PinkPagination from '../../utils/Pagination';
-import { Table, CategoryCell, DisplayButton } from '../../styles/components';
+import { Table, CategoryCell } from '../../styles/components';
 
 
 const Category = ({ thisSpreadsheetId }) => {
   const dispatch = useDispatch();
   const sheet = useSelector((state) => state.sheetsReducer[thisSpreadsheetId]);
   const accessToken = useSelector((state) => state.oauthReducer.access_token);
-  const [categoryDisplay, setCategoryDisplay] = useState(3);
+  const [categoryDisplay, setCategoryDisplay] = useState('all');
   const newCategoryKey = useRef(0);
+
 
   function handleDisplayClick(num) {
     setCategoryDisplay(num);
@@ -30,9 +36,34 @@ const Category = ({ thisSpreadsheetId }) => {
     <div>
       <div className="displayOptions">
         <span className="displayText">Display: </span>
-        <DisplayButton onClick={() => handleDisplayClick(3)}>Uncategorized</DisplayButton>
-        <DisplayButton onClick={() => handleDisplayClick(4)}>Categorized</DisplayButton>
-        <DisplayButton onClick={() => handleDisplayClick('all')}>All</DisplayButton>
+
+        <FormControl component="fieldset">
+
+          <RadioGroup row aria-label="position" name="position" defaultValue="all">
+            <FormControlLabel
+              value="all"
+              control={<Radio />}
+              label="All"
+              onChange={() => handleDisplayClick('all')}
+              labelPlacement="top"
+            />
+            <FormControlLabel
+              value="3"
+              control={<Radio />}
+              label="Uncategorized"
+              onChange={() => handleDisplayClick(3)}
+              labelPlacement="top"
+            />
+            <FormControlLabel
+              value="4"
+              control={<Radio />}
+              label="Categorized"
+              onChange={() => handleDisplayClick(4)}
+              labelPlacement="top"
+            />
+          </RadioGroup>
+        </FormControl>
+
       </div>
       <div className="tableDiv">
         <Table>
@@ -105,13 +136,21 @@ const Category = ({ thisSpreadsheetId }) => {
       <style>{
         `
         .displayOptions {
-          margin: 8px;
+          padding-top: 8px;
+          margin-bottom: 8px;
+          border-top: 1px solid rgba(85, 85, 85, .7);
+          border-bottom: 1px solid rgba(85, 85, 85, .7);
           text-align: center;
         }
 
         .displayText {
+          position: relative;
+          top: -3px;
+          font-size: 16px;
           font-weight: 600;
+          line-height: 1.5;
           color: #555555;
+          padding-bottom: 9px;
         }
 
         .MuiAutocomplete-popper {
