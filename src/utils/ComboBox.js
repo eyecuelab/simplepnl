@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 import { batchUpdateCategory } from '../actions/batchUpdateCategory';
 
 const options = [
+  '',
   '(x) Non-Business Related',
   '($) Income',
   '(?) Other Expense: Ask My Accountant',
   'Cost of Goods Sold: Equipment Rental',
   'Cost of Goods Sold: Job/Project Costs & Materials',
-  'Costs of Goods Sold: Packaging & Labels',
-  'Costs of Goods Sold: Shipping & Delivery',
-  'Costs of Goods Sold: Subcontractors',
+  'Cost of Goods Sold: Packaging & Labels',
+  'Cost of Goods Sold: Shipping & Delivery',
+  'Cost of Goods Sold: Subcontractors',
   'Cost of Goods Sold: Merchant Service Fees',
   'Equity: Owner Contribution',
   'Equity: Owner Draw - Personal Transactions',
@@ -85,6 +86,7 @@ function ComboBox(props) {
 
 const column = {
   maxWidth: '100px',
+  textAlign: 'center',
   marginLeft: '10px',
 };
 

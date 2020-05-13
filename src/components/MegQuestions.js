@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function MegQuestions() {
+function MegQuestions(props) {
+  // console.log("MegQuestions.props", props);
+  const { fromCategory } = props;
   return (
     <div className="MegQuestions">
-      <Link to="/help">
+      <Link to={{
+        pathname: '/help',
+        fromCategory,
+      }}
+      >
         <div className="megPictureDiv">
           <div className="megBubble">Click on me if you have any questions!
           </div>

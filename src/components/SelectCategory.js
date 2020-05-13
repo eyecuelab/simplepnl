@@ -20,7 +20,7 @@ function SelectCategory({ location, sheetsReducer }) {
     <CategoryContainer>
 
       <IndexLink>
-        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX </Link>
+        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">SAVE AND FINISH LATER </Link>
         <CaretLeft>&#9660;</CaretLeft>STEP 3
       </IndexLink>
 
@@ -34,7 +34,7 @@ function SelectCategory({ location, sheetsReducer }) {
         />
       </SelectScreen>
       <MegQuestionsLocation>
-        <MegQuestions />
+        <MegQuestions fromCategory="true" />
       </MegQuestionsLocation>
 
       {/* <div className="temp">
