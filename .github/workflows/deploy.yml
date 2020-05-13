@@ -31,5 +31,5 @@ jobs:
           # Email that you use with heroku
           heroku_email: ${{ secrets.HEROKU_EMAIL_MEG }}
           # The appname to use for deploying/updating
-          heroku_app_name: simplepnldev
+          heroku_app_name: simplepnl
           buildpack: mars/create-react-app
