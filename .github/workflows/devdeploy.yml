@@ -4,7 +4,7 @@ name: internship final deploy
 
 on:
   push:
-    branches: [april2020internship]
+    branches: [develop]
 
 jobs:
   build:
@@ -26,9 +26,9 @@ jobs:
         uses: AkhileshNS/heroku-deploy@v3.0.4
         with:
           # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: ${{ secrets.HEROKU_API_END_INTERNSHIP }}
+          heroku_api_key: ${{ secrets.HEROKU_API_NOAH }}
           # Email that you use with heroku
-          heroku_email: ${{ secrets.HEROKU_EMAIL_END_INTERNSHIP }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL_NOAH }}
           # The appname to use for deploying/updating
-          heroku_app_name: april2020internship
+          heroku_app_name: simplepnl-dev
           buildpack: mars/create-react-app
