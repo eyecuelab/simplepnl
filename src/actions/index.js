@@ -254,6 +254,149 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
         dispatch(batchUpdate(payload2));
         return jsonifiedResponse;
       })
+    .then((jsonifiedResponse) => {
+      const { spreadsheetId } = jsonifiedResponse;
+
+
+      const sheetIdTransactions = jsonifiedResponse.sheets[0].properties.sheetId;
+      const sheetIdPNLS = jsonifiedResponse.sheets[1].properties.sheetId;
+
+      return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}:batchUpdate?alt=json`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${props.accessToken}`,
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+          requests: [
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdTransactions,
+                  dimension: 'COLUMNS',
+                  startIndex: 0,
+                  endIndex: 1,
+                },
+                properties: {
+                  pixelSize: 100,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdTransactions,
+                  dimension: 'COLUMNS',
+                  startIndex: 1,
+                  endIndex: 2,
+                },
+                properties: {
+                  pixelSize: 400,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdTransactions,
+                  dimension: 'COLUMNS',
+                  startIndex: 2,
+                  endIndex: 3,
+                },
+                properties: {
+                  pixelSize: 100,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdTransactions,
+                  dimension: 'COLUMNS',
+                  startIndex: 3,
+                  endIndex: 4,
+                },
+                properties: {
+                  pixelSize: 300,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  dimension: 'COLUMNS',
+                  startIndex: 0,
+                  endIndex: 1,
+                },
+                properties: {
+                  pixelSize: 300,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  dimension: 'COLUMNS',
+                  startIndex: 1,
+                  endIndex: 2,
+                },
+                properties: {
+                  pixelSize: 75,
+                },
+                fields: 'pixelSize',
+              },
+            },
+
+
+            {
+              repeatCell: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  startRowIndex: 0,
+                  endRowIndex: 1,
+                  startColumnIndex: 0,
+                  endColumnIndex: 2,
+                },
+                cell: {
+                  userEnteredFormat: {
+                    backgroundColor: {
+                      red: 0.92,
+                      green: 0.28,
+                      blue: 0.36,
+                      alpha: 0.5,
+                    },
+                    borders: {
+                      bottom: {
+
+                        style: 'SOLID_THICK',
+                        color: {
+                          red: 0.1,
+                          green: 0.1,
+                          blue: 0.1,
+                        },
+                      },
+
+                    },
+                  },
+                },
+                fields: 'userEnteredFormat.backgroundColor, userEnteredFormat.borders',
+              },
+            },
+
+
+          ],
+        }),
+      });
+    })
+
+
     .catch((error) => {
       dispatch(sheetsPostCreateFailure(error));
     });

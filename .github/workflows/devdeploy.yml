@@ -1,6 +1,6 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-name: internship final deploy
+name: dev deploy
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
         uses: AkhileshNS/heroku-deploy@v3.0.4
         with:
           # This will be used for authentication. You can find it in your heroku homepage account settings
-          heroku_api_key: ${{ secrets.HEROKU_API_NOAH }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY_NOAH }}
           # Email that you use with heroku
           heroku_email: ${{ secrets.HEROKU_EMAIL_NOAH }}
           # The appname to use for deploying/updating

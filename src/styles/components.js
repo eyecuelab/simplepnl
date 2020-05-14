@@ -208,7 +208,7 @@ const CategoryCell = styled.td`
 `;
 
 const Title = styled.h1`
-  padding-top: 20px;
+  padding-top: 10px;
   padding-left: 80px;
   font-size: 25px;
   color: #ea475b;
@@ -269,9 +269,11 @@ const ConfirmButton = styled.button`
   color: #FFFFFF;
   padding: 10px 10px;
   font-weight: 700;
-  margin-right: 20px;
-  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 25px;
 `;
+
 const ProblemButton = styled.button`
   /* position: relative; */
   /* left: 35%; */
@@ -288,6 +290,23 @@ const ProblemButton = styled.button`
   font-weight: 700;
   /* margin: 20px; */
 `;
+
+const ProblemSpan = styled.span`
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: rgba(85, 85, 85, .03);
+  border-radius: 5px;
+  color: #555555;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
 
 const NextButton = styled.button`
   height: 50px;
@@ -342,7 +361,7 @@ const CaretLeft = styled.span`
 `;
 
 const IndexLink = styled.h4`
-  padding-top: 10px;
+  padding-top: 20px;
   padding-left: 80px;
   color: #222222;
   font-weight: 300;
@@ -359,7 +378,7 @@ const TextInput = styled.input`
   padding: 0px 80px;
   height: 100px;
   width: 100%;
-  border: 2px dashed rgb(204, 204, 204);
+  border: 2px solid rgb(204, 204, 204);
   border-radius: 20px;
   text-align: center;
   font-weight: 600;
@@ -409,6 +428,7 @@ export {
   MegQuestionsLocation,
   ConfirmButton,
   ProblemButton,
+  ProblemSpan,
   NextButton,
   DisplayButton,
   EulaButton,

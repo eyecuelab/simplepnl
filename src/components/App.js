@@ -8,7 +8,6 @@ import Home from './Home';
 import Eula from './Eula';
 import Privacy from './Privacy';
 import Reports from './Reports';
-import Demo from './Demo';
 import NewPnl from './NewPnl';
 import Help from './Help';
 import SelectDate from './SelectDate';
@@ -19,6 +18,7 @@ import SelectAmountDebit from './SelectAmountDebit';
 import SelectAmountCredit from './SelectAmountCredit';
 import SelectAmount1or2 from './SelectAmount1or2';
 import SelectCategory from './SelectCategory';
+// import Demo from './Demo';
 
 const ProtectedRoute = ({ component: Comp, loggedIn, path, ...rest }) => (
   <Route
@@ -72,7 +72,7 @@ class App extends React.Component {
             <ProtectedRoute path="/selectcategory" loggedIn={isSignedIn} component={SelectCategory} />
           </Switch>
 
-          <Demo />
+          {/* <Demo /> */}
 
         </div>
         <style>{`
