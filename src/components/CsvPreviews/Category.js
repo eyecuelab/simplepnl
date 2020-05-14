@@ -5,8 +5,11 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 import { spreadsheetsValuesGet } from '../../actions/spreadsheetsValuesGet';
 import ComboBox from '../../utils/ComboBox';
+
 
 // import PinkPagination from '../../utils/Pagination';
 import { Table, CategoryCell } from '../../styles/components';
@@ -83,7 +86,27 @@ const Category = ({ thisSpreadsheetId }) => {
                             id={`row_${i}-column_${j}`}
                             key={newCategoryKey.current++}
                           >
-                            {column}
+
+                            {(() => {
+                              if (j === 1) {
+                                if (column.length < 21) {
+                                  return (
+                                    <Tooltip title={column} arrow>
+                                      <Button>{column}</Button>
+                                    </Tooltip>
+                                  );
+                                }
+                                return (
+                                  <Tooltip title={column} arrow>
+                                    <Button>{column.slice(0, 21)}...</Button>
+                                  </Tooltip>
+                                );
+                              }
+                              return (
+                                column
+                              );
+                            })()}
+
                           </CategoryCell>
                         );
                       }
@@ -109,7 +132,27 @@ const Category = ({ thisSpreadsheetId }) => {
                             id={`row_${i}-column_${j}`}
                             key={newCategoryKey.current++}
                           >
-                            {column}
+
+                            {(() => {
+                              if (j === 1) {
+                                if (column.length < 21) {
+                                  return (
+                                    <Tooltip title={column} arrow>
+                                      <Button>{column}</Button>
+                                    </Tooltip>
+                                  );
+                                }
+                                return (
+                                  <Tooltip title={column} arrow>
+                                    <Button>{column.slice(0, 21)}...</Button>
+                                  </Tooltip>
+                                );
+                              }
+                              return (
+                                column
+                              );
+                            })()}
+
                           </CategoryCell>
                         );
                       }
@@ -139,6 +182,26 @@ const Category = ({ thisSpreadsheetId }) => {
       {/* <PinkPagination /> */}
       <style>{
         `
+
+        .MuiButton-root  {
+          position: relative;
+          bottom: -3px;
+          color: #555555;
+          padding: 0px 5px;
+          background-color: rgba(233, 245, 251, 0.20);
+          box-shadow: -1px -1px 2px rgba(85, 85, 85, 0.20);
+          border-radius: 5px;
+        }
+
+        .MuiTooltip-tooltip {
+          background-color: rgba(233, 245, 251, 0.97);
+          color: black;
+          font-size: 14px;
+          border-radius: 5px;
+          box-shadow: 2px 2px 3px rgba(85, 85, 85, 0.5);
+
+        }
+
         .displayOptions {
           padding-top: 8px;
           margin-bottom: 8px;
@@ -158,19 +221,32 @@ const Category = ({ thisSpreadsheetId }) => {
         }
 
         .MuiAutocomplete-popper {
-          width: 250px !important;
+          width: 350px !important;
         }
 
-        // .MuiInputBase-input { text-align: center; width: 100px;}
-        // .MuiInput-input { text-align: center; width: 100px;}
-        // .MuiAutocomplete-input { text-align: center; width: 100px;}
-        // .MuiAutocomplete-inputFocused { text-align: center; width: 100px;}
-        // .MuiInputBase-inputAdornedEnd { text-align: center; width: 100px;}
+        .MuiInputBase-adornedEnd {
+          position: relative;
+          bottom: -1px;
+        }
 
-        .MuiFormLabel-root { text-align: center; width: 100px;}
+        // SELECT CATEGORY
         .MuiInputLabel-root { text-align: center; width: 100px;}
+        .MuiFormLabel-root { text-align: center; width: 100px;}
         .MuiInputLabel-formControl { text-align: center; width: 100px;}
         .MuiInputLabel-animated { text-align: center; width: 100px;}
+
+        // SELECT CATEGORY LABEL
+        // .MuiInputLabel-root {text-align: left;}
+        // .MuiFormLabel-root {text-align: left;}
+        // .MuiInputLabel-formControl {text-align: left;}
+        // .MuiInputLabel-animated {text-align: left;}
+        // .MuiFormLabel-filled {text-align: left;}
+        .MuiInputLabel-shrink {text-align: left;}
+
+
+
+
+
 
         `
       }
