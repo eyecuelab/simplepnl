@@ -4,16 +4,19 @@ function EulaText() {
   return (
     <div className="EulaText">
 
-      <h5>Last updated: May 1, 2020</h5>
+      <h6>Last updated: May 13, 2020</h6>
 
       <p>
-        {`This End-User License Agreement (EULA) is a legal agreement between you
-          (either an individual or a single entity) and the mentioned author (MKBK
-          LLC) of this Software for the Application identified above, which includes
-          computer software and may include associated media, printed materials,
-          and “online” or electronic documentation. Please read this EULA carefully
-          before clicking the "I Agree" button, authorizing or using SimplePNL
-          ("Application").`}
+        {`This End-User License Agreement (EULA) is a legal agreement between You
+          (either an individual or a single entity) and the mentioned author Meghan
+          Keys Bookkeeping LLC d.b.a MKBK LLC (Developer) of this Software for the
+          Application identified above, which includes computer software and may
+          include associated media, printed materials, and “online” or electronic
+          documentation. Please read this EULA carefully before clicking the "I
+          Agree" button, authorizing or using SimplePNL ("Application"). In this
+          Agreement, “You” or “User” shall refer to any person or entity utilizing
+          this Application whether or not obtained by You personally or shared with
+          You via another party.`}
       </p>
 
 
@@ -29,46 +32,49 @@ function EulaText() {
       </p>
 
 
-      <h5>SOFTWARE PRODUCT LICENSE</h5>
+      <h6>SOFTWARE PRODUCT LICENSE</h6>
 
       <p>
         {`SimplePNL is being distributed as Freeware for personal, commercial use,
           non-profit organization, and educational purpose. You are NOT allowed
           to make a charge for distributing this Application (either for profit
-          or merely to recover your media and distribution costs) whether as a stand-alone
-          product, or as part of a compilation or anthology, nor to use it for supporting
-          your business or customers. It may be distributed freely on any website
-          or through any other distribution mechanism, as long as no part of it
-          is changed in any way.`}
+            or merely to recover Your media and distribution costs) whether as a
+            stand-alone product, or as part of a compilation or anthology, nor to
+            use it for supporting Your business or customers. It may be distributed
+            freely on any website or through any other distribution mechanism, as
+            long as no part of it is changed in any way.`}
       </p>
 
       <h5>1. GRANT OF LICENSE.</h5>
 
       <p>
-        {`This EULA grants you the following rights: Installation and Use. You may
-          install and use an unlimited number of copies of the Application. Copies
-          of the Application may be distributed as a standalone product or included
-          with your own product as long as The Application is not sold or included
-          in a product or package that intends to receive benefits through the inclusion
-          of the Application.`}
+        {`This EULA grants You a revocable, non-exclusive, non-transferable, limited
+          license to download, install, and use the Application solely for Your
+          personal, noncommercial purposes strictly in accordance with the terms
+          of this Agreement. You may install and use an unlimited number of copies
+          of the Application for Your own personal or commercial purposes (ie. Your
+            business). However, You may not use the Application in order to profit
+            from third parties unless explicitly authorized by the Developer.`}
       </p>
 
       <p>
-        {`The Application may be included in any free or non-profit packages or
-          products.`}
+        {`Copies of the Application may be distributed as a standalone product.
+          However, Copies of the Application may not be distributed as part of any
+          free, for profit, or non-profit packages or products associated with educational
+          programs without written consent from the Developer.`}
       </p>
 
-      <h5>Confidential Information.</h5>
+      <h6>Confidential Information.</h6>
       <p>
-        {`MKBK LLC acknowledges that in the course of performing the Services above
-          for your company, we may gain access to certain confidential or proprietary
+        {`Developer acknowledges that in the course of performing the Services above
+          for Your company, we may gain access to certain confidential or proprietary
           information. Such “Confidential Information” shall include all information
           concerning the business, affairs, products, marketing, systems, technology,
           customers, end-users, financial affairs, accounting, statistical data
-          belonging to the you and any data, documents, discussion, or other information
-          developed by MKBK LLC hereunder and any other proprietary and trade secret
-          information of your company whether in oral, graphic, written, electronic
-          or machine-readable form. MKBK LLC agrees to hold all such Confidential
+          belonging to the You and any data, documents, discussion, or other information
+          developed by Developer hereunder and any other proprietary and trade secret
+          information of Your company whether in oral, graphic, written, electronic
+          or machine-readable form. Developer agrees to hold all such Confidential
           Information in strict confidence and shall not, without the express prior
           written permission of client, (a) disclose such Confidential Information
           to third parties; or (b) use such Confidential Information for any purposes
@@ -79,6 +85,16 @@ function EulaText() {
 
       <h5>2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.</h5>
 
+      <h6>Restrictions.</h6>
+      <p>
+        {`You agree not to, and You will not permit others to do any of the following:
+          license, sell, rent, lease, assign, distribute, transmit, host, outsource,
+          disclose, or otherwise commercially exploit the Application or make the
+          Application available to any third party unless You have explicit permission
+          from the Developer.`}
+      </p>
+
+      <h6>Reverse Engineering and Other Limitations.</h6>
       <p>
         {`Limitations on Reverse Engineering, Decompilation, Disassembly and change
           (add,delete or modify) the resources in the compiled the assembly. You
@@ -87,47 +103,110 @@ function EulaText() {
           law notwithstanding this limitation.`}
       </p>
 
-      <h5>Termination.</h5>
-
+      <h6>Termination.</h6>
       <p>
-        {`Without prejudice to any other rights, the Author of this Software may
-          terminate this EULA if you fail to comply with the terms and conditions
-          of this EULA. In such event, you must destroy all copies of the Application
-          and all of its component parts.`}
+        {`Without prejudice to any other rights, the Developer of this Software
+          may terminate this EULA if You fail to comply with the terms and conditions
+          of this EULA. In such an event, You must delete, destroy, and cease distribution
+          of all copies of the Application and all of its component parts.`}
       </p>
 
-      <h5>Services: Third Party Materials.</h5>
-
+      <h6>Services: Third Party Materials.</h6>
       <p>
         {`The Licensed Application may enable access to Application Provider's and
           third party services and web sites (collectively and individually, "Services").
           Use of the Services may require Internet access and that You accept additional
-          terms of service.`}
+          terms of service. Developer is not responsible for setting forth or enforcing
+          third party service and website procedures, terms of conditions, or policies.
+          Nor is the Developer liable for any legal fees, damages, or other remedies
+          relating to issues You may have against a third party whether now or in
+          the future.
+`}
       </p>
 
-      <h5>NO WARRANTIES.</h5>
 
+      <h5>3. Express Disclaimer of Warranties.</h5>
+
+      <h6>NO WARRANTIES.</h6>
       <p>
-        {`The Author of this Software expressly disclaims any warranty for the Application.
-          The Application and any related documentation is provided “as is” without
-          warranty of any kind, either express or implied, including, without limitation,
-          the implied warranties or merchantability, fitness for a particular purpose,
+        {`Developer expressly disclaims any warranty for the Application. The Application
+          and any related content is provided “as is,” without a warranty of any
+          kind, either express or implied. This includes without limitation, the
+          implied warranties of merchantability, fitness for a particular purpose,
           or noninfringement. The entire risk arising out of use or performance
-          of the Application remains with you.`}
+          of the Application remains with You.`}
       </p>
-
-      <h5>NO LIABILITY FOR DAMAGES.</h5>
 
       <p>
-        {`In no event shall the author of this Software be liable for any special,
-          consequential, incidental, or indirect damages whatsoever (including, without
-          limitation, damages for loss of business profits, business interruption,
-          loss of business information, or any other pecuniary loss) arising out
-          of the use of or inability to use this product, even if the Author of
-          this Software is aware of the possibility of such damages and known defects.`}
+        {`This includes not just the aforementioned warranties but any warranties
+          potentially arising out of the course of dealing, usage, or trade. Developer
+          does not warrant that the application or any portion of the application,
+          or any materials or content offered through the application, or any materials
+          or content offered through the application will be uninterrupted, secure,
+          or free of errors, viruses, corruption, or other security intrusion, and
+          does not warrant that any of those issues will be corrected. No other
+          statements or information shall create any warranty regarding the application
+          or use of the application unless expressly stated in this agreement.`}
       </p>
 
-      {/* <h5>CONTACT INFORMATION?</h5> */}
+      <h6>No Creation of Client Relationship.</h6>
+      <p>
+        {`At no time does using this Application create a working relationship for
+          bookkeeping, accounting and tax services or otherwise with Meghan Keys
+          Bookkeeping LLC, MKBK LLC, Meghan Keys and any related entities and their
+          employees, contractors, vendors, or agents. Additionally, mere use of
+          this Application by User does not create an employment, partnership, joint
+          venture, or ownership relationship with any of the aforementioned entities
+          and their employees, contractors, vendors, or agents.`}
+      </p>
+
+      <h5>4. No Developer Liability, Governing Law, Dispute Methods.</h5>
+
+      <h6>No developer liability for damages.</h6>
+      <p>
+        {`In no event shall Meghan Keys Bookkeeping LLC, MKBK LLC, Meghan Keys and
+          any related entities and their employees, contractors, vendors, or agents
+          be liable for any special, consequential, incidental or indirect damages
+          whatsoever (including, without limitation, damages for loss of business
+            profits, business interruption, loss of business information, or any
+            other pecuniary loss) arising out of the use of or inability to use
+            this product, even if the Developer is aware of the possibility of such
+            damages and known defects. The aforementioned entities while providing
+            a potentially useful Application shall have zero liability whatsoever
+            related to Your business practices, business accounting, business bookkeeping,
+            or filings with local, state, or federal institutions.`}
+      </p>
+
+      <h6>Governing Law.</h6>
+      <p>
+        {`Except to the extent expressly provided in the Agreement, this Agreement
+          and the relationship between You and Developer shall be governed by the
+          laws of the State of Oregon.`}
+      </p>
+
+      <h6>Dispute Resolution.</h6>
+      <p>
+        {`Should Developer and User have one or several issues that arise in connection
+          with this Agreement that cannot be resolved by means of communication
+          or negotiation, parties prior to any litigation shall adhere to the following
+          procedures: Mediation shall occur with a third-party neutral mediator
+          agreed to by both parties with costs split 50/50 unless otherwise agreed.
+          Should the mediation not result in a resolution of all of the issues at
+          hand, the Mediator if qualified shall become an Arbitrator with the ability
+          to make binding decisions on behalf of the parties. If the Mediator is
+          not qualified to become an Arbitrator should all of the issues not be
+          resolved, the parties shall then hire another person who is qualified
+          as an Arbitrator. More specifically, dispute means between the parties
+          shall follow in this order: communication, negotiation, mediation, arbitration,
+          and litigation with best faith efforts to resolve all disputes earlier
+          than later.`}
+      </p>
+
+      <h5>Contact.</h5>
+      <p>
+        {`For questions concerning this EULA, You may contact MKBK LLC at the following
+          address: support@mkbkllc.com `}
+      </p>
 
       <hr />
       <hr />

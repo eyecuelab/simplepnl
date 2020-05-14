@@ -4,7 +4,8 @@ import { MainContainer, HomeHeader, HomeText, SignIn } from '../styles/component
 import MegHeader from './MegHeader';
 import OAuth from './OAuth';
 
-function Home({ currentUser }) {
+function Home({ currentUser, isSignedIn }) {
+  console.log(isSignedIn);
   return (
     <MainContainer>
       <MegHeader />
@@ -19,13 +20,14 @@ function Home({ currentUser }) {
         free to use and it can help you maximize your tax benefits!`}
       </HomeText>
       <SignIn>
-        <OAuth />
+        {isSignedIn ? <OAuth /> : <OAuth />}
       </SignIn>
     </MainContainer>
   );
 }
 
 const mapStateToProps = (state) => ({
+  isSignedIn: state.oauthReducer.isSignedIn,
   currentUser: state.oauthReducer.currentUser,
 });
 

@@ -32,7 +32,7 @@ const options = [
   'Expenses: Meals & Meetings',
   'Expenses: Rent & Lease',
   'Expenses: Repairs & Maintenance',
-  'Expenses: Supplies- Offic, Sho, Small Tools & Equipment',
+  'Expenses: Supplies- Office, Shop, Small Tools & Equipment',
   'Expenses: Travel',
   'Expenses: Travel:Airfare & Transit',
   'Expenses: Travel:Lodging',

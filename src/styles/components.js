@@ -271,7 +271,7 @@ const ConfirmButton = styled.button`
   font-weight: 700;
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 50px;
+  margin-top: 25px;
 `;
 
 const ProblemButton = styled.button`
