@@ -5,7 +5,6 @@ import MegHeader from './MegHeader';
 import OAuth from './OAuth';
 
 function Home({ currentUser, isSignedIn }) {
-  console.log(isSignedIn);
   return (
     <MainContainer>
       <MegHeader />
