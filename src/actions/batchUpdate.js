@@ -16,6 +16,7 @@ export const sheetsPostUpdateSuccess = (reports) => ({
 });
 
 export const batchUpdate = (props) => (dispatch) => {
+  console.log('props', props);
   const { csvAmount } = props;
   const csvIndexOfAmount = csvAmount.split('_')[1];
   const { csvAmountDebit } = props;

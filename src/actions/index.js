@@ -353,6 +353,44 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
                 fields: 'pixelSize',
               },
             },
+
+
+            {
+              repeatCell: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  startRowIndex: 0,
+                  endRowIndex: 1,
+                  startColumnIndex: 0,
+                  endColumnIndex: 2,
+                },
+                cell: {
+                  userEnteredFormat: {
+                    backgroundColor: {
+                      red: 0.92,
+                      green: 0.28,
+                      blue: 0.36,
+                      alpha: 0.5,
+                    },
+                    borders: {
+                      bottom: {
+
+                        style: 'SOLID_THICK',
+                        color: {
+                          red: 0.1,
+                          green: 0.1,
+                          blue: 0.1,
+                        },
+                      },
+
+                    },
+                  },
+                },
+                fields: 'userEnteredFormat.backgroundColor, userEnteredFormat.borders',
+              },
+            },
+
+
           ],
         }),
       });
