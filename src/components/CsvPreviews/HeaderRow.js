@@ -1,36 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCsvHeader, shrinkCsvToHeader } from '../../actions';
+import { setCsvHeader } from '../../actions';
 
-import { Table, Cell, ProblemButton } from '../../styles/components';
+import { Table, Cell } from '../../styles/components';
 
 class HeaderRow extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      headerRowSpan: 3,
       headerRowSelected: null,
     };
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
-    this.handleMoreRowsClick = this.handleMoreRowsClick.bind(this);
     this.newHeaderKey = 0;
   }
-
-  handleMoreRowsClick() {
-    const { headerRowSpan } = this.state;
-    if (headerRowSpan === 3) {
-      this.setState({
-        headerRowSpan: 9,
-      });
-    } else {
-      const { dispatch, history } = this.props;
-      dispatch(setCsvHeader('row_none'));
-      dispatch(shrinkCsvToHeader('row_none'));
-      history.push('/selectdate');
-    }
-  }
-
 
   handleButtonClick(event) {
     const cell = event.currentTarget.className.split(' ');
@@ -66,8 +49,9 @@ class HeaderRow extends Component {
   }
 
   csvReturn() {
-    const { headerRowSpan } = this.state;
     const { csvRawData } = this.props;
+    const { headerDisplay } = this.props;
+
     if (!csvRawData) {
       return (
         <div>
@@ -83,7 +67,7 @@ class HeaderRow extends Component {
       <Table>
         <tbody>
           {
-            csvRawData.slice(0, headerRowSpan).map((row, i) => (
+            csvRawData.slice(0, headerDisplay).map((row, i) => (
               <tr
                 id={`row_${i}`}
                 key={this.newHeaderKey++}
@@ -125,18 +109,14 @@ class HeaderRow extends Component {
   }
 
   render() {
-    const { headerRowSpan } = this.state;
+    const { headerDisplay } = this.props;
+
+    console.log('headerDisplay', headerDisplay);
+
 
     return (
       <div>
         {this.csvReturn()}
-
-        <ProblemButton
-          onClick={this.handleMoreRowsClick}
-          onKeyPress={this.handleMoreRowsClick}
-        >
-          {headerRowSpan === 3 ? 'Wait, what header?' : 'Still nothing? No problem. Click here!'}
-        </ProblemButton>
 
       </div>
     );
