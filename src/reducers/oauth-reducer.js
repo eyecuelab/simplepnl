@@ -5,7 +5,6 @@ const { initialState, types } = constants;
 export default (state = initialState.oauth, action) => {
   switch (action.type) {
     case types.SET_TOKEN: {
-      // const { access_token, } = action;
       /* eslint-disable-next-line camelcase */
       const { access_token, currentUser, err, isSignedIn } = action.payload;
       const returnedTarget = {
@@ -15,10 +14,13 @@ export default (state = initialState.oauth, action) => {
         err,
         isSignedIn,
       };
-
-      // console.log('returnedTarget', returnedTarget);
-
-      // MAY NEED TO CHANGE OBJECT.ASSIGN TO EITHER A CREATE OR SIMPLE VAR SO TOKENS DONT STACK?
+      return returnedTarget;
+    }
+    case types.AGREE_TO_EULA: {
+      const returnedTarget = {
+        ...state,
+        agreeToEula: true,
+      };
       return returnedTarget;
     }
     default:
