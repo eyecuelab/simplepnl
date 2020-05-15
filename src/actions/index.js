@@ -9,6 +9,11 @@ export const setToken = (payload) => ({
   payload,
 });
 
+export const agreeToEula = (payload) => ({
+  type: types.AGREE_TO_EULA,
+  payload,
+});
+
 // =====
 
 export const loadCSV = (payload) => ({

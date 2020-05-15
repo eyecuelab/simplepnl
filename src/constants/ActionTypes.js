@@ -1,5 +1,7 @@
 /* eslint-disable-next-line import/prefer-default-export */
 export const SET_TOKEN = 'SET_TOKEN';
+export const AGREE_TO_EULA = 'AGREE_TO_EULA';
+
 export const LOAD_CSV = 'LOAD_CSV';
 export const SET_CSV_NAME = 'SET_CSV_NAME';
 export const SET_CSV_HEADER = 'SET_CSV_HEADER';

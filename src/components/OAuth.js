@@ -19,7 +19,6 @@ const SCOPES = 'https://www.googleapis.com/auth/drive.file';
 class OAuth extends Component {
   constructor(props) {
     super(props);
-    // const { isSignedIn } = this.props;
     this.state = {
       // isSignedIn: false,
       // access_token: null,
@@ -91,7 +90,8 @@ class OAuth extends Component {
 
   getContent() {
     const { oauthReducer: { isSignedIn } } = this.props;
-    if (isSignedIn) {
+    const { oauthReducer: { agreeToEula } } = this.props;
+    if (isSignedIn === true) {
       return (
         <div>
           <Link to="/reports">
@@ -101,13 +101,13 @@ class OAuth extends Component {
           </Link>
         </div>
       );
-    }
-    return (
-      <div>
-        <button type="button" id="loginButton" className="customGPlusSignIn">Sign in with Google</button>
-        <style>
-          {
-            `
+    } if (agreeToEula === true) {
+      return (
+        <div>
+          <button type="button" id="loginButton" className="customGPlusSignIn">Sign in with Google</button>
+          <style>
+            {
+              `
               #loginButton {
                 background-color: white;
                 text-align: center;
@@ -134,10 +134,21 @@ class OAuth extends Component {
                 -webkit-box-shadow: none !important;
                 box-shadow: none !important;
               }
-
               `
-          }
-        </style>
+            }
+          </style>
+        </div>
+      );
+    }
+    const hideLoginButtonForOAuthCheck = { display: 'none' };
+    return (
+      <div>
+        <Link to="/eula">
+          <NextButton>
+            Let&apos;s get started!
+            <span id="loginButton" style={hideLoginButtonForOAuthCheck}>loading</span>
+          </NextButton>
+        </Link>
       </div>
     );
   }
@@ -152,7 +163,9 @@ class OAuth extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ...state,
+  // ...state,
+  oauthReducer: state.oauthReducer,
+
 });
 
 export default connect(mapStateToProps)(OAuth);
