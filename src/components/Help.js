@@ -71,7 +71,7 @@ function Help(props) {
               guide your business plan. Your SimplePnL may even save you money on
               taxes by efficiently pooling all your business expenses and lowering
               your taxable income.
-              <a href="https://www.mkbkllc.com/simple-pnl/">
+              <a href="https://www.mkbkllc.com/simplepnl/">
                 {' Click here to learn how'}
               </a>.
             </p>
@@ -99,7 +99,7 @@ function Help(props) {
               in transit. In short, Google does a fairly good job at protecting
               your data from hackers. However, if you value a high level of privacy,
               Google Drive probably isn’t for you and you can access an excel version
-              of this file <a href="https://www.mkbkllc.com/simple-pnl/">here</a>.
+              of this file <a href="https://www.mkbkllc.com/simplepnlexcel/">here</a>.
             </p>
 
           ) : null }
