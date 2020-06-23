@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 const MainContainer = styled.div`
   background-color: #ffffff;
   border-radius: 5px;
-  color: #6B6B6B;
+  color: #6b6b6b;
   min-width: 400px !important;
   max-width: 700px !important;
   min-height: 700px !important;
@@ -12,7 +12,7 @@ const MainContainer = styled.div`
 `;
 
 const EulaContainer = styled.div`
-  color: #6B6B6B;
+  color: #6b6b6b;
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
@@ -32,7 +32,11 @@ const EulaFadeContainer = styled.div`
   bottom: 175px;
   width: 97.5%;
   height: 75px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,1) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.01) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
 
   // background: -moz-linear-gradient(top,  rgba(137,255,241,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(137,255,241,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
@@ -43,10 +47,10 @@ const EulaFadeContainer = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   height: 600px;
   border-radius: 5px;
-  color: #6B6B6B;
+  color: #6b6b6b;
   min-height: 700px;
   max-height: 900px;
   overflow: auto;
@@ -165,8 +169,8 @@ const HelpPlus = styled.div`
 
   /* right: -87%; */
   left: 50%;
-  background-color: rgba(85, 85, 85, .97);
-  box-shadow: 3px 3px 9px 1px rgba(34, 34, 34, .93);
+  background-color: rgba(72, 167, 219, 0.97);
+  box-shadow: 3px 3px 9px 1px rgba(34, 34, 34, 0.93);
   width: 60px;
   height: 60px;
   border-radius: 100%;
@@ -175,14 +179,14 @@ const HelpPlus = styled.div`
 const HelpPlusSign = styled.div`
   position: relative;
   top: -18px;
-  left: 26px;
+  left: 28px;
   height: 60px;
   font-weight: 200;
-  color: #222222;
+  color: #e9f5fb;
   font-size: 82px;
   transform: rotate(45deg);
   cursor: pointer;
-  `;
+`;
 
 const Table = styled.table`
   /* margin-top: 25px; */
@@ -194,13 +198,13 @@ const Table = styled.table`
 `;
 
 const Cell = styled.td`
-  border-bottom: 1px solid rgba(0,0,0,.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   padding: 5px;
   font-size: 14px;
 `;
 
 const CategoryCell = styled.td`
-  border-bottom: 1px solid rgba(0,0,0,.4);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   padding-bottom: 5px;
   vertical-align: bottom;
   font-size: 15px;
@@ -234,8 +238,6 @@ const MegQuestionsLocation = styled.div`
   width: 700px;
   height: 700px; */
 
-
-
   /* top: 850px;
   left: 10%; */
   /* margin-left: -1%; */
@@ -250,14 +252,13 @@ const SelectPreview = styled.h5`
 
 const SelectScreen = styled.div`
   color: #555555;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 5px;
   /* min-height: 20vh; */
   text-align: center;
   height: 617px;
   padding: 40px 80px;
   /* overflow: auto; */
-
 `;
 
 const ConfirmButton = styled.button`
@@ -266,7 +267,7 @@ const ConfirmButton = styled.button`
   /* overflow: visible; */
   background: #ea475b;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px 10px;
   font-weight: 700;
   margin-left: 10px;
@@ -285,7 +286,7 @@ const ProblemButton = styled.button`
   margin-left: 75%;
   background: #555555;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 8px 30px;
   font-weight: 700;
   /* margin: 20px; */
@@ -297,7 +298,7 @@ const ProblemSpan = styled.span`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
-  background-color: rgba(85, 85, 85, .03);
+  background-color: rgba(85, 85, 85, 0.03);
   border-radius: 5px;
   color: #555555;
   font-weight: 600;
@@ -307,13 +308,12 @@ const ProblemSpan = styled.span`
   margin-right: auto;
 `;
 
-
 const NextButton = styled.button`
   height: 50px;
   width: 270px;
   background: #ea475b;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0px;
   font-weight: 700;
   /* border: 1px solid #555555; */
@@ -323,7 +323,7 @@ const NextButton = styled.button`
 const DisplayButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 2px 10px;
   font-weight: 600;
   margin-left: 10px;
@@ -332,7 +332,7 @@ const DisplayButton = styled.button`
 const EulaButton = styled.button`
   background: #ea475b;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 8px 60px;
   font-weight: 700;
   margin: 20px;
@@ -385,8 +385,8 @@ const TextInput = styled.input`
   color: #222222;
 
   &::placeholder {
-     color: #777777;
-   }
+    color: #777777;
+  }
 
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -396,11 +396,10 @@ const TextInput = styled.input`
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type="number"] {
     -moz-appearance: textfield;
   }
 `;
-
 
 export {
   MainContainer,

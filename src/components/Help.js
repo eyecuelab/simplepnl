@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import MegIcon from './MegIcon';
 import { ExtraBold, HelpPlus, HelpPlusSign } from '../styles/components';
 
-
 function Help(props) {
   const [helpDisplay, setHelpDisplay] = useState(false);
 
@@ -59,24 +58,24 @@ function Help(props) {
             onKeyPress={() => setHelpDisplay('tedious')}
           >
             <li className="liToHover">
-              <ExtraBold>This feels super tedious. What&apos;s in it for me?</ExtraBold>
+              <ExtraBold>
+                This feels super tedious. What&apos;s in it for me?
+              </ExtraBold>
             </li>
           </button>
 
-          { helpDisplay === 'tedious' ? (
-
+          {helpDisplay === 'tedious' ? (
             <p className="helpP">
               Once you complete this three-step SimplePnL you will get a report
               that will provide a crystal clear picture of your finances to help
-              guide your business plan. Your SimplePnL may even save you money on
-              taxes by efficiently pooling all your business expenses and lowering
-              your taxable income.
+              guide your business plan. Your SimplePnL may even save you money
+              on taxes by efficiently pooling all your business expenses and
+              lowering your taxable income.
               <a href="https://www.mkbkllc.com/simplepnl/">
                 {' Click here to learn how'}
-              </a>.
+              </a>
             </p>
-
-          ) : null }
+          ) : null}
           <button
             className="buttonWrappingLi"
             onClick={() => setHelpDisplay('googleDrive')}
@@ -84,25 +83,25 @@ function Help(props) {
             onKeyPress={() => setHelpDisplay('googleDrive')}
           >
             <li className="liToHover">
-              <ExtraBold>Why is my bank statement uploaded to Google Drive? Can&apos;t
+              <ExtraBold>
+                Why is my bank statement uploaded to Google Drive? Can&apos;t
                 you just talk to my bank directly?
               </ExtraBold>
             </li>
           </button>
 
-          { helpDisplay === 'googleDrive' ? (
-
+          {helpDisplay === 'googleDrive' ? (
             <p className="helpP">
-              SimplePnL leverages user’s Google Drive to securely store user’s personal
-              information without incurring additional cost. Google Drive supports
-              two-factor authentication, metadata encryption and encryption of data
-              in transit. In short, Google does a fairly good job at protecting
-              your data from hackers. However, if you value a high level of privacy,
-              Google Drive probably isn’t for you and you can access an excel version
-              of this file <a href="https://www.mkbkllc.com/simplepnlexcel/">here</a>.
+              SimplePnL leverages user’s Google Drive to securely store user’s
+              personal information without incurring additional cost. Google
+              Drive supports two-factor authentication, metadata encryption and
+              encryption of data in transit. In short, Google does a fairly good
+              job at protecting your data from hackers. However, if you value a
+              high level of privacy, Google Drive probably isn’t for you and you
+              can access an excel version of this file{' '}
+              <a href="https://www.mkbkllc.com/simplepnlexcel/">here</a>.
             </p>
-
-          ) : null }
+          ) : null}
           <button
             className="buttonWrappingLi"
             onClick={() => setHelpDisplay('multipleBanks')}
@@ -110,19 +109,20 @@ function Help(props) {
             onKeyPress={() => setHelpDisplay('multipleBanks')}
           >
             <li className="liToHover">
-              <ExtraBold>I have accounts with multiple banks, what can I do?</ExtraBold>
+              <ExtraBold>
+                I have accounts with multiple banks, what can I do?
+              </ExtraBold>
             </li>
           </button>
 
-          { helpDisplay === 'multipleBanks' ? (
-
+          {helpDisplay === 'multipleBanks' ? (
             <p className="helpP">
-              Start with one bank statement at a time. Once you finish the first,
-              you&apos;ll be able to create additional reports and track them all.
-              Right now, you might need to combine reports together on your own.
+              Start with one bank statement at a time. Once you finish the
+              first, you&apos;ll be able to create additional reports and track
+              them all. Right now, you might need to combine reports together on
+              your own.
             </p>
-
-          ) : null }
+          ) : null}
           <button
             className="buttonWrappingLi"
             onClick={() => setHelpDisplay('categorizations')}
@@ -130,25 +130,23 @@ function Help(props) {
             onKeyPress={() => setHelpDisplay('categorizations')}
           >
             <li className="liToHover">
-              <ExtraBold>The categorizations seem super confusing, can you help me?</ExtraBold>
+              <ExtraBold>
+                The categorizations seem super confusing, can you help me?
+              </ExtraBold>
             </li>
           </button>
 
-          { helpDisplay === 'categorizations' ? (
-
+          {helpDisplay === 'categorizations' ? (
             <p className="helpP">
               {'Check out '}
               <a href="https://www.mkbkllc.com/pnlcategories/">
                 {'this guide '}
               </a>
               to tax categories or
-              <a href="https://www.mkbkllc.com/contact/">
-                {' click here '}
-              </a>
+              <a href="https://www.mkbkllc.com/contact/">{' click here '}</a>
               to reach out to me directly for support!
             </p>
-
-          ) : null }
+          ) : null}
           <button
             className="buttonWrappingLi"
             onClick={() => setHelpDisplay('help')}
@@ -156,43 +154,37 @@ function Help(props) {
             onKeyPress={() => setHelpDisplay('help')}
           >
             <li className="liToHover">
-              <ExtraBold>I need major help. How can I reach you directly?</ExtraBold>
+              <ExtraBold>
+                I need major help. How can I reach you directly?
+              </ExtraBold>
             </li>
           </button>
 
-          { helpDisplay === 'help' ? (
-
+          {helpDisplay === 'help' ? (
             <p className="helpP">
               Email
-              <a href="mailto:meg@mkbkllc.com">
-                {' meg@mkbkllc.com '}
-              </a>
+              <a href="mailto:meg@mkbkllc.com">{' meg@mkbkllc.com '}</a>
               with your questions directly or
-              <a href="https://www.mkbkllc.com/contact/">
-                {' click here '}
-              </a>
+              <a href="https://www.mkbkllc.com/contact/">{' click here '}</a>
               to schedule an appointment!
             </p>
-
-          ) : null }
+          ) : null}
         </ul>
       </div>
       <HelpPlus>
-        <HelpPlusSign
-          onClick={() => clickOut()}
-          onKeyPress={() => clickOut()}
-        >+
+        <HelpPlusSign onClick={() => clickOut()} onKeyPress={() => clickOut()}>
+          +
         </HelpPlusSign>
       </HelpPlus>
       <style>
-        {
-          `
+        {`
           .helpP {
             margin-left: 5px;
           }
 
           .helpP a {
-            color: #007bff !important;
+            color: #85e3ff !important;
+            font-weight: 600;
           }
 
           .mainUL {
@@ -223,8 +215,7 @@ function Help(props) {
           }
 
 
-          `
-        }
+          `}
       </style>
     </div>
   );

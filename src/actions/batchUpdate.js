@@ -16,7 +16,6 @@ export const sheetsPostUpdateSuccess = (reports) => ({
 });
 
 export const batchUpdate = (props) => (dispatch) => {
-  console.log('props', props);
   const { csvAmount } = props;
   const csvIndexOfAmount = csvAmount.split('_')[1];
   const { csvAmountDebit } = props;
@@ -30,7 +29,7 @@ export const batchUpdate = (props) => (dispatch) => {
 
   const realFirstRow = [
     'SimplePnL',
-    (title.split(': ')[1].split(' [')[0]),
+    title.split(': ')[1].split(' [')[0],
     '',
     '=IF((COUNTA(D3:D4999)/COUNTA(A3:A4999))>1,1,(COUNTA(D3:D4999)/COUNTA(A3:A4999)))',
   ];
@@ -56,14 +55,20 @@ export const batchUpdate = (props) => (dispatch) => {
       // newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${oldRow[csvIndexOfAmount]}`;
 
       // TEST
-      newAmountCell = oldRow[csvIndexOfAmount] === '' ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.00).toFixed(2)}` : `$${parseFloat(Math.abs(oldRow[csvIndexOfAmount]) * 1.00).toFixed(2)}`;
-
+      newAmountCell =
+        oldRow[csvIndexOfAmount] === ''
+          ? `$${parseFloat(
+            Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.0
+          ).toFixed(2)}`
+          : `$${parseFloat(Math.abs(oldRow[csvIndexOfAmount]) * 1.0).toFixed(
+            2
+          )}`;
 
       newRow.push(newAmountCell);
     }
 
     // COLUMN 3 (category):
-    const tempRandomNumber = Math.round((Math.random() * 3) + 1);
+    const tempRandomNumber = Math.round(Math.random() * 3 + 1);
     if (index === 0) {
       newRow.push('Category');
     } else if (index % tempRandomNumber === 0) {
@@ -78,47 +83,48 @@ export const batchUpdate = (props) => (dispatch) => {
   transactionValues.unshift(realFirstRow);
 
   dispatch(sheetsPostUpdateStart());
-  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${props.accessToken}`,
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-    body: JSON.stringify({
-      data: [
-        {
-          range: 'Transactions!A1',
-          values: transactionValues,
-        },
-        {
-          range: 'Profit & Loss Summary!A1',
-          values: profitAndLossSummary,
-        },
-      ],
-      valueInputOption: 'USER_ENTERED',
-      includeValuesInResponse: 'true',
-    }),
+  return fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${props.accessToken}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+      body: JSON.stringify({
+        data: [
+          {
+            range: 'Transactions!A1',
+            values: transactionValues,
+          },
+          {
+            range: 'Profit & Loss Summary!A1',
+            values: profitAndLossSummary,
+          },
+        ],
+        valueInputOption: 'USER_ENTERED',
+        includeValuesInResponse: 'true',
+      }),
 
-    requests: [
-      {
-        autoResizeDimensions: {
-          dimensions: {
-            sheetId: 0,
-            dimension: 'COLUMNS',
-            startIndex: 0,
-            endIndex: 5,
+      requests: [
+        {
+          autoResizeDimensions: {
+            dimensions: {
+              sheetId: 0,
+              dimension: 'COLUMNS',
+              startIndex: 0,
+              endIndex: 5,
+            },
           },
         },
-      },
-    ],
-
-  })
+      ],
+    }
+  )
     .then((response) => response.json())
-    .then(
-      (jsonifiedResponse) => {
-        dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));
-        return jsonifiedResponse;
-      })
+    .then((jsonifiedResponse) => {
+      dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));
+      return jsonifiedResponse;
+    })
     .catch((error) => {
       dispatch(sheetsPostUpdateFailure(error));
     });
