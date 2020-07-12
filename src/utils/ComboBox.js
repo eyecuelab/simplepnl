@@ -37,6 +37,7 @@ const options = [
   'Expenses: Travel:Airfare & Transit',
   'Expenses: Travel:Lodging',
   'Expenses: Travel:Meals & Entertainment',
+  'Expenses: Return of Product/Refund',
   'Fixed Assets: Machinery & Equipment',
   'Fixed Assets: Vehicles Purchased',
   'Utilities: Gas, Power, Phone, Internet, etc.',

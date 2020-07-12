@@ -72,13 +72,16 @@ export const driveGetReportsSuccess = (reports) => ({
 
 export const makeDriveApiCall = (props) => (dispatch) => {
   dispatch(driveRequestReports());
-  return fetch('https://www.googleapis.com/drive/v3/files?orderBy=modifiedTime%20desc&pageSize=1000&q=name%20contains%20%27SimplePNL%3A%27%20and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.spreadsheet%27andtrashed%3Dfalse', {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${props}`,
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  })
+  return fetch(
+    'https://www.googleapis.com/drive/v3/files?orderBy=modifiedTime%20desc&pageSize=1000&q=name%20contains%20%27SimplePNL%3A%27%20and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.spreadsheet%27andtrashed%3Dfalse',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${props}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }
+  )
     .then((response) => response.json())
     .then((jsonifiedResponse) => {
       dispatch(driveGetReportsSuccess(jsonifiedResponse.files));
@@ -107,7 +110,9 @@ export const sheetsGetPercentageSuccess = (reports) => ({
 
 export const makeSheetsFirstApiCall = (props) => (dispatch) => {
   const { accessToken } = props;
-  const { reports: { reports } } = props;
+  const {
+    reports: { reports },
+  } = props;
   const returnedTarget = reports.map((x) => x.id);
 
   returnedTarget.forEach((spreadsheetId) => {
@@ -202,12 +207,12 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
           properties: {
             title: 'Profit & Loss Summary',
             gridProperties: {
-              columnCount: 2,
-              rowCount: 45,
+              columnCount: 3,
+              rowCount: 48,
               frozenRowCount: 2,
             },
             tabColor: {
-              red: 0.00,
+              red: 0.0,
               green: 0.63,
               blue: 0.86,
             },
@@ -232,36 +237,36 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     }),
   })
     .then((response) => response.json())
-    .then(
-      (jsonifiedResponse) => {
-        dispatch(driveNewSheetCreated(jsonifiedResponse));
-        dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
-        const { properties: { title } } = jsonifiedResponse;
-        const { spreadsheetId } = jsonifiedResponse;
-        const { accessToken } = props;
-        const { csvAmount } = props;
-        const { csvAmountDebit } = props;
-        const { csvDate } = props;
-        const { csvDescription } = props;
-        const { csvHeader } = props;
-        const { csvRawData } = props;
-        const payload2 = {
-          title,
-          spreadsheetId,
-          accessToken,
-          csvAmount,
-          csvAmountDebit,
-          csvDate,
-          csvDescription,
-          csvHeader,
-          csvRawData,
-        };
-        dispatch(batchUpdate(payload2));
-        return jsonifiedResponse;
-      })
+    .then((jsonifiedResponse) => {
+      dispatch(driveNewSheetCreated(jsonifiedResponse));
+      dispatch(sheetsPostCreateSuccess(jsonifiedResponse));
+      const {
+        properties: { title },
+      } = jsonifiedResponse;
+      const { spreadsheetId } = jsonifiedResponse;
+      const { accessToken } = props;
+      const { csvAmount } = props;
+      const { csvAmountDebit } = props;
+      const { csvDate } = props;
+      const { csvDescription } = props;
+      const { csvHeader } = props;
+      const { csvRawData } = props;
+      const payload2 = {
+        title,
+        spreadsheetId,
+        accessToken,
+        csvAmount,
+        csvAmountDebit,
+        csvDate,
+        csvDescription,
+        csvHeader,
+        csvRawData,
+      };
+      dispatch(batchUpdate(payload2));
+      return jsonifiedResponse;
+    })
     .then((jsonifiedResponse) => {
       const { spreadsheetId } = jsonifiedResponse;
-
 
       const sheetIdTransactions = jsonifiedResponse.sheets[0].properties.sheetId;
       const sheetIdPNLS = jsonifiedResponse.sheets[1].properties.sheetId;
@@ -353,13 +358,25 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
                   endIndex: 2,
                 },
                 properties: {
+                  pixelSize: 100,
+                },
+                fields: 'pixelSize',
+              },
+            },
+            {
+              updateDimensionProperties: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  dimension: 'COLUMNS',
+                  startIndex: 2,
+                  endIndex: 3,
+                },
+                properties: {
                   pixelSize: 75,
                 },
                 fields: 'pixelSize',
               },
             },
-
-
             {
               repeatCell: {
                 range: {
@@ -367,7 +384,7 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
                   startRowIndex: 0,
                   endRowIndex: 1,
                   startColumnIndex: 0,
-                  endColumnIndex: 2,
+                  endColumnIndex: 3,
                 },
                 cell: {
                   userEnteredFormat: {
@@ -379,7 +396,6 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
                     },
                     borders: {
                       bottom: {
-
                         style: 'SOLID_THICK',
                         color: {
                           red: 0.1,
@@ -387,20 +403,38 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
                           blue: 0.1,
                         },
                       },
-
                     },
                   },
                 },
                 fields: 'userEnteredFormat.backgroundColor, userEnteredFormat.borders',
               },
             },
-
-
+            {
+              repeatCell: {
+                range: {
+                  sheetId: sheetIdPNLS,
+                  startRowIndex: 43,
+                  endRowIndex: 48,
+                  startColumnIndex: 0,
+                  endColumnIndex: 3,
+                },
+                cell: {
+                  userEnteredFormat: {
+                    backgroundColor: {
+                      red: 0.9,
+                      green: 0.9,
+                      blue: 0.9,
+                      alpha: 0.9,
+                    },
+                  },
+                },
+                fields: 'userEnteredFormat.backgroundColor',
+              },
+            },
           ],
         }),
       });
     })
-
 
     .catch((error) => {
       dispatch(sheetsPostCreateFailure(error));
