@@ -3,10 +3,19 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
 import AmountColumn from './CsvPreviews/AmountColumn';
-import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen } from '../styles/components';
+import {
+  MainContainer,
+  Title,
+  MegQuestionsLocation,
+  PinkLine,
+  CaretLeft,
+  IndexLink,
+  ConfirmButton,
+  SelectPreview,
+  SelectScreen,
+} from '../styles/components';
 
 import { makeSheetsApiPost } from '../actions';
-
 
 function SelectAmount(props) {
   const handleNewSheet = () => {
@@ -30,21 +39,21 @@ function SelectAmount(props) {
       csvHeader,
       csvRawData,
     };
-    dispatch(makeSheetsApiPost(payload))
-      .then(() => {
-        props.history.push({
-          pathname: '/selectcategory',
-          spreadsheetId: 'newSpreadsheet',
-        });
+    dispatch(makeSheetsApiPost(payload)).then(() => {
+      props.history.push({
+        pathname: '/selectcategory',
+        spreadsheetId: 'newSpreadsheet',
       });
+    });
   };
 
   return (
     <MainContainer>
-
       <IndexLink>
-        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX </Link>
-        <CaretLeft>&#9664;</CaretLeft><Link to="/newpnl">STEP 1 </Link>
+        <CaretLeft>&#9664;</CaretLeft>
+        <Link to="/reports">BACK TO INDEX </Link>
+        <CaretLeft>&#9664;</CaretLeft>
+        <Link to="/newpnl">STEP 1 </Link>
         <CaretLeft>&#9660;</CaretLeft>STEP 2
       </IndexLink>
 
@@ -52,27 +61,32 @@ function SelectAmount(props) {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!</h6>
+        <h6 className="clickRow">
+          Please click on the <span className="extraBold">AMOUNT</span> column below and hit confirm!
+        </h6>
         <AmountColumn />
-        <ConfirmButton onClick={() => { handleNewSheet(props); }}>SAVE!</ConfirmButton>
+        <ConfirmButton
+          onClick={() => {
+            handleNewSheet(props);
+          }}
+        >
+          SAVE!
+        </ConfirmButton>
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />
       </MegQuestionsLocation>
       <style>
-        {
-          `
+        {`
           .extraBold {
             font-weight: 800;
           }
 
-          `
-        }
+          `}
       </style>
     </MainContainer>
   );
 }
-
 
 const mapStateToProps = (state) => ({
   accessToken: state.oauthReducer.access_token,

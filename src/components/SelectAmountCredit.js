@@ -3,7 +3,18 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MegQuestions from './MegQuestions';
 import AmountCreditColumn from './CsvPreviews/AmountCreditColumn';
-import { MainContainer, Title, MegQuestionsLocation, PinkLine, CaretLeft, IndexLink, ConfirmButton, SelectPreview, SelectScreen, ExtraBold } from '../styles/components';
+import {
+  MainContainer,
+  Title,
+  MegQuestionsLocation,
+  PinkLine,
+  CaretLeft,
+  IndexLink,
+  ConfirmButton,
+  SelectPreview,
+  SelectScreen,
+  ExtraBold,
+} from '../styles/components';
 import { makeSheetsApiPost } from '../actions';
 
 function SelectAmountCredit(props) {
@@ -28,21 +39,21 @@ function SelectAmountCredit(props) {
       csvHeader,
       csvRawData,
     };
-    dispatch(makeSheetsApiPost(payload))
-      .then(() => {
-        props.history.push({
-          pathname: '/selectcategory',
-          spreadsheetId: 'newSpreadsheet',
-        });
+    dispatch(makeSheetsApiPost(payload)).then(() => {
+      props.history.push({
+        pathname: '/selectcategory',
+        spreadsheetId: 'newSpreadsheet',
       });
+    });
   };
 
   return (
     <MainContainer>
-
       <IndexLink>
-        <CaretLeft>&#9664;</CaretLeft><Link to="/reports">BACK TO INDEX </Link>
-        <CaretLeft>&#9664;</CaretLeft><Link to="/newpnl">STEP 1 </Link>
+        <CaretLeft>&#9664;</CaretLeft>
+        <Link to="/reports">BACK TO INDEX </Link>
+        <CaretLeft>&#9664;</CaretLeft>
+        <Link to="/newpnl">STEP 1 </Link>
         <CaretLeft>&#9660;</CaretLeft>STEP 2
       </IndexLink>
 
@@ -50,13 +61,20 @@ function SelectAmountCredit(props) {
       <PinkLine />
       <SelectScreen>
         <SelectPreview>Here&apos;s a preview of your CSV.</SelectPreview>
-        <h6 className="clickRow">Please click on the <ExtraBold>CREDIT</ExtraBold> column below and hit confirm!</h6>
+        <h6 className="clickRow">
+          Please click on the <ExtraBold>CREDIT</ExtraBold> column below and hit confirm!
+        </h6>
         <AmountCreditColumn />
 
         <Link to="/selectamount">
-          <ConfirmButton onClick={() => { handleNewSheet(props); }}>CONFIRM!</ConfirmButton>
+          <ConfirmButton
+            onClick={() => {
+              handleNewSheet(props);
+            }}
+          >
+            CONFIRM!
+          </ConfirmButton>
         </Link>
-
       </SelectScreen>
       <MegQuestionsLocation>
         <MegQuestions />
@@ -64,7 +82,6 @@ function SelectAmountCredit(props) {
     </MainContainer>
   );
 }
-
 
 const mapStateToProps = (state) => ({
   accessToken: state.oauthReducer.access_token,

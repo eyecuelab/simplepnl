@@ -56,7 +56,8 @@ class HeaderRow extends Component {
       return (
         <div>
           <h5>
-            Whoops forgot to upload a CSV...<br /> We better add a check for that!
+            Whoops forgot to upload a CSV...
+            <br /> We better add a check for that!
           </h5>
           <hr />
         </div>
@@ -66,60 +67,44 @@ class HeaderRow extends Component {
     return (
       <Table>
         <tbody>
-          {
-            csvRawData.slice(0, headerDisplay).map((row, i) => (
-              <tr
-                id={`row_${i}`}
-                key={this.newHeaderKey++}
-              >
-                {
-                  row.data.map((column, j) => {
-                    if (j < 6) {
-                      return (
-                        <Cell
-                          id={`row_${i}-column_${j}`}
-                          role="presentation"
-                          className={`row_${i} column_${j} tableCell`}
-                          key={this.newHeaderKey++}
-                        >
-                          <button
-                            type="button"
-                            style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
-                            className={`row_${i} column_${j} tableCell`}
-                            onClick={this.handleButtonClick}
-                            onKeyPress={this.handleButtonClick}
-                            onMouseOver={this.handleOnMouseOver}
-                            onFocus={this.handleOnMouseOver}
-                          >
-                            {column}
-                          </button>
-                        </Cell>
-                      );
-                    }
-                    return false;
-                  }
-                  )
-              }
-              </tr>
-            ))
-        }
+          {csvRawData.slice(0, headerDisplay).map((row, i) => (
+            <tr id={`row_${i}`} key={this.newHeaderKey++}>
+              {row.data.map((column, j) => {
+                if (j < 6) {
+                  return (
+                    <Cell
+                      id={`row_${i}-column_${j}`}
+                      role="presentation"
+                      className={`row_${i} column_${j} tableCell`}
+                      key={this.newHeaderKey++}
+                    >
+                      <button
+                        type="button"
+                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
+                        className={`row_${i} column_${j} tableCell`}
+                        onClick={this.handleButtonClick}
+                        onKeyPress={this.handleButtonClick}
+                        onMouseOver={this.handleOnMouseOver}
+                        onFocus={this.handleOnMouseOver}
+                      >
+                        {column}
+                      </button>
+                    </Cell>
+                  );
+                }
+                return false;
+              })}
+            </tr>
+          ))}
         </tbody>
       </Table>
     );
   }
 
   render() {
-    const { headerDisplay } = this.props;
+    // const { headerDisplay } = this.props;
 
-    console.log('headerDisplay', headerDisplay);
-
-
-    return (
-      <div>
-        {this.csvReturn()}
-
-      </div>
-    );
+    return <div>{this.csvReturn()}</div>;
   }
 }
 
