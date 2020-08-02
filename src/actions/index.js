@@ -56,6 +56,89 @@ export const setCsvAmountDebit = (payload) => ({
 
 // =====
 
+export const getDriveFolderStart = () => ({
+  type: types.GET_DRIVE_FOLDER_START,
+});
+
+export const getDriveFolderSuccess = (folder) => ({
+  type: types.GET_DRIVE_FOLDER_SUCCESS,
+  folder,
+});
+
+export const getDriveFolderFailure = (error) => ({
+  type: types.GET_DRIVE_FOLDER_FAILURE,
+  error,
+});
+
+export const getDriveFolder = (props) => (dispatch) => {
+  dispatch(getDriveFolderStart());
+  return fetch(
+    'https://www.googleapis.com/drive/v3/files?orderBy=modifiedTime%20desc&pageSize=100&q=name%20contains%20%27SimplePNL%20from%20MKBKllc%27and%20mimeType%20%3D%20%27application%2Fvnd.google-apps.folder%27andtrashed%3Dfalse',
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${props}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    }
+  )
+    .then((response) => response.json())
+    .then((jsonifiedResponse) => {
+      if (jsonifiedResponse.files.length < 1) {
+        dispatch(postDriveFolder(props));
+      } else {
+        dispatch(getDriveFolderSuccess(jsonifiedResponse.files[0].id));
+      }
+      return jsonifiedResponse;
+    })
+    .catch((error) => {
+      dispatch(getDriveFolderFailure(error));
+    });
+};
+
+// =====
+
+export const postDriveFolderStart = () => ({
+  type: types.POST_DRIVE_FOLDER_START,
+});
+
+export const postDriveFolderSuccess = (folder) => ({
+  type: types.POST_DRIVE_FOLDER_SUCCESS,
+  folder,
+});
+
+export const postDriveFolderFailure = (error) => ({
+  type: types.POST_DRIVE_FOLDER_FAILURE,
+  error,
+});
+
+export const postDriveFolder = (props) => (dispatch) => {
+  dispatch(postDriveFolderStart());
+  return fetch('https://www.googleapis.com/drive/v3/files/', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${props}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+
+    body: JSON.stringify({
+      name: 'SimplePNL from MKBKllc',
+      mimeType: 'application/vnd.google-apps.folder',
+    }),
+  })
+    .then((response) => response.json())
+    .then((jsonifiedResponse) => {
+      dispatch(getDriveFolderSuccess(jsonifiedResponse.id));
+      dispatch(postDriveFolderSuccess(jsonifiedResponse.id));
+      return jsonifiedResponse.id;
+    })
+    .catch((error) => {
+      dispatch(postDriveFolderFailure(error));
+    });
+};
+
+// =====
+
 export const driveRequestReports = () => ({
   type: types.DRIVE_REQUEST_REPORTS,
 });
@@ -110,6 +193,7 @@ export const sheetsGetPercentageSuccess = (reports) => ({
 
 export const makeSheetsFirstApiCall = (props) => (dispatch) => {
   const { accessToken } = props;
+  const { folderId } = props;
   const {
     reports: { reports },
   } = props;
@@ -130,12 +214,7 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
         let percentage;
         if (values) {
           const actual = (parseFloat(values) * 100).toFixed(0);
-
-          // if (actual < 34) {
-          //   percentage = 33;
-          // } else {
           percentage = actual;
-          // }
         } else {
           percentage = 0;
         }
@@ -150,6 +229,14 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
         dispatch(sheetsGetPercentageFailure(error));
       });
   });
+
+  returnedTarget.forEach((spreadsheetId) => fetch(`https://www.googleapis.com/drive/v3/files/${spreadsheetId}?addParents=${folderId}`, {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${props.accessToken}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }));
 };
 
 // =====
@@ -174,7 +261,6 @@ export const driveNewSheetCreated = (reports) => ({
 });
 
 export const makeSheetsApiPost = (props) => (dispatch) => {
-  // TITLE IS TEMPORARY NAMING CONVENTION UNTIL PROPS ARE CORRECTLY PASSED!
   const temp1 = new Date();
   const temp2 = temp1.toISOString();
   dispatch(sheetsPostCreate());
@@ -186,7 +272,7 @@ export const makeSheetsApiPost = (props) => (dispatch) => {
     },
     body: JSON.stringify({
       properties: {
-        title: `SimplePnL: ${props.csvName} [created ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}]`,
+        title: `SimplePNL: ${props.csvName} [created ${temp2.slice(0, 10)} ${temp1.toString().slice(16, 21)}]`,
       },
       sheets: [
         {

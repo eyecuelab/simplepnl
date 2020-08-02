@@ -28,7 +28,7 @@ export const batchUpdate = (props) => (dispatch) => {
   const { title } = props;
 
   const realFirstRow = [
-    'SimplePnL',
+    'SimplePNL',
     title.split(': ')[1].split(' [')[0],
     '',
     '=IF((COUNTA(D3:D4999)/COUNTA(A3:A4999))>1,1,(COUNTA(D3:D4999)/COUNTA(A3:A4999)))',
@@ -57,12 +57,8 @@ export const batchUpdate = (props) => (dispatch) => {
       // TEST
       newAmountCell =
         oldRow[csvIndexOfAmount] === ''
-          ? `$${parseFloat(
-            Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.0
-          ).toFixed(2)}`
-          : `$${parseFloat(Math.abs(oldRow[csvIndexOfAmount]) * 1.0).toFixed(
-            2
-          )}`;
+          ? `$${parseFloat(Math.abs(oldRow[csvIndexOfAmountDebit]) * -1.0).toFixed(2)}`
+          : `$${parseFloat(Math.abs(oldRow[csvIndexOfAmount]) * 1.0).toFixed(2)}`;
 
       newRow.push(newAmountCell);
     }
@@ -83,43 +79,40 @@ export const batchUpdate = (props) => (dispatch) => {
   transactionValues.unshift(realFirstRow);
 
   dispatch(sheetsPostUpdateStart());
-  return fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`,
-    {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${props.accessToken}`,
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-      body: JSON.stringify({
-        data: [
-          {
-            range: 'Transactions!A1',
-            values: transactionValues,
-          },
-          {
-            range: 'Profit & Loss Summary!A1',
-            values: profitAndLossSummary,
-          },
-        ],
-        valueInputOption: 'USER_ENTERED',
-        includeValuesInResponse: 'true',
-      }),
-
-      requests: [
+  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${props.spreadsheetId}/values:batchUpdate?alt=json`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${props.accessToken}`,
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      data: [
         {
-          autoResizeDimensions: {
-            dimensions: {
-              sheetId: 0,
-              dimension: 'COLUMNS',
-              startIndex: 0,
-              endIndex: 5,
-            },
-          },
+          range: 'Transactions!A1',
+          values: transactionValues,
+        },
+        {
+          range: 'Profit & Loss Summary!A1',
+          values: profitAndLossSummary,
         },
       ],
-    }
-  )
+      valueInputOption: 'USER_ENTERED',
+      includeValuesInResponse: 'true',
+    }),
+
+    requests: [
+      {
+        autoResizeDimensions: {
+          dimensions: {
+            sheetId: 0,
+            dimension: 'COLUMNS',
+            startIndex: 0,
+            endIndex: 5,
+          },
+        },
+      },
+    ],
+  })
     .then((response) => response.json())
     .then((jsonifiedResponse) => {
       dispatch(sheetsPostUpdateSuccess(jsonifiedResponse));

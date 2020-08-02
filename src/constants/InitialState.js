@@ -17,4 +17,5 @@ export const initialState = {
     reports: [],
     error: null,
   },
+  folder: {},
 };

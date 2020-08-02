@@ -4,25 +4,21 @@ import MegHeader from './MegHeader';
 import PrivacyText from './PrivacyText';
 import { EulaContainer, EulaHeader, EulaButton, EulaButtonContainer, EulaFadeContainer } from '../styles/components';
 
-
 function Privacy() {
   return (
     <EulaContainer>
       <MegHeader />
-      <EulaHeader>Privacy Policy for Eyecue Lab and SimplePnL</EulaHeader>
+      <EulaHeader>Privacy Policy for Eyecue Lab and SimplePNL</EulaHeader>
       <PrivacyText />
       <EulaButtonContainer>
         <Link to="/">
-          <EulaButton>
-            Right on.
-          </EulaButton>
+          <EulaButton>Right on.</EulaButton>
         </Link>
       </EulaButtonContainer>
       <EulaFadeContainer />
 
       <style>
-        {
-          `
+        {`
 
           .EulaButtonReady {
             font-size: 1rem;
@@ -34,8 +30,7 @@ function Privacy() {
             font-weight: 800;
           }
 
-          `
-        }
+          `}
       </style>
     </EulaContainer>
   );

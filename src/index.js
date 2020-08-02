@@ -4,7 +4,6 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter } from 'react-router-dom';
 
-
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
@@ -20,7 +19,6 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(applyMiddleware(thunkMiddleware)));
 
-
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
 ReactDOM.render(
@@ -28,15 +26,14 @@ ReactDOM.render(
     <HashRouter>
       <Provider store={store}>
         <App />
-      </Provider>,
+      </Provider>
+      ,
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// console.log('store.getState(): ', store.getState());
 unsubscribe();
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
