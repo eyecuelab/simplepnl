@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
 import ReportItem from './ReportItem';
 import MegQuestions from './MegQuestions';
 import {
@@ -15,30 +14,30 @@ import {
 
 import { getDriveFolder, makeDriveApiCall, makeSheetsFirstApiCall } from '../actions';
 
-class Reports extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function Reports(props) {
+  const { folderId } = props;
 
-  componentDidMount() {
-    const { dispatch } = this.props;
-    const { accessToken } = this.props;
-    const { folderId } = this.props;
+  useEffect(() => {
+    const { dispatch } = props;
+    const { accessToken } = props;
 
-    dispatch(getDriveFolder(accessToken)).then(() => {
+    if (folderId === undefined) {
       dispatch(makeDriveApiCall(accessToken)).then(() => {
-        if (folderId !== undefined) {
-          dispatch(makeSheetsFirstApiCall(this.props));
-        }
+        dispatch(getDriveFolder(accessToken)).then(() => {
+          dispatch(makeSheetsFirstApiCall(props));
+        });
       });
-    });
-  }
+    } else {
+      dispatch(makeDriveApiCall(accessToken)).then(() => {
+        dispatch(makeSheetsFirstApiCall(props));
+      });
+    }
+  }, [folderId]);
 
-  reportReturn() {
+  const reportReturn = () => {
     const {
       reports: { reports },
-    } = this.props;
+    } = props;
     if (reports.length < 1) {
       return (
         <div className="reportsBodyPadding reportsBodyPaddingText">
@@ -70,27 +69,26 @@ class Reports extends React.Component {
         ))}
       </div>
     );
-  }
+  };
 
-  render() {
-    return (
-      <MainContainer>
-        <ReportsHeader>REPORTS</ReportsHeader>
-        <PinkLine />
-        <ReportsPlus>
-          <Link to="/newpnl">
-            <ReportsPlusSign>+</ReportsPlusSign>
-          </Link>
-        </ReportsPlus>
+  return (
+    <MainContainer>
+      <ReportsHeader>REPORTS</ReportsHeader>
+      <PinkLine />
+      <ReportsPlus>
+        <Link to="/newpnl">
+          <ReportsPlusSign>+</ReportsPlusSign>
+        </Link>
+      </ReportsPlus>
 
-        <div className="reportsDiv">{this.reportReturn()}</div>
+      <div className="reportsDiv">{reportReturn()}</div>
 
-        <MegQuestionsLocation>
-          <MegQuestions />
-        </MegQuestionsLocation>
+      <MegQuestionsLocation>
+        <MegQuestions />
+      </MegQuestionsLocation>
 
-        <style>
-          {`
+      <style>
+        {`
           .reportsDiv {
             background-color: #ffffff;
             border-radius: 5px;
@@ -138,13 +136,11 @@ class Reports extends React.Component {
           }
 
           `}
-        </style>
-      </MainContainer>
-    );
-  }
+      </style>
+    </MainContainer>
+  );
 }
 
-// ...state,
 const mapStateToProps = (state) => ({
   accessToken: state.oauthReducer.access_token,
   reports: state.reportsReducer,
