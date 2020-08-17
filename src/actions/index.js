@@ -230,13 +230,15 @@ export const makeSheetsFirstApiCall = (props) => (dispatch) => {
       });
   });
 
-  returnedTarget.forEach((spreadsheetId) => fetch(`https://www.googleapis.com/drive/v3/files/${spreadsheetId}?addParents=${folderId}`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${props.accessToken}`,
-      'Content-type': 'application/json; charset=UTF-8',
-    },
-  }));
+  returnedTarget.forEach((spreadsheetId) =>
+    fetch(`https://www.googleapis.com/drive/v3/files/${spreadsheetId}?addParents=${folderId}`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${props.accessToken}`,
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+  );
 };
 
 // =====

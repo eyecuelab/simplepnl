@@ -2,24 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function MegQuestions(props) {
-  // console.log("MegQuestions.props", props);
   const { fromCategory } = props;
   return (
     <div className="MegQuestions">
-      <Link to={{
-        pathname: '/help',
-        fromCategory,
-      }}
+      <Link
+        to={{
+          pathname: '/help',
+          fromCategory,
+        }}
       >
         <div className="megPictureDiv">
-          <div className="megBubble">Click on me if you have any questions!
-          </div>
+          <div className="megBubble">Click on me if you have any questions!</div>
         </div>
       </Link>
 
       <style>
-        {
-          `
+        {`
           .MegQuestions {
             color: #222222;
             text-align: center;
@@ -60,8 +58,7 @@ function MegQuestions(props) {
             font-size: 13px;
             width: 300px;
           }
-          `
-        }
+          `}
       </style>
     </div>
   );

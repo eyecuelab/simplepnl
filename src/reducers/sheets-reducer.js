@@ -15,30 +15,21 @@ export default (state = initialState.sheets, action) => {
         percentage: 0,
         name: action.reports.properties.title,
       };
-      return { ...state,
-        isLoading: false,
-        sheets: newSheet };
+      return { ...state, isLoading: false, sheets: newSheet };
     }
     case types.SHEETS_POST_CREATE_FAILURE: {
-      return { ...state,
-        isLoading: false,
-        error: action.error };
+      return { ...state, isLoading: false, error: action.error };
     }
     case types.SHEETS_POST_UPDATE_START: {
-      return { ...state,
-        isLoading: true };
+      return { ...state, isLoading: true };
     }
     case types.SHEETS_POST_UPDATE_SUCCESS: {
       const id = action.reports.responses[0].spreadsheetId;
       const { values } = action.reports.responses[0].updatedData;
-      return { ...state,
-        isLoading: false,
-        [id]: { values } };
+      return { ...state, isLoading: false, [id]: { values } };
     }
     case types.SHEETS_POST_UPDATE_FAILURE: {
-      return { ...state,
-        isLoading: false,
-        error: action.error };
+      return { ...state, isLoading: false, error: action.error };
     }
     case types.SHEET_CATEGORY_UPDATE_SUCCESS: {
       const data = action.reports.data[0][0];
@@ -50,24 +41,23 @@ export default (state = initialState.sheets, action) => {
           if (newObj.length >= 4) {
             newObj.pop();
           }
+          if (data === '') {
+            return newObj;
+          }
           newObj.push(data);
+
           return newObj;
         }
         return obj;
       });
-      return { ...state,
-        [spreadsheetId]: { values: newState },
-        isLoading: false };
+      return { ...state, [spreadsheetId]: { values: newState }, isLoading: false };
     }
     case types.SHEET_CATEGORY_UPDATE_FAILURE: {
-      return { ...state,
-        isLoading: false,
-        error: action.error };
+      return { ...state, isLoading: false, error: action.error };
     }
 
     case types.SPREADSHEETS_VALUES_GET_START: {
-      return { ...state,
-        isLoading: true };
+      return { ...state, isLoading: true };
     }
     case types.SPREADSHEETS_VALUES_GET_SUCCESS: {
       const id = action.reports.thisSpreadsheetId;
@@ -81,14 +71,10 @@ export default (state = initialState.sheets, action) => {
       //   ['Loading6', 'Loading6', 'Loading6', 'Loading6'],
       // ];
 
-      return { ...state,
-        isLoading: false,
-        [id]: { values } };
+      return { ...state, isLoading: false, [id]: { values } };
     }
     case types.SPREADSHEETS_VALUES_GET_FAILURE: {
-      return { ...state,
-        isLoading: false,
-        error: action.error };
+      return { ...state, isLoading: false, error: action.error };
     }
 
     default:

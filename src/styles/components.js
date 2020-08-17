@@ -7,7 +7,7 @@ const MainContainer = styled.div`
   min-width: 400px !important;
   max-width: 700px !important;
   min-height: 700px !important;
-  max-height: 800px !important;
+  max-height: 900px !important;
   overflow: auto;
 `;
 
@@ -32,11 +32,7 @@ const EulaFadeContainer = styled.div`
   bottom: 175px;
   width: 97.5%;
   height: 75px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.01) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 1) 100%);
 
   // background: -moz-linear-gradient(top,  rgba(137,255,241,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
   // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(137,255,241,0)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
@@ -48,11 +44,11 @@ const EulaFadeContainer = styled.div`
 
 const CategoryContainer = styled.div`
   background-color: #ffffff;
-  height: 600px;
+  height: 820px;
   border-radius: 5px;
   color: #6b6b6b;
-  min-height: 700px;
-  max-height: 900px;
+  // min-height: 700px;
+  // max-height: 900px;
   overflow: auto;
 `;
 
@@ -188,7 +184,7 @@ const HelpPlusSign = styled.div`
   cursor: pointer;
 `;
 
-const Table = styled.table`
+const Table2 = styled.table`
   /* margin-top: 25px; */
   /* margin-bottom: 50px; */
   background-color: white;
@@ -247,7 +243,7 @@ const MegQuestionsLocation = styled.div`
 `;
 
 const SelectPreview = styled.h5`
-  padding: 0px 80px;
+  padding: 0px 10px;
 `;
 
 const SelectScreen = styled.div`
@@ -256,8 +252,8 @@ const SelectScreen = styled.div`
   border-radius: 5px;
   /* min-height: 20vh; */
   text-align: center;
-  height: 617px;
-  padding: 40px 80px;
+  // height: 617px;
+  padding: 10px 60px;
   /* overflow: auto; */
 `;
 
@@ -396,7 +392,7 @@ const TextInput = styled.input`
   }
 
   /* Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 `;
@@ -413,7 +409,7 @@ export {
   EulaHeader,
   ReportsPlus,
   ReportsPlusSign,
-  Table,
+  Table2,
   Cell,
   CategoryCell,
   Title,

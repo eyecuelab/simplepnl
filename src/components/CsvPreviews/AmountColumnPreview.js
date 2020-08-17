@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
-import { Table, Cell } from '../../styles/components';
-
+import { Table2, Cell } from '../../styles/components';
 
 const AmountColumnPreview = () => {
   const csv = useSelector((state) => state.csvReducer.csvRawData);
@@ -12,45 +11,35 @@ const AmountColumnPreview = () => {
       return (
         <div>
           <h5>
-            Whoops forgot to upload a CSV...<br /> We better add a check for that!
+            Whoops forgot to upload a CSV...
+            <br /> We better add a check for that!
           </h5>
           <hr />
         </div>
       );
     }
     return (
-      <Table>
+      <Table2>
         <tbody>
-          {
-              csv.slice(0, 3).map((row, i) => (
-                <tr
-                  id={`row_${i}`}
+          {csv.slice(0, 3).map((row, i) => (
+            <tr id={`row_${i}`} key={newAmountKey.current++}>
+              {row.data.map((column, j) => (
+                <Cell
+                  id={`row_${i}-column_${j}`}
+                  role="presentation"
+                  className={`row_${i} column_${j} tableCell`}
                   key={newAmountKey.current++}
                 >
-                  {
-                    row.data.map((column, j) => (
-                      <Cell
-                        id={`row_${i}-column_${j}`}
-                        role="presentation"
-                        className={`row_${i} column_${j} tableCell`}
-                        key={newAmountKey.current++}
-                      >
-                        {column}
-                      </Cell>
-                    ))
-                  }
-                </tr>
-              ))
-            }
+                  {column}
+                </Cell>
+              ))}
+            </tr>
+          ))}
         </tbody>
-      </Table>
+      </Table2>
     );
   }
-  return (
-    <div>
-      {csvReturn()}
-    </div>
-  );
+  return <div>{csvReturn()}</div>;
 };
 
 export default AmountColumnPreview;

@@ -5,11 +5,8 @@ function Loading(props) {
   const { isLoadingReports } = props;
   const { isLoadingSheets } = props;
 
-
   const displayToggle = () => {
-    // console.log('isLoadingReports', isLoadingReports);
-    // console.log('isLoadingSheets', isLoadingSheets);
-    if ((isLoadingReports === true) || (isLoadingSheets === true)) {
+    if (isLoadingReports === true || isLoadingSheets === true) {
       return 'block';
     }
     return 'none';
@@ -17,17 +14,22 @@ function Loading(props) {
 
   return (
     <div className="loading">
-
       <div className="loadingBox">
-        <div><div className="loadingCell loadingCellA" /><div className="loadingCell loadingCellB" /></div>
-        <div><div className="loadingText">LOADING</div></div>
-        <div><div className="loadingCell loadingCellB" /><div className="loadingCell loadingCellC" /></div>
+        <div>
+          <div className="loadingCell loadingCellA" />
+          <div className="loadingCell loadingCellB" />
+        </div>
+        <div>
+          <div className="loadingText">LOADING</div>
+        </div>
+        <div>
+          <div className="loadingCell loadingCellB" />
+          <div className="loadingCell loadingCellC" />
+        </div>
       </div>
 
-
       <style>
-        {
-          `
+        {`
           .loading {
             display: ${displayToggle()};
             position: fixed;
@@ -85,13 +87,11 @@ function Loading(props) {
             100% { opacity: 1;}
           }
 
-          `
-        }
+          `}
       </style>
     </div>
   );
 }
-
 
 const mapStateToProps = (state) => ({
   isLoadingReports: state.reportsReducer.isLoading,

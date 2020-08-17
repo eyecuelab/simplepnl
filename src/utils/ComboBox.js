@@ -1,7 +1,10 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect } from 'react';
+
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { connect } from 'react-redux';
+import Tooltip from '@material-ui/core/Tooltip';
 import { batchUpdateCategory } from '../actions/batchUpdateCategory';
 
 const options = [
@@ -46,26 +49,35 @@ const options = [
 function ComboBox(props) {
   // WILL HAVE TO UPDATE USESTATE, BELOW, WITH REDUXSTORE IF?ELSE "":
   const { categoryData, rowId } = props;
+
+  const [renderCategoryData, setRenderCategoryData] = React.useState(categoryData);
+  const [renderRowId, setRenderRowId] = React.useState(rowId);
+  useEffect(() => {
+    setRenderCategoryData(categoryData);
+    setRenderRowId(rowId);
+  }, [categoryData, rowId]);
+
   let categoryDataState;
   if (categoryData === undefined) {
     categoryDataState = null;
   } else {
-    categoryDataState = categoryData;
+    categoryDataState = renderCategoryData;
   }
 
   const [value, setValue] = React.useState(categoryDataState);
   const [inputValue, setInputValue] = React.useState('');
+
   return (
     <Autocomplete
       value={value}
-      id={`${rowId}-clear-on-escape`}
+      id={`${renderRowId}-clear-on-escape`}
       clearOnEscape
       options={options}
       style={column}
       onChange={(event, newValue) => {
         const { accessToken } = props;
         const { spreadsheetId } = props;
-        const data = newValue;
+        const data = newValue || '';
         const { dispatch } = props;
         const payload = {
           accessToken,
@@ -80,15 +92,20 @@ function ComboBox(props) {
         setInputValue(newInputValue);
       }}
       inputValue={inputValue}
-      renderInput={(params) => <TextField {...params} label="Select" variant="standard" margin="none" />}
+      size="small"
+      renderInput={(params) => (
+        <Tooltip title={value || 'Select'} arrow>
+          <TextField {...params} label="Select" variant="standard" margin="none" size="small" />
+        </Tooltip>
+      )}
     />
   );
 }
 
 const column = {
-  maxWidth: '100px',
+  width: '100%',
   textAlign: 'center',
-  marginLeft: '10px',
+  marginLeft: '16px',
 };
 
 const mapStateToProps = (state) => ({

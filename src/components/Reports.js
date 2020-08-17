@@ -17,10 +17,10 @@ import { getDriveFolder, makeDriveApiCall, makeSheetsFirstApiCall } from '../act
 function Reports(props) {
   const { folderId } = props;
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const { dispatch } = props;
     const { accessToken } = props;
-
     if (folderId === undefined) {
       dispatch(makeDriveApiCall(accessToken)).then(() => {
         dispatch(getDriveFolder(accessToken)).then(() => {
@@ -33,6 +33,7 @@ function Reports(props) {
       });
     }
   }, [folderId]);
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   const reportReturn = () => {
     const {

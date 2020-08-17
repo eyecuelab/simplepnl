@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvHeader } from '../../actions';
 
-import { Table, Cell } from '../../styles/components';
+import { Table2, Cell } from '../../styles/components';
 
 class HeaderRow extends Component {
   constructor(props) {
@@ -65,7 +65,7 @@ class HeaderRow extends Component {
     }
 
     return (
-      <Table>
+      <Table2>
         <tbody>
           {csvRawData.slice(0, headerDisplay).map((row, i) => (
             <tr id={`row_${i}`} key={this.newHeaderKey++}>
@@ -97,7 +97,7 @@ class HeaderRow extends Component {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </Table2>
     );
   }
 

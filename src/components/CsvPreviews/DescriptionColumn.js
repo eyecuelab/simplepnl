@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvDescription } from '../../actions';
-import { Table, Cell } from '../../styles/components';
+import { Table2, Cell } from '../../styles/components';
 
 class DescriptionColumn extends Component {
   constructor(props) {
@@ -62,51 +62,39 @@ class DescriptionColumn extends Component {
     }
 
     return (
-      <Table>
+      <Table2>
         <tbody>
-          {
-            csv.slice(0, 3).map((row, i) => (
-              <tr
-                id={`row_${i}`}
-                key={this.newDescriptionKey++}
-              >
-                {
-                  row.data.map((column, j) => (
-                    <Cell
-                      id={`row_${i}-column_${j}`}
-                      role="presentation"
-                      className={`row_${i} column_${j} tableCell`}
-                      key={this.newDescriptionKey++}
-                    >
-                      <button
-                        type="button"
-                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
-                        className={`row_${i} column_${j} tableCell`}
-                        onClick={this.handleClick}
-                        onKeyPress={this.handleClick}
-                        onMouseOver={this.handleOnMouseOver}
-                        onFocus={this.handleOnMouseOver}
-                      >
-                        {column}
-                      </button>
-                    </Cell>
-                  ))
-
-                }
-              </tr>
-            ))
-          }
+          {csv.slice(0, 3).map((row, i) => (
+            <tr id={`row_${i}`} key={this.newDescriptionKey++}>
+              {row.data.map((column, j) => (
+                <Cell
+                  id={`row_${i}-column_${j}`}
+                  role="presentation"
+                  className={`row_${i} column_${j} tableCell`}
+                  key={this.newDescriptionKey++}
+                >
+                  <button
+                    type="button"
+                    style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
+                    className={`row_${i} column_${j} tableCell`}
+                    onClick={this.handleClick}
+                    onKeyPress={this.handleClick}
+                    onMouseOver={this.handleOnMouseOver}
+                    onFocus={this.handleOnMouseOver}
+                  >
+                    {column}
+                  </button>
+                </Cell>
+              ))}
+            </tr>
+          ))}
         </tbody>
-      </Table>
+      </Table2>
     );
   }
 
   render() {
-    return (
-      <div>
-        {this.csvReturn()}
-      </div>
-    );
+    return <div>{this.csvReturn()}</div>;
   }
 }
 

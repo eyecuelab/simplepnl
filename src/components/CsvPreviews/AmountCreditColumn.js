@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCsvAmount } from '../../actions';
-import { Table, Cell } from '../../styles/components';
-
+import { Table2, Cell } from '../../styles/components';
 
 class AmountCreditColumn extends Component {
   constructor(props) {
@@ -54,7 +53,8 @@ class AmountCreditColumn extends Component {
       return (
         <div>
           <h5>
-            Whoops forgot to upload a CSV...<br /> We better add a check for that!
+            Whoops forgot to upload a CSV...
+            <br /> We better add a check for that!
           </h5>
           <hr />
         </div>
@@ -62,51 +62,39 @@ class AmountCreditColumn extends Component {
     }
 
     return (
-      <Table>
+      <Table2>
         <tbody>
-          {
-            csvRawData.slice(0, 3).map((row, i) => (
-              <tr
-                id={`row_${i}`}
-                key={this.newAmountKey++}
-              >
-                {
-                  row.data.map((column, j) => (
-                    <Cell
-                      id={`row_${i}-column_${j}`}
-                      role="presentation"
-                      className={`row_${i} column_${j} tableCell`}
-                      key={this.newAmountKey++}
-                    >
-                      <button
-                        type="button"
-                        style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
-                        className={`row_${i} column_${j} tableCell`}
-                        onClick={this.handleClick}
-                        onKeyPress={this.handleClick}
-                        onMouseOver={this.handleOnMouseOver}
-                        onFocus={this.handleOnMouseOver}
-                      >
-                        {column}
-                      </button>
-                    </Cell>
-                  ))
-
-                }
-              </tr>
-            ))
-          }
+          {csvRawData.slice(0, 3).map((row, i) => (
+            <tr id={`row_${i}`} key={this.newAmountKey++}>
+              {row.data.map((column, j) => (
+                <Cell
+                  id={`row_${i}-column_${j}`}
+                  role="presentation"
+                  className={`row_${i} column_${j} tableCell`}
+                  key={this.newAmountKey++}
+                >
+                  <button
+                    type="button"
+                    style={{ border: 'none', backgroundColor: 'white', padding: '0px' }}
+                    className={`row_${i} column_${j} tableCell`}
+                    onClick={this.handleClick}
+                    onKeyPress={this.handleClick}
+                    onMouseOver={this.handleOnMouseOver}
+                    onFocus={this.handleOnMouseOver}
+                  >
+                    {column}
+                  </button>
+                </Cell>
+              ))}
+            </tr>
+          ))}
         </tbody>
-      </Table>
+      </Table2>
     );
   }
 
   render() {
-    return (
-      <div>
-        {this.csvReturn()}
-      </div>
-    );
+    return <div>{this.csvReturn()}</div>;
   }
 }
 

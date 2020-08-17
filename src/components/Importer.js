@@ -10,7 +10,6 @@ class Importer extends Component {
   }
 
   handleOnDrop = (data) => {
-    // console.log(data);
     const payload = {
       csvRawData: data,
     };
@@ -21,10 +20,6 @@ class Importer extends Component {
   handleOnError = (err) => {
     console.log(err);
   };
-
-  //   handleOnError = (err, file, inputElem, reason) => {
-  //     console.log(err);
-  //   };
 
   handleOnRemoveFile = (data) => {
     console.log(data);
